@@ -1,1 +1,1 @@
-### This repository contains all the Practices Code
+### This repository contains all the practice codes.
