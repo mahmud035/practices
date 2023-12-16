@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Debounce</title>
+    <style>
+      .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      #button {
+        padding: 0.7rem 2.5rem;
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .example-2 input {
+        width: 200px;
+        padding: 0.6rem 0.4rem;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="button">Click Here</button>
+
+      <div class="example-2">
+        <input type="text" />
+
+        <div>
+          <strong>Default:</strong>
+          <span id="default"></span>
+        </div>
+        <div>
+          <strong>Debounce:</strong>
+          <span id="debounce"></span>
+        </div>
+        <div>
+          <strong>Throttle:</strong>
+          <span id="throttle"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

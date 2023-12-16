@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="./mealdb.js" />
+    <title>Meal DB API</title>
+  </head>
+  <body>
+    <h2 class="text-success text-center">Search Your Favorite Food</h2>
+
+    <!-- Search Area -->
+    <div class="input-group mb-3 w-50 mx-auto">
+      <input
+        id="search-box"
+        type="text"
+        class="form-control"
+        placeholder="Search the food you want"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+      />
+      <button
+        onclick="loadMeals()"
+        class="btn btn-outline-secondary"
+        type="button"
+        id="button-addon2"
+      >
+        Search
+      </button>
+    </div>
+
+    <!-- Single Meal Area -->
+    <div id="single-meal" class="w-50 mx-auto mb-4"></div>
+
+    <!-- Meals Result Area -->
+    <section id="meals" class="row"></section>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Add Script -->
+    <script src="./mealdb.js"></script>
+  </body>
+</html>

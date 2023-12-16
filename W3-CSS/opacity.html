@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        width: 300px;
+        height: 230px;
+        opacity: 0.5;
+      }
+      img:hover {
+        opacity: 1;
+      }
+
+      .reverse {
+        opacity: 1;
+      }
+      .reverse:hover {
+        opacity: 0.5;
+      }
+      /* Transparent Box */
+      div {
+        background-color: #4caf50;
+        padding: 10px;
+        width: 50%;
+      }
+      div.first {
+        opacity: 0.1;
+      }
+      div.second {
+        opacity: 0.3;
+      }
+      div.third {
+        opacity: 0.6;
+      }
+    </style>
+
+    <title>Opacity</title>
+  </head>
+  <body>
+    <img src="/images/img1.jpg" alt="" />
+    <img src="/images/img2.jpg" alt="" />
+    <img src="/images/stars.jpg" alt="" /> <br /><br /><br />
+
+    <img src="/images/img1.jpg" class="reverse" />
+    <img src="/images/img2.jpg" class="reverse" />
+    <img src="/images/stars.jpg" class="reverse" />
+
+    <!-- Transparent Box -->
+    <div class="first"><p>opacity 0.1</p></div>
+    <div class="second"><p>opacity 0.3</p></div>
+    <div class="third"><p>opacity 0.6</p></div>
+    <div><p>opacity 1 (default)</p></div>
+  </body>
+</html>

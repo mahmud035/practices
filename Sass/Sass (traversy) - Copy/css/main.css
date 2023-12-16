@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #f9ed69;
+}
+
+.navigation {
+  list-style: none;
+  
+}
+
+.navigation li {
+  display: inline-block;
+  margin: 30px;
+}
+
+.navigation li:first-child {
+  margin: 0;
+}
+
+.navigation li a:link {
+  text-transform: uppercase;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}

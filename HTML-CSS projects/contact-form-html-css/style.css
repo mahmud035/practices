@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lobster&family=Manrope&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lobster', cursive;
+  font-family: 'Manrope', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  width: 80%;
+  margin-inline: auto;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #c5cadf;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #70768a;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #454f6b;
+}
+
+/* Membership Section */
+
+/*  Lifetime and Donor Memberships */
+.membership-section-container {
+  padding: 5rem 2rem 5rem;
+}
+.membership-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 920px;
+  overflow: hidden;
+}
+
+.membership-content,
+.donation-img {
+  flex: 1;
+  height: 750px;
+  overflow: hidden;
+}
+
+.membership-content {
+  width: 800px;
+  padding: 3rem 3.5rem;
+  border-radius: 15px 0 0 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.membership-content:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.membership-content .text h2 {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 1rem 0;
+}
+
+.membership-content .text p {
+  font-size: 15px;
+  padding-bottom: 1rem;
+}
+
+.membership-content .contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem 3rem 3rem 0;
+}
+
+.contact-info h5 {
+  color: #dadada;
+  padding-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 15px;
+}
+
+.address,
+.email,
+.phone {
+  flex: 1;
+}
+
+.membership-content form input[type='text'],
+.membership-content form input[type='email'] {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 12px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #dadada;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.membership-content form input[type='text']:focus,
+.membership-content form input[type='email']:focus {
+  border-bottom: 1.7px solid #dadada;
+}
+
+.membership-content form input[type='submit'] {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  background: #ff5959;
+  border-radius: 8px;
+  padding: 12px 1.7rem;
+  margin-top: 12px;
+  transition: 0.35s ease;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.membership-content form input[type='submit']:hover {
+  transform: translateY(-5px);
+}
+
+.membership-content .social-media {
+  padding: 4rem 0 2rem;
+}
+
+.membership-content .social-media h3 {
+  font-weight: 500;
+  font-weight: 18px;
+  padding-bottom: 1.7rem;
+}
+
+.social-media .links a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #dadada;
+  padding-bottom: 10px;
+}
+
+.social-media .links a:hover {
+  color: #70768a;
+}
+
+.donation-img img {
+  max-width: 100%;
+  width: 800px;
+  height: 750px;
+  object-fit: cover;
+  border: 0;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.donation-img:hover img {
+  transform: scale(1.005);
+}
+
+.membership-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.membership-text h2 {
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 54px;
+  color: #121212;
+}
+
+.membership-text p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #707070;
+  padding: 1.3rem 0 3.5rem;
+  width: 60%;
+  margin-inline: auto;
+}

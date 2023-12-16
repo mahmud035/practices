@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topnav, content and footer(W3school)</title>
+    <style>
+      .grid-container {
+        height: 70vh;
+
+        /* Add Grid properties */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1.5fr 6fr 1.5fr;
+        grid-gap: 8px;
+      }
+
+      .topnav {
+        background-color: #f1f1f1;
+        text-align: center;
+        font-size: 24px;
+
+        grid-column: 1/-1;
+        /* Same as= grid-column: 1/ 13; */
+      }
+
+      .content {
+        background-color: #ccc;
+        text-align: center;
+        font-size: 18px;
+
+        grid-column: 1/-1;
+        /* Same as= grid-column: 1/ 13; */
+      }
+
+      .footer {
+        background-color: #f1f1f1;
+        text-align: center;
+
+        grid-column: 1/-1;
+        /* Same as= grid-column: 1/ 13; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="topnav">Topnav</div>
+      <div class="content">Content</div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>

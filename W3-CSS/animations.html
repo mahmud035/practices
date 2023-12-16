@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animations</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: #4cf150;
+        position: relative;
+        animation-name: example;
+        animation-duration: 8s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation: example 8s ease-in-out 0s 1 alternate;
+      }
+
+      @keyframes example {
+        0% {
+          background-color: #4cf150;
+          left: 0;
+          top: 0;
+        }
+        25% {
+          background-color: red;
+          left: 400px;
+          top: 0;
+        }
+        50% {
+          background-color: yellow;
+          left: 400px;
+          top: 400px;
+        }
+        75% {
+          background-color: black;
+          left: 0;
+          top: 400px;
+        }
+        100% {
+          background-color: darkcyan;
+          left: 0;
+          top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

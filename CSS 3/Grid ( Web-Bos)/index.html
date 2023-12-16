@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        /* grid-column-gap: 1rem;
+            grid-row-gap: 1rem; */
+
+        grid-gap: 1rem;
+      }
+      .grid > div {
+        background: #eeeeee;
+        padding: 1rem;
+      }
+
+      .grid > div:nth-child(odd) {
+        background: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit fuga,
+          repellat iure accusantium aliquid illo natus dicta eligendi.
+          Dignissimos deleniti, alias facilis animi culpa fuga molestiae quos
+          veritatis quam ut autem earum aperiam temporibus mollitia ullam eaque
+          sunt vero veniam modi repellendus? Quam quis fugiat nesciunt, repellat
+          quisquam veniam ab rerum est tenetur numquam illo labore eaque commodi
+          dolor placeat.
+        </p>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          aperiam praesentium labore laborum sequi illum hic aliquid ipsum. Modi
+          dolorum possimus laboriosam veniam rem recusandae optio odit officia
+          dolores placeat.
+        </p>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit fuga,
+          repellat iure accusantium aliquid illo natus dicta eligendi.
+          Dignissimos deleniti, alias facilis animi culpa fuga molestiae quos
+          veritatis quam ut autem earum aperiam temporibus mollitia ullam eaque
+          sunt vero veniam modi repellendus? Quam quis fugiat nesciunt, repellat
+          quisquam veniam ab rerum est tenetur numquam illo labore eaque commodi
+          dolor placeat.
+        </p>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          aperiam praesentium labore laborum sequi illum hic aliquid ipsum. Modi
+          dolorum possimus laboriosam veniam rem recusandae optio odit officia
+          dolores placeat.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

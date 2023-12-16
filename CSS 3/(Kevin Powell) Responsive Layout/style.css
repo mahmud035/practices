@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  color: white;
+}
+
+.container {
+  background-color: #23424a;
+  color: #fff;
+
+  width: 80%;
+  max-width: 750px;
+  margin: 0 auto;
+
+  padding: 50px 50px 150px 50px ;
+
+  /* height: 250px; */
+}
+
+.intro-content {
+  max-width: 50%;
+}

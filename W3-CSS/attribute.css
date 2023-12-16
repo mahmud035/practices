@@ -1,0 +1,39 @@
+/* 1. CSS [attribute] Selector */
+/* a[target] {
+  background-color: rgb(133, 212, 30);
+  text-decoration: none;
+  font-size: 20px;
+} */
+
+/* 2. CSS [attribute="value"] Selector  */
+/* a[target='_blank'] {
+  background-color: coral;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 20px;
+} */
+
+/* 3. CSS [attribute~="value"] Selector  */
+/* img[title~='hill'] {
+  border: 5px solid red;
+} */
+
+/* 4. CSS [attribute|="value"] Selector */
+/* [class|='top'] {
+  background-color: yellowgreen;
+} */
+
+/* 5. CSS [attribute^="value"] Selector */
+/* [class^='top'] {
+  background-color: yellowgreen;
+} */
+
+/* 6. CSS [attribute$="value"] Selector */
+/* [class$='test'] {
+  background-color: yellow;
+} */
+
+/* 7. CSS [attribute*="value"] Selector */
+/* [class*='te'] {
+  background-color: yellowgreen;
+} */

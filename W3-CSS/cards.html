@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Use the box-shadow property to create paper-like cards</title>
+    <style>
+      div.card {
+        width: 250px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      div.header {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        font-size: 40px;
+      }
+
+      div.container {
+        padding: 10px;
+      }
+
+      /* Polaroid Images / Cards */
+      div.card2 {
+        width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      div.card2 img {
+        width: 100%;
+      }
+
+      div.card-text {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Cards</h2>
+
+    <p>The box-shadow property can be used to create paper-like cards:</p>
+    <div class="card">
+      <div class="header">
+        <h1>1</h1>
+      </div>
+
+      <div class="container">
+        <p>August 2, 2021</p>
+      </div>
+    </div>
+    <br />
+
+    <!-- Polaroid Images / Cards -->
+    <h2>Polaroid Images / Cards</h2>
+
+    <div class="card2">
+      <img src="/images/hero-image.jpg" alt="" />
+      <div class="card-text">
+        <p>Hardanger, Norway</p>
+      </div>
+    </div>
+  </body>
+</html>

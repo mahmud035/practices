@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation & Bounce Effect</title>
+    <style>
+      .stage {
+        width: 900px;
+        height: 300px;
+        background-color: rgba(235, 247, 243, 0.945);
+      }
+      .ball {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #4cf150;
+        position: relative;
+      }
+      .stage:hover .ball {
+        animation: bounce-effect 3s ease-in-out 1s 2 alternate;
+      }
+
+      @keyframes bounce-effect {
+        0% {
+          left: 0;
+          top: 0;
+        }
+
+        50% {
+          left: 400px;
+          top: 200px;
+        }
+
+        100% {
+          left: 800px;
+          top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="ball"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Images Side By Side (Using Float)</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .img-container {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+
+      .clearfix::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clearfix">
+      <div class="img-container">
+        <img src="/images/img_5terre.jpg" alt="" />
+      </div>
+
+      <div class="img-container">
+        <img src="images/img_lights.jpg" alt="" />
+      </div>
+
+      <div class="img-container">
+        <img src="images/img_mountains.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

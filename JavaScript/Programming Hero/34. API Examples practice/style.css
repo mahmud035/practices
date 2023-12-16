@@ -1,0 +1,37 @@
+#users {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.user {
+  border: 2px solid blanchedalmond;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin: 1rem;
+}
+
+#countries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.country {
+  border: 2px solid blanchedalmond;
+  border-radius: 10px;
+  padding: 0 10px 10px;
+  margin: 1rem;
+}
+
+.country-detail {
+  border: 2px solid teal;
+  border-radius: 10px;
+  padding: 0 10px 10px;
+  margin: 1rem;
+  width: 50%;
+  margin-inline: auto;
+}
+
+/* meal db */
+.mouse-pointer:hover {
+  cursor: pointer;
+}

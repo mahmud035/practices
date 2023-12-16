@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Topnav</title>
+    <style>
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+      }
+
+      li:nth-child(4) {
+        float: right;
+      }
+
+      li a {
+        text-decoration: none;
+        display: block;
+        color: #fff;
+        padding: 14px 16px;
+        text-align: center;
+      }
+
+      li a.active {
+        background-color: #04aa6d;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      @media screen and (max-width: 600px) {
+        li {
+          float: none;
+        }
+
+        li:nth-child(4) {
+          float: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <div style="padding: 0 16px">
+      <h2>Responsive Topnav Example</h2>
+      <p>
+        This example use media queries to stack the topnav vertically when the
+        screen size is 600px or less.
+      </p>
+      <h4>Resize the browser window to see the effect.</h4>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --highlight-text: #fb8b47;
+  /* Scroll bar colors */
+  --scroll-bar-color: #c5cadf;
+  --scroll-thumb-color: #70768a;
+  --scroll-thumb-hover-color: #454f6b;
+}
+
+/* Scroll bar  */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-color);
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover-color);
+}
+
+.container {
+  max-width: 1440px;
+  width: 80%;
+  margin-inline: auto;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+  background: linear-gradient(88.33deg, #fba24f -7.64%, #ff1e1e 145.94%);
+  box-shadow: 0px 2px 30px rgba(252, 143, 73, 0.5);
+  border-radius: 100px;
+  padding: 12px 24px;
+  transition: all 0.1s ease;
+}
+
+/* Home */
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 5rem 0 7rem;
+}
+
+.home-text,
+.home-img {
+  flex: 1;
+}
+
+.home-text h1 {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  letter-spacing: -0.02em;
+  color: #575757;
+}
+
+.home-text .highlight {
+  color: var(--highlight-text);
+}
+
+.home-text p {
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #828282;
+  width: 70%;
+  padding: 1rem 0 2rem;
+}
+
+.home-img img {
+  max-width: 100%;
+  width: 600px;
+  height: auto;
+  transition: all 0.5s ease;
+}
+
+.home-img:hover img {
+  transform: scale(1.2);
+}
+
+/* About */
+.about-area {
+  background: url(../images/shapes/7.png) no-repeat top left / cover;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 5rem;
+}
+
+.about-img,
+.about-text {
+  flex: 1;
+}
+
+.about-img {
+  padding-left: 5rem;
+}
+
+.about-text h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 54px;
+  color: #707070;
+}
+
+.about-text p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: #18191f;
+  padding: 1rem 0 2.5rem;
+  width: 75%;
+}
+
+.about-img img {
+  max-width: 100%;
+  width: 250px;
+  height: auto;
+}
+
+/* Recipe */
+.recipe-content {
+  padding: 6rem 0;
+}
+
+.recipe-text {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  text-align: center;
+}
+
+.recipe-text h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  color: #676767;
+}
+
+.recipe-text p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #252525;
+  width: 50%;
+  margin-inline: auto;
+  padding: 2rem 0;
+}
+
+.recipe-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.recipe-card {
+  /* flex: 1; */
+  width: 350px;
+  background: #ffffff;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  padding: 1.2rem;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.recipe-card:hover {
+  /* INFO: 3d transform effect */
+  will-change: transform;
+  transform: perspective(1000px) rotateX(4.8deg) rotateY(10.23deg)
+    scale3d(1.05, 1.05, 1.05);
+}
+
+.recipe-img img {
+  width: 100%;
+  /* width: ; */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.recipe-card .recipe-info h3 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 40px;
+  color: #18191f;
+  padding: 1rem 0;
+}
+
+.recipe-card .recipe-info p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  color: #18191f;
+  padding-bottom: 10px;
+}
+
+/* Social Media */
+.social-media-container {
+  background: #ffffff;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 3rem 1rem;
+  margin-bottom: 4rem;
+}
+
+.social-media-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 64px;
+  color: #18191f;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #18191f;
+}
+
+/* Footer */
+footer {
+  background: #0b0d17;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer span {
+  color: var(--highlight-text);
+}
+
+footer h3 {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 41px;
+  color: #5b5b5b;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 26px;
+  color: #ffffff;
+}

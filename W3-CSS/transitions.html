@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Transitions</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #4cf150;
+        margin: 100px 0;
+        text-align: center;
+        /* transition-property: width, height, background-color, transform;
+        transition-duration: 2s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 1s; */
+        /* SHORTHAND property (same as above) */
+        transition: all 0.5s ease-in-out 0.2s;
+      }
+
+      .box-1:hover {
+        width: 300px;
+      }
+
+      .box-2:hover {
+        background-color: aquamarine;
+        width: 300px;
+        height: 300px;
+      }
+
+      .box-3:hover {
+        width: 300px;
+        height: 300px;
+        transform: rotate(360deg);
+        color: #fff;
+        background-color: darksalmon;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box-1">1</div>
+    <div class="box box-2">2</div>
+    <div class="box box-3">Transition + Transform</div>
+  </body>
+</html>

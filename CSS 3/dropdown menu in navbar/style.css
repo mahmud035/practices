@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar {
+  background: #333333;
+}
+
+#navbar ul {
+  list-style: none;
+}
+
+#navbar ul li {
+  color: #ffffff;
+  display: inline-block;
+  padding: 1rem;
+  position: relative;
+}
+
+#navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Hide Nested By Fault */
+#navbar ul li ul {
+  display: none;
+}
+
+#navbar ul li:hover {
+  cursor: pointer;
+  background: red;
+  color: #ffffff;
+}
+
+#navbar ul li:hover a {
+  color: #ffffff;
+}
+
+/* Nested Dropdown Show */
+#navbar ul li:hover ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100px;
+  margin-top: 1rem;
+}
+
+#navbar ul li:hover ul li {
+  display: block;
+  background: #e7e7e7;
+}
+
+#navbar ul li:hover ul li a {
+  color: #333333;
+}
+
+#navbar ul li:hover ul li:hover {
+  background: #dddddd;
+  color: inherit;
+}
+
+#showcase {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  margin: 1rem 0;
+}
+
+#showcase p {
+  margin-top: 1rem;
+}
+
+.container {
+  max-width: 80%;
+  margin: auto;
+  overflow: hidden;
+
+  background: #f4f4f4;
+  border: 3px solid #ccc;
+  text-align: center;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  padding: 0 0 0 30px;
+}

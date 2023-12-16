@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Money Master: Budget Expense Trackers</title>
+  </head>
+  <body>
+    <!-- --------Header Section--------- -->
+    <header class="container">
+      <h1 class="main-heading">Money Master: Budget Expense Trackers</h1>
+    </header>
+
+    <!-- ---------Main Section---------- -->
+    <main>
+      <section class="monefy-container container">
+        <div class="monefy-img">
+          <img src="./images/money-management.jpg" alt="" />
+        </div>
+        <div class="monefy-calculation">
+          <div class="income-part">
+            <h3>Income</h3>
+            <div>
+              <label for="">Income: </label>
+              <input type="text" id="income-value" min="0" />
+            </div>
+          </div>
+          <div class="expenses-part">
+            <h3>Expenses</h3>
+            <div>
+              <label for="">Food: </label>
+              <input type="text" id="food-value" min="0" />
+            </div>
+            <div>
+              <label for="">Rent: </label>
+              <input type="text" id="rent-value" min="0" />
+            </div>
+            <div>
+              <label for="">Clothes: </label>
+              <input type="text" id="clothe-value" min="0" />
+            </div>
+          </div>
+          <div class="calculation-part">
+            <div>
+              <button class="btn calculate-btn" id="calculate-button">
+                Calculate
+              </button>
+              <h3>Total Expenses: <span id="total-expenses">00</span></h3>
+              <h3>Balance: <span id="balance">00</span></h3>
+            </div>
+          </div>
+          <div class="saving-part">
+            <div>
+              <span>Save: </span>
+              <input type="text" id="saving-percent" min="0" />
+              <span> % </span>
+              <button class="btn" id="save-button">Save</button>
+            </div>
+            <div>
+              <h3>Saving Amount: <span id="saving-amount">00</span></h3>
+              <h3>Remaining Balance: <span id="remaining-balance">00</span></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ---------Javascript---------- -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>

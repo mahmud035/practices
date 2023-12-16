@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: 4fr 3fr 2fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 1rem;
+        grid-auto-flow: dense;
+      }
+
+      .item1 {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+      
+      .item3{
+          grid-row: 2 / span 3;
+      }
+      .grid > div {
+        background: #eeeeee;
+        height: 100px;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+
+      .grid > div:nth-child(odd) {
+        background: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">item1</div>
+      <div class="item item2">item2</div>
+      <div class="item item3">item3</div>
+      <div class="item item4">item4</div>
+      <div class="item item5">item5</div>
+      <div class="item item6">item6</div>
+      <div class="item item7">item7</div>
+      <div class="item item8">item8</div>
+      <div class="item item9">item9</div>
+    </div>
+  </body>
+</html>

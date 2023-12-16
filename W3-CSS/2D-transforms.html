@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 2D Transforms</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: #4cf150;
+        margin: 100px 0;
+        text-align: center;
+      }
+
+      .box-1 {
+        transform: translate(300px, 10px);
+        /* Negative value allows */
+      }
+
+      .box-2 {
+        transform: rotate(20deg);
+        /* Negative value allows */
+      }
+
+      .box-3 {
+        transform: scale(2, 1.5);
+      }
+
+      .box-4 {
+        transform: skewX(20deg);
+        /* Negative value allows */
+      }
+
+      .box-5 {
+        transform: skewY(20deg);
+      }
+
+      .box-6 {
+        transform: skew(20deg, 20deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box-1">Translate() Method</div>
+    <div class="box box-2">Rotate() Method</div>
+    <div class="box box-3">Scale() Method</div>
+    <div class="box box-4">The skewX() Method</div>
+    <div class="box box-5">The skewY() Method</div>
+    <div class="box box-6">The skew() Method</div>
+  </body>
+</html>

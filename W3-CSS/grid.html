@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS GRID(Getting Started with CSS Grid)</title>
+    <style>
+      .articles-container {
+        margin: 40px auto;
+        max-width: 1000px;
+        /* Add Grid properties */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) 2fr;
+        grid-template-rows: repeat(3, 100px);
+        grid-gap: 30px 18px;
+      }
+
+      .article {
+        color: white;
+        font-family: sans-serif;
+        font-size: 24px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .article-1 {
+        background-color: #ef3155;
+        grid-column: 1/2;
+        grid-row: 1/4;
+      }
+
+      .article-2 {
+        background-color: #fc46aa;
+        grid-column: 2/3;
+        grid-row: 1/4;
+      }
+
+      .article-3 {
+        background-color: #fe7d68;
+      }
+
+      .article-4 {
+        background-color: #fc4c4e;
+      }
+
+      .article-5 {
+        background-color: #a04242;
+        /* grid-column: 3/-1; */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="articles-container">
+      <div class="article article-1">Article 1</div>
+      <div class="article article-2">Article 2</div>
+      <div class="article article-3">Article 3</div>
+      <div class="article article-4">Article 4</div>
+      <div class="article article-5">Article 5</div>
+    </section>
+  </body>
+</html>

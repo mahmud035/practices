@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Nav Practice 4</title>
+    <style>
+
+      /* ---------------------------------------------------------------------------
+      ---------Using auto margins for main axis alignment (Ref: MDN)---------------*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        color: #edf0f1;
+      }
+
+      .logo {
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+      .main-nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 30px 10%;
+        background: #24252a;
+      }
+
+      /* just change this things */
+      .nav {
+        margin-left: auto;
+        padding-right: 20px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li a {
+        display: block;
+        text-decoration: none;
+        color: #edf0f1;
+        padding: 0px 20px;
+        transition: all 0.3s ease 0s;
+      }
+
+      .nav-links li a:hover {
+        color: #0088a9;
+      }
+
+      .cta {
+        display: block;
+        text-decoration: none;
+        color: #edf0f1;
+        background: rgba(0, 136, 169, 1);
+        border: none;
+        border-radius: 50px;
+        padding: 9px 25px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+      }
+
+      .cta:hover {
+        background: rgba(0, 136, 169, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-nav">
+      <h3 class="logo">LogoBakery</h3>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="cta">Contact</a>
+    </header>
+  </body>
+</html>

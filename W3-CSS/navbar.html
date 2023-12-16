@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vertical Navigation Bar</title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <style>
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #f1f1f1;
+        width: 35%;
+      }
+
+      li {
+        text-align: center;
+      }
+
+      li a {
+        text-decoration: none;
+        display: block;
+        padding: 8px 20px;
+        color: #000;
+      }
+
+      li a.active {
+        background-color: #04aa6d;
+        color: #fff;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #555;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

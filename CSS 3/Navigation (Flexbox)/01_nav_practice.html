@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Practice</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .navbar {
+        display: flex;
+        list-style: none;
+        background: #333;
+        margin: 0;
+        padding: 0;
+        /* border: 1px solid #333; */
+        border-radius: 5px;
+      }
+
+      /* in order to push the last 2 items */
+
+      .push {
+        margin-left: auto;
+      }
+
+      .navbar li a {
+        display: block;
+        color: #fff;
+        font-size: 1.1rem;
+        text-decoration: none;
+        padding: 1rem 1.25rem;
+      }
+
+      .navbar li a:hover {
+        background: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="navbar">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Services</a></li>
+      <li class="push"><a href="#">Contact</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </body>
+</html>

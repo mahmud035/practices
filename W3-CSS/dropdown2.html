@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/12222.png" type="image/x-icon" />
+    <title>Dropdown Navbar</title>
+    <style>
+      nav {
+        height: 50px;
+        background-color: rgb(221, 218, 218);
+        line-height: 30px;
+        font-size: 20px;
+      }
+
+      nav > ul > li {
+        float: left;
+      }
+
+      nav ul li {
+        list-style: none;
+        padding: 10px;
+        /* display: inline-block; */
+      }
+
+      nav ul li:hover {
+        background: rgb(182, 179, 179);
+        border-radius: 5px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px;
+      }
+
+      nav > ul > li:nth-child(3) > ul {
+        display: none;
+        position: absolute;
+        background: lightgray;
+        padding: 0;
+        margin-top: 10px;
+        margin-left: -11px;
+      }
+
+      nav > ul li:nth-child(3):hover > ul {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">Form</a></li>
+        <li><a href="#">Table</a></li>
+        <li>
+          <a href="#">Nav</a>
+          <ul class="dropdown">
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">Option 2</a></li>
+            <li><a href="#">Option 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

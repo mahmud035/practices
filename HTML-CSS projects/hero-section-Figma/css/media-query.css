@@ -1,0 +1,50 @@
+/** Media Query for Responsiveness */
+@media (max-width: 1100px) {
+  .card-text {
+    width: 70%;
+  }
+  .card-img {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-content-container {
+    height: 90%;
+    flex-direction: column-reverse;
+  }
+
+  .card-text,
+  .card-img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-content-container {
+    width: 90%;
+  }
+
+  .card-text {
+    height: 70%;
+
+    padding: 1rem;
+  }
+  .card-img {
+    height: 30%;
+  }
+
+  .card-heading > h2 {
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .card-statistics-container h4 {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .card-statistics-container p {
+    font-size: 14px;
+  }
+}
