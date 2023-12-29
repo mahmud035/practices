@@ -2,11 +2,12 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeProvider';
 
 const ThemeBtn = () => {
-  const { lightTheme, darkTheme } = useContext(ThemeContext);
+  const { lightTheme, darkTheme, themeMode } = useContext(ThemeContext);
 
   // NOTE: Toggle Theme Mode
   const handleToggleTheme = (e) => {
     const darkModeStatus = e.target.checked;
+    console.log(e.target.checked);
 
     if (darkModeStatus) {
       darkTheme();
@@ -21,6 +22,7 @@ const ThemeBtn = () => {
         type="checkbox"
         value=""
         className="sr-only peer"
+        checked={themeMode === 'dark' ? true : false}
         onChange={handleToggleTheme}
       />
 

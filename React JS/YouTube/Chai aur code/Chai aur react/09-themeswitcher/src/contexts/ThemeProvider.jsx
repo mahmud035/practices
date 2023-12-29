@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from 'react';
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [themeMode, setThemeMode] = useState('light');
+  const [themeMode, setThemeMode] = useState('dark');
 
   const lightTheme = () => {
     setThemeMode('light');
@@ -17,10 +17,11 @@ const ThemeProvider = ({ children }) => {
   const themeInfo = {
     lightTheme,
     darkTheme,
+    themeMode,
   };
 
-  // IMPORTANT: actual change in theme
-
+  // IMPORTANT:
+  //* Actual Change In Theme Inside DOM || Toggle Dark / Light Theme
   useEffect(() => {
     document.querySelector('html').classList.remove('light', 'dark');
     document.querySelector('html').classList.add(themeMode);
