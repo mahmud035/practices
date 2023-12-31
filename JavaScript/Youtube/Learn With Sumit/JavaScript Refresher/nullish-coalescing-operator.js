@@ -20,8 +20,8 @@ console.log(result); // Output: "This is a default value"
 
 // IMPORTANT:
 //* Ex: 02 (Nullish Coalescing Operator, Logical OR Operator, Logical AND Operator)
-// let language = null;
-let language = 'Python';
+let language = null;
+// let language = 'Python';
 // let language = false;
 
 console.log(language ?? 'JavaScript');

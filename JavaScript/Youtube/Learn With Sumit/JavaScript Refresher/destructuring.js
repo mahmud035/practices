@@ -6,7 +6,7 @@ const user = {
   education: {
     degree: 'Graduate',
     school: {
-      name: 'Rangpur Zilla School',
+      schoolName: 'Rangpur Zilla School',
     },
   },
 };
@@ -14,8 +14,8 @@ const user = {
 const {
   age,
   education: { degree } = {},
-  education: { school: { name } } = {},
+  education: { school: { schoolName } } = {},
 } = user;
 
-console.log(degree);
-console.log(name);
+console.log(degree); // Graduate
+console.log(schoolName); // Rangpur Zilla School
