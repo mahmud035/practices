@@ -7,7 +7,7 @@ function customRender(reactElement, mainContainer) {
   mainContainer.appendChild(domElement);
   */
 
-  // More dynamic way
+  //* More dynamic way
   const domElement = document.createElement(reactElement.type);
   domElement.innerText = reactElement.children;
 
