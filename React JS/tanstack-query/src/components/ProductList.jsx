@@ -8,22 +8,23 @@ const ProductList = ({ setEditing, setSelectedProduct }) => {
 
   //* [Pagination using json-server]
   const getProducts = async ({ queryKey }) => {
+    // console.log({ queryKey });
     const response = await axios.get(
-      `http://localhost:3000/products?_page=${queryKey[1].page}&_per_page=6`
+      `http://localhost:3000/products?_page=${queryKey[1]}&_per_page=6`
     );
     if (response && response.data) {
       return response.data;
     }
   };
 
-  //* Get Products (GET)
+  //* Get Products Data (GET)
   const {
     data: products,
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ['products', { page }],
+    queryKey: ['products', page],
     queryFn: getProducts,
   });
 
@@ -34,7 +35,7 @@ const ProductList = ({ setEditing, setSelectedProduct }) => {
 
   return (
     <div className="col-span-2">
-      <div className="grid grid-cols-1 gap-4 pb-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 pb-8 lg:grid-cols-2 2xl:grid-cols-3">
         {products?.data &&
           products?.data?.map((product) => (
             <ProductCard
