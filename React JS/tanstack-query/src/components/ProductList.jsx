@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import ProductCard from './ProductCard';
 
+// NOTE: hit http://localhost:3000/products?_page=1&_per_page=6 in the browser url and see the result.
+
 const ProductList = ({ setEditing, setSelectedProduct }) => {
   const [page, setPage] = useState(1);
 
@@ -35,6 +37,7 @@ const ProductList = ({ setEditing, setSelectedProduct }) => {
 
   return (
     <div className="col-span-2">
+      <h2 className="my-2 text-3xl font-medium text-center">Product List</h2>
       <div className="grid grid-cols-1 gap-4 pb-8 lg:grid-cols-2 2xl:grid-cols-3">
         {products?.data &&
           products?.data?.map((product) => (
@@ -46,7 +49,6 @@ const ProductList = ({ setEditing, setSelectedProduct }) => {
             />
           ))}
       </div>
-
       <span>Current Page: {page}</span>
       <div className="flex justify-center pt-5 pb-10">
         {products?.prev && (
