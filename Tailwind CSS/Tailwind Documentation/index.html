@@ -4,13 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tailwind Documentation</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              black: '#000',
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body>
-    <div class="container mx-auto">
-      <h2 class="text-center text-4xl py-6">Responsive Player Card</h2>
-
+    <!-- <div class="container mx-auto">
+      <h2 class="py-6 text-4xl text-center">Responsive Player Card</h2>
       <div
-        class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 px-4"
+        class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
       >
         <div class="shadow-lg">
           <img
@@ -84,6 +95,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <!--* <h1>Tailwind Documentation</h1> -->
+    <button class="px-16 py-4 text-4xl bg-sky-500 hover:bg-sky-900 rounded-2xl">
+      Save changes
+    </button>
   </body>
 </html>
