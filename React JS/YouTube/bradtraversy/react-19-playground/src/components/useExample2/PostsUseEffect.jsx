@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+// NOTE: Traditional way to "fetch data"
 
 const PostItems = ({ posts }) => {
   return (
     <ul>
       {posts.map((post) => (
-        <div key={post.id} className='bg-blue-50 shadow-md p-4 my-6 rounded-lg'>
-          <h2 className='text-xl font-bold'>{post.title}</h2>
+        <div key={post.id} className="p-4 my-6 rounded-lg shadow-md bg-blue-50">
+          <h2 className="text-xl font-bold">{post.title}</h2>
           <p>{post.body}</p>
         </div>
       ))}

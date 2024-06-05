@@ -19,7 +19,7 @@ const Joke = () => {
   return (
     <Suspense
       fallback={
-        <h2 className="mt-5 text-2xl font-bold text-center">Loading</h2>
+        <h2 className="mt-5 text-2xl font-bold text-center">Loading...</h2>
       }
     >
       <title>Chunk Norris Jokes</title>

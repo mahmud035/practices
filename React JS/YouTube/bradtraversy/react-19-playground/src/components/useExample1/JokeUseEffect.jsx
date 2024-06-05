@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 
+// NOTE: Traditional way to "fetch data"
+
 const JokeItem = ({ joke }) => {
   return (
-    <div className='bg-blue-50 shadow-md p-4 my-6 rounded-lg'>
-      <h2 className='text-xl font-bold'>{joke.value}</h2>
+    <div className="p-4 my-6 rounded-lg shadow-md bg-blue-50">
+      <h2 className="text-xl font-bold">{joke.value}</h2>
     </div>
   );
 };
@@ -30,7 +32,7 @@ const Joke = () => {
   }, []);
 
   if (loading) {
-    return <h2 className='text-2xl text-center font-bold mt-5'>Loading...</h2>;
+    return <h2 className="mt-5 text-2xl font-bold text-center">Loading...</h2>;
   }
 
   return <JokeItem joke={joke} />;
