@@ -1,9 +1,9 @@
 import { Suspense, use, useState } from 'react';
 
 // Simulate fetching a message
-function fetchMessage() {
+const fetchMessage = () => {
   return new Promise((resolve) => setTimeout(resolve, 1000, '⚛️'));
-}
+};
 
 // MessageOutput component
 const MessageOutput = ({ messagePromise }) => {
@@ -23,21 +23,20 @@ const MessageContainer = ({ messagePromise }) => {
 // Message component
 const Message = () => {
   const [messagePromise, setMessagePromise] = useState(null);
-
   const [show, setShow] = useState(false);
 
-  function download() {
+  const handleDownload = () => {
     setMessagePromise(fetchMessage());
     setShow(true);
-  }
+  };
 
   if (show) {
     return <MessageContainer messagePromise={messagePromise} />;
   } else {
     return (
       <button
-        className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-        onClick={download}
+        onClick={handleDownload}
+        className="px-4 py-2 font-bold text-white bg-blue-400 rounded hover:bg-blue-700"
       >
         Download message
       </button>
