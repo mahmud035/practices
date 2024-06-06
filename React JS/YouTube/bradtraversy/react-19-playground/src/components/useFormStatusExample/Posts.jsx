@@ -13,12 +13,13 @@ const PostItem = ({ post }) => {
 
 // SubmitButton component
 const SubmitButton = () => {
+  // IMPORTANT: call useFormStatus() from inside a component that is located inside <form>.
   const { pending } = useFormStatus();
-  console.log(pending);
+  console.log({ pending });
 
   return (
     <button
-      className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+      className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed"
       type="submit"
       disabled={pending}
     >
@@ -76,7 +77,9 @@ const PostForm = ({ addPost }) => {
           name="body"
         ></textarea>
       </div>
+
       <div className="flex items-center justify-between">
+        {/* NOTE: render <SubmitButton/> inside <form/> */}
         <SubmitButton />
       </div>
     </form>
