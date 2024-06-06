@@ -24,7 +24,6 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-// ThemedCard component
 const ThemedCard = () => {
   // Access the theme context using the use() hook
   const { theme, toggleTheme } = use(ThemeContext);

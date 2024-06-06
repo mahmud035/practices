@@ -74,7 +74,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   const addPost = (newPost) => {
-    setPosts((posts) => [...posts, newPost]);
+    setPosts((prevPosts) => [...prevPosts, newPost]);
   };
 
   return (
@@ -86,4 +86,5 @@ const Posts = () => {
     </>
   );
 };
+
 export { Posts as ActionExample1 };
