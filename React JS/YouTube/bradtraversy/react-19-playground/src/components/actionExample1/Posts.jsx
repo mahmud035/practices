@@ -80,6 +80,7 @@ const Posts = () => {
   return (
     <>
       <PostForm addPost={addPost} />
+
       {posts.map((post, index) => (
         <PostItem key={index} post={post} />
       ))}

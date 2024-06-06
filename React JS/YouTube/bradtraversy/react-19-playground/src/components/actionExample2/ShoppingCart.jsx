@@ -6,7 +6,7 @@ const AddToCartForm = ({ id, title, addToCart }) => {
     try {
       await addToCart(formData, title);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -32,6 +32,7 @@ const CartDisplay = ({ cart }) => {
   if (cart.length === 0) {
     return null;
   }
+
   return (
     <>
       <h2 className="my-4 text-xl font-bold">Your Cart:</h2>
@@ -51,10 +52,8 @@ const ShoppingCart = () => {
 
   const addToCart = async (formData, title) => {
     const id = String(formData.get('itemID'));
-    // simulate an AJAX call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setCart((cart) => [...cart, { id, title }]);
-
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    setCart((prevCart) => [...prevCart, { id, title }]);
     return { id };
   };
 
