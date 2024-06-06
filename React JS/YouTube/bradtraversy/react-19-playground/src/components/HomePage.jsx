@@ -49,7 +49,7 @@ const HomePage = () => {
             <div>
               <h3 className="text-2xl font-bold">use(context) Example</h3>
               <p className="my-2">
-                Use the `use()` hook to apply aa theme context
+                Use the `use()` hook to apply a theme context
               </p>
               <a
                 className="font-bold text-blue-800"

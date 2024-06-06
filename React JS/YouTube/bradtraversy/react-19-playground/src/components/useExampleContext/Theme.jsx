@@ -13,14 +13,18 @@ const ThemeProvider = ({ children }) => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
+  const themeInfo = {
+    theme,
+    toggleTheme,
+  };
+
   return (
     // Provide the theme and toggleTheme function to the children
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={themeInfo}>{children}</ThemeContext.Provider>
   );
 };
 
+// ThemedCard component
 const ThemedCard = () => {
   // Access the theme context using the use() hook
   const { theme, toggleTheme } = use(ThemeContext);
@@ -56,6 +60,7 @@ const ThemedCard = () => {
   );
 };
 
+// Theme component
 const Theme = () => {
   return (
     <ThemeProvider>
