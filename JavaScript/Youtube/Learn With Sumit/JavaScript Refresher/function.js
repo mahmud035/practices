@@ -1,3 +1,5 @@
+'use strict';
+
 //* Function Declaration
 {
   function hello() {
@@ -13,8 +15,6 @@
   const hello = function () {
     console.log('Hello World');
   };
-
-  hello();
 }
 
 //* Named Function Expression
@@ -22,15 +22,11 @@
   const hello = function hello() {
     console.log('Hello World');
   };
-
-  hello();
 }
 
 //* Arrow Function
 {
   const hello = () => console.log('Hello World');
-
-  hello();
 
   const add = (a, b) => a + b; // implicit return
 
@@ -71,8 +67,6 @@
       console.log('Hello World');
     };
   }
-
-  hello()();
 }
 
 // Ex: 2
@@ -82,6 +76,4 @@
       console.log('Hello World');
     };
   }
-
-  hello()();
 }

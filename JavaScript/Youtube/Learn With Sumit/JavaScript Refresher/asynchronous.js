@@ -1,10 +1,12 @@
+'use strict';
+
 //* asynchronous javascript
 
 const fetchTodo = async () => {
   try {
-    const response = await fetch(
-      'https://jsonplaceholder.typicode.com/todos/1'
-    );
+    const url = `https://jsonplaceholder.typicode.com/todos/1`;
+
+    const response = await fetch(url);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -20,5 +22,4 @@ const showTodo = async () => {
     console.log(error);
   }
 };
-
 showTodo();

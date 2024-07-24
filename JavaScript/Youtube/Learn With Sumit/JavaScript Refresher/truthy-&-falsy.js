@@ -1,4 +1,6 @@
-//! NOTE: falsy values: 0, '', false, null, NaN, undefined
+'use strict';
+
+//! NOTE: falsy values: false, 0, '', null, NaN, undefined
 
 const result = NaN;
 

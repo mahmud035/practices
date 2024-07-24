@@ -1,3 +1,5 @@
+'use strict';
+
 //* Short Circuit Conditionals (Logical OR Operator, Logical AND Operator)
 
 // let language = null;

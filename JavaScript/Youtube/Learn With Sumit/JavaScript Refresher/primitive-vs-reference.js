@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * IMPORTANT:
  * Primitive type: (string, number, boolean) ==> "works with just value"

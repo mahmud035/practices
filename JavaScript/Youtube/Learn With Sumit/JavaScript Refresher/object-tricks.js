@@ -1,3 +1,5 @@
+'use strict';
+
 {
   // object-tricks
   const language = {
@@ -6,14 +8,14 @@
     creator: 'Brendan Eich',
   };
 
-  // const keys = Object.keys(language);
-  // console.log(keys); // ['name', 'year', 'creator']
+  const keys = Object.keys(language);
+  console.log(keys); // ['name', 'year', 'creator']
 
-  // const values = Object.values(language);
-  // console.log(values); // ['JavaScript', 1995, 'Brendan Eich']
+  const values = Object.values(language);
+  console.log(values); // ['JavaScript', 1995, 'Brendan Eich']
 
-  // const entries = Object.entries(language);
-  // console.log(entries); // [ ['name', 'JavaScript'], ['year', 1995], ['creator', 'Brendan Eich'] ]
+  const entries = Object.entries(language);
+  console.log(entries); // [ ['name', 'JavaScript'], ['year', 1995], ['creator', 'Brendan Eich'] ]
 
   //* ================>>=================>>=================>>
 
