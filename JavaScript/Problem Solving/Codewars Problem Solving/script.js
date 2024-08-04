@@ -185,3 +185,29 @@
   // console.log(explode(['a', 3]));
   // console.log(explode(['a', '3']));
 }
+
+// Is every value in the array an array?
+//* My Solution
+{
+  const arrCheck = (value) => value.every((v) => v instanceof Array);
+
+  // console.log(arrCheck([[1], [2]]));
+  // console.log(arrCheck(['1', '2']));
+  // console.log(arrCheck([{ 1: 1 }, { 2: 2 }]));
+}
+
+// Sum The Strings
+//* My Solution
+{
+  function sumStr(a, b) {
+    const num1 = a.length > 0 ? Number.parseInt(a) : 0;
+    const num2 = b.length > 0 ? Number.parseInt(b) : 0;
+    return `${num1 + num2}`;
+  }
+
+  // console.log(sumStr('4', '5'));
+  // console.log(sumStr('34', '5'));
+  // console.log(sumStr('', ''));
+  // console.log(sumStr('2', ''));
+  // console.log(sumStr('-5', '3'));
+}
