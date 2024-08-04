@@ -211,3 +211,40 @@
   // console.log(sumStr('2', ''));
   // console.log(sumStr('-5', '3'));
 }
+
+// Sum of integers in string
+//* My Solution
+{
+  function sumOfIntegersInString(s) {
+    const matches = s.match(/\d+/g) || [];
+    return matches.reduce(
+      (accumulator, currentValue) => accumulator + Number(currentValue),
+      0
+    );
+  }
+
+  // console.log(
+  //   sumOfIntegersInString(
+  //     'The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog'
+  //   )
+  // );
+  // console.log(sumOfIntegersInString('abc'));
+}
+
+// FIXME: Replace all dots
+//* My Solution
+{
+  const replaceDots = function (str) {
+    return str.replace(/\./g, '-');
+  };
+}
+
+// USD => CNY
+//* My Solution
+{
+  const usdcny = (usd) => `${(usd * 6.75).toFixed(2)} Chinese Yuan`;
+
+  // console.log(usdcny(15));
+  // console.log(usdcny(465));
+  // console.log(usdcny(7100));
+}
