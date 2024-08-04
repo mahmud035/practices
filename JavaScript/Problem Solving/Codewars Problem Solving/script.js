@@ -95,3 +95,93 @@
 
   // console.log(points(['3:1', '2:2', '0:1']));
 }
+
+// Student's Final Grade
+//* My Solution
+{
+  function finalGrade(exam, projects) {
+    if (exam > 90 || projects > 10) return 100;
+    if (exam > 75 && projects >= 5) return 90;
+    if (exam > 50 && projects >= 2) return 75;
+
+    return 0;
+  }
+
+  // console.log(finalGrade(100, 12));
+  // console.log(finalGrade(99, 0));
+  // console.log(finalGrade(10, 15));
+
+  // console.log(finalGrade(85, 5));
+
+  // console.log(finalGrade(55, 3));
+
+  // console.log(finalGrade(55, 0));
+  // console.log(finalGrade(20, 2));
+}
+
+// Multiplication table for number
+//* My Solution
+{
+  function multiTable(number) {
+    const table = [];
+
+    for (let i = 1; i <= 10; i++) {
+      if (i === 10) table.push(`${i} * ${number} = ${i * number}`);
+      else table.push(`${i} * ${number} = ${i * number}\n`);
+    }
+
+    return table.join('');
+  }
+
+  // console.log(multiTable(5));
+}
+
+// Array plus array
+//* My Solution
+{
+  function arrayPlusArray(arr1, arr2) {
+    const newArray = [...arr1, ...arr2];
+    const sum = newArray.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+    return sum;
+
+    // return [...arr1, ...arr2].reduce(
+    //   (accumulator, currentValue) => accumulator + currentValue,
+    //   0
+    // );
+  }
+
+  // console.log(arrayPlusArray([1, 2, 3], [4, 5, 6, 7]));
+}
+
+// Array Array Array
+//* My Solution
+{
+  function explode(x) {
+    const firstValue = x.at(0);
+    const secondValue = x.at(1);
+    const nestedArray = [];
+    let score = 0;
+
+    if (typeof firstValue === 'number' && typeof secondValue === 'number') {
+      score += firstValue + secondValue;
+    } else if (
+      typeof firstValue === 'number' ||
+      typeof secondValue === 'number'
+    ) {
+      score = typeof firstValue === 'number' ? firstValue : secondValue;
+    } else return 'Void!';
+
+    // Loop over the score and create nestedArray
+    for (let i = 1; i <= score; i++) {
+      nestedArray.push([firstValue, secondValue]);
+    }
+    return nestedArray;
+  }
+
+  // console.log(explode([4, 3]));
+  // console.log(explode(['a', 3]));
+  // console.log(explode(['a', '3']));
+}
