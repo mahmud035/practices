@@ -500,3 +500,45 @@
 
   // console.log(warnTheSheep(['sheep', 'sheep', 'sheep', 'wolf', 'sheep']));
 }
+
+// Century From Year
+//* My Solution
+{
+  const century = (year) => Math.ceil(year / 100);
+
+  // console.log(century(1705)); // 18
+  // console.log(century(1900)); // 19
+  // console.log(century(1601)); // 17
+  // console.log(century(2000)); // 20
+  // console.log(century(2742)); // 28
+}
+
+// Area or Perimeter
+//* My Solution
+{
+  const areaOrPerimeter = function (l, w) {
+    if (l === w) return l * l;
+    return 2 * (l + w);
+  };
+
+  // console.log(areaOrPerimeter(6, 10));
+  // console.log(areaOrPerimeter(3, 3));
+}
+
+// Twice as old
+//* My Solution
+{
+  const twiceAsOld = (dadYearsOld, sonYearsOld) => {
+    const yearsBeforeDouble = dadYearsOld - sonYearsOld * 2;
+    const yearsAfterDouble = sonYearsOld * 2 - dadYearsOld;
+
+    console.log({ yearsBeforeDouble, yearsAfterDouble });
+
+    return Math.abs(yearsAfterDouble);
+  };
+
+  // console.log(twiceAsOld(36, 7));
+  // console.log(twiceAsOld(55, 30));
+  // console.log(twiceAsOld(42, 21));
+  // console.log(twiceAsOld(22, 1));
+}
