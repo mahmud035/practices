@@ -438,3 +438,65 @@
 
   // console.log(flickSwitch(['bicycle', 'jarmony', 'flick', 'sheep', 'flick']));
 }
+
+// Check same case
+//* My Solution
+{
+  const sameCase = (a, b) => {
+    if (!/[a-zA-Z]/.test(a) || !/[a-zA-Z]/.test(b)) {
+      return -1;
+    }
+    if (
+      (a === a.toUpperCase() && b === b.toUpperCase()) ||
+      (a === a.toLowerCase() && b === b.toLowerCase())
+    ) {
+      return 1;
+    }
+    return 0;
+  };
+
+  // console.log(sameCase('a', 'g'));
+  // console.log(sameCase('A', 'C'));
+  // console.log(sameCase('b', 'G'));
+  // console.log(sameCase('0', '?'));
+}
+
+// Quarter of the year
+//* My Solution
+{
+  const quarterOf = (month) => {
+    if (month >= 1 && month <= 3) return 1;
+    if (month >= 4 && month <= 6) return 2;
+    if (month >= 7 && month <= 9) return 3;
+    if (month >= 10 && month <= 12) return 4;
+  };
+
+  // console.log(quarterOf(3));
+}
+
+// A wolf in sheep's clothing
+//* My Solution
+{
+  const warnTheSheep = (queue) => {
+    if (queue.at(-1) === 'wolf') return 'Pls go away and stop eating my sheep';
+
+    return `Oi! Sheep number ${
+      queue.length - queue.indexOf('wolf') - 1
+    }! You are about to be eaten by a wolf!`;
+  };
+
+  // console.log(warnTheSheep(['sheep', 'sheep', 'sheep', 'wolf', 'sheep']));
+}
+
+//* Best Practice & Clever
+{
+  function warnTheSheep(queue) {
+    const position = queue.reverse().indexOf('wolf');
+
+    return position === 0
+      ? 'Pls go away and stop eating my sheep'
+      : `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`;
+  }
+
+  // console.log(warnTheSheep(['sheep', 'sheep', 'sheep', 'wolf', 'sheep']));
+}
