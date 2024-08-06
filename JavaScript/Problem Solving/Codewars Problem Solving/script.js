@@ -252,50 +252,10 @@
 // Average Array
 //* My Solution (NOT Completed Yet)
 {
-  function avgArray(nestedArray) {
+  const avgArray = (nestedArray) => {
     const average = [];
     const numberOfArray = nestedArray.length;
-
-    const avg1 = (nestedArray[0][0] + nestedArray[1][0]) / numberOfArray;
-    const avg2 = (nestedArray[0][1] + nestedArray[1][1]) / numberOfArray;
-    const avg3 = (nestedArray[0][2] + nestedArray[1][2]) / numberOfArray;
-    const avg4 = (nestedArray[0][3] + nestedArray[1][3]) / numberOfArray;
-
-    // console.log(avg1, avg2, avg3, avg4);
-
-    for (let i = 0; i < numberOfArray; i++) {
-      const insideArray = nestedArray[i];
-      console.log(insideArray);
-
-      for (let j = 0; j < insideArray.length; j++) {
-        // console.log(insideArray[i]);
-        // console.log(insideArray[j]);
-        // console.log(insideArray[i] + insideArray[j]);
-        continue;
-      }
-    }
-
-    // nestedArray
-    //   .map((array) => array)
-    //   .map((arr) => arr)
-    //   .map((ar, i) => {
-    //     console.log(ar, i);
-    //   });
-
-    // return nestedArray.reduce((acc, curr, i) => {
-    //   console.log(acc);
-    //   console.log(curr);
-    // console.log(i);
-    // console.log(curr[i]);
-
-    //   for (let i = 0; i < curr.length; i++) {
-    //     const element = curr[i];
-    //     console.log(element);
-    //   }
-
-    //   return acc;
-    // }, []);
-  }
+  };
 
   // console.log(
   //   avgArray([
@@ -420,7 +380,61 @@
     return false;
   };
 
-  console.log(hasPair([1, 2, 6, 4], 5)); // true
-  console.log(hasPair([-1, 7, 2, 15], 12)); // false
-  console.log(hasPair([1, 3, 3, 6], 2)); // false
+  // console.log(hasPair([1, 2, 6, 4], 5)); // true
+  // console.log(hasPair([-1, 7, 2, 15], 12)); // false
+  // console.log(hasPair([1, 3, 3, 6], 2)); // false
+}
+
+// V A P O R C O D E
+//* My Solution
+{
+  const vaporcode = (string) =>
+    string.toUpperCase().replace(/\s+/g, '').split('').join('  ');
+
+  // console.log(vaporcode('Lets go to the movies'));
+  // console.log(vaporcode("Why isn't my code working?"));
+
+  // Output:
+  // "L  E  T  S  G  O  T  O  T  H  E  M  O  V  I  E  S"
+  // "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
+}
+
+// Check the exam
+//* My Solution
+{
+  const checkExam = (array1, array2) => {
+    let score = 0;
+
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] === array2[i]) score += 4;
+      if (array1[i] !== array2[i] && array2[i] !== '') score -= 1;
+      if (array2[i] === '') score += 0;
+    }
+
+    return score > 0 ? score : 0;
+  };
+
+  // console.log(checkExam(['a', 'a', 'b', 'b'], ['a', 'c', 'b', 'd']));
+  // console.log(checkExam(['a', 'a', 'c', 'b'], ['a', 'a', 'b', '']));
+  // console.log(checkExam(['a', 'a', 'b', 'c'], ['a', 'a', 'b', 'c']));
+  // console.log(checkExam(['b', 'c', 'b', 'a'], ['', 'a', 'a', 'c']));
+}
+
+// Flick Switch
+//* My Solution
+{
+  const flickSwitch = (arr) => {
+    const booleans = [];
+    let shouldReturnTrue = true;
+
+    for (const element of arr) {
+      if (element === 'flick') shouldReturnTrue = !shouldReturnTrue;
+
+      shouldReturnTrue ? booleans.push(true) : booleans.push(false);
+    }
+
+    return booleans;
+  };
+
+  // console.log(flickSwitch(['bicycle', 'jarmony', 'flick', 'sheep', 'flick']));
 }
