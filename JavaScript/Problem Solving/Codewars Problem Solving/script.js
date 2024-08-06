@@ -248,3 +248,140 @@
   // console.log(usdcny(465));
   // console.log(usdcny(7100));
 }
+
+// Average Array
+//* My Solution (NOT Completed Yet)
+{
+  function avgArray(nestedArray) {
+    const average = [];
+    const numberOfArray = nestedArray.length;
+
+    const avg1 = (nestedArray[0][0] + nestedArray[1][0]) / numberOfArray;
+    const avg2 = (nestedArray[0][1] + nestedArray[1][1]) / numberOfArray;
+    const avg3 = (nestedArray[0][2] + nestedArray[1][2]) / numberOfArray;
+    const avg4 = (nestedArray[0][3] + nestedArray[1][3]) / numberOfArray;
+
+    // console.log(avg1, avg2, avg3, avg4);
+
+    for (let i = 0; i < numberOfArray; i++) {
+      const insideArray = nestedArray[i];
+      console.log(insideArray);
+
+      for (let j = 0; j < insideArray.length; j++) {
+        // console.log(insideArray[i]);
+        // console.log(insideArray[j]);
+        // console.log(insideArray[i] + insideArray[j]);
+        continue;
+      }
+    }
+
+    // nestedArray
+    //   .map((array) => array)
+    //   .map((arr) => arr)
+    //   .map((ar, i) => {
+    //     console.log(ar, i);
+    //   });
+
+    // return nestedArray.reduce((acc, curr, i) => {
+    //   console.log(acc);
+    //   console.log(curr);
+    // console.log(i);
+    // console.log(curr[i]);
+
+    //   for (let i = 0; i < curr.length; i++) {
+    //     const element = curr[i];
+    //     console.log(element);
+    //   }
+
+    //   return acc;
+    // }, []);
+  }
+
+  // console.log(
+  //   avgArray([
+  //     [1, 2, 3, 4],
+  //     [5, 6, 7, 8],
+  //   ])
+  // );
+}
+
+// Return the day
+//* My Solution
+{
+  function whatday(num) {
+    switch (num) {
+      case 1:
+        return 'Sunday';
+      case 2:
+        return 'Monday';
+      case 3:
+        return 'Tuesday';
+      case 4:
+        return 'Wednesday';
+      case 5:
+        return 'Thursday';
+      case 6:
+        return 'Friday';
+      case 7:
+        return 'Saturday';
+      default:
+        return 'Wrong, please enter a number between 1 and 7';
+    }
+  }
+
+  // console.log(whatday(3));
+  // console.log(whatday(40));
+}
+
+// Type of sum
+//* My Solution
+
+{
+  function typeOfSum(a, b) {
+    const typeofA = typeof a;
+    const typeofB = typeof b;
+
+    if (
+      (typeofA === 'number' && typeofB === 'number') ||
+      (typeofA === 'boolean' && typeofB === 'number') ||
+      (typeofA === 'number' && typeofB === 'boolean') ||
+      (a === null && typeofB === 'number') ||
+      (typeofA === 'number' && b === null) ||
+      (a === null && typeofB === 'undefined') ||
+      (typeofA === 'undefined' && b === null) ||
+      (typeofA === 'undefined' && typeofB === 'boolean') ||
+      (typeofA === 'boolean' && typeofB === 'undefined') ||
+      (a === null && typeofB === 'boolean') ||
+      (typeofA === 'boolean' && b === null) ||
+      (typeofA === 'undefined' && typeofB === 'undefined') ||
+      (typeofA === 'boolean' && typeofB === 'boolean') ||
+      (a === null && b === null) ||
+      (typeofA === 'number' && typeofB === 'undefined') ||
+      (typeofA === 'undefined' && typeofB === 'number')
+    ) {
+      return 'number';
+    }
+
+    if (
+      typeofA === 'string' ||
+      typeofB === 'string' ||
+      (typeofA === 'string' && typeofB === 'boolean') ||
+      (typeofA === 'boolean' && typeofB === 'string') ||
+      (typeofA === 'string' && b === null) ||
+      (a === null && typeofB === 'string') ||
+      (typeofA === 'undefined' && typeofB === 'string') ||
+      (typeofA === 'string' && typeofB === 'undefined')
+    ) {
+      return 'string';
+    }
+  }
+
+  // console.log(typeOfSum(3, 5));
+}
+
+//* Best Practice
+{
+  const typeOfSum = (a, b) => typeof (a + b);
+
+  // console.log(typeOfSum(3, 5));
+}
