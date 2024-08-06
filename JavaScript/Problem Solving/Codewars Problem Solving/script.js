@@ -335,7 +335,6 @@
 
 // Type of sum
 //* My Solution
-
 {
   function typeOfSum(a, b) {
     const typeofA = typeof a;
@@ -384,4 +383,44 @@
   const typeOfSum = (a, b) => typeof (a + b);
 
   // console.log(typeOfSum(3, 5));
+}
+
+// Even numbers in an array
+//* My Solution
+{
+  const evenNumbers = (array, number) => {
+    return array.filter((number) => Math.abs(number) % 2 === 0).slice(-number);
+  };
+
+  // console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+}
+
+// Convert an array of strings to array of numbers
+//* My Solution
+{
+  const toNumberArray = (stringarray) =>
+    stringarray.map((strNum) => Number(strNum));
+
+  // console.log(toNumberArray(['1', '2', '3']));
+}
+
+// Two numbers in an array adding up to a given number
+//* My Solution
+{
+  // https://chatgpt.com/share/bfe9d31e-c4b3-42af-958c-57bf613d618a
+
+  const hasPair = (A, sum) => {
+    const complements = new Set();
+
+    for (const element of A) {
+      if (complements.has(element)) return true;
+      complements.add(sum - element);
+    }
+
+    return false;
+  };
+
+  console.log(hasPair([1, 2, 6, 4], 5)); // true
+  console.log(hasPair([-1, 7, 2, 15], 12)); // false
+  console.log(hasPair([1, 3, 3, 6], 2)); // false
 }
