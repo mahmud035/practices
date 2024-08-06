@@ -542,3 +542,27 @@
   // console.log(twiceAsOld(42, 21));
   // console.log(twiceAsOld(22, 1));
 }
+
+// Pillars
+//* My Solution
+{
+  const pillars = (numPill, dist, width) => {
+    // (numPill * width) + (dist * 100 * (numPill -1)) - (width * 2)
+
+    return numPill > 1
+      ? numPill * width + dist * 100 * (numPill - 1) - width * 2
+      : 0;
+  };
+
+  // console.log(pillars(1, 10, 10));
+  // console.log(pillars(2, 20, 25));
+  // console.log(pillars(11, 15, 30));
+}
+
+// Third Angle of a Triangle
+//* My Solution
+{
+  const otherAngle = (a, b) => 180 - (a + b);
+
+  // console.log(otherAngle(30, 60));
+}
