@@ -601,3 +601,84 @@
   // console.log(nearestSq(9999)); // 10000
   // console.log(nearestSq(81)); // 81
 }
+
+// Find numbers which are divisible by given number
+//* My Solution
+{
+  const divisibleBy = (numbers, divisor) =>
+    numbers.filter((number) => number % divisor === 0);
+
+  // console.log(divisibleBy([1, 2, 3, 4, 5, 6], 3));
+}
+
+// Reversed sequence
+//* My Solution
+{
+  const reverseSeq = (n) => {
+    const array = [];
+
+    for (let i = n; i >= 1; i--) {
+      array.push(i);
+    }
+
+    return array;
+  };
+
+  // console.log(reverseSeq(5));
+}
+
+// Is he gonna survive?
+//* My Solution
+{
+  const hero = (bullets, dragons) => bullets >= dragons * 2;
+
+  // console.log(hero(10, 5)); // true
+  // console.log(hero(7, 4)); // false
+}
+
+// Capitalization and Mutability
+//* My Solution
+{
+  const capitalizeWord = (word) =>
+    `${word.at(0).toUpperCase()}${word.slice(1)}`;
+
+  // console.log(capitalizeWord('hello'));
+}
+
+// Capitals first!
+//* My Solution
+{
+  const capitalsFirst = (str) => {
+    const words = str.split(' ');
+    const capitalWords = [];
+    const lowercaseWords = [];
+
+    words.forEach((word) => {
+      if (/^[A-Z]/.test(word)) capitalWords.push(word);
+      if (/^[a-z]/.test(word)) lowercaseWords.push(word);
+    });
+
+    return [...capitalWords, ...lowercaseWords].join(' ');
+  };
+
+  // NOTE: /^[A-Z]/: This regular expression matches words starting with an uppercase letter.
+  // /^[a-z]/: This regular expression matches words starting with a lowercase letter.
+
+  // console.log(capitalsFirst('hey You, Sort me Already!'));
+}
+
+// Find the capitals
+//* My Solution
+{
+  const capitals = function (word) {
+    const array = [];
+
+    for (let i = 0; i < word.length; i++) {
+      if (word.at(i).match(/[A-Z]/)) array.push(i);
+    }
+
+    return array;
+  };
+
+  // console.log(capitals('CodEWaRs'));
+}
