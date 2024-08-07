@@ -566,3 +566,38 @@
 
   // console.log(otherAngle(30, 60));
 }
+
+// Multiple of index
+//* My Solution
+{
+  const multipleOfIndex = (array) =>
+    array.filter((element, i) => {
+      if (i === 0) return element === 0;
+      return element % i === 0;
+    });
+
+  // console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]));
+  // console.log(multipleOfIndex([0, 2, 3, 6, 9]));
+}
+
+// Find Nearest square number
+//* My Solution
+{
+  const nearestSq = (n) => {
+    if (Math.trunc(Math.sqrt(n)) * Math.trunc(Math.sqrt(n)) === n) return n;
+
+    const nextSquareNum = Math.ceil(Math.sqrt(n)) * Math.ceil(Math.sqrt(n));
+    const prevSquareNum = Math.floor(Math.sqrt(n)) * Math.floor(Math.sqrt(n));
+
+    return nextSquareNum - n < n - prevSquareNum
+      ? nextSquareNum
+      : prevSquareNum;
+  };
+
+  // console.log(nearestSq(1)); // 1
+  // console.log(nearestSq(2)); // 1
+  // console.log(nearestSq(10)); // 9
+  // console.log(nearestSq(111)); // 121
+  // console.log(nearestSq(9999)); // 10000
+  // console.log(nearestSq(81)); // 81
+}
