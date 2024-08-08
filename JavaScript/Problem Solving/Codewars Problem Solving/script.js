@@ -682,3 +682,139 @@
 
   // console.log(capitals('CodEWaRs'));
 }
+
+// Indexed capitalization
+//* My Solution
+{
+  const capitalize = (s, arr) => {
+    const strArray = s.split('');
+
+    arr.forEach((element) => {
+      if (element >= 0 && element < s.length) {
+        strArray[element] = strArray[element].toUpperCase();
+      }
+    });
+
+    return strArray.join('');
+  };
+
+  // console.log(capitalize('abcdef', [1, 2, 5, 100]));
+}
+
+// Alternate capitalization
+//* My Solution
+{
+  const capitalize = (s) => {
+    const strArray = s.split('');
+    const evenIndexes = [...strArray];
+    const oddIndexes = [...strArray];
+
+    strArray.forEach((_, i) => {
+      evenIndexes[0] = evenIndexes[0].toUpperCase();
+
+      if (i > 0 && i % 2 === 0) evenIndexes[i] = evenIndexes[i].toUpperCase();
+
+      if (i > 0 && i % 2 === 1) oddIndexes[i] = oddIndexes[i].toUpperCase();
+    });
+
+    return [evenIndexes.join(''), oddIndexes.join('')];
+  };
+
+  // console.log(capitalize('abcdef'));
+}
+
+//* Best Practice & Clever
+{
+  const capitalize = (s) => {
+    const even = s
+      .split('')
+      .map((el, i) => (i % 2 === 0 ? el.toUpperCase() : el))
+      .join('');
+
+    const odd = s
+      .split('')
+      .map((el, i) => (i % 2 !== 0 ? el.toUpperCase() : el))
+      .join('');
+
+    return [even, odd];
+  };
+
+  // console.log(capitalize('abcdef'));
+}
+
+// Alternate case
+//* My Solution
+{
+  const alternateCase = (s) => {
+    const strArr = s.split('');
+
+    strArr.forEach((char, i) => {
+      if (/[A-Z]/.test(char)) strArr[i] = strArr[i].toLowerCase();
+
+      if (/[a-z]/.test(char)) strArr[i] = strArr[i].toUpperCase();
+    });
+
+    return strArr.includes('') ? strArr.join(' ') : strArr.join('');
+  };
+
+  // console.log(alternateCase('Hello World'));
+  // console.log(alternateCase('abc'));
+  // console.log(alternateCase('ABC'));
+}
+
+//* Best Practice
+{
+  const alternateCase = (s) => {
+    return s
+      .split('')
+      .map((char) =>
+        char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+      )
+      .join('');
+  };
+
+  // console.log(alternateCase('Hello World'));
+  // console.log(alternateCase('abc'));
+  // console.log(alternateCase('ABC'));
+}
+
+// altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+//* My Solution
+{
+  String.prototype.toAlternatingCase = function () {
+    return this.split('')
+      .map((char) => {
+        if (/[A-Z]/.test(char)) return char.toLowerCase();
+        if (/[a-z]/.test(char)) return char.toUpperCase();
+        else return char;
+      })
+      .join('');
+  };
+
+  // console.log('hello world'.toAlternatingCase());
+  // console.log('hello WORLD'.toAlternatingCase());
+  // console.log('1a2b3c4d5e'.toAlternatingCase());
+}
+
+// Are we alternate?
+//* My Solution
+{
+  const isAlt = (word) => {
+    const isVowel = (char) => `aeiou`.includes(char);
+    const isConsonant = (char) => !isVowel(char) && /[a-z]/.test(char);
+
+    return word.split('').every((_, i, arr) => {
+      // NOTE: If the index is the lastIndex (i === arr.length - 1), the function returns true because there's no next character to check.
+      if (i === arr.length - 1) return true;
+
+      return (
+        (isVowel(arr[i]) && isConsonant(arr[i + 1])) ||
+        (isConsonant(arr[i]) && isVowel(arr[i + 1]))
+      );
+    });
+  };
+
+  // console.log(isAlt('amazon'));
+  // console.log(isAlt('apple'));
+  // console.log(isAlt('banana'));
+}
