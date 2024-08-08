@@ -891,3 +891,118 @@
   // console.log(calculator(1, 2, '&')); // unknown value
   // console.log(calculator(1, 'k', '*')); // unknown value
 }
+
+//Check if a triangle is an equable triangle!
+//* My Solution
+{
+  const equableTriangle = (a, b, c) => {
+    const perimeter = a + b + c;
+    const semiPerimeter = perimeter / 2;
+
+    // Calculate area using Heron's formula
+    const area = Math.sqrt(
+      semiPerimeter *
+        (semiPerimeter - a) *
+        (semiPerimeter - b) *
+        (semiPerimeter - c)
+    );
+
+    return area === perimeter ? true : false;
+  };
+
+  // console.log(equableTriangle(5, 12, 13));
+  // console.log(equableTriangle(2, 3, 4));
+}
+
+// Is this a triangle?
+//* My Solution
+{
+  const isTriangle = (a, b, c) => a + b > c && a + c > b && b + c > a;
+
+  // console.log(isTriangle(1, 2, 2));
+  // console.log(isTriangle(7, 2, 2));
+}
+
+// Find the volume of a Cone
+//* My Solution
+{
+  const volume = (r, h) => Math.floor((1 / 3) * Math.PI * Math.pow(r, 2) * h);
+
+  // console.log(volume(7, 3));
+}
+
+// Volume of a Cuboid
+//* My Solution
+{
+  class Kata {
+    static getVolumeOfCuboid(length, width, height) {
+      return length * width * height;
+    }
+  }
+
+  // console.log(Kata.getVolumeOfCuboid(1, 2, 2));
+  // console.log(Kata.getVolumeOfCuboid(6, 2, 5));
+}
+
+// Switch it Up!
+//* My Solution
+{
+  const switchItUp = (number) => {
+    switch (number) {
+      case 0:
+        return 'Zero';
+      case 1:
+        return 'One';
+      case 2:
+        return 'Two';
+      case 3:
+        return 'Three';
+      case 4:
+        return 'Four';
+      case 5:
+        return 'Five';
+      case 6:
+        return 'Six';
+      case 7:
+        return 'Seven';
+      case 8:
+        return 'Eight';
+      case 9:
+        return 'Nine';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  // console.log(switchItUp(1));
+  // console.log(switchItUp(5));
+}
+
+// Exclamation marks series #1: Remove an exclamation mark from the end of string
+//* My Solution
+{
+  const remove = (string) =>
+    string.at(-1) === '!' ? string.slice(0, -1) : string;
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi!!!'));
+  // console.log(remove('!Hi'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('Hi'));
+}
+
+// Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+//* My Solution
+{
+  const remove = (string) =>
+    string.includes('!') ? string.replace(/!+$/, '') : string;
+
+  // !+ matches one or more exclamation marks.
+  // $ asserts the position at the end of the string.
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi!!!'));
+  // console.log(remove('!Hi'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('Hi'));
+}
