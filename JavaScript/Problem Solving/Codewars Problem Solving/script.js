@@ -818,3 +818,76 @@
   // console.log(isAlt('apple'));
   // console.log(isAlt('banana'));
 }
+
+// ES6 string addition
+//* My Solution
+{
+  const joinStrings = (string1, string2) => `${string1} ${string2}`;
+
+  // console.log(joinStrings('string1', 'string2'));
+  // console.log(joinStrings(134, 234));
+}
+
+// Duck Duck Goose
+//* My Solution
+{
+  const duckDuckGoose = (players, goose) => {
+    if (goose <= players.length) return players[goose - 1]?.name;
+    if (goose > players.length) {
+      if (goose % players.length === 0)
+        return players[players.length - 1]?.name;
+
+      return players[(goose % players.length) - 1]?.name;
+    }
+  };
+
+  const players = [
+    { name: 'a' },
+    { name: 'b' },
+    { name: 'c' },
+    { name: 'd' },
+    { name: 'c' },
+    { name: 'e' },
+    { name: 'f' },
+    { name: 'g' },
+    { name: 'h' },
+    { name: 'z' },
+  ];
+  // console.log(duckDuckGoose(players, 3));
+  // console.log(duckDuckGoose(players, 18));
+  // console.log(duckDuckGoose(players, 20));
+}
+
+// simple calculator
+//* My Solution
+{
+  const calculator = (a, b, sign) => {
+    const operators = `+-*/`;
+
+    if (
+      !operators.includes(sign) ||
+      typeof a !== 'number' ||
+      typeof b !== 'number'
+    )
+      return 'unknown value';
+
+    switch (sign) {
+      case '+':
+        return a + b;
+      case '-':
+        return a - b;
+      case '*':
+        return a * b;
+      case '/':
+        if (b === 0) return 'unknown value';
+        return a / b;
+      default:
+        'unknown value';
+    }
+  };
+
+  // console.log(calculator(1, 2, '+')); // 3
+  // console.log(calculator(1, 2, '-')); // -1
+  // console.log(calculator(1, 2, '&')); // unknown value
+  // console.log(calculator(1, 'k', '*')); // unknown value
+}
