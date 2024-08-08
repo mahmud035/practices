@@ -1130,3 +1130,100 @@
 
   // console.log(grow([1, 2, 3, 4]));
 }
+
+// Simple Comparison?
+//* My Solution
+{
+  const add = (a, b) => a == b;
+
+  // console.log(add('1', 1));
+  // console.log(add(1, '0'));
+}
+
+// I love you, a little , a lot, passionately ... not at all
+//* My Solution
+{
+  const howMuchILoveYou = (numOfPetals) => {
+    if (numOfPetals >= 1 && numOfPetals <= 6) {
+      switch (numOfPetals) {
+        case 1:
+          return `I love you`;
+        case 2:
+          return `a little`;
+        case 3:
+          return `a lot`;
+        case 4:
+          return `passionately`;
+        case 5:
+          return `madly`;
+        case 6:
+          return `not at all`;
+      }
+    }
+
+    if (numOfPetals > 6) {
+      switch (numOfPetals % 6) {
+        case 1:
+          return `I love you`;
+        case 2:
+          return `a little`;
+        case 3:
+          return `a lot`;
+        case 4:
+          return `passionately`;
+        case 5:
+          return `madly`;
+        case 0:
+        case 6:
+          return `not at all`;
+      }
+    }
+  };
+
+  // console.log(howMuchILoveYou(7)); // "I love you"
+  // console.log(howMuchILoveYou(3)); // "a lot"
+  // console.log(howMuchILoveYou(6)); // "not at all"
+  // console.log(howMuchILoveYou(132)); // 'not at all'
+}
+
+// Filter out the geese
+//* My Solution
+{
+  const gooseFilter = (birds) => {
+    const geese = [
+      'African',
+      'Roman Tufted',
+      'Toulouse',
+      'Pilgrim',
+      'Steinbacher',
+    ];
+
+    return birds.filter((bird) => !geese.includes(bird));
+  };
+
+  // console.log(
+  //   gooseFilter([
+  //     'Mallard',
+  //     'Hook Bill',
+  //     'African',
+  //     'Crested',
+  //     'Pilgrim',
+  //     'Toulouse',
+  //     'Blue Swedish',
+  //   ])
+  // );
+
+  // console.log(
+  //   gooseFilter(['Mallard', 'Barbary', 'Hook Bill', 'Blue Swedish', 'Crested'])
+  // );
+
+  // console.log(
+  //   gooseFilter([
+  //     'African',
+  //     'Roman Tufted',
+  //     'Toulouse',
+  //     'Pilgrim',
+  //     'Steinbacher',
+  //   ])
+  // );
+}
