@@ -1006,3 +1006,127 @@
   // console.log(remove('Hi! Hi!'));
   // console.log(remove('Hi'));
 }
+
+// Exclamation marks series #3: Remove all exclamation marks from sentence except at the end
+//* My Solution
+{
+  const remove = (string) => {
+    // Split the Sentence
+    const mainPart = string.replace(/!+$/, '');
+    const trailingExclamations = string.match(/!+$/) || '';
+
+    // Remove Exclamation Marks from Main Part
+    const cleanedMainPart = mainPart.replace(/!/g, '');
+
+    // Concatenate and Return
+    return cleanedMainPart + trailingExclamations;
+  };
+
+  // trailingExclamations captures any exclamation marks at the end of the sentence using the regular expression /!+$/. If there are no trailing exclamations, it returns an empty string.
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi!!!'));
+  // console.log(remove('!Hi'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('Hi'));
+}
+
+// Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+//* My Solution
+{
+  const remove = (string) => {
+    // Remove all exclamation marks from the string
+    const cleanedString = string.replace(/!/g, '');
+
+    // Add a single exclamation mark at the end
+    return cleanedString + '!';
+  };
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi!!!'));
+  // console.log(remove('!Hi'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('Hi'));
+}
+
+// Exclamation marks series #5: Remove all exclamation marks from the end of words
+//* My Solution
+{
+  const remove = (string) =>
+    string
+      .split(' ')
+      .map((word) => word.replace(/!+$/, ''))
+      .join(' ');
+
+  // replace(/!+$/, '') uses a regular expression to match one or more exclamation marks (!+) at the end of the word ($ asserts position at the end of a string) and replaces them with an empty string '', effectively removing them.
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi!!!'));
+  // console.log(remove('!Hi!'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('!!!Hi !!hi!!! !hi'));
+}
+
+// Exclamation marks series #9: Remove or add a exclamation mark at the end of words of the sentence
+//* My Solution
+{
+  const removeOrAdd = (string) =>
+    string
+      .split(' ')
+      .map((word) => {
+        if (word.endsWith('!') && !word.endsWith('!!'))
+          return word.slice(0, -1);
+        if (!word.endsWith('!')) return word + '!';
+        return word;
+      })
+      .join(' ');
+
+  // console.log(removeOrAdd('Hi!'));
+  // console.log(removeOrAdd('Hi! Hi'));
+  // console.log(removeOrAdd('Hi! Hi'));
+  // console.log(removeOrAdd('Hi! Hi Hi!!'));
+  // console.log(removeOrAdd('!Hi! !Hi !Hi!!'));
+}
+
+// Exclamation marks series #10: Remove some exclamation marks to keep the same number of exclamation marks at the beginning and end of each word
+//* My Solution
+{
+  const remove = (string) => {
+    return string
+      .split(' ')
+      .map((word) => {
+        // Count exclamation marks at the start
+        const startExclamations = word.match(/^!+/)?.[0].length || 0;
+
+        // Count exclamation marks at the end
+        const endExclamations = word.match(/!+$/)?.[0].length || 0;
+
+        // Calculate the minimum number of exclamation marks to keep
+        const minExclamations = Math.min(startExclamations, endExclamations);
+
+        // Remove exclamation marks from both sides
+        const wordWithoutExclamations = word.replace(/^!+|!+$/g, '');
+
+        return (
+          '!'.repeat(minExclamations) +
+          wordWithoutExclamations +
+          '!'.repeat(minExclamations)
+        );
+      })
+      .join(' ');
+  };
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('!Hi! Hi!'));
+  // console.log(remove('!!Hi! !Hi!!'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('!!!!Hi!! !!!!Hi !Hi!!!'));
+}
+
+// Beginner - Reduce but Grow
+//* My Solution
+{
+  const grow = (x) => x.reduce((acc, curr) => acc * curr, 1);
+
+  // console.log(grow([1, 2, 3, 4]));
+}
