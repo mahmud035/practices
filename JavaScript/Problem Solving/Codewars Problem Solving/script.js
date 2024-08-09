@@ -1258,3 +1258,53 @@
   // console.log(sort(['x', 'y', 'z'], [1, 2, 0]));
   // console.log(sort(['z', 'x', 'y'], [0, 2, 1]));
 }
+
+// Pythagorean Triple
+//* My Solution
+{
+  const isPythagoreanTriple = (integers) => {
+    const [a, b, c] = integers.sort((a, b) => a - b);
+
+    // a**2 + b**2 = c**2
+    const isPossible = Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2);
+
+    return isPossible;
+  };
+
+  // console.log(isPythagoreanTriple([3, 4, 5]));
+  // console.log(isPythagoreanTriple([3, 5, 9]));
+  // console.log(isPythagoreanTriple([13, 12, 5]));
+}
+
+// 5 without numbers !!
+//* My Solution
+{
+  const unusualFive = () => {
+    return 'five!'.length;
+  };
+
+  // console.log(unusualFive());
+}
+
+// Count Odd Numbers below n
+//* My Solution
+{
+  const oddCount = (n) => Math.floor(n / 2);
+
+  // console.log(oddCount(15));
+  // console.log(oddCount(15023));
+}
+
+// Do you speak "English"?
+//* My Solution
+{
+  const spEng = (sentence) => {
+    const matches = sentence.match(/English/gi) || [];
+    const isSpeakEnglish = matches.length > 0;
+
+    return isSpeakEnglish;
+  };
+
+  // console.log(spEng('abcEnglishdef'));
+  // console.log(spEng('abcnEglishsef'));
+}
