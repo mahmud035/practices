@@ -1227,3 +1227,34 @@
   //   ])
   // );
 }
+
+// Calculate Meal Total
+//* My Solution
+{
+  const calculate_total = (subtotal, tax, tip) => {
+    const taxes = subtotal * (tax / 100);
+    const tips = subtotal * (tip / 100);
+    const total = (subtotal + taxes + tips).toFixed(2);
+    return Number.parseFloat(total);
+  };
+
+  // console.log(calculate_total(5, 5, 10));
+  // console.log(calculate_total(36.97, 7, 15));
+}
+
+// Sort with a sorting array
+//* My Solution
+{
+  const sort = (initialArray, sortingArray) => {
+    const sortedArray = [];
+
+    for (let i = 0; i < sortingArray.length; i++) {
+      sortedArray[sortingArray[i]] = initialArray[i];
+    }
+
+    return sortedArray;
+  };
+
+  // console.log(sort(['x', 'y', 'z'], [1, 2, 0]));
+  // console.log(sort(['z', 'x', 'y'], [0, 2, 1]));
+}
