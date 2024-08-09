@@ -72,11 +72,11 @@ const deliverMessage = async (message) => {
 const MessageBox = () => {
   const [messages, setMessages] = useState([]);
 
-  async function sendMessage(formData) {
+  const sendMessage = async (formData) => {
     const sentMessage = await deliverMessage(formData.get('message'));
 
     setMessages((messages) => [...messages, { text: sentMessage }]);
-  }
+  };
 
   return <Thread messages={messages} sendMessage={sendMessage} />;
 };
