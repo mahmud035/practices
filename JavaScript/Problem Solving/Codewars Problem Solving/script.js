@@ -1308,3 +1308,34 @@
   // console.log(spEng('abcEnglishdef'));
   // console.log(spEng('abcnEglishsef'));
 }
+
+// Geometry Basics: Distance between points in 2D
+//* My Solution
+{
+  const distanceBetweenPoints = (a, b) => {
+    const dx = b.x - a.x; // Difference in x-coordinates
+    const dy = b.y - a.y; // Difference in y-coordinates
+
+    return Math.sqrt(dx * dx + dy * dy); // Distance formula
+  };
+
+  // Example usage:
+  const pointA = { x: 1, y: 2 };
+  const pointB = { x: 4, y: 6 };
+
+  // console.log(distanceBetweenPoints(pointA, pointB)); // 5
+}
+
+// Find out whether the shape is a cube
+//* My Solution
+{
+  const cubeChecker = (volume, side) => {
+    if (volume <= 0 || side <= 0) return false;
+
+    return volume === side * side * side ? true : false;
+  };
+
+  // console.log(cubeChecker(8, 3));
+  // console.log(cubeChecker(8, 2));
+  // console.log(cubeChecker(0, 0));
+}
