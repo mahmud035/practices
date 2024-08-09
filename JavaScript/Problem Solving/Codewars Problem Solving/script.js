@@ -1339,3 +1339,45 @@
   // console.log(cubeChecker(8, 2));
   // console.log(cubeChecker(0, 0));
 }
+
+// Difference of Volumes of Cuboids
+//* My Solution
+{
+  const findDifference = (a, b) =>
+    Math.abs(
+      a.reduce((acc, curr) => acc * curr, 1) -
+        b.reduce((acc, curr) => acc * curr, 1)
+    );
+
+  // console.log(findDifference([2, 2, 3], [5, 4, 1]));
+}
+
+// Find Multiples of a Number
+//* My Solution
+{
+  const findMultiples = (integer, limit) => {
+    const array = [];
+    let i = integer; // loop variable
+
+    while (i <= limit) {
+      array.push(i);
+      i += integer; // increment
+    }
+
+    return array;
+  };
+
+  // console.log(findMultiples(5, 25));
+  // console.log(findMultiples(4, 27));
+}
+
+// Invert values
+//* My Solution
+{
+  const invert = (array) =>
+    array.length > 0 ? array.map((element) => element * -1) : [];
+
+  // console.log(invert([1, 2, 3, 4, 5]));
+  // console.log(invert([1, -2, 3, -4, 5]));
+  // console.log(invert([]));
+}
