@@ -1381,3 +1381,45 @@
   // console.log(invert([1, -2, 3, -4, 5]));
   // console.log(invert([]));
 }
+
+// Merge two sorted arrays into one
+//* My Solution
+{
+  const mergeArrays = (arr1, arr2) => {
+    if (arr1.length === 0 && arr2.length === 0) return [];
+
+    // Merge the two arrays
+    const mergedArray = [...arr1, ...arr2];
+
+    // Use Set to remove duplicates
+    const uniqueArray = [...new Set(mergedArray)];
+
+    // Sort the unique array
+    uniqueArray.sort((a, b) => a - b);
+
+    return uniqueArray;
+  };
+
+  // console.log(mergeArrays([1, 2, 3, 4], [5, 6, 7, 8]));
+  // console.log(mergeArrays([1, 3, 5, 7, 9], [10, 8, 6, 4, 2]));
+  // console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
+}
+
+// Merge two arrays
+//* My Solution
+{
+  const mergeArrays = (a, b) => {
+    const mergedArray = [];
+    const maxArrayLength = Math.max(a.length, b.length);
+
+    for (let i = 0; i < maxArrayLength; i++) {
+      if (a[i]) mergedArray.push(a[i]);
+      if (b[i]) mergedArray.push(b[i]);
+    }
+
+    return mergedArray;
+  };
+
+  // console.log(mergeArrays(['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]));
+  // console.log(mergeArrays([1, 2, 3], ['a', 'b', 'c', 'd', 'e', 'f']));
+}
