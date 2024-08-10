@@ -1457,3 +1457,135 @@
   // console.log(typeValidation(42, 'number'));
   // console.log(typeValidation('42', 'number'));
 }
+
+// For Twins: 2. Math operations
+//* My Solution
+{
+  const iceBrickVolume = (radius, bottleLength, rimLength) => {
+    const iceBrickHeight = bottleLength - rimLength;
+    const iceBrickArea = 2 * radius * radius; // assume iceBreak as rectangular (length * width)
+    return iceBrickArea * iceBrickHeight;
+  };
+
+  // console.log(iceBrickVolume(1, 10, 2)); // 16
+  // console.log(iceBrickVolume(5, 30, 7)); // 1150
+}
+
+// Converter
+//* My Solution
+{
+  class Converter {
+    // Declare private fields
+    #number;
+    #unit;
+
+    constructor(number, unit) {
+      this.#number = number;
+      this.#unit = unit;
+    }
+
+    // Getter for unit
+    get unit() {
+      return this.#unit;
+    }
+
+    // Getter for size
+    get size() {
+      return `${this.#number} ${this.#unit}`;
+    }
+
+    // Method to convert size to Bytes
+    toB() {
+      this.#convertTo('B');
+    }
+
+    // Method to convert size to Kilobytes
+    toKB() {
+      this.#convertTo('KB');
+    }
+
+    // Method to convert size to Megabytes
+    toMB() {
+      this.#convertTo('MB');
+    }
+
+    // Method to convert size to Gigabytes
+    toGB() {
+      this.#convertTo('GB');
+    }
+
+    // Method to convert size to Terabytes
+    toTB() {
+      this.#convertTo('TB');
+    }
+
+    // Private method to handle conversions
+    #convertTo(targetUnit) {
+      const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+      const conversionRates = [
+        1,
+        1024,
+        1024 * 1024,
+        1024 * 1024 * 1024,
+        1024 * 1024 * 1024 * 1024,
+      ];
+
+      // Find the index of the current unit and the target unit
+      const currentIndex = units.indexOf(this.#unit);
+      const targetIndex = units.indexOf(targetUnit);
+
+      console.log({ currentIndex, targetIndex });
+
+      // Convert the size to bytes first
+      const sizeInBytes = this.#number * conversionRates[currentIndex];
+
+      // Convert bytes to the target unit
+      const sizeInTargetUnit = sizeInBytes / conversionRates[targetIndex];
+
+      // Round down to 3 decimal places
+      this.#number = Math.floor(sizeInTargetUnit * 1000) / 1000;
+
+      // Update the unit
+      this.#unit = targetUnit;
+    }
+  }
+
+  const file = new Converter(1, 'TB');
+  // file.toMB();
+  // console.log(file.unit); // 'MB'
+  // console.log(file.size); // '1048576 MB'
+}
+
+// Convert to Binary
+//* My Solution
+{
+  const toBinary = (n) => Number(n.toString(2));
+
+  // console.log(toBinary(1));
+  // console.log(toBinary(5));
+  // console.log(toBinary(11));
+}
+
+// Convert Integer to Binary
+//* My Solution
+{
+  const toBinary = (n) => {
+    // For positive numbers or zero
+    if (n >= 0) return n.toString(2);
+
+    // For negative numbers, use two's complement (32-bit)
+    return (n >>> 0).toString(2);
+  };
+
+  // console.log(toBinary(3));
+  // console.log(toBinary(-3));
+}
+
+// Convert a Boolean to a String
+//* My Solution
+{
+  const booleanToString = (b) => b.toString();
+
+  // console.log(booleanToString(true));
+  // console.log(booleanToString(false));
+}
