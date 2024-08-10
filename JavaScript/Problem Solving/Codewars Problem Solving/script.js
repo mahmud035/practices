@@ -1423,3 +1423,37 @@
   // console.log(mergeArrays(['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]));
   // console.log(mergeArrays([1, 2, 3], ['a', 'b', 'c', 'd', 'e', 'f']));
 }
+
+// Calculate Price Excluding VAT
+//* My Solution
+{
+  const excludingVatPrice = (price) => {
+    if (price === null) return -1;
+
+    const vatRate = 0.15;
+    const originalPrice = price / (1 + vatRate);
+
+    return Number.parseFloat(originalPrice.toFixed(2));
+  };
+
+  // console.log(excludingVatPrice(230));
+  // console.log(excludingVatPrice(123));
+}
+
+// Will there be enough space?
+//* My Solution
+{
+  const enough = (cap, on, wait) => (cap >= on + wait ? 0 : wait - (cap - on));
+
+  // console.log(enough(10, 5, 5));
+  // console.log(enough(100, 60, 50));
+}
+
+// For Twins: 1. Types
+//* My Solution
+{
+  const typeValidation = (variable, type) => typeof variable === type;
+
+  // console.log(typeValidation(42, 'number'));
+  // console.log(typeValidation('42', 'number'));
+}
