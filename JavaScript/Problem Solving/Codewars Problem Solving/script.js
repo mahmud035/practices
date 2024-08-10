@@ -1589,3 +1589,94 @@
   // console.log(booleanToString(true));
   // console.log(booleanToString(false));
 }
+
+// Convert string to camel case
+//* My Solution
+{
+  const toCamelCase = (str) => {
+    return str
+      .split(/[-_]/)
+      .map((word, i) =>
+        i === 0 ? word : `${word.at(0).toUpperCase()}${word.slice(1)}`
+      )
+      .join('');
+  };
+
+  // console.log(toCamelCase('the-stealth-warrior'));
+  // console.log(toCamelCase('The_Stealth_Warrior'));
+  // console.log(toCamelCase('The_Stealth-Warrior'));
+}
+
+// Pull your words together, man!
+//* My Solution
+{
+  const sentencify = (words) => {
+    const string = words
+      .map((word, i) =>
+        i === 0 ? `${word.at(0).toUpperCase()}${word?.slice(1)}` : word
+      )
+      .join(' ');
+
+    return string + '.';
+  };
+
+  // console.log(sentencify(['i', 'am', 'an', 'AI']));
+  // console.log(sentencify(['FIELDS', 'of', 'CORN', 'are', 'to', 'be', 'sown']));
+  // console.log(sentencify(['this', 'is', 'a', 'sentence']));
+  // console.log(sentencify(['yes']));
+}
+
+// Convert all the cases!
+//* My Solution
+{
+  const changeCase = (identifier, targetCase) => {
+    const caseTypes = ['snake', 'camel', 'kebab'];
+
+    // Handle Edge Cases
+    const containsDashAndUnderscore = (identifier) =>
+      /[-]/.test(identifier) && /[_]/.test(identifier);
+
+    const containsCapitalLetterAndUnderscore = (identifier) =>
+      /[A-Z]/.test(identifier) && /_/.test(identifier);
+
+    const containsCapitalLetterAndDash = (identifier) =>
+      /[A-Z]/.test(identifier) && /-/.test(identifier);
+
+    if (
+      !caseTypes.includes(targetCase) ||
+      containsDashAndUnderscore(identifier) ||
+      containsCapitalLetterAndUnderscore(identifier) ||
+      containsCapitalLetterAndDash(identifier)
+    ) {
+      return undefined;
+    }
+    if (identifier.length === 0) return '';
+
+    // Split the string by camel case, dashes, or underscores
+    const words = identifier.split(/(?=[A-Z])|[-_]/);
+
+    if (targetCase === 'snake') return words.join('_').toLowerCase();
+
+    if (targetCase === 'camel') {
+      return words
+        .map((word, i) =>
+          i === 0
+            ? `${word.at(0).toLowerCase()}${word.slice(1)}`
+            : `${word.at(0).toUpperCase()}${word.slice(1)}`
+        )
+        .join('');
+    }
+
+    if (targetCase === 'kebab') return words.join('-').toLowerCase();
+  };
+
+  // console.log(changeCase('snakeCase', 'snake'));
+  // console.log(changeCase('some-lisp-name', 'camel'));
+  // console.log(changeCase('map_to_all', 'kebab'));
+  // console.log(changeCase('doHTMLRequest', 'kebab'));
+
+  // console.log(changeCase('snakeCamel_case', 'snake'));
+  // console.log(changeCase('invalid-inPut_bad', 'kebab'));
+  // console.log(changeCase('valid-input', 'huh???'));
+  // console.log(changeCase('', 'camel'));
+}
