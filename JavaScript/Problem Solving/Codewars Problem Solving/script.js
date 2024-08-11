@@ -1800,3 +1800,98 @@
   // console.log(Calculator.divide(12, 4));
   // console.log(Calculator.divide(33, 0));
 }
+
+// Basics 03: Strings, Numbers and Calculation
+//* My Solution
+{
+  const calculateString = (st) => {
+    const findNumbersAndOperators = (str) =>
+      str.match(/[0-9]+|[.+\-*/]/g) || [];
+
+    const findOperators = (str) => str.match(/[*/+\-]/g) || [];
+
+    const result = findNumbersAndOperators(st);
+    const operator = findOperators(st)[0];
+
+    const formattedArray = result.join('').split(operator);
+    const num1 = Number(formattedArray[0]);
+    const num2 = Number(formattedArray[1]);
+
+    // console.log({ operator, formattedArray, num1, num2 });
+
+    switch (operator) {
+      case '+':
+        return Math.round(num1 + num2).toString();
+      case '-':
+        return Math.round(num1 - num2).toString();
+      case '*':
+        return Math.round(num1 * num2).toString();
+      case '/':
+        return Math.round(num1 / num2).toString();
+    }
+  };
+
+  // console.log(calculateString('gdfgdf234dg54gf*23oP42'));
+  // console.log(calculateString('a1a2b3c.c0c/a1a0b.cc00c'));
+}
+
+// Write shortest function to calculate Average number of Array
+//* My Solution
+{
+  const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+
+  // console.log(avg([0, 1, 2, 3, 4]));
+}
+
+// Mad Mathematician's Calculator (Basic Version)
+//* My Solution (NOT Completed Yet)
+{
+  const calc = (a, b, operator) => {
+    const operatorCharCode = operator.charCodeAt(0);
+    // console.log({ [operator]: operatorCharCode });
+
+    switch (operatorCharCode) {
+      case 43:
+        return Number((a + b).toFixed(2));
+      case 45:
+        return Number((a - b).toFixed(2));
+      case 42:
+        return Number((a * b).toFixed(2));
+      case 47:
+        if (b === 0) return NaN;
+        return Number((a.toString() / b.toString()).toString().slice(0, 4));
+      case 37:
+        if (b === 0) return NaN;
+        return Number((a % b).toFixed(2));
+    }
+  };
+
+  // console.log(calc(0, 12, '+'));
+  // console.log(calc(54, 20, '-'));
+  // console.log(calc(4, 5, '*'));
+  // console.log(calc(5, 3, '/'));
+  // console.log(calc(10, 5, '%'));
+  // console.log(calc(5, 0, '%'));
+}
+
+// Slope of a Line
+//* My Solution
+{
+  const getSlope = (p1, p2) => {
+    const [x1, y1] = p1;
+    const [x2, y2] = p2;
+
+    // Check if the line is vertical
+    if (x1 === x2) return null;
+
+    // Check if same point is given twice
+    if (x1 === x2 && y1 === y2) return null;
+
+    // Calculate the slope
+    return (y2 - y1) / (x2 - x1);
+  };
+
+  // console.log(getSlope([1, 1], [1, 2]));
+  // console.log(getSlope([-5, 9], [-5, 9]));
+  // console.log(getSlope([1, 8], [2, 9]));
+}
