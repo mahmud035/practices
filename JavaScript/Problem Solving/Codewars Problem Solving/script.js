@@ -2028,3 +2028,15 @@
 
   // console.log(distinct([1, 2, 1, 1, 3, 2]));
 }
+
+// Remove duplicate words
+//* My Solution
+{
+  const removeDuplicateWords = (s) => [...new Set(s.split(' '))].join(' ');
+
+  // console.log(
+  //   removeDuplicateWords(
+  //     'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+  //   )
+  // );
+}
