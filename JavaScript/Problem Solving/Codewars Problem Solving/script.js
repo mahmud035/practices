@@ -1895,3 +1895,77 @@
   // console.log(getSlope([-5, 9], [-5, 9]));
   // console.log(getSlope([1, 8], [2, 9]));
 }
+
+// String basics
+//* My Solution
+{
+  const getUsersIds = (str) => {
+    return str
+      .split(',')
+      .map((word) =>
+        word.replace(/#/g, '').replace('uid', '').trim().toLowerCase()
+      );
+  };
+
+  // console.log(getUsersIds('   uidabc  '));
+  // console.log(getUsersIds('uidone, uidtwo'));
+  // console.log(getUsersIds('  uidin name whitespace'));
+  // console.log(getUsersIds('uid##doublehashtag'));
+  // console.log(getUsersIds('uid12 ab, uid#, uidMiXeDcHaRs'));
+}
+
+// IndexOf Array in Array
+//* My Solution
+{
+  const searchArray = (arrayToSearch, query) => {
+    // Handle edge case
+    if (!Array.isArray(query) || (Array.isArray(query) && query.length !== 2)) {
+      throw new Error('Query should be an array of length two.');
+    }
+
+    let indexOf = -1;
+
+    for (let i = 0; i < arrayToSearch.length; i++) {
+      // Handle edge cases
+      if (!Array.isArray(arrayToSearch[i]))
+        throw new Error('Each sub-array should be an array.');
+
+      if (arrayToSearch[i].length !== 2)
+        throw new Error(
+          'Each sub-array in the two-dimensional array should be of length two.'
+        );
+
+      if (
+        arrayToSearch[i][0] === query[0] &&
+        arrayToSearch[i][1] === query[1]
+      ) {
+        indexOf = i; // Update indexOf when a match is found
+        break; // Exit the loop once the first match is found
+      }
+    }
+
+    return indexOf;
+  };
+
+  const bigArray = [
+    [2, 3],
+    [7, 2],
+    [9, 20],
+    [1, 2],
+    [7, 2],
+    [45, 4],
+    [7, 87],
+    [4, 5],
+    [2, 7],
+    [6, 32],
+  ];
+
+  // let searchFor = [9, 20];
+  // console.log(searchArray(bigArray, searchFor)); // 2
+
+  // searchFor = [1, 12];
+  // console.log(searchArray(bigArray, searchFor)); // -1
+
+  // searchFor = [7, 2];
+  // console.log(searchArray(bigArray, searchFor)); // 1
+}
