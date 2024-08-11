@@ -1969,3 +1969,62 @@
   // searchFor = [7, 2];
   // console.log(searchArray(bigArray, searchFor)); // 1
 }
+
+// Query Converter
+//* My Solution
+{
+  const solution = (string) => {
+    const queryObject = {};
+
+    console.log(
+      string
+        .split('?')
+        .slice(1)
+        .join('')
+        .replaceAll('&', ' ')
+        .split(' ')
+        .forEach((str) => {
+          const [key, value] = str.split('=');
+          queryObject[key] = value;
+        })
+    );
+
+    return queryObject;
+  };
+
+  // console.log(solution('www.whatsup.com?name=Huy&lastname=dang'));
+  // console.log(
+  //   solution('www.apple.com?order=iphone&status=ordered&date=Oct,2,2017')
+  // );
+}
+
+// Simple remove duplicates
+//* My Solution
+{
+  const solve = (arr) => {
+    const seen = new Set();
+    const result = [];
+
+    // Iterate over the array from the end to the beginning
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (!seen.has(arr[i])) {
+        seen.add(arr[i]);
+        result.unshift(arr[i]); // Add the element to the front of the result list
+      }
+    }
+
+    return result;
+  };
+
+  // result.unshift(arr[i]) is used to add the element to the beginning of the result array, ensuring the final output is in the correct order.
+
+  // console.log(solve([3, 4, 4, 3, 6, 3]));
+}
+
+// Remove duplicates from list
+//* My Solution
+{
+  const distinct = (a) => [...new Set(a)];
+
+  // console.log(distinct([1, 2, 1, 1, 3, 2]));
+}
