@@ -1732,7 +1732,7 @@
 // Basic JS - Calculating averages
 //* My Solution
 {
-  const Calculator = {
+  const calculator = {
     average(...args) {
       if (args.length === 0) return 0;
 
@@ -1740,6 +1740,63 @@
     },
   };
 
-  // console.log(Calculator.average());
-  // console.log(Calculator.average(3, 4, 5));
+  // console.log(calculator.average());
+  // console.log(calculator.average(3, 4, 5));
+}
+
+// Basic Calculator
+//* My Solution
+{
+  const calculate = (num1, operation, num2) => {
+    if (num2 === 0 && operation === '/') return null;
+
+    switch (operation) {
+      case '+':
+        return num1 + num2;
+      case '-':
+        return num1 - num2;
+      case '*':
+        return num1 * num2;
+      case '/':
+        return num1 / num2;
+      default:
+        return null;
+    }
+  };
+
+  // console.log(calculate(2, '+', 4));
+  // console.log(calculate(6, '-', 1.5));
+  // console.log(calculate(-4, '*', 8));
+  // console.log(calculate(49, '/', -7));
+  // console.log(calculate(8, 'm', 2));
+  // console.log(calculate(8, 'm', 0));
+}
+
+// Basic JS - Building a calculator
+//* My Solution
+{
+  const Calculator = {
+    add(num1, num2) {
+      return num1 + num2;
+    },
+
+    subtract(num1, num2) {
+      return num1 - num2;
+    },
+
+    multiply(num1, num2) {
+      return num1 * num2;
+    },
+
+    divide(num1, num2) {
+      if (num2 === 0) return false;
+      return num1 / num2;
+    },
+  };
+
+  // console.log(Calculator.add(2, 6));
+  // console.log(Calculator.subtract(5, 3));
+  // console.log(Calculator.multiply(9, 2));
+  // console.log(Calculator.divide(12, 4));
+  // console.log(Calculator.divide(33, 0));
 }
