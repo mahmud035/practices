@@ -1680,3 +1680,66 @@
   // console.log(changeCase('valid-input', 'huh???'));
   // console.log(changeCase('', 'camel'));
 }
+
+// Converting Measures
+//* My Solution (NOT Completed Yet)
+{
+  const convertRecipe = (recipe) => {
+    const array = recipe.split(' ');
+  };
+
+  // console.log(convertRecipe('2 tbsp of butter'));
+  // //  "2 tbsp (30g) of butter"
+
+  // console.log(convertRecipe('1/2 tbsp of oregano'));
+  // // "1/2 tbsp (8g) of oregano"
+
+  // console.log(convertRecipe('1/2 tsp of salt'));
+  // "1/2 tsp (3g) of salt"
+
+  // console.log(
+  //   convertRecipe(
+  //     'Add to the mixing bowl and coat well with 1 tbsp of olive oil & 1/2 tbsp of dried dill'
+  //   )
+  // );
+  // "Add to the mixing bowl and coat well with 1 tbsp (15g) of olive oil & 1/2 tbsp (8g) of dried dill"
+}
+
+// Average Scores
+//* My Solution
+{
+  const average = (scores) => {
+    const sum = scores.reduce((acc, curr) => acc + curr, 0);
+    return Math.round(sum / scores.length);
+  };
+
+  // console.log(average([49, 3, 5, 300, 7]));
+}
+
+// Calculate average
+//* My Solution
+{
+  const findAverage = (array) => {
+    if (array.length === 0) return 0;
+
+    return array.reduce((acc, curr) => acc + curr, 0) / array.length;
+  };
+
+  // console.log(findAverage([1, 2, 3]));
+  // console.log(findAverage([1, 2, 3, 4]));
+}
+
+// Basic JS - Calculating averages
+//* My Solution
+{
+  const Calculator = {
+    average(...args) {
+      if (args.length === 0) return 0;
+
+      return args.reduce((acc, curr) => acc + curr, 0) / args.length;
+    },
+  };
+
+  // console.log(Calculator.average());
+  // console.log(Calculator.average(3, 4, 5));
+}
