@@ -2167,3 +2167,36 @@
   // console.log(logs(5, 2, 3));
   // console.log(logs(1000, 2, 3));
 }
+
+// CSV representation of array
+//* My Solution
+{
+  const toCsvText = (array) => {
+    return array.map((row) => row.join(',')).join('\n');
+  };
+
+  const input = [
+    [0, 1, 2, 3, 4],
+    [10, 11, 12, 13, 14],
+    [20, 21, 22, 23, 24],
+    [30, 31, 32, 33, 34],
+  ];
+
+  // console.log(toCsvText(input));
+}
+
+// Contamination #1 -String-
+//* My Solution
+{
+  const contamination = (text, char) => {
+    if (text.length === 0 || char.length === 0) return '';
+
+    return text.replace(text, char).padStart(text.length, char);
+  };
+
+  // console.log(contamination('abc', 'z')); // "zzz"
+  // console.log(contamination('', 'z')); // ''
+  // console.log(contamination('abc', '')); // ''
+  // console.log(contamination('_3ebzgh4', '&')); // "&&&&&&&&"
+  // console.log(contamination('//case', ' ')); // "      "
+}
