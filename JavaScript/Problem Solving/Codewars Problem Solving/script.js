@@ -2200,3 +2200,44 @@
   // console.log(contamination('_3ebzgh4', '&')); // "&&&&&&&&"
   // console.log(contamination('//case', ' ')); // "      "
 }
+
+// Get Nth Even Number
+//* My Solution
+{
+  const nthEven = (n) => n * 2 - 2;
+
+  // console.log(nthEven(1)); // 0
+  // console.log(nthEven(3)); // 4
+  // console.log(nthEven(100)); // 198
+  // console.log(nthEven(1298734)); // 2597466
+}
+
+// Ensure question
+//* My Solution
+{
+  const ensureQuestion = (s) => (s.includes('?') ? s : s + '?');
+
+  // console.log(ensureQuestion('')); // ?
+  // console.log(ensureQuestion('Yes')); // 'Yes?'
+  // console.log(ensureQuestion('No?')); // 'No?'
+}
+
+// Will you make it?
+//* My Solution
+{
+  const zeroFuel = (distanceToPump, mpg, fuelLeft) =>
+    distanceToPump <= mpg * fuelLeft ? true : false;
+
+  // console.log(zeroFuel(50, 25, 2)); // true
+  // console.log(zeroFuel(100, 50, 1)); // false
+}
+
+// Simple multiplication
+//* My Solution
+{
+  const simpleMultiplication = (number) =>
+    number % 2 === 0 ? number * 8 : number * 9;
+
+  // console.log(simpleMultiplication(2));
+  // console.log(simpleMultiplication(1));
+}
