@@ -2273,3 +2273,47 @@
   // console.log(strCount('Hello', 'l')); // 2
   // console.log(strCount('', 'z')); // 0
 }
+
+// Remove String Spaces
+//* My Solution
+{
+  const noSpace = (x) => x.split(' ').join('');
+
+  // console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'));
+}
+
+// Sum Mixed Array
+//* My Solution
+{
+  const sumMix = (x) => x.reduce((acc, curr) => acc + Number(curr), 0);
+
+  // console.log(sumMix([9, 3, '7', '3']));
+  // console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
+  // console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']));
+}
+
+// Sum The Array
+//* My Solution
+{
+  Array.prototype.sum = function () {
+    return this.reduce((acc, curr) => acc + curr, 0);
+  };
+
+  // const arr1 = [1, 2, 3, 4];
+  // console.log(arr1.sum()); // Output: 10
+
+  // const arr2 = [10, 28, 14, 33];
+  // console.log(arr2.sum()); // Output: 85
+
+  // var arr3 = [];
+  // console.log(arr3.sum()); // Output: 0
+}
+
+// Sum Arrays
+//* My Solution
+{
+  const sum = (numbers) => numbers.reduce((acc, curr) => acc + curr, 0);
+
+  // console.log(sum([])); // 0
+  // console.log(sum([1, 5.2, 4, 0, -1])); // 9.2
+}
