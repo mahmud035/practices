@@ -2533,3 +2533,46 @@
   // console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); // 50
   // console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); // -14
 }
+
+// Minimum Steps (Array Series #6)
+//* My Solution
+{
+  const minimumSteps = (numbers, value) => {
+    // Sort the numbers in ascending order
+    numbers.sort((a, b) => a - b);
+    let sum = numbers[0] + numbers[1];
+    let steps = 1;
+
+    // Handle edge cases
+    if (numbers.length === 3 && numbers[0] > value) {
+      return --steps;
+    }
+
+    for (let i = 2; i < numbers.length; i++) {
+      if (!(sum >= value)) {
+        sum += numbers[i];
+        steps++;
+      }
+    }
+
+    return steps;
+  };
+
+  // console.log(minimumSteps([1, 10, 12, 9, 2, 3], 6)); // 2
+  // console.log(minimumSteps([8, 9, 4, 2], 23)); // 3
+  // console.log(minimumSteps([19, 98, 69, 28, 75, 45, 17, 98, 67], 464)); // 8
+  // console.log(minimumSteps([4, 6, 3], 7)); // 1
+  // console.log(minimumSteps([4, 6, 3], 2)); // 0
+  // console.log(minimumSteps([5, 31, 1], 14)); // 2
+}
+
+// Nth Smallest Element (Array Series #4)
+//* My Solution
+{
+  const nthSmallest = (arr, pos) => arr.sort((a, b) => a - b)[pos - 1];
+
+  // console.log(nthSmallest([3, 1, 2], 2)); // 2
+  // console.log(nthSmallest([15, 20, 7, 10, 4, 3], 3)); // 7
+  // console.log(nthSmallest([2, 169, 13, -5, 0, -1], 4)); // 2
+  // console.log(nthSmallest([2, 1, 3, 3, 1, 2], 3)); // 2
+}
