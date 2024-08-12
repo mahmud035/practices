@@ -2457,3 +2457,38 @@
   // console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]));
   // console.log(maxTriSum([-7, 12, -7, 29, -5, 0, -7, 0, 0, 29]));
 }
+
+// Row Weights
+//* My Solution & Best Practice
+{
+  const rowWeights = (array) => {
+    const team1 = array
+      .filter((_, i) => i % 2 === 0)
+      .reduce((acc, curr) => acc + curr, 0);
+
+    const team2 = array
+      .filter((_, i) => i % 2 !== 0)
+      .reduce((acc, curr) => acc + curr, 0);
+
+    return [team1, team2];
+  };
+
+  // console.log(rowWeights([13, 27, 49]));
+  // console.log(rowWeights([50, 60, 70, 80]));
+  // console.log(rowWeights([80]));
+}
+
+// Form The Minimum
+//* My Solution
+{
+  const minValue = (values) => {
+    const smallestNumInStr = [...new Set(values)]
+      .sort((a, b) => a - b)
+      .join('');
+
+    return Number(smallestNumInStr);
+  };
+
+  // console.log(minValue([1, 3, 1])); // 13
+  // console.log(minValue([5, 7, 5, 9, 7])); // 579
+}
