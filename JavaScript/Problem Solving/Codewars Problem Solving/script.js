@@ -2492,3 +2492,44 @@
   // console.log(minValue([1, 3, 1])); // 13
   // console.log(minValue([5, 7, 5, 9, 7])); // 579
 }
+
+// Maximum Product
+//* My Solution
+{
+  const adjacentElementsProduct = (array) => {
+    let maxProduct = array[0] * array[1];
+
+    if (array.length === 2) return maxProduct;
+
+    for (let i = 1; i < array.length - 1; i++) {
+      if (array[i] * array[i + 1] > maxProduct) {
+        maxProduct = array[i] * array[i + 1];
+      }
+    }
+
+    return maxProduct;
+  };
+
+  // console.log(adjacentElementsProduct([5, 8])); // 40
+  // console.log(adjacentElementsProduct([1, 2, 3])); // 6
+  // console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); // 50
+  // console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); // -14
+}
+
+//* Best Practice
+{
+  const adjacentElementsProduct = (array) => {
+    const newArray = [];
+
+    for (let i = 0; i < array.length - 1; i++) {
+      newArray.push(array[i] * array[i + 1]);
+    }
+
+    return Math.max(...newArray);
+  };
+
+  // console.log(adjacentElementsProduct([5, 8])); // 40
+  // console.log(adjacentElementsProduct([1, 2, 3])); // 6
+  // console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); // 50
+  // console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); // -14
+}
