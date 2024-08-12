@@ -2241,3 +2241,35 @@
   // console.log(simpleMultiplication(2));
   // console.log(simpleMultiplication(1));
 }
+
+// Thinkful - Logic Drills: Traffic light
+//* My Solution
+{
+  // green => yellow => red => green
+  const updateLight = (current) =>
+    current === 'green' ? 'yellow' : current === 'yellow' ? 'red' : 'green';
+
+  // console.log(updateLight('green'));
+  // console.log(updateLight('yellow'));
+  // console.log(updateLight('red'));
+}
+
+// All Star Code Challenge #18
+//* My Solution
+{
+  const strCount = (str, letter) => {
+    if (str.length === 0) return 0;
+
+    let count = 0;
+
+    [...str].forEach((char) => {
+      if (char === letter) count++;
+    });
+
+    return count;
+  };
+
+  // console.log(strCount('Hello', 'o')); // 1
+  // console.log(strCount('Hello', 'l')); // 2
+  // console.log(strCount('', 'z')); // 0
+}
