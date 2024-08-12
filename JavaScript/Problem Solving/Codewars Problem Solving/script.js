@@ -2085,3 +2085,46 @@
 
   // console.log(quadrantSegment(A, B));
 }
+
+// Quadratic Coefficients Solver
+//* My Solution
+{
+  /*
+  NOTE:
+  The quadratic equation: (x-x1) * (x-x2) = 0
+  Expanding the expression gives: x^2 - (x1+x2)x + x1*x2 = 0
+  
+  From this, the coefficients a, b and c are:
+  a = 1,
+  b = -(x1+x2)
+  c = x1*x2
+  */
+
+  const quadratic = (x1, x2) => {
+    const a = 1;
+    const b = -(x1 + x2);
+    const c = x1 * x2;
+
+    return [a, b, c];
+  };
+
+  // console.log(quadratic(1, 2));
+  // console.log(quadratic(0, 1));
+}
+
+// Closest elevator
+//* My Solution
+{
+  const elevator = (left, right, call) => {
+    const distanceFromLeft = Math.abs(call - left);
+    const distanceFromRight = Math.abs(call - right);
+
+    return distanceFromRight <= distanceFromLeft ? 'right' : 'left';
+  };
+
+  // console.log(elevator(0, 1, 0));
+  // console.log(elevator(0, 1, 1));
+  // console.log(elevator(0, 1, 2));
+  // console.log(elevator(0, 0, 0));
+  // console.log(elevator(0, 2, 1));
+}
