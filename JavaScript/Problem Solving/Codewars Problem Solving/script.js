@@ -2317,3 +2317,37 @@
   // console.log(sum([])); // 0
   // console.log(sum([1, 5.2, 4, 0, -1])); // 9.2
 }
+
+// Beginner - Lost Without a Map
+//* My Solution
+{
+  const maps = (x) => x.map((el) => el * 2);
+}
+
+// Minimize Sum Of Array (Array Series #1)
+//* My Solution
+{
+  const minSum = (arr) => {
+    arr.sort((a, b) => a - b); // Sort the array in ascending order
+    let sum = 0;
+
+    for (let i = 0; i < arr.length / 2; i++) {
+      sum += arr[i] * arr[arr.length - 1 - i];
+    }
+
+    return sum;
+  };
+
+  /*  
+  arr[arr.length - 1 - i]:
+
+  This is accessing the element at the index arr.length - 1 - i.
+  arr.length - 1 gives you the index of the last element in the array.
+  Subtracting i from arr.length - 1 gives you the index of the element that is symmetrically opposite to i when considering the array from both ends.
+  For example, if i is 0 (the first element), this expression gives the last element (arr[arr.length - 1]). If i is 1 (the second element), this expression gives the second-to-last element (arr[arr.length - 2]).
+  */
+
+  // console.log(minSum([5, 4, 2, 3]));
+  // console.log(minSum([12, 6, 10, 26, 3, 24]));
+  // console.log(minSum([9, 2, 8, 7, 5, 4, 0, 6]));
+}
