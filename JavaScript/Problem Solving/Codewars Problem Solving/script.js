@@ -2040,3 +2040,48 @@
   //   )
   // );
 }
+
+// Quadrants
+//* My Solution
+{
+  const quadrant = (x, y) => {
+    if (x > 0 && y > 0) return 1;
+    if (x < 0 && y > 0) return 2;
+    if (x < 0 && y < 0) return 3;
+    if (x > 0 && y < 0) return 4;
+  };
+
+  // console.log(quadrant(1, 2)); // 1
+  // console.log(quadrant(-10, 100)); // 2
+  // console.log(quadrant(-1, -9)); // 3
+  // console.log(quadrant(19, -56)); // 4
+}
+
+// Quadrants 2: Segments
+//* My Solution
+{
+  class Coord {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+  }
+
+  const A = new Coord(1, 2);
+  const B = new Coord(3, 4);
+  // console.log(A, B);
+
+  const quadrantSegment = (A, B) => {
+    const { x: x1, y: y1 } = A;
+    const { x: x2, y: y2 } = B;
+
+    if (x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0) return false;
+    if (x1 < 0 && y1 > 0 && x2 < 0 && y2 > 0) return false;
+    if (x1 < 0 && y1 < 0 && x2 < 0 && y2 < 0) return false;
+    if (x1 > 0 && y1 < 0 && x2 > 0 && y2 < 0) return false;
+
+    return true;
+  };
+
+  // console.log(quadrantSegment(A, B));
+}
