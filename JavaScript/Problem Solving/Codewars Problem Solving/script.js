@@ -2417,3 +2417,43 @@
   // console.log(maxGap([24, 299, 131, 14, 26, 25]));
   // console.log(maxGap([-3, -27, -4, -2]));
 }
+
+// Product Array (Array Series #5)
+//* My Solution
+{
+  const productArray = (numbers) => {
+    const products = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      let product = 1; // Set product to 1 for each number
+
+      for (let j = 0; j < numbers.length; j++) {
+        if (i === j) continue;
+        product *= numbers[j];
+      }
+
+      products.push(product);
+    }
+
+    return products;
+  };
+
+  // console.log(productArray([12, 20]));
+  // console.log(productArray([1, 5, 2]));
+  // console.log(productArray([10, 3, 5, 6, 2]));
+}
+
+// Maximum Triplet Sum (Array Series #7)
+//* My Solution
+{
+  const maxTriSum = (numbers) => {
+    return [...new Set(numbers)]
+      .sort((a, b) => b - a)
+      .slice(0, 3)
+      .reduce((acc, curr) => acc + curr, 0);
+  };
+
+  // console.log(maxTriSum([3, 2, 6, 8, 2, 3]));
+  // console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]));
+  // console.log(maxTriSum([-7, 12, -7, 29, -5, 0, -7, 0, 0, 29]));
+}
