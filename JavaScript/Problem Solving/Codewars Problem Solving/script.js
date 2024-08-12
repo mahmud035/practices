@@ -2128,3 +2128,42 @@
   // console.log(elevator(0, 0, 0));
   // console.log(elevator(0, 2, 1));
 }
+
+// Elevator Distance
+//* My Solution & Best Practice
+{
+  const elevatorDistance = (array) => {
+    let distance = 0;
+
+    for (let i = 0; i < array.length - 1; i++) {
+      distance += Math.abs(array[i] - array[i + 1]);
+    }
+
+    return distance;
+  };
+
+  // console.log(elevatorDistance([5, 2, 8]));
+  // console.log(elevatorDistance([7, 1, 7, 1]));
+  // console.log(elevatorDistance([3, 3]));
+  // console.log(elevatorDistance([4, 13, 7, 12, 18, 0, 9]));
+}
+
+// easy logs
+//* My Solution
+{
+  /*  
+  Change of base formula:
+  logx(A) = log(A) / log(X)
+  logx(B) = log(B) / log(X)
+  */
+
+  const logs = (X, A, B) => {
+    const logA = Math.log(A) / Math.log(X);
+    const logB = Math.log(B) / Math.log(X);
+    return logA + logB;
+  };
+
+  // console.log(logs(10, 2, 3));
+  // console.log(logs(5, 2, 3));
+  // console.log(logs(1000, 2, 3));
+}
