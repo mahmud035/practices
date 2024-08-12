@@ -2351,3 +2351,69 @@
   // console.log(minSum([12, 6, 10, 26, 3, 24]));
   // console.log(minSum([9, 2, 8, 7, 5, 4, 0, 6]));
 }
+
+// Product Of Maximums Of Array (Array Series #2)
+//* My Solution
+{
+  const maxProduct = (numbers, size) => {
+    // Sort the number in ascending order
+    const sortedNumbers = numbers.sort((a, b) => a - b);
+    const slicedArray = sortedNumbers.slice(-size);
+
+    return slicedArray.reduce((acc, curr) => acc * curr, 1);
+  };
+
+  // console.log(maxProduct([4, 3, 5], 2));
+  // console.log(maxProduct([10, 8, 7, 9], 3));
+  // console.log(maxProduct([10, 2, 3, 8, 1, 10, 4], 5));
+}
+
+// Array Leaders (Array Series #3)
+//* My Solution
+{
+  const arrayLeaders = (numbers) => {
+    const leaders = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      let sum = 0;
+
+      // Calculate the sum of elements to the right of the current element
+      for (let j = i + 1; j < numbers.length; j++) {
+        sum += numbers[j];
+      }
+
+      // Check if the current element is greater than the sum of elements to its right
+      if (numbers[i] > sum) leaders.push(numbers[i]);
+    }
+
+    return leaders;
+  };
+
+  // console.log(arrayLeaders([1, 2, 3, 4, 0]));
+  // console.log(arrayLeaders([16, 17, 4, 3, 5, 2]));
+}
+
+// Maximum Gap (Array Series #4)
+//* My Solution
+{
+  const maxGap = (numbers) => {
+    // Sort the numbers in descending order
+    numbers.sort((a, b) => b - a);
+    let maxDifference = 0;
+
+    for (let i = 0; i < numbers.length - 1; i++) {
+      // Difference between the successive elements
+      const diffInTwoElement = Math.abs(numbers[i] - numbers[i + 1]);
+
+      if (diffInTwoElement > maxDifference) {
+        maxDifference = diffInTwoElement;
+      }
+    }
+
+    return maxDifference;
+  };
+
+  // console.log(maxGap([13, 10, 2, 9, 5]));
+  // console.log(maxGap([24, 299, 131, 14, 26, 25]));
+  // console.log(maxGap([-3, -27, -4, -2]));
+}
