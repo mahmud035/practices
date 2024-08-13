@@ -1067,6 +1067,55 @@
   // console.log(remove('!!!Hi !!hi!!! !hi'));
 }
 
+// Exclamation marks series #6: Remove n exclamation marks in the sentence from left to right
+//* My Solution
+{
+  const remove = (s, n) => {
+    let result = '';
+
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '!' && n > 0) n--;
+      else result += s[i];
+    }
+
+    return result;
+  };
+
+  // console.log(remove('Hi!', 1)); // Output: "Hi"
+  // console.log(remove('Hi!', 100)); // Output: "Hi"
+  // console.log(remove('Hi!!!', 1)); // Output: "Hi!!"
+  // console.log(remove('Hi!!!', 100)); // Output: "Hi"
+  // console.log(remove('!Hi', 1)); // Output: "Hi"
+  // console.log(remove('!Hi!', 1)); // Output: "Hi!"
+  // console.log(remove('!Hi!', 100)); // Output: "Hi"
+  // console.log(remove('!!!Hi !!hi!!! !hi', 1)); // Output: "!!Hi !!hi!!! !hi"
+  // console.log(remove('!!!Hi !!hi!!! !hi', 3)); // Output: "Hi !!hi!!! !hi"
+  // console.log(remove('!!!Hi !!hi!!! !hi', 5)); // Output: "Hi hi!!! !hi"
+  // console.log(remove('!!!Hi !!hi!!! !hi', 100)); // Output: "Hi hi hi"
+}
+
+// Exclamation marks series #7: Remove words from the sentence if it contains one exclamation mark
+//* My Solution
+{
+  const remove = (string) => {
+    return string
+      .split(' ')
+      .filter((word) => {
+        const exclamationCount = (word.match(/!/g) || []).length;
+        return exclamationCount !== 1;
+      })
+      .join(' ');
+  };
+
+  // console.log(remove('Hi!')); // Output: ""
+  // console.log(remove('Hi! Hi!')); // Output: ""
+  // console.log(remove('Hi! Hi! Hi!')); // Output: ""
+  // console.log(remove('Hi Hi! Hi!')); // Output: "Hi"
+  // console.log(remove('Hi! !Hi Hi!')); // Output: ""
+  // console.log(remove('Hi! Hi!! Hi!')); // Output: "Hi!!"
+  // console.log(remove('Hi! !Hi! Hi!')); // Output: "!Hi!"
+}
+
 // Exclamation marks series #8: Move all exclamation marks to the end of the sentence
 //* My Solution
 {
