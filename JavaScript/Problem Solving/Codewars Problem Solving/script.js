@@ -1067,6 +1067,23 @@
   // console.log(remove('!!!Hi !!hi!!! !hi'));
 }
 
+// Exclamation marks series #8: Move all exclamation marks to the end of the sentence
+//* My Solution
+{
+  const remove = (string) => {
+    const withoutExclamations = string.replace(/!/g, '');
+
+    const exclamationCount = string.length - withoutExclamations.length;
+
+    return withoutExclamations + '!'.repeat(exclamationCount);
+  };
+
+  // console.log(remove('Hi!'));
+  // console.log(remove('Hi! Hi!'));
+  // console.log(remove('Hi! Hi! Hi!'));
+  // console.log(remove('Hi! !Hi Hi!'));
+}
+
 // Exclamation marks series #9: Remove or add a exclamation mark at the end of words of the sentence
 //* My Solution
 {
@@ -1121,6 +1138,17 @@
   // console.log(remove('!!Hi! !Hi!!'));
   // console.log(remove('Hi! Hi!'));
   // console.log(remove('!!!!Hi!! !!!!Hi !Hi!!!'));
+}
+
+// Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
+//* My Solution
+{
+  const replace = (s) => s.replace(/[aeiouAEIOU]/g, '!');
+
+  // console.log(replace('Hi!'));
+  // console.log(replace('!Hi! Hi!'));
+  // console.log(replace('aeiou'));
+  // console.log(replace('ABCDE'));
 }
 
 // Beginner - Reduce but Grow
