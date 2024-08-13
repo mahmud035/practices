@@ -2576,3 +2576,58 @@
   // console.log(nthSmallest([2, 169, 13, -5, 0, -1], 4)); // 2
   // console.log(nthSmallest([2, 1, 3, 3, 1, 2], 3)); // 2
 }
+
+// Transform To Prime
+//* My Solution
+{
+  const minimumNumber = (numbers) => {
+    const isPrime = (num) => {
+      if (num <= 1) return false;
+      if (num === 2) return true;
+      if (num % 2 === 0) return false;
+
+      for (let i = 3; i * i <= num; i += 2) {
+        if (num % i === 0) return false;
+      }
+
+      return true;
+    };
+
+    const findNextPrime = (num) => {
+      while (!isPrime(num)) {
+        num++;
+      }
+      return num;
+    };
+
+    const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+    const nextPrime = findNextPrime(sum);
+    return nextPrime - sum;
+  };
+
+  // console.log(minimumNumber([3, 1, 2])); // 1
+  // console.log(minimumNumber([2, 12, 8, 4, 6])); // 5
+  // console.log(minimumNumber([50, 39, 49, 6, 17, 28])); // 2
+}
+
+// Age Range Compatibility Equation
+//* My Solution
+{
+  const datingRange = (age) => {
+    let min, max;
+
+    if (age > 14) {
+      min = Math.floor(age / 2 + 7);
+      max = Math.floor((age - 7) * 2);
+    } else {
+      min = Math.floor(age - 0.1 * age);
+      max = Math.floor(age + 0.1 * age);
+    }
+
+    return `${min}-${max}`;
+  };
+
+  // console.log(datingRange(27));
+  // console.log(datingRange(5));
+  // console.log(datingRange(17));
+}
