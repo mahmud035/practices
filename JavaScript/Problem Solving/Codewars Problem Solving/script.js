@@ -2822,3 +2822,96 @@
   // console.log(humanReadable(86400));
   // console.log(humanReadable(359999));
 }
+
+// Human readable working hours
+//* My Solution
+{
+  const readableTimetable = (workdays) => {
+    if (workdays.length === 0) return [];
+
+    // Define the correct order of days
+    const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+    // Sort workdays based on the order of the days
+    workdays.sort(
+      (a, b) => daysOfWeek.indexOf(a.day) - daysOfWeek.indexOf(b.day)
+    );
+
+    // Group consecutive days with the same working hours
+    let result = [];
+    let currentGroup = [workdays[0]];
+
+    for (let i = 1; i < workdays.length; i++) {
+      const currIndex = daysOfWeek.indexOf(workdays[i].day);
+      const prevIndex = daysOfWeek.indexOf(workdays[i - 1].day);
+
+      if (
+        workdays[i].from === currentGroup[0].from &&
+        workdays[i].to === currentGroup[0].to &&
+        currIndex === prevIndex + 1
+      ) {
+        currentGroup.push(workdays[i]);
+      } else {
+        result.push(currentGroup);
+        currentGroup = [workdays[i]];
+      }
+    }
+    result.push(currentGroup);
+
+    // Format the output
+    return result
+      .map((group) => {
+        const days = group.map((d) => d.day.toUpperCase());
+        const from = group[0].from;
+        const to = group[0].to;
+        return days.length > 1
+          ? `${days[0]} - ${days[days.length - 1]}: ${from} - ${to}`
+          : `${days[0]}: ${from} - ${to}`;
+      })
+      .join('\n');
+  };
+
+  const test0 = [
+    { day: 'mon', from: '11:00', to: '23:00' },
+    { day: 'tue', from: '11:00', to: '22:00' },
+    { day: 'wed', from: '11:00', to: '23:00' },
+    { day: 'thu', from: '12:00', to: '22:00' },
+    { day: 'fri', from: '12:00', to: '23:00' },
+    { day: 'sat', from: '10:00', to: '22:00' },
+    { day: 'sun', from: '11:00', to: '23:00' },
+  ];
+
+  const test1 = [
+    { day: 'mon', from: '11:00', to: '23:00' },
+    { day: 'tue', from: '11:00', to: '23:00' },
+    { day: 'wed', from: '11:00', to: '23:00' },
+    { day: 'thu', from: '12:00', to: '23:00' },
+    { day: 'fri', from: '12:00', to: '23:00' },
+    { day: 'sat', from: '10:00', to: '23:00' },
+    { day: 'sun', from: '11:00', to: '23:00' },
+  ];
+
+  const test2 = [
+    { day: 'mon', from: '11:00', to: '23:00' },
+    { day: 'tue', from: '11:00', to: '23:00' },
+    { day: 'thu', from: '11:00', to: '23:00' },
+    { day: 'sat', from: '11:00', to: '23:00' },
+    { day: 'sun', from: '11:00', to: '23:00' },
+  ];
+
+  // console.log(readableTimetable([]));
+  // console.log(readableTimetable(test0));
+  // console.log(readableTimetable(test1));
+  // console.log(readableTimetable(test2));
+}
+
+// Find the position!
+//* My Solution
+{
+  const position = (letter) =>
+    `Position of alphabet: ${letter.charCodeAt(0) - 96}`;
+
+  // console.log(position('a'));
+  // console.log(position('z'));
+  // console.log(position('e'));
+}
