@@ -3084,3 +3084,54 @@
   // console.log(numberToPrice(1000000.5));
   // console.log(numberToPrice('@'));
 }
+
+// Sum Strings as Numbers
+//* My Solution
+{
+  const sumStrings = (a, b) => {
+    const numA = BigInt(a);
+    const numB = BigInt(b);
+    const sum = numA + numB;
+    return `${sum}`;
+  };
+
+  const num1 = BigInt('1234567890123456789012345678901234567890');
+  const num2 = BigInt('9876543210987654321098765432109876543210');
+
+  // console.log(sumStrings('1', '2'));
+  // console.log(sumStrings('123', '456'));
+  // console.log(sumStrings(num1, num2));
+}
+
+// Format phone number by template
+//* My Solution
+{
+  const formatNumber = (number, template) => {
+    const numberStr = `${number}`;
+    const hashCount = (template.match(/#/g) || []).length;
+
+    // Check if the number of digits is valid
+    if (hashCount > numberStr.length) return 'Invalid phone number';
+
+    let result = '';
+    let numIndex = 0;
+
+    for (const char of template) {
+      if (char === '#') {
+        result += numberStr[numIndex];
+        numIndex++;
+      } else {
+        result += char;
+      }
+    }
+
+    return result;
+  };
+
+  // console.log(formatNumber(79052479075, '+# ### ### ## ##'));
+  // console.log(formatNumber(79052479075, '+# (###) ### ##-##'));
+  // console.log(formatNumber(79052479075, '+# ### ### ## ##'));
+  // console.log(formatNumber(81237068908090, '+## ### ### ## ##'));
+  // console.log(formatNumber(8123706890, '+## ### ### ##-##'));
+  // console.log(formatNumber(112, '+ () -'));
+}
