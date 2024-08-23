@@ -2915,3 +2915,64 @@
   // console.log(position('z'));
   // console.log(position('e'));
 }
+
+// Time Converter: hours, minutes, seconds and milliseconds
+//* My Solution
+{
+  const convert = (time) => {
+    const hours = `${time.getHours()}`.padStart(2, '0');
+    const minutes = `${time.getMinutes()}`.padStart(2, '0');
+    const seconds = `${time.getSeconds()}`.padStart(2, '0');
+    const milliseconds = `${time.getMilliseconds()}`.padStart(3, '0');
+
+    return `${hours}:${minutes}:${seconds},${milliseconds}`;
+  };
+
+  // console.log(convert(new Date(2016, 2, 8, 16, 42, 59)));
+  // console.log(convert(new Date(1951, 10, 31, 2, 2, 24, 399)));
+  // console.log(convert(new Date(1523, 5, 29, 23, 2, 2, 9)));
+  // console.log(convert(new Date(1, 1, 1, 1, 1, 1, 110)));
+  // console.log(convert(new Date(9999, 9, 9, 9, 9, 9, 999)));
+  // console.log(convert(new Date(2, 12, 30, 23, 59, 59, 875)));
+  // console.log(convert(new Date(1850, 12, 30, 13, 39, 19)));
+  // console.log(convert(new Date(1978, 3, 18, 12, 0, 0, 0)));
+  // console.log(convert(new Date(1850, 12, 30, 11, 11, 11, 123)));
+  // console.log(convert(new Date(1850, 12, 30, 0, 0, 0, 321)));
+}
+
+// Converting 12-hour time to 24-hour time
+//* My Solution
+{
+  const to24hourtime = (hour, minute, period) => {
+    if (period === 'am' && hour < 12) {
+      return `${hour.toString().padStart(2, '0')}${minute
+        .toString()
+        .padStart(2, '0')}`;
+    }
+
+    if (period === 'am' && hour === 12) {
+      return `00${minute.toString().padStart(2, '0')}`;
+    }
+
+    if (period === 'pm' && hour === 12) {
+      return `12${minute.toString().padStart(2, '0')}`;
+    }
+
+    if (period === 'pm' && hour < 12) {
+      return `${(hour + 12).toString().padStart(2, '0')}${minute
+        .toString()
+        .padStart(2, '0')}`;
+    }
+  };
+
+  // "8:30 am" => "0830"
+  // "8:30 pm" => "2030"
+  // "12:00 am" => "0000"
+
+  // console.log(to24hourtime(1, 0, 'am'));
+  // console.log(to24hourtime(1, 0, 'pm'));
+  // console.log(to24hourtime(12, 0, 'am'));
+  // console.log(to24hourtime(12, 0, 'pm'));
+  // console.log(to24hourtime(6, 30, 'am'));
+  // console.log(to24hourtime(9, 45, 'pm'));
+}
