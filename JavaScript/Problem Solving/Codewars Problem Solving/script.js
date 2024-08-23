@@ -2783,3 +2783,42 @@
   // console.log(combat(92, 8));
   // console.log(combat(20, 30));
 }
+
+// For UFC Fans (Total Beginners): Conor McGregor vs George Saint Pierre
+//* My Solution
+{
+  const quote = (fighter) =>
+    fighter.toLowerCase() === 'conor mcgregor'
+      ? "I'd like to take this chance to apologize.. To absolutely NOBODY!"
+      : 'I am not impressed by your performance.';
+
+  // console.log(quote('george saint pierre'));
+  // console.log(quote('conor mcgregor'));
+  // console.log(quote('George Saint Pierre'));
+  // console.log(quote('Conor McGregor'));
+}
+
+// Human Readable Time
+//* My Solution
+{
+  const humanReadable = (seconds) => {
+    const hh = seconds / 3600;
+    const mm = (seconds % 3600) / 60;
+    const ss = (seconds % 3600) % 60;
+
+    const formatTime = (time) => `${time}`.split('.')[0].padStart(2, '0');
+
+    return `${formatTime(hh)}:${formatTime(mm)}:${formatTime(ss)}`;
+  };
+
+  // console.log(humanReadable(0));
+  // console.log(humanReadable(59));
+  // console.log(humanReadable(60));
+  // console.log(humanReadable(90));
+  // console.log(humanReadable(3599));
+  // console.log(humanReadable(3600));
+  // console.log(humanReadable(45296));
+  // console.log(humanReadable(86399));
+  // console.log(humanReadable(86400));
+  // console.log(humanReadable(359999));
+}
