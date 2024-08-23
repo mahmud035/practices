@@ -2752,3 +2752,34 @@
   // console.log(humanYearsCatYearsDogYears(2));
   // console.log(humanYearsCatYearsDogYears(10));
 }
+
+// Find the first non-consecutive number
+//* My Solution
+{
+  const firstNonConsecutive = (arr) => {
+    let number = null;
+
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i + 1] - arr[i] === 1) continue;
+      else {
+        number = arr[i + 1];
+        break;
+      }
+    }
+
+    return number;
+  };
+
+  // console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8]));
+  // console.log(firstNonConsecutive([1, 2, 3, 4]));
+}
+
+// Grasshopper - Terminal game combat function
+//* My Solution
+{
+  const combat = (health, damage) => (health > damage ? health - damage : 0);
+
+  // console.log(combat(100, 5));
+  // console.log(combat(92, 8));
+  // console.log(combat(20, 30));
+}
