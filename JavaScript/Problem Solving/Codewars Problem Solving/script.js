@@ -2976,3 +2976,75 @@
   // console.log(to24hourtime(6, 30, 'am'));
   // console.log(to24hourtime(9, 45, 'pm'));
 }
+
+// Easy Time Convert
+//* My Solution
+{
+  const timeConvert = (num) => {
+    if (num === 0 || num < 0) return '00:00';
+
+    const hours = `${num / 60}`.split('.')[0].padStart(2, '0');
+    const minutes = `${num % 60}`.padStart(2, '0');
+
+    return `${hours}:${minutes}`;
+  };
+
+  // 78 => "01:18"
+
+  // console.log(timeConvert(0));
+  // console.log(timeConvert(-6));
+  // console.log(timeConvert(8));
+  // console.log(timeConvert(32));
+  // console.log(timeConvert(75));
+}
+
+// Human readable duration format
+//* My Solution
+{
+  const formatDuration = (seconds) => {
+    if (seconds === 0) return 'now';
+
+    const yy = Number(seconds / 31536000).toFixed(24);
+    const dd = (seconds % 31536000) / 86400;
+    const hh = ((seconds % 31536000) % 86400) / 3600;
+    const mm = (((seconds % 31536000) % 86400) % 3600) / 60;
+    const ss = (((seconds % 31536000) % 86400) % 3600) % 60;
+
+    // Get integer time value
+    const truncateTime = (time) => +`${time}`.split('.')[0];
+
+    // console.log(truncateTime(yy));
+    // console.log(truncateTime(dd));
+    // console.log(truncateTime(hh));
+    // console.log(truncateTime(mm));
+    // console.log(truncateTime(ss));
+
+    const timeComponent = [];
+
+    const addTimeComponent = (time, unit) => {
+      timeComponent.push(
+        `${truncateTime(time)} ${
+          truncateTime(time) > 1 ? unit : unit.slice(0, -1)
+        }`
+      );
+    };
+
+    if (truncateTime(yy) > 0) addTimeComponent(yy, 'years');
+    if (truncateTime(dd) > 0) addTimeComponent(dd, 'days');
+    if (truncateTime(hh) > 0) addTimeComponent(hh, 'hours');
+    if (truncateTime(mm) > 0) addTimeComponent(mm, 'minutes');
+    if (truncateTime(ss) > 0) addTimeComponent(ss, 'seconds');
+
+    if (timeComponent.length === 1) return timeComponent[0];
+
+    return (
+      timeComponent.slice(0, -1).join(', ') + ' and ' + timeComponent.slice(-1)
+    );
+  };
+
+  // console.log(formatDuration(1));
+  // console.log(formatDuration(62));
+  // console.log(formatDuration(120));
+  // console.log(formatDuration(3600));
+  // console.log(formatDuration(3662));
+}
