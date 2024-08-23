@@ -2708,3 +2708,47 @@
   // console.log(datingRange(5));
   // console.log(datingRange(17));
 }
+
+// Draw stairs
+//* My Solution
+{
+  const drawStairs = (n) => {
+    let str = '';
+
+    for (let i = 0; i < n; i++) {
+      // Add spaces based on the current line number
+      str += ' '.repeat(i) + 'I';
+
+      // Add a new line after each line except the last one
+      if (i !== n - 1) str += '\n';
+    }
+
+    return str;
+  };
+
+  // console.log(drawStairs(3));
+  // console.log(drawStairs(5));
+}
+
+// Cat years, Dog years
+//* My Solution
+{
+  const humanYearsCatYearsDogYears = (humanYears) => {
+    if (humanYears === 1) return [1, 15, 15];
+    if (humanYears === 2) return [2, 24, 24];
+
+    let catYears = 24;
+    let dogYears = 24;
+
+    for (let i = 3; i <= humanYears; i++) {
+      catYears += 4;
+      dogYears += 5;
+    }
+
+    return [humanYears, catYears, dogYears];
+  };
+
+  // console.log(humanYearsCatYearsDogYears(1));
+  // console.log(humanYearsCatYearsDogYears(2));
+  // console.log(humanYearsCatYearsDogYears(10));
+}
