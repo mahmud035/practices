@@ -3048,3 +3048,39 @@
   // console.log(formatDuration(3600));
   // console.log(formatDuration(3662));
 }
+
+// Number Format
+//* My Solution
+{
+  const numberFormat = (number) =>
+    new Intl.NumberFormat('en-US').format(number);
+
+  // console.log(numberFormat(100000));
+  // console.log(numberFormat(5678545));
+}
+
+// Formatting a number as price
+//* My Solution
+{
+  const numberToPrice = (number) => {
+    if (typeof number !== 'number') return 'NaN';
+
+    // Get the integer part of the number
+    const integerPart = `${number}`.split('.')[0];
+
+    // Get the decimal part of the number, slice it to two digits, and pad with '0' if necessary
+    let floatPart =
+      `${number}`.split('.')?.[1]?.slice(0, 2).padEnd(2, '0') ?? '';
+
+    // If the number is an integer, ensure the float part is '00'
+    if (floatPart === '') floatPart += '00';
+
+    // Format the integer part with commas and concatenate with the float part
+    return new Intl.NumberFormat('en-US').format(integerPart) + '.' + floatPart;
+  };
+
+  // console.log(numberToPrice(1500.129));
+  // console.log(numberToPrice(-5));
+  // console.log(numberToPrice(1000000.5));
+  // console.log(numberToPrice('@'));
+}
