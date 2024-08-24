@@ -2753,6 +2753,30 @@
   // console.log(humanYearsCatYearsDogYears(10));
 }
 
+// Cat Years, Dog Years (2)
+//* My Solution
+{
+  const ownedCatAndDog = (catYears, dogYears) => {
+    let ownedCat = 0;
+    let ownedDog = 0;
+
+    // Calculate for cat
+    if (catYears >= 15) ownedCat = 1;
+    if (catYears >= 24) ownedCat = 2 + Math.floor((catYears - 24) / 4);
+
+    // Calculate for dog
+    if (dogYears >= 15) ownedDog = 1;
+    if (dogYears >= 24) ownedDog = 2 + Math.floor((dogYears - 24) / 5);
+
+    return [ownedCat, ownedDog];
+  };
+
+  // console.log(ownedCatAndDog(10, 70));
+  // console.log(ownedCatAndDog(15, 15));
+  // console.log(ownedCatAndDog(24, 24));
+  // console.log(ownedCatAndDog(56, 64));
+}
+
 // Find the first non-consecutive number
 //* My Solution
 {
@@ -3134,4 +3158,16 @@
   // console.log(formatNumber(81237068908090, '+## ### ### ## ##'));
   // console.log(formatNumber(8123706890, '+## ### ### ##-##'));
   // console.log(formatNumber(112, '+ () -'));
+}
+
+// Leap Years
+//* My Solution
+{
+  const isLeapYear = (year) =>
+    (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+  // console.log(isLeapYear(2020));
+  // console.log(isLeapYear(2000));
+  // console.log(isLeapYear(2015));
+  // console.log(isLeapYear(2100));
 }
