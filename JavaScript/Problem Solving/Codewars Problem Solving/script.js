@@ -3246,3 +3246,30 @@
   // console.log(abbrevName('Sam Harris'));
   // console.log(abbrevName('patrick feeney'));
 }
+
+// Hello, Name or World!
+//* My Solution
+{
+  const hello = (name) => {
+    if (name === undefined || name.length === 0) return 'Hello, World!';
+
+    return `Hello, ${name.slice(0, 1).toUpperCase()}${name
+      .slice(1)
+      .toLowerCase()}!`;
+  };
+
+  // console.log(hello('john'));
+  // console.log(hello('aliCE'));
+  // console.log(hello());
+  // console.log(hello(''));
+}
+
+// Sort Numbers
+//* My Solution
+{
+  const solution = (nums) =>
+    !Array.isArray(nums) || nums.length === 0 ? [] : nums.sort((a, b) => a - b);
+
+  // console.log(solution([1, 2, 10, 50, 5]));
+  // console.log(solution(null));
+}
