@@ -3216,3 +3216,33 @@
   // console.log(sumArray([6, 2, 1, 8, 10]));
   // console.log(sumArray([1, 1, 11, 2, 3]));
 }
+
+// Highest and Lowest
+//* My Solution
+{
+  const highAndLow = (numbers) => {
+    const numbersArray = numbers.split(' ').map((number) => +number);
+    const max = Math.max(...numbersArray);
+    const min = Math.min(...numbersArray);
+
+    return `${max} ${min}`;
+  };
+
+  // console.log(highAndLow('1 2 3 4 5'));
+  // console.log(highAndLow('1 2 -3 4 5'));
+  // console.log(highAndLow('1 9 3 4 -5'));
+}
+
+// Abbreviate a Two Word Name
+//* My Solution
+{
+  const abbrevName = (name) => {
+    const firstLetter = name.split(' ')[0].slice(0, 1).toUpperCase();
+    const secondLetter = name.split(' ')[1].slice(0, 1).toUpperCase();
+
+    return firstLetter + '.' + secondLetter;
+  };
+
+  // console.log(abbrevName('Sam Harris'));
+  // console.log(abbrevName('patrick feeney'));
+}
