@@ -3546,3 +3546,51 @@
 
   // console.log(bmi(80, 1.8));
 }
+
+// Array Calculator
+//* My Solution
+{
+  const evaluate = (arr) => {
+    const isNumber = (value) => Number.isFinite(+value);
+
+    if (!isNumber(arr.at(0)) || !isNumber(arr.at(-1))) {
+      return undefined;
+    }
+
+    const inputs = [];
+
+    // Filter out valid inputs
+    for (let i = 0; i < arr.length; i++) {
+      if (isNumber(arr.at(i)) && isNumber(arr.at(i + 1))) {
+        return undefined;
+      } else {
+        inputs.push(arr[i]);
+      }
+    }
+
+    // First, handle multiplication (*) in the array
+    while (inputs.includes('*')) {
+      const index = inputs.indexOf('*');
+      const product =
+        parseFloat(inputs.at(index - 1)) * parseFloat(inputs.at(index + 1));
+      inputs.splice(index - 1, 3, product.toString());
+    }
+
+    // Then, handle addition (+) in the array
+    while (inputs.includes('+')) {
+      const index = inputs.indexOf('+');
+      const sum =
+        parseFloat(inputs.at(index - 1)) + parseFloat(inputs.at(index + 1));
+      inputs.splice(index - 1, 3, sum.toString());
+    }
+
+    // The final result will be the only remaining element
+    return parseFloat(inputs[0]);
+  };
+
+  // console.log(evaluate(['10', '+', '20', '*', '3']));
+  // console.log(evaluate(['10', '+', '20', '*', '3', '+', '30']));
+  // console.log(evaluate(['10', '+', '20', '*', '3', '*']));
+  // console.log(evaluate(['+', '10', '+', '20', '*', '3']));
+  // console.log(evaluate(['10', '10', '+', '20', '*', '3']));
+}
