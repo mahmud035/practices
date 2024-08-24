@@ -3273,3 +3273,40 @@
   // console.log(solution([1, 2, 10, 50, 5]));
   // console.log(solution(null));
 }
+
+// Split Strings
+//* My Solution
+{
+  const solution = (str) => {
+    if (str.length === 0) return [];
+
+    // If the string length is odd, append an underscore
+    if (str.length % 2 !== 0) str += '_';
+
+    // Split string into pairs
+    const pairs = [];
+    for (let i = 0; i < str.length; i += 2) {
+      pairs.push(str.slice(i, i + 2));
+    }
+
+    return pairs;
+  };
+
+  // console.log(solution('abc'));
+  // console.log(solution('abcdef'));
+}
+
+// Sorted Arrays
+//* My Solution
+{
+  const nthSmallest = (...args) => {
+    const n = args.pop();
+    return args.flat().sort((a, b) => a - b)[n - 1];
+  };
+
+  // console.log(nthSmallest([2, 4, 6, 8, 10, 12], 5)); // 10
+  // console.log(nthSmallest([2, 2, 2, 2, 2], 3)); // 2
+  // console.log(nthSmallest([2, 8, 12], [4, 6, 10], 5)); // 10
+  // console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4)); // 5
+  // console.log(nthSmallest([1], [2], [3], [4], [5, 6, 7, 8], [9], [10], 7)); // 7
+}
