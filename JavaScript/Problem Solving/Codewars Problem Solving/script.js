@@ -3459,3 +3459,63 @@
   // console.log(powersOfTwo(1));
   // console.log(powersOfTwo(2));
 }
+
+// MakeUpperCase
+//* My Solution
+{
+  const makeUpperCase = (str) => str.toUpperCase();
+
+  // console.log(makeUpperCase(''));
+  // console.log(makeUpperCase('hello'));
+  // console.log(makeUpperCase('Hello'));
+  // console.log(makeUpperCase('HELLO'));
+}
+
+// Find min and max
+//* My Solution
+{
+  const getMinMax = (arr) => [Math.min(...arr), Math.max(...arr)];
+
+  // console.log(getMinMax([1]));
+  // console.log(getMinMax([1, 2]));
+  // console.log(getMinMax([2, 1]));
+}
+
+// String character frequency
+//* My Solution (NOT Completed Yet)
+{
+  // How to approach it 👇
+  // 1. Count the frequency of each character.
+  // 2. Analyze the frequencies to see if removing one character can make the rest of the counts equal.
+
+  const solve = (str) => {
+    const charCounts = [];
+
+    for (const char of str) {
+      let count = 0;
+      if (!charCounts.includes(char)) count++;
+    }
+  };
+
+  // console.log(solve('aaaa'));
+  // console.log(solve('abba'));
+  // console.log(solve('abbba'));
+  // console.log(solve('aabbcc'));
+}
+
+// String repeat
+//* My Solution
+{
+  const repeatStr = (n, s) => s.repeat(n);
+
+  // console.log(repeatStr(6, 'I'));
+  // console.log(repeatStr(5, 'Hello'));
+}
+
+// Get number from string
+//* My Solution
+{
+  const getNumberFromString = (s) => +s.match(/[0-9]/g).join('');
+
+  // console.log(getNumberFromString('hell5o wor6ld'));
+}
