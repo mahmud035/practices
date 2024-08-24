@@ -3519,3 +3519,30 @@
 
   // console.log(getNumberFromString('hell5o wor6ld'));
 }
+
+// Parse float
+//* My Solution
+{
+  const parseF = (s) => {
+    const num = Number.parseFloat(s);
+    return Number.isFinite(num) ? num : null;
+  };
+
+  // console.log(parseF('1'));
+  // console.log(parseF('abc'));
+}
+
+// Calculate BMI
+//* My Solution
+{
+  const bmi = (weight, height) => {
+    const bmi = weight / (height * height);
+
+    if (bmi <= 18.5) return 'Underweight';
+    if (bmi <= 25.0) return 'Normal';
+    if (bmi <= 30.0) return 'Overweight';
+    if (bmi > 30) return 'Obese';
+  };
+
+  // console.log(bmi(80, 1.8));
+}
