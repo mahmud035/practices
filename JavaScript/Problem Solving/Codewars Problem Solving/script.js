@@ -3171,3 +3171,48 @@
   // console.log(isLeapYear(2015));
   // console.log(isLeapYear(2100));
 }
+
+// Convert a string to an array
+//* My Solution
+{
+  const stringToArray = (string) => string.split(' ');
+
+  // console.log(stringToArray('Robin Singh'));
+}
+
+// To square(root) or not to square(root)
+//* My Solution
+{
+  const squareOrSquareRoot = (array) => {
+    const result = [];
+
+    for (const number of array) {
+      if (Number.isInteger(Math.sqrt(number))) result.push(Math.sqrt(number));
+      else result.push(Math.pow(number, 2));
+    }
+
+    return result;
+  };
+
+  // console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1]));
+}
+
+// Sum without highest and lowest number
+//* My Solution
+{
+  const sumArray = (array) => {
+    // Input validation
+    if (!Array.isArray(array) || array.length <= 1) return 0;
+
+    // Find the sum of the array, highest, and lowest values
+    const sum = array.reduce((acc, curr) => acc + curr, 0);
+    const max = Math.max(...array);
+    const min = Math.min(...array);
+
+    // Return the sum excluding the highest and lowest values
+    return sum - max - min;
+  };
+
+  // console.log(sumArray([6, 2, 1, 8, 10]));
+  // console.log(sumArray([1, 1, 11, 2, 3]));
+}
