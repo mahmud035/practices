@@ -3310,3 +3310,59 @@
   // console.log(nthSmallest([1, 5], [2], [4, 8, 9], 4)); // 5
   // console.log(nthSmallest([1], [2], [3], [4], [5, 6, 7, 8], [9], [10], 7)); // 7
 }
+
+// Lottery Ticket
+//* My Solution
+{
+  const bingo = (ticket, win) => {
+    let miniWins = 0;
+
+    for (let i = 0; i < ticket.length; i++) {
+      const subArray = ticket[i];
+      const str = subArray[0];
+      const num = subArray[1];
+
+      for (let j = 0; j < str.length; j++) {
+        if (str.charCodeAt(j) === num) {
+          miniWins += 1;
+          break;
+        }
+      }
+    }
+
+    return miniWins >= win ? 'Winner!' : 'Loser!';
+  };
+
+  // console.log(
+  //   bingo(
+  //     [
+  //       ['ABC', 65],
+  //       ['HGR', 74],
+  //       ['BYHT', 74],
+  //     ],
+  //     2
+  //   )
+  // );
+
+  // console.log(
+  //   bingo(
+  //     [
+  //       ['ABC', 65],
+  //       ['HGR', 74],
+  //       ['BYHT', 74],
+  //     ],
+  //     1
+  //   )
+  // );
+
+  // console.log(
+  //   bingo(
+  //     [
+  //       ['HGTYRE', 74],
+  //       ['BE', 66],
+  //       ['JKTY', 74],
+  //     ],
+  //     3
+  //   )
+  // );
+}
