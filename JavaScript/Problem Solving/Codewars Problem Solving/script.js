@@ -3366,3 +3366,96 @@
   //   )
   // );
 }
+
+// Highest Scoring Word
+//* My Solution
+{
+  const high = (x) => {
+    const scores = [];
+    const words = x.split(' ');
+
+    // Calculate each word score
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      let score = 0;
+
+      for (let j = 0; j < word.length; j++) {
+        const char = word[j];
+        score += char.charCodeAt(0) - 96;
+      }
+      scores.push(score);
+    }
+
+    // Get the height scoring word index
+    const index = scores.indexOf(Math.max(...scores));
+
+    // Return the highest scoring word as a string.
+    return words[index];
+  };
+
+  // console.log(high('man i need a taxi up to ubud'));
+  // console.log(high('take me to semynak'));
+  // console.log(high('aa b'));
+  // console.log(high('b aa'));
+  // console.log(high('bb d'));
+  // console.log(high('d bb'));
+  // console.log(high('aaa b'));
+}
+
+// You only need one - Beginner
+//* My Solution
+{
+  const check = (arr, x) => arr.includes(x);
+
+  // console.log(check([66, 101], 66));
+  // console.log(check(['t', 'e', 's', 't'], 'e'));
+}
+
+// Stop gninnipS My sdroW!
+//* My Solution
+{
+  const spinWords = (string) => {
+    const words = string.split(' ');
+    const result = [];
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      let reversedWord = '';
+
+      if (word.length >= 5) {
+        for (let j = word.length - 1; j >= 0; j--) {
+          const char = word[j];
+          reversedWord += char;
+        }
+        result.push(reversedWord);
+      } else {
+        result.push(word);
+      }
+    }
+
+    return result.length > 1 ? result.join(' ') : result.join('');
+  };
+
+  // console.log(spinWords('Hey fellow warriors'));
+  // console.log(spinWords('This is a test'));
+  // console.log(spinWords('This is another test'));
+  // console.log(spinWords('Welcome'));
+}
+
+// Powers of 2
+//* My Solution
+{
+  const powersOfTwo = (n) => {
+    const result = [];
+
+    for (let i = 0; i <= n; i++) {
+      result.push(Math.pow(2, i));
+    }
+
+    return result;
+  };
+
+  // console.log(powersOfTwo(0));
+  // console.log(powersOfTwo(1));
+  // console.log(powersOfTwo(2));
+}
