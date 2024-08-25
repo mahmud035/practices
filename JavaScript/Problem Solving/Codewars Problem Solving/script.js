@@ -3680,3 +3680,63 @@
   // );
   // console.log(isVow([101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]));
 }
+
+// The Vowel Code
+//* My Solution
+{
+  const encode = (string) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let newStr = '';
+
+    for (const char of string) {
+      if (vowels.includes(char)) {
+        const index = vowels.indexOf(char) + 1;
+        newStr += index;
+        continue;
+      }
+      newStr += char;
+    }
+
+    return newStr;
+  };
+
+  // console.log(encode('hello'));
+  // console.log(encode('How are you today?'));
+
+  const decode = (string) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const values = [1, 2, 3, 4, 5];
+    let newStr = '';
+
+    for (const char of string) {
+      if (values.includes(+char)) {
+        const index = values.indexOf(+char);
+        newStr += vowels[index];
+        continue;
+      }
+      newStr += char;
+    }
+
+    return newStr;
+  };
+
+  // console.log(decode('h3 th2r2'));
+  // console.log(decode('h2ll4'));
+}
+
+// Vowel Count
+//* My Solution
+{
+  const getCount = (string) => {
+    const vowels = 'aeiou';
+    let count = 0;
+
+    for (const char of string) {
+      if (vowels.includes(char)) count++;
+    }
+
+    return count;
+  };
+
+  // console.log(getCount('abracadabra'));
+}
