@@ -3611,3 +3611,78 @@
 
   // console.log(reverseWords('hello world!'));
 }
+
+// Reverse every other word in the string
+//* My Solution
+{
+  const reverse = (str) => {
+    // Handle empty or whitespace-only strings
+    if (str.trim() === '') return '';
+
+    // Split by one or more spaces
+    const words = str.trim().split(/\s+/);
+    const result = [];
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+
+      if (i % 2 === 0) {
+        result.push(word); // Keep the word as is for even indices
+      } else {
+        result.push(word.split('').reverse().join('')); // Reverse the word for odd indices
+      }
+    }
+
+    return result.join(' '); // Join with a single space between words
+  };
+
+  // console.log(reverse('Reverse this string, please!'));
+  // console.log(reverse("I really don't like reversing strings!"));
+  // console.log(reverse('  Reverse  every other word  '));
+}
+
+// Coding Meetup #1 - Higher-Order Functions Series - Count the number of JavaScript developers coming from Europe
+//* My Solution
+{
+  const countDevelopers = (list) =>
+    list.filter(
+      (item) => item.continent === 'Europe' && item.language === 'JavaScript'
+    ).length;
+
+  const list1 = [
+    {
+      firstName: 'Noah',
+      lastName: 'M.',
+      country: 'Switzerland',
+      continent: 'Europe',
+      age: 19,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Maia',
+      lastName: 'S.',
+      country: 'Tahiti',
+      continent: 'Oceania',
+      age: 28,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Shufen',
+      lastName: 'L.',
+      country: 'Taiwan',
+      continent: 'Asia',
+      age: 35,
+      language: 'HTML',
+    },
+    {
+      firstName: 'Sumayah',
+      lastName: 'M.',
+      country: 'Tajikistan',
+      continent: 'Asia',
+      age: 30,
+      language: 'CSS',
+    },
+  ];
+
+  // console.log(countDevelopers(list1));
+}
