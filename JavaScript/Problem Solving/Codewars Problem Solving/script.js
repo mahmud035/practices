@@ -3594,3 +3594,20 @@
   // console.log(evaluate(['+', '10', '+', '20', '*', '3']));
   // console.log(evaluate(['10', '10', '+', '20', '*', '3']));
 }
+
+// Reversing Words in a String
+//* My Solution
+{
+  const reverse = (string) => string.split(' ').reverse().join(' ');
+
+  // console.log(reverse('Hello World'));
+  // console.log(reverse('Hi There.'));
+}
+
+// Reversed Words
+//* My Solution
+{
+  const reverseWords = (string) => string.split(' ').reverse().join(' ');
+
+  // console.log(reverseWords('hello world!'));
+}
