@@ -3853,3 +3853,117 @@
 
   // console.log(countLanguages(list1));
 }
+
+// Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language?
+//* My Solution
+{
+  const isSameLanguage = (list) => {
+    const firstDevLang = list.at(0).language;
+
+    return list.every((dev) => dev.language === firstDevLang);
+  };
+
+  const list1 = [
+    {
+      firstName: 'Daniel',
+      lastName: 'J.',
+      country: 'Aruba',
+      continent: 'Americas',
+      age: 42,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Kseniya',
+      lastName: 'T.',
+      country: 'Belarus',
+      continent: 'Europe',
+      age: 22,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Hanna',
+      lastName: 'L.',
+      country: 'Hungary',
+      continent: 'Europe',
+      age: 65,
+      language: 'JavaScript',
+    },
+  ];
+
+  const list2 = [
+    {
+      firstName: 'Mariami',
+      lastName: 'G.',
+      country: 'Georgia',
+      continent: 'Europe',
+      age: 29,
+      language: 'Python',
+    },
+    {
+      firstName: 'Mia',
+      lastName: 'H.',
+      country: 'Germany',
+      continent: 'Europe',
+      age: 39,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Maria',
+      lastName: 'I.',
+      country: 'Greece',
+      continent: 'Europe',
+      age: 32,
+      language: 'C',
+    },
+  ];
+
+  // console.log(isSameLanguage(list1));
+  // console.log(isSameLanguage(list2));
+}
+
+// Coding Meetup #7 - Higher-Order Functions Series - Find the most senior developer
+//* My Solution
+{
+  const findSenior = (list) => {
+    const maxAge = Math.max(...list.map((dev) => dev.age));
+
+    return list.filter((dev) => dev.age === maxAge);
+  };
+
+  const list1 = [
+    {
+      firstName: 'Gabriel',
+      lastName: 'X.',
+      country: 'Monaco',
+      continent: 'Europe',
+      age: 49,
+      language: 'PHP',
+    },
+    {
+      firstName: 'Odval',
+      lastName: 'F.',
+      country: 'Mongolia',
+      continent: 'Asia',
+      age: 38,
+      language: 'Python',
+    },
+    {
+      firstName: 'Emilija',
+      lastName: 'S.',
+      country: 'Lithuania',
+      continent: 'Europe',
+      age: 19,
+      language: 'Python',
+    },
+    {
+      firstName: 'Sou',
+      lastName: 'B.',
+      country: 'Japan',
+      continent: 'Asia',
+      age: 49,
+      language: 'PHP',
+    },
+  ];
+
+  // console.log(findSenior(list1));
+}
