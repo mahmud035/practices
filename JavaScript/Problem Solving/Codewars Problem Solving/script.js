@@ -4132,3 +4132,73 @@
 
   // console.log(isAgeDiverse(list1));
 }
+
+// Coding Meetup #10 - Higher-Order Functions Series - Create usernames
+//* My Solution
+{
+  const addUsername = (list) => {
+    const currentYear = new Date().getFullYear();
+
+    return list.map((dev) => ({
+      ...dev,
+      username: `${dev.firstName.toLowerCase()}${dev.lastName
+        .slice(0, 1)
+        .toLowerCase()}${currentYear - dev.age}`,
+    }));
+  };
+
+  const list1 = [
+    {
+      firstName: 'Emily',
+      lastName: 'N.',
+      country: 'Ireland',
+      continent: 'Europe',
+      age: 30,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Nor',
+      lastName: 'E.',
+      country: 'Malaysia',
+      continent: 'Asia',
+      age: 20,
+      language: 'Clojure',
+    },
+  ];
+
+  // console.log(addUsername(list1));
+}
+
+// Coding Meetup #11 - Higher-Order Functions Series - Find the average age
+//* My Solution
+{
+  const getAverageAge = (list) => {
+    const averageAge = list.reduce(
+      (acc, curr, i, arr) => acc + curr.age / arr.length,
+      0
+    );
+
+    return Math.round(averageAge);
+  };
+
+  const list1 = [
+    {
+      firstName: 'Maria',
+      lastName: 'Y.',
+      country: 'Cyprus',
+      continent: 'Europe',
+      age: 30,
+      language: 'Java',
+    },
+    {
+      firstName: 'Victoria',
+      lastName: 'T.',
+      country: 'Puerto Rico',
+      continent: 'Americas',
+      age: 70,
+      language: 'Python',
+    },
+  ];
+
+  // console.log(getAverageAge(list1));
+}
