@@ -3762,3 +3762,94 @@
 
   // console.log(isRubyComing(list1));
 }
+
+// Coding Meetup #4 - Higher-Order Functions Series - Find the first Python developer
+//* My Solution
+{
+  const getFirstPython = (list) => {
+    const dev = list.find((dev) => dev.language === 'Python');
+
+    return dev !== undefined
+      ? `${dev.firstName}, ${dev.country}`
+      : `There will be no Python developers`;
+  };
+
+  const list1 = [
+    {
+      firstName: 'Mark',
+      lastName: 'G.',
+      country: 'Scotland',
+      continent: 'Europe',
+      age: 22,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Victoria',
+      lastName: 'T.',
+      country: 'Puerto Rico',
+      continent: 'Americas',
+      age: 30,
+      language: 'Python',
+    },
+    {
+      firstName: 'Emma',
+      lastName: 'B.',
+      country: 'Norway',
+      continent: 'Europe',
+      age: 19,
+      language: 'Clojure',
+    },
+  ];
+
+  // console.log(getFirstPython(list1));
+}
+
+// Coding Meetup #5 - Higher-Order Functions Series - Prepare the count of languages
+//* My Solution
+{
+  const countLanguages = (list) => {
+    const languages = list.map((dev) => dev.language);
+
+    return languages.reduce((acc, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
+  };
+
+  const list1 = [
+    {
+      firstName: 'Noah',
+      lastName: 'M.',
+      country: 'Switzerland',
+      continent: 'Europe',
+      age: 19,
+      language: 'C',
+    },
+    {
+      firstName: 'Anna',
+      lastName: 'R.',
+      country: 'Liechtenstein',
+      continent: 'Europe',
+      age: 52,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Ramon',
+      lastName: 'R.',
+      country: 'Paraguay',
+      continent: 'Americas',
+      age: 29,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'George',
+      lastName: 'B.',
+      country: 'England',
+      continent: 'Europe',
+      age: 81,
+      language: 'C',
+    },
+  ];
+
+  // console.log(countLanguages(list1));
+}
