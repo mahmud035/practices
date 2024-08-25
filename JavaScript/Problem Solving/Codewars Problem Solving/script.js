@@ -3967,3 +3967,168 @@
 
   // console.log(findSenior(list1));
 }
+
+// Coding Meetup #8 - Higher-Order Functions Series - Will all continents be represented?
+//* My Solution
+{
+  const allContinents = (list) => {
+    const continents = new Set(list.map((dev) => dev.continent));
+
+    return continents.size === 5 ? true : false;
+  };
+
+  const list1 = [
+    {
+      firstName: 'Fatima',
+      lastName: 'A.',
+      country: 'Algeria',
+      continent: 'Africa',
+      age: 25,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Agustín',
+      lastName: 'M.',
+      country: 'Chile',
+      continent: 'Americas',
+      age: 37,
+      language: 'C',
+    },
+    {
+      firstName: 'Jing',
+      lastName: 'X.',
+      country: 'China',
+      continent: 'Asia',
+      age: 39,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Laia',
+      lastName: 'P.',
+      country: 'Andorra',
+      continent: 'Europe',
+      age: 55,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Oliver',
+      lastName: 'Q.',
+      country: 'Australia',
+      continent: 'Oceania',
+      age: 65,
+      language: 'PHP',
+    },
+  ];
+
+  // console.log(allContinents(list1));
+}
+
+// Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
+//* My Solution
+{
+  const isAgeDiverse = (list) => {
+    const ageGroups = list.map((dev) => {
+      const age = dev.age;
+
+      if (age < 20) return 'teens';
+      if (age >= 20 && age <= 29) return 'twenties';
+      if (age >= 30 && age <= 39) return 'thirties';
+      if (age >= 40 && age <= 49) return 'forties';
+      if (age >= 50 && age <= 59) return 'fifties';
+      if (age >= 60 && age <= 69) return 'sixties';
+      if (age >= 70 && age <= 79) return 'seventies';
+      if (age >= 80 && age <= 89) return 'eighties';
+      if (age >= 90 && age <= 99) return 'nineties';
+      if (age >= 100) return 'centenarian';
+    });
+
+    const uniqueAgeGroups = new Set(ageGroups);
+
+    return uniqueAgeGroups.size === 10 ? true : false;
+  };
+
+  const list1 = [
+    {
+      firstName: 'Harry',
+      lastName: 'K.',
+      country: 'Brazil',
+      continent: 'Americas',
+      age: 19,
+      language: 'Python',
+    },
+    {
+      firstName: 'Kseniya',
+      lastName: 'T.',
+      country: 'Belarus',
+      continent: 'Europe',
+      age: 29,
+      language: 'JavaScript',
+    },
+    {
+      firstName: 'Jing',
+      lastName: 'X.',
+      country: 'China',
+      continent: 'Asia',
+      age: 39,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Noa',
+      lastName: 'A.',
+      country: 'Israel',
+      continent: 'Asia',
+      age: 40,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Andrei',
+      lastName: 'E.',
+      country: 'Romania',
+      continent: 'Europe',
+      age: 59,
+      language: 'C',
+    },
+    {
+      firstName: 'Maria',
+      lastName: 'S.',
+      country: 'Peru',
+      continent: 'Americas',
+      age: 60,
+      language: 'C',
+    },
+    {
+      firstName: 'Lukas',
+      lastName: 'X.',
+      country: 'Croatia',
+      continent: 'Europe',
+      age: 75,
+      language: 'Python',
+    },
+    {
+      firstName: 'Chloe',
+      lastName: 'K.',
+      country: 'Guernsey',
+      continent: 'Europe',
+      age: 88,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Viktoria',
+      lastName: 'W.',
+      country: 'Bulgaria',
+      continent: 'Europe',
+      age: 98,
+      language: 'PHP',
+    },
+    {
+      firstName: 'Piotr',
+      lastName: 'B.',
+      country: 'Poland',
+      continent: 'Europe',
+      age: 128,
+      language: 'JavaScript',
+    },
+  ];
+
+  // console.log(isAgeDiverse(list1));
+}
