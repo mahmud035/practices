@@ -3686,3 +3686,79 @@
 
   // console.log(countDevelopers(list1));
 }
+
+// Coding Meetup #2 - Higher-Order Functions Series - Greet developers
+//* My Solution
+{
+  const greetDevelopers = (list) =>
+    list.map((dev) => {
+      return {
+        ...dev,
+        greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?`,
+      };
+    });
+
+  const list1 = [
+    {
+      firstName: 'Sofia',
+      lastName: 'I.',
+      country: 'Argentina',
+      continent: 'Americas',
+      age: 35,
+      language: 'Java',
+    },
+    {
+      firstName: 'Lukas',
+      lastName: 'X.',
+      country: 'Croatia',
+      continent: 'Europe',
+      age: 35,
+      language: 'Python',
+    },
+    {
+      firstName: 'Madison',
+      lastName: 'U.',
+      country: 'United States',
+      continent: 'Americas',
+      age: 32,
+      language: 'Ruby',
+    },
+  ];
+
+  // console.log(greetDevelopers(list1));
+}
+
+// Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming?
+//* My Solution
+{
+  const isRubyComing = (list) => list.some((dev) => dev.language === 'Ruby');
+
+  const list1 = [
+    {
+      firstName: 'Emma',
+      lastName: 'Z.',
+      country: 'Netherlands',
+      continent: 'Europe',
+      age: 29,
+      language: 'Ruby',
+    },
+    {
+      firstName: 'Piotr',
+      lastName: 'B.',
+      country: 'Poland',
+      continent: 'Europe',
+      age: 128,
+      language: 'Javascript',
+    },
+    {
+      firstName: 'Jayden',
+      lastName: 'P.',
+      country: 'Jamaica',
+      continent: 'Americas',
+      age: 42,
+      language: 'JavaScript',
+    },
+  ];
+
+  // console.log(isRubyComing(list1));
+}
