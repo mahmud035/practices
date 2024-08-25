@@ -3740,3 +3740,44 @@
 
   // console.log(getCount('abracadabra'));
 }
+
+// Vowel remover
+//* My Solution
+{
+  const shortcut = (string) => {
+    const vowels = 'aeiou';
+    let newStr = '';
+
+    for (const char of string) {
+      if (!vowels.includes(char)) newStr += char;
+    }
+
+    return newStr;
+  };
+
+  // console.log(shortcut('hello'));
+  // console.log(shortcut('codewars'));
+}
+
+// Move all vowels
+//* My Solution
+{
+  const moveVowel = (string) => {
+    const vowels = 'aeiou';
+    let vowelStr = '';
+    let newStr = '';
+
+    for (const char of string) {
+      if (vowels.includes(char)) {
+        vowelStr += char;
+        continue;
+      }
+      newStr += char;
+    }
+
+    return newStr + vowelStr;
+  };
+
+  // console.log(moveVowel('day'));
+  // console.log(moveVowel('apple'));
+}
