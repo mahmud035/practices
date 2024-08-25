@@ -3640,3 +3640,43 @@
   // console.log(reverse("I really don't like reversing strings!"));
   // console.log(reverse('  Reverse  every other word  '));
 }
+
+// Thinkful - Number Drills: Blue and red marbles
+//* My Solution
+{
+  const guessBlue = (blueStart, redStart, bluePulled, redPulled) => {
+    return (
+      (blueStart - bluePulled) /
+      (blueStart + redStart - (bluePulled + redPulled))
+    );
+  };
+
+  // console.log(guessBlue(5, 5, 2, 3));
+  // console.log(guessBlue(5, 7, 4, 3));
+  // console.log(guessBlue(12, 18, 4, 6));
+}
+
+// Is there a vowel in there?
+//* My Solution
+{
+  const isVow = (numbers) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const charCodeOfVowels = [97, 101, 105, 111, 117];
+
+    return numbers.map((num) => {
+      if (charCodeOfVowels.includes(num)) {
+        const index = charCodeOfVowels.indexOf(num);
+        return vowels[index];
+      }
+      return num;
+    });
+  };
+
+  // console.log(
+  //   isVow([
+  //     118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114, 113,
+  //     120, 106,
+  //   ])
+  // );
+  // console.log(isVow([101, 121, 110, 113, 113, 103, 121, 121, 101, 107, 103]));
+}
