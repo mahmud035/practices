@@ -789,3 +789,162 @@
   // console.log(isLanguageDiverse(list3));
   // console.log(isLanguageDiverse(list4));
 }
+
+// Coding Meetup #14 - Higher-Order Functions Series - Order the food
+//* My Solution
+{
+  const orderFood = (list) => {
+    const mealObj = list
+      .map((dev) => dev.meal)
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+
+    return mealObj;
+  };
+
+  const list1 = [
+    {
+      firstName: 'Noah',
+      lastName: 'M.',
+      country: 'Switzerland',
+      continent: 'Europe',
+      age: 19,
+      language: 'C',
+      meal: 'vegetarian',
+    },
+    {
+      firstName: 'Anna',
+      lastName: 'R.',
+      country: 'Liechtenstein',
+      continent: 'Europe',
+      age: 52,
+      language: 'JavaScript',
+      meal: 'standard',
+    },
+    {
+      firstName: 'Ramona',
+      lastName: 'R.',
+      country: 'Paraguay',
+      continent: 'Americas',
+      age: 29,
+      language: 'Ruby',
+      meal: 'vegan',
+    },
+    {
+      firstName: 'George',
+      lastName: 'B.',
+      country: 'England',
+      continent: 'Europe',
+      age: 81,
+      language: 'C',
+      meal: 'vegetarian',
+    },
+  ];
+
+  // console.log(orderFood(list1));
+}
+
+// Coding Meetup #15 - Higher-Order Functions Series - Find the odd names
+//* My Solution
+{
+  const findOddNames = (list) => {
+    return list.filter((dev) => {
+      const firstName = dev.firstName;
+      let sumOfASCIICodes = 0;
+
+      for (const char of firstName) {
+        sumOfASCIICodes += char.charCodeAt(0);
+      }
+
+      return sumOfASCIICodes % 2 !== 0;
+    });
+  };
+
+  const list1 = [
+    {
+      firstName: 'Aba',
+      lastName: 'N.',
+      country: 'Ghana',
+      continent: 'Africa',
+      age: 21,
+      language: 'Python',
+    },
+    {
+      firstName: 'Abb',
+      lastName: 'O.',
+      country: 'Israel',
+      continent: 'Asia',
+      age: 39,
+      language: 'Java',
+    },
+  ];
+
+  // console.log(findOddNames(list1));
+}
+
+// Coding Meetup #16 - Higher-Order Functions Series - Ask for missing details
+//* My Solution
+{
+  const askForMissingDetails = (list) => {
+    const isValueNull = (value) => value === null;
+
+    const findMissingProperty = (object) => {
+      for (const key in object) {
+        const element = object[key];
+        if (element === null) return key;
+      }
+    };
+
+    const result = list
+      .filter(
+        (dev) =>
+          isValueNull(dev.firstName) ||
+          isValueNull(dev.lastName) ||
+          isValueNull(dev.country) ||
+          isValueNull(dev.continent) ||
+          isValueNull(dev.age) ||
+          isValueNull(dev.language)
+      )
+      .map((dev) => {
+        return {
+          ...dev,
+          question: `Hi, could you please provide your ${findMissingProperty(
+            dev
+          )}.`,
+        };
+      });
+
+    return result;
+  };
+
+  var list1 = [
+    {
+      firstName: null,
+      lastName: 'I.',
+      country: 'Argentina',
+      continent: 'Americas',
+      age: 35,
+      language: 'Java',
+    },
+    {
+      firstName: 'Lukas',
+      lastName: 'X.',
+      country: 'Croatia',
+      continent: 'Europe',
+      age: 35,
+      language: null,
+    },
+    {
+      firstName: 'Madison',
+      lastName: 'U.',
+      country: 'United States',
+      continent: 'Americas',
+      age: 32,
+      language: 'Ruby',
+    },
+  ];
+
+  console.log(askForMissingDetails(list1));
+}
