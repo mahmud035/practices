@@ -3890,3 +3890,49 @@
   // console.log(answer2());
   // console.log(answer3());
 }
+
+// Training JS #4: Basic data types--Array
+//* My Solution
+{
+}
+
+// Training JS #4: Basic data types--Array
+//* My Solution
+{
+  const getLength = (arr) => arr.length;
+  const getFirst = (arr) => arr[0];
+  const getLast = (arr) => arr[arr.length - 1];
+  const pushElement = (arr) => {
+    arr.push(4);
+    return arr;
+  };
+  const popElement = (arr) => {
+    arr.pop();
+    return arr;
+  };
+
+  // console.log(getLength([1, 2, 3]));
+  // console.log(getFirst([1, 2, 3]));
+  // console.log(getLast([1, 2, 3]));
+  // console.log(pushElement([1, 2, 3]));
+  // console.log(popElement([1, 2, 3]));
+}
+
+// Training JS #5: Basic data types--Object
+//* My Solution
+{
+  const animal = (obj) => `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+
+  const obj = { name: 'dog', legs: 4, color: 'white' };
+  // console.log(animal(obj));
+}
+
+// Training JS #6: Basic data types--Boolean and conditional statements if..else
+//* My Solution
+{
+  const trueOrFalse = (value) => (value ? 'true' : 'false');
+
+  let a = 1,
+    b = 2;
+  // console.log(trueOrFalse(a > b));
+}
