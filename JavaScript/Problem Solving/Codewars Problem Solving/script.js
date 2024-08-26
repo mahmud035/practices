@@ -1383,7 +1383,6 @@
   };
 
   // console.log(spEng('abcEnglishdef'));
-  // console.log(spEng('abcnEglishsef'));
 }
 
 // Geometry Basics: Distance between points in 2D
@@ -3935,4 +3934,74 @@
   let a = 1,
     b = 2;
   // console.log(trueOrFalse(a > b));
+}
+
+// Training JS #7: if..else and ternary operator
+//* My Solution
+{
+  const saleHotdogs = (n) => {
+    return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n * 90;
+  };
+
+  // console.log(saleHotdogs(4));
+  // console.log(saleHotdogs(9));
+  // console.log(saleHotdogs(100));
+}
+
+// Training JS #8: Conditional statement--switch
+//* My Solution
+{
+  const howManydays = (month) => {
+    switch (month) {
+      case 1:
+        return 31;
+      case 2:
+        return 28;
+      case 3:
+        return 31;
+      case 4:
+        return 30;
+      case 5:
+        return 31;
+      case 6:
+        return 30;
+      case 7:
+        return 31;
+      case 8:
+        return 31;
+      case 9:
+        return 30;
+      case 10:
+        return 31;
+      case 11:
+        return 30;
+      case 12:
+        return 31;
+    }
+  };
+
+  // console.log(howManydays(1));
+  // console.log(howManydays(4));
+}
+
+// Training JS #9: loop statement --while and do..while
+//* My Solution
+{
+  const padIt = (str, n) => {
+    let newStr = str;
+    let i = 0;
+
+    while (i < n) {
+      if (i % 2 === 0) newStr = newStr.padStart(newStr.length + 1, '*');
+      else newStr = newStr.padEnd(newStr.length + 1, '*');
+
+      i++;
+    }
+
+    return newStr;
+  };
+
+  // console.log(padIt('a', 2)); // '*a*'
+  // console.log(padIt('a', 3)); // '**a*'
+  // console.log(padIt('a', 4)); // '**a**'
 }
