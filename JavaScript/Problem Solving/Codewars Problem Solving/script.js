@@ -3810,7 +3810,83 @@
   }
 }
 
-function helloWorld() {
-  const str = 'Hello World!';
-  console.log(str);
+// Training JS #2: Basic data types--Number
+//* My Solution
+{
+  let v1 = 50,
+    v2 = 100,
+    v3 = 150,
+    v4 = 200,
+    v5 = 2,
+    v6 = 250;
+
+  function equal1() {
+    let a = v1;
+    let b = v1;
+    return a + b;
+  }
+
+  //Please refer to the example above to complete the following functions
+  function equal2() {
+    let a = v3; // set number value to a
+    let b = v1; // set number value to b
+    return a - b;
+  }
+
+  function equal3() {
+    let a = v1; // set number value to a
+    let b = v5; // set number value to b
+    return a * b;
+  }
+
+  function equal4() {
+    let a = v4; // set number value to a
+    let b = v5; // set number value to b
+    return a / b;
+  }
+
+  function equal5() {
+    let a = v2; // set number value to a
+    let b = v4; // set number value to b
+    return a % b;
+  }
+
+  // console.log(equal1());
+  // console.log(equal2());
+  // console.log(equal3());
+  // console.log(equal4());
+  // console.log(equal5());
+}
+
+// Training JS #3: Basic data types--String
+//* My Solution
+{
+  let a1 = 'A',
+    a2 = 'a',
+    b1 = 'B',
+    b2 = 'b',
+    c1 = 'C',
+    c2 = 'c',
+    d1 = 'D',
+    d2 = 'd',
+    e1 = 'E',
+    e2 = 'e',
+    n1 = 'N',
+    n2 = 'n';
+
+  const Dad = () => d1 + a2 + d2;
+  const Bee = () => b1 + e2 + e2;
+  const banana = () => b2 + a2 + n2 + a2 + n2 + a2;
+
+  // answer some questions if you finished works above
+  const answer1 = () => n2 + 'o';
+  const answer2 = () => n2 + 'o';
+  const answer3 = () => 'y' + e2 + 's';
+
+  // console.log(Dad());
+  // console.log(Bee());
+  // console.log(banana());
+  // console.log(answer1());
+  // console.log(answer2());
+  // console.log(answer3());
 }
