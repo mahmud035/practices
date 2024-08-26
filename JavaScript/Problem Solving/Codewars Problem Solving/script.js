@@ -3781,3 +3781,36 @@
   // console.log(moveVowel('day'));
   // console.log(moveVowel('apple'));
 }
+
+// Is it a palindrome?
+//* My Solution
+{
+  function isPalindrome(str) {
+    let reverseStr = '';
+
+    for (let i = str.length - 1; i >= 0; i--) {
+      reverseStr += str[i];
+    }
+
+    return str.toLowerCase() === reverseStr.toLowerCase();
+  }
+
+  // console.log(isPalindrome('a'));
+  // console.log(isPalindrome('aba'));
+  // console.log(isPalindrome('Abba'));
+  // console.log(isPalindrome('hello'));
+}
+
+// Training JS #1: create your first JS function and print "Hello World!"
+//* My Solution
+{
+  function helloWorld() {
+    const str = 'Hello World!';
+    console.log(str);
+  }
+}
+
+function helloWorld() {
+  const str = 'Hello World!';
+  console.log(str);
+}
