@@ -131,3 +131,38 @@
 
   // console.log(cutIt(['ab', 'cde', 'fgh']));
 }
+
+// Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
+//* My Solution
+{
+  const firstToLast = (str, char) => {
+    const firstPosition = str.indexOf(char);
+    const lastPosition = str.lastIndexOf(char);
+
+    if (firstPosition === -1) return -1; // 'char' not found
+    if (firstPosition === lastPosition) return 0; // 'char' found only one time.
+
+    return lastPosition - firstPosition;
+  };
+
+  // console.log(firstToLast('ababc', 'a'));
+  // console.log(firstToLast('ababc', 'c'));
+  // console.log(firstToLast('ababc', 'd'));
+}
+
+// Training JS #18: Methods of String object--concat() split() and its good friend join()
+//* My Solution
+{
+  const splitAndMerge = (string, separator) => {
+    const result = string
+      .split(' ')
+      .map((word) => word.split('').join(separator))
+      .join(' ');
+
+    return result;
+  };
+
+  // console.log(splitAndMerge('My name is John', ' '));
+  // console.log(splitAndMerge('My name is John', '-'));
+  // console.log(splitAndMerge('Hello World!', '.'));
+}
