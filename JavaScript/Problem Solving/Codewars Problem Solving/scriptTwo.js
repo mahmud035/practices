@@ -115,3 +115,19 @@
   // console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));
   // console.log(howManySmaller([1.1888, 1.1868, 1.1838], 1.19));
 }
+
+// Training JS #16: Methods of String object--slice(), substring() and substr()
+//* My Solution
+{
+  const cutIt = (arr) => {
+    let shortestStrLength = arr[0].length;
+
+    for (const str of arr) {
+      if (str.length < shortestStrLength) shortestStrLength = str.length;
+    }
+
+    return arr.map((str) => str.slice(0, shortestStrLength));
+  };
+
+  // console.log(cutIt(['ab', 'cde', 'fgh']));
+}
