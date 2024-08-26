@@ -48,3 +48,43 @@
   //   ])
   // );
 }
+
+// Training JS #12: loop statement --for..in and for..of
+//* My Solution
+{
+  function giveMeFive(obj) {
+    const arr = [];
+
+    for (const key in obj) {
+      if (key.length === 5) arr.push(key);
+      if (obj[key].length === 5) arr.push(obj[key]);
+    }
+
+    return arr;
+  }
+
+  // console.log(giveMeFive({ Pears: 'than', apple: 'sweet' }));
+}
+
+// Training JS #13: Number object and its properties
+//* My Solution
+{
+  const whatNumberIsIt = (n) => {
+    if (Number.MAX_VALUE === n) return 'Input number is Number.MAX_VALUE';
+
+    if (Number.MIN_VALUE === n) return 'Input number is Number.MIN_VALUE';
+
+    if (Number.isNaN(n)) return 'Input number is Number.NaN';
+
+    if (Number.NEGATIVE_INFINITY === n)
+      return 'Input number is Number.NEGATIVE_INFINITY';
+
+    if (Number.POSITIVE_INFINITY === n)
+      return 'Input number is Number.POSITIVE_INFINITY';
+
+    return `Input number is ${n}`;
+  };
+
+  // console.log(whatNumberIsIt(1 / 0));
+  // console.log(whatNumberIsIt(100));
+}
