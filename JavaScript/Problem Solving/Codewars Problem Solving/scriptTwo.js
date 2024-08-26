@@ -88,3 +88,30 @@
   // console.log(whatNumberIsIt(1 / 0));
   // console.log(whatNumberIsIt(100));
 }
+
+// Training JS #14: Methods of Number object--toString() and toLocaleString()
+//* My Solution
+{
+  const colorOf = (r, g, b) => {
+    const rr = r.toString(16).padStart(2, `0`);
+    const gg = g.toString(16).padStart(2, `0`);
+    const bb = b.toString(16).padStart(2, `0`);
+
+    return `#${rr}${gg}${bb}`;
+  };
+
+  // console.log(colorOf(255, 0, 0));
+  // console.log(colorOf(0, 111, 0));
+  // console.log(colorOf(1, 2, 3));
+}
+
+// Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()
+//* My Solution
+{
+  const howManySmaller = (arr, n) => {
+    return arr.map((num) => +num.toFixed(2)).filter((num) => num < n).length;
+  };
+
+  // console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));
+  // console.log(howManySmaller([1.1888, 1.1868, 1.1838], 1.19));
+}
