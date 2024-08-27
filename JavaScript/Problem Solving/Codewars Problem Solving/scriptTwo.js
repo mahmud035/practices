@@ -166,3 +166,26 @@
   // console.log(splitAndMerge('My name is John', '-'));
   // console.log(splitAndMerge('Hello World!', '.'));
 }
+
+// Training JS #19: Methods of String object--toUpperCase() toLowerCase() and replace()
+//* My Solution
+{
+  const alienLanguage = (str) => {
+    const upperCaseStr = str.toUpperCase();
+
+    return upperCaseStr
+      .split(' ')
+      .map((word) => word.slice(0, -1) + word.slice(-1).toLowerCase())
+      .join(' ');
+  };
+
+  // console.log(alienLanguage('My name is John'));
+}
+
+// Training JS #20: Methods of String object--charAt() charCodeAt() and fromCharCode()
+//* My Solution
+{
+}
+
+console.log(String.fromCharCode(97)); // a
+console.log(String.fromCharCode(98)); // b
