@@ -243,3 +243,72 @@
   //   shuffleIt([41, 15, 90, 52, 28, 67, 56, 75, 26], [5, 6], [0, 6], [5, 0])
   // );
 }
+
+// Training JS #23: methods of arrayObject---push(), pop(), shift() and unshift()
+//* My Solution
+{
+  const infiniteLoop = (arr, d, n) => {
+    let [firstArr, secondArr, thirdArr] = arr;
+    let flatArr = arr.flat();
+    let removedEls = [];
+    let newArr = [];
+
+    if (d === 'left') {
+      removedEls = flatArr.splice(0, n);
+      newArr = [...flatArr, ...removedEls];
+    }
+
+    if (d === 'right') {
+      removedEls = flatArr.splice(flatArr.length - n, n);
+      newArr = [...removedEls, ...flatArr];
+    }
+
+    firstArr = newArr.slice(0, firstArr.length);
+    secondArr = newArr.slice(
+      firstArr.length,
+      firstArr.length + secondArr.length
+    );
+    thirdArr = newArr.slice(firstArr.length + secondArr.length);
+
+    return [firstArr, secondArr, thirdArr];
+  };
+
+  // console.log(
+  //   infiniteLoop(
+  //     [
+  //       [1, 2, 3],
+  //       [4, 5, 6],
+  //       [7, 8, 9],
+  //     ],
+  //     'left',
+  //     1
+  //   )
+  // );
+  // console.log(
+  //   infiniteLoop(
+  //     [
+  //       [1, 2, 3],
+  //       [4, 5, 6],
+  //       [7, 8, 9],
+  //     ],
+  //     'right',
+  //     1
+  //   )
+  // );
+  // console.log(
+  //   infiniteLoop(
+  //     [
+  //       [1, 2],
+  //       [3, 4, 5, 6],
+  //       [7, 8, 9, 10],
+  //     ],
+  //     'left',
+  //     2
+  //   )
+  // );
+}
+
+// Training JS #24: methods of arrayObject---splice() and slice()
+//* My Solution
+{
+}
