@@ -183,9 +183,63 @@
 }
 
 // Training JS #20: Methods of String object--charAt() charCodeAt() and fromCharCode()
-//* My Solution
+//* My Solution (Not Completed Yet)
 {
+  // console.log(String.fromCharCode(97)); // a
+  // console.log(String.fromCharCode(98)); // b
 }
 
-console.log(String.fromCharCode(97)); // a
-console.log(String.fromCharCode(98)); // b
+// Training JS #21: Methods of String object--trim() and the string template
+//* My Solution
+{
+  const fiveLine = (s) => {
+    const str = s.trim();
+    return `${str}\n${str}${str}\n${str}${str}${str}\n${str}${str}${str}${str}\n${str}${str}${str}${str}${str}`;
+  };
+
+  // console.log(fiveLine('  a'));
+  // console.log(fiveLine('\txy \n'));
+}
+
+// Training Time
+//* My Solution
+{
+  let a = 1;
+  let b = 2;
+
+  // Swapping
+  [a, b] = [b, a];
+
+  // console.log(a); // 2
+  // console.log(b); // 1
+
+  const shuffleIt = (...args) => {
+    const [arr, ...rest] = args;
+
+    for (let i = 0; i < rest.length; i++) {
+      const element = rest[i];
+
+      for (let j = 0; j < element.length - 1; j++) {
+        const firstIndex = element[0];
+        const secondIndex = element[1];
+        const firstValue = arr[firstIndex];
+        const secondValue = arr[secondIndex];
+
+        // Swapping
+        arr[firstIndex] = secondValue;
+        arr[secondIndex] = firstValue;
+      }
+
+      // console.log(`After ${i + 1} swap:`, arr);
+    }
+
+    return arr;
+  };
+
+  // console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2]));
+  // console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4]));
+  // console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+  // console.log(
+  //   shuffleIt([41, 15, 90, 52, 28, 67, 56, 75, 26], [5, 6], [0, 6], [5, 0])
+  // );
+}
