@@ -311,4 +311,32 @@
 // Training JS #24: methods of arrayObject---splice() and slice()
 //* My Solution
 {
+  const threeInOne = (arr) => {
+    const size = arr.length / 3;
+    const result = [];
+
+    // Create sub-array of the desired size
+    for (let i = 0; i < size; i++) {
+      result.push(arr.slice(i * 3, i * 3 + 3));
+    }
+
+    // Calculate the sum of each sub-array
+    return result.map((subArr) => {
+      return subArr.reduce((acc, curr) => acc + curr, 0);
+    });
+  };
+
+  // console.log(threeInOne([1, 2, 3]));
+  // console.log(threeInOne([1, 2, 3, 4, 5, 6]));
+  // console.log(threeInOne([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+}
+
+// Training JS #25: methods of arrayObject---reverse() and sort()
+//* My Solution
+{
+  const sortIt = (arr) => {};
+
+  console.log(sortIt([1, 1, 1, 2, 2, 3]));
+  // console.log(sortIt([1, 1, 1, 2, 2, 2, 3, 3, 3]));
+  // console.log(sortIt([1, 2, 3, 4, 4, 5, 5, 6, 6]));
 }
