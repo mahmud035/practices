@@ -378,3 +378,58 @@
   // console.log(isolateIt(['abcde', 'fghij']));
   // console.log(isolateIt(['1234', '56789']));
 }
+
+// Training JS #27: methods of arrayObject---filter()
+//* My Solution
+{
+  const countGrade = (scores) => {
+    // Count the frequency of score
+    const frequencyMap = scores.reduce((acc, score) => {
+      if (score === 100) acc['S'] = (acc['S'] || 0) + 1;
+      if (score < 100 && score >= 90) acc['A'] = (acc['A'] || 0) + 1;
+      if (score < 90 && score >= 80) acc['B'] = (acc['B'] || 0) + 1;
+      if (score < 80 && score >= 60) acc['C'] = (acc['C'] || 0) + 1;
+      if (score < 60 && score >= 0) acc['D'] = (acc['D'] || 0) + 1;
+      if (score === -1) acc['X'] = (acc['X'] || 0) + 1;
+
+      return acc;
+    }, {});
+
+    // return the grade distribution of the scores
+    return {
+      S: frequencyMap['S'] || 0,
+      A: frequencyMap['A'] || 0,
+      B: frequencyMap['B'] || 0,
+      C: frequencyMap['C'] || 0,
+      D: frequencyMap['D'] || 0,
+      X: frequencyMap['X'] || 0,
+    };
+  };
+
+  // console.log(countGrade([50, 60, 70, 80, 90, 100]));
+  // console.log(countGrade([65, 75, , 85, 85, 95, 100, 100]));
+  // console.log(countGrade([-1, -1, -1, -1, -1, -1]));
+}
+
+// Training JS #28: methods of arrayObject---every() and some()
+//* My Solution
+{
+  const mirrorImage = (arr) => {
+    for (let i = 0; i < arr.length - 1; i++) {
+      let a = arr[i].toString();
+      let b = arr[i + 1].toString();
+
+      // Check if b is the reverse of a
+      if (a === b.split('').reverse().join('')) {
+        return [arr[i], arr[i + 1]];
+      }
+    }
+
+    // If no mirror-image pair is found, return [-1, -1]
+    return [-1, -1];
+  };
+
+  // console.log(mirrorImage([11, 22, 33, 33, 22, 11]));
+  // console.log(mirrorImage([454, 86, 57, 75, 16, 88]));
+  // console.log(mirrorImage([454, 0, 57, 0, 16, 88]));
+}
