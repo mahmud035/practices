@@ -481,3 +481,37 @@
   // console.log(tailAndHead([111, 2345, 66, 78, 900]));
   // console.log(tailAndHead([35456, 782, 569, 2454, 875]));
 }
+
+// Training JS #31: methods of arrayObject---isArray() indexOf() and toString()
+//* My Solution
+{
+  const blackAndWhite = (arr) => {
+    if (!Array.isArray(arr)) return "It's a fake array";
+
+    return arr.includes(5) && arr.includes(13)
+      ? "It's a black array"
+      : "It's a white array";
+  };
+
+  // console.log(blackAndWhite(5, 13));
+  // console.log(blackAndWhite([5, 13]));
+  // console.log(blackAndWhite([5, 12]));
+}
+
+// Training JS #32: methods of Math---round() ceil() and floor()
+//* My Solution
+{
+  const roundIt = (n) => {
+    const [left, right] = `${n}`.split('.');
+
+    return right.length > left.length
+      ? Math.ceil(n)
+      : left.length > right.length
+      ? Math.floor(n)
+      : Math.round(n);
+  };
+
+  // console.log(roundIt(3.45));
+  // console.log(roundIt(34.5));
+  // console.log(roundIt(34.56));
+}
