@@ -433,3 +433,51 @@
   // console.log(mirrorImage([454, 86, 57, 75, 16, 88]));
   // console.log(mirrorImage([454, 0, 57, 0, 16, 88]));
 }
+
+// Training JS #29: methods of arrayObject---concat() and join()
+//* My Solution
+{
+  const bigToSmall = (arr) =>
+    arr
+      .flat()
+      .sort((a, b) => b - a)
+      .join('>');
+
+  // console.log(
+  //   bigToSmall([
+  //     [1, 2],
+  //     [3, 4],
+  //     [5, 6],
+  //   ])
+  // );
+  // console.log(
+  //   bigToSmall([
+  //     [1, 3, 5],
+  //     [2, 4, 6],
+  //   ])
+  // );
+  // console.log(bigToSmall([[1, 1], [1], [1, 1]]));
+}
+
+// Training JS #30: methods of arrayObject---reduce() and reduceRight()
+//* My Solution
+{
+  const tailAndHead = (array) => {
+    const result = array
+      .reduce((acc, _, i, arr) => {
+        const tailOfElement = +arr[i].toString().at(-1);
+        const headOfNextElement = +arr[i + 1]?.toString()?.at(0);
+
+        acc.push(tailOfElement + headOfNextElement);
+        return acc;
+      }, [])
+      .slice(0, -1)
+      .reduce((acc, curr) => acc * curr, 1);
+
+    return result;
+  };
+
+  // console.log(tailAndHead([1, 2, 3, 4, 5]));
+  // console.log(tailAndHead([111, 2345, 66, 78, 900]));
+  // console.log(tailAndHead([35456, 782, 569, 2454, 875]));
+}
