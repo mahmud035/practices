@@ -334,9 +334,47 @@
 // Training JS #25: methods of arrayObject---reverse() and sort()
 //* My Solution
 {
-  const sortIt = (arr) => {};
+  const sortIt = (arr) => {
+    // Count the frequency of each element
+    const frequencyMap = arr.reduce((acc, num) => {
+      acc[num] = (acc[num] || 0) + 1;
+      return acc;
+    }, {});
 
-  console.log(sortIt([1, 1, 1, 2, 2, 3]));
+    console.log(frequencyMap);
+
+    // Sort the array based on the specified conditions
+    return arr.slice().sort((a, b) => {
+      const freqA = frequencyMap[a];
+      const freqB = frequencyMap[b];
+
+      if (freqA !== freqB) return freqA - freqB; // Sort by frequency (ascending)
+
+      return b - a; // Sort by value (descending)
+    });
+  };
+
+  // console.log(sortIt([1, 1, 1, 2, 2, 3]));
   // console.log(sortIt([1, 1, 1, 2, 2, 2, 3, 3, 3]));
   // console.log(sortIt([1, 2, 3, 4, 4, 5, 5, 6, 6]));
+}
+
+// Training JS #26: methods of arrayObject---map()
+//* My Solution
+{
+  const isolateIt = (arr) => {
+    return arr.map((str) => {
+      // string length is an even number
+      if (str.length % 2 === 0) {
+        return `${str.slice(0, str.length / 2)}|${str.slice(str.length / 2)}`;
+      }
+
+      // string length is an odd number
+      return `${str.slice(0, str.length / 2)}|${str.slice(str.length / 2 + 1)}`;
+    });
+  };
+
+  // console.log(isolateIt(['abcd', 'efgh']));
+  // console.log(isolateIt(['abcde', 'fghij']));
+  // console.log(isolateIt(['1234', '56789']));
 }
