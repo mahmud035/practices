@@ -515,3 +515,51 @@
   // console.log(roundIt(34.5));
   // console.log(roundIt(34.56));
 }
+
+// Training JS #33: methods of Math---max() min() and abs()
+//* My Solution
+{
+  const maxMin = (arr1, arr2) => {
+    const differences = arr1.reduce((acc, _, i, arr) => {
+      acc[i] = Math.abs(arr[i] - arr2[i]);
+      return acc;
+    }, []);
+
+    const maxValue = Math.max(...differences);
+    const minValue = Math.min(...differences);
+
+    return [maxValue, minValue];
+  };
+
+  // console.log(maxMin([1, 3, 5], [9, 8, 7]));
+  // console.log(maxMin([1, 10, 100, 1000], [0, 0, 0, 0]));
+  // console.log(maxMin([10, 20, 30, 40], [111, 11, 1, -111]));
+}
+
+// Training JS #34: methods of Math---pow() sqrt() and cbrt()
+//* My Solution
+{
+  const cutCube = (volume, n) => {
+    // Check if the cube root of n is an integer (i.e., n is a perfect cube)
+    const cubeRootN = Math.cbrt(n);
+
+    if (!Number.isInteger(cubeRootN)) {
+      return false; // n is not a perfect cube
+    }
+
+    // Check if the cube root of the volume is an integer (i.e., volume is a perfect cube)
+    const cubeRootVolume = Math.cbrt(volume);
+
+    if (!Number.isInteger(cubeRootVolume)) {
+      return false; // volume is not a perfect cube
+    }
+
+    // Check if the small cube's side length is an integer
+    const smallCubeSide = cubeRootVolume / cubeRootN;
+    return Number.isInteger(smallCubeSide);
+  };
+
+  // console.log(cutCube(27, 27));
+  // console.log(cutCube(512, 8));
+  // console.log(cutCube(256, 8));
+}
