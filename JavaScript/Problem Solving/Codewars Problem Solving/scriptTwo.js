@@ -563,3 +563,8 @@
   // console.log(cutCube(512, 8));
   // console.log(cutCube(256, 8));
 }
+
+// Training JS #35: methods of Math---log() and its family
+//* My Solution
+{
+}
