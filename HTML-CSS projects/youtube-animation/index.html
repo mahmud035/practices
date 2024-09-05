@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Like & Subscribe Animations</title>
+    <style>
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #e0e0e0;
+      }
+
+      .like-button,
+      .subscribe-button {
+        position: relative;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="like-button">
+      <button id="likeBtn">👍 Like</button>
+    </div>
+
+    <div class="subscribe-button">
+      <button id="subscribeBtn">Subscribe</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+      // Like button animation with confetti
+      document.getElementById('likeBtn').addEventListener('click', function () {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      });
+
+      // Subscribe button animation
+      document
+        .getElementById('subscribeBtn')
+        .addEventListener('click', function () {
+          // Add a subtle animation to the subscribe button
+          this.style.backgroundColor = '#FF0000'; // YouTube's red color
+          this.style.color = '#FFFFFF'; // White text color
+
+          setTimeout(() => {
+            this.style.backgroundColor = ''; // Revert to original color
+            this.style.color = ''; // Revert to original color
+          }, 1000);
+
+          // Optionally, trigger confetti for subscribing too
+          confetti({
+            particleCount: 50,
+            spread: 60,
+            origin: { y: 0.6 },
+          });
+        });
+    </script>
+  </body>
+</html>
