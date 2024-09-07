@@ -567,5 +567,5 @@
 // Training JS #35: methods of Math---log() and its family
 //* My Solution
 {
-  console.log('hello');
+  // console.log('hello');
 }
