@@ -6,3 +6,6 @@ def chai(str):
 
 
 chai("lemon tea")
+
+for c in "chai":
+    print(c)
