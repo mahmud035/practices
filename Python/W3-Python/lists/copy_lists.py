@@ -20,7 +20,7 @@ fruits = ["apple", "banana", "cherry"]
 fruitsCopied = list(fruits)
 print(fruitsCopied)
 
-# 3. Use the slice Operator:
+# 3. Use the `:`(slice) Operator:
 # You can also make a copy of a list by using the `:`(slice) operator.
 
 # Ex:
