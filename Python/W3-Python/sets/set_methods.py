@@ -6,3 +6,4 @@
 # `add()`   => Adds an element to the set
 # `clear()` => Removes all the elements from the set
 # `copy()`  => Returns a copy of the set
+# `discard()` => Remove the specified item
