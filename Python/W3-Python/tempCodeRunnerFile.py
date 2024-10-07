@@ -1,2 +1,2 @@
 
-#     raise Exception("Sorry, no numbers below zero")
+#     raise TypeError("Only integers are allowed")
