@@ -1,5 +1,4 @@
 "use strict";
-var _a, _b;
 //* Ternary Operator
 const age = 20;
 // if (age > 18) {
@@ -19,7 +18,7 @@ const isAdult = age >= 18 ? 'Yes' : 'No';
 const isAuthenticatedUser = null; // userName will be Guest
 // const isAuthenticatedUser = undefined; // userName will be Guest
 // const isAuthenticatedUser = 'John'; // userName will be John
-const userName = isAuthenticatedUser !== null && isAuthenticatedUser !== void 0 ? isAuthenticatedUser : 'Guest';
+const userName = isAuthenticatedUser ?? 'Guest';
 console.log(userName);
 const human1 = {
     name: 'John',
@@ -30,10 +29,10 @@ const human1 = {
         // home: 'Gopalganj',
     },
 };
-const home = (_b = (_a = human1 === null || human1 === void 0 ? void 0 : human1.address) === null || _a === void 0 ? void 0 : _a.home) !== null && _b !== void 0 ? _b : 'No Home';
+const home = human1?.address?.home ?? 'No Home';
 console.log(home); // Output: "No Home"
 // Ex-3
 const someValue = null;
 const defaultValue = 'This is a default value';
-const result = someValue !== null && someValue !== void 0 ? someValue : defaultValue;
+const result = someValue ?? defaultValue;
 console.log(result); // Output: "This is a default value"

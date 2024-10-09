@@ -25,7 +25,10 @@
         nextjs: 'Tanmoy',
         cloud: 'Nahid',
     };
-    const mentorList = Object.assign(Object.assign({}, mentors1), mentors2);
+    const mentorList = {
+        ...mentors1,
+        ...mentors2,
+    };
     console.log(mentorList); // {typescript: 'Mezba', redux: 'Mir', dbms: 'Mizan', prisma: 'Firoz', nextjs: 'Tanmoy', cloud: 'Nahid'}
     //* Rest Parameter / Operator
     // NOTE: Rest Parameter ==> function এর কয়েকটি অথবা সবগুলো parameter কে rest operator এর মাধ্যমে capture করতে  পারি। এটি একটি Array ([]) রিটার্ন করে। Parameters গুলোকে capture করে Array এর মধ্যে রাখে।
