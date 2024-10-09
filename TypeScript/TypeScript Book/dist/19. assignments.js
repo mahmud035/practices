@@ -1,7 +1,7 @@
 "use strict";
 {
     // Assignments
-    // TypeScript narrowing using assignments is a way to narrow the type of a variable based on the value assigned to it. When a variable is assigned a value, TypeScript infers its type based on the assigned value, and it narrows the type of the variable to match the inferred type.
+    // TypeScript narrowing using assignments is a way to narrow the type of a variable based on the value assigned to it. "When a variable is assigned a value, TypeScript infers its type based on the assigned value, and it narrows the type of the variable to match the inferred type".
     let value;
     value = 'hello';
     if (typeof value === 'string') {
