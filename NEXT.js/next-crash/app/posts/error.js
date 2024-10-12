@@ -1,8 +1,7 @@
 'use client'; // Error components must be Client Components
-
 import { useEffect } from 'react';
 
-const Error = ({ error, reset }) => {
+const ErrorComponent = ({ error, reset }) => {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -22,4 +21,4 @@ const Error = ({ error, reset }) => {
   );
 };
 
-export default Error;
+export default ErrorComponent;

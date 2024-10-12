@@ -196,7 +196,7 @@ body {
 }
 
 .membership-text p {
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

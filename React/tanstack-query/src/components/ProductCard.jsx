@@ -24,9 +24,18 @@ const ProductCard = ({ product, setEditing, setSelectedProduct }) => {
     }
   };
 
+  // NOTE: Added `onKeyDown` and `tabIndex` for accessibility.
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setSelectedProduct(product);
+    }
+  };
+
   return (
     <div
       onClick={() => setSelectedProduct(product)}
+      onKeyDown={handleKeyDown}
+      tabIndex="0"
       className="w-full shadow-xl cursor-pointer card bg-base-100"
     >
       <figure>

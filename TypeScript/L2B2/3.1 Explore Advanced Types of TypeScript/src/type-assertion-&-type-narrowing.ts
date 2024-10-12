@@ -10,7 +10,9 @@
 
   anything = 'Next level web development';
 
-  (anything as string).length;
+  const anythingLength = (anything as string).length;
+
+  console.log(anythingLength);
 
   // Example: 2
   const kgToGram = (param: string | number): string | number | undefined => {

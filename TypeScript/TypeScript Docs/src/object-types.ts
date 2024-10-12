@@ -49,16 +49,17 @@ draw({ color: 'blue', radius: 42 }); // OK
 interface Box<Type> {
   contents: Type;
 }
+
 // type Box2<Type> = { contents: Type };
 interface StringBox {
   contents: string;
 }
 
 let boxA: Box<string> = { contents: 'hello' };
-boxA.contents;
+console.log(boxA.contents);
 
 let boxB: StringBox = { contents: 'world' };
-boxB.contents;
+console.log(boxB.contents);
 
 function setContents<Type>(box: Box<Type>, newContents: Type) {
   box.contents = newContents;
@@ -66,5 +67,4 @@ function setContents<Type>(box: Box<Type>, newContents: Type) {
 
 //* Tuple Types
 // A tuple type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
-
 type StringNumberPair = [string, number];

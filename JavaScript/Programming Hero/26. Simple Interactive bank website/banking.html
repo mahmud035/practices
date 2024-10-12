@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <h1 class="text-5xl text-center mt-6">
+      <h1 class="mt-6 text-5xl text-center">
         Let's get some
         <span class="font-semibold text-violet-600">Mooooooney</span>!!!
       </h1>
@@ -17,18 +17,18 @@
 
     <main>
       <section class="mt-12">
-        <div class="grid grid-cols-3 gap-4 w-3/4 mx-auto text-white">
-          <div class="bg-green-400 p-8 rounded-xl">
+        <div class="grid w-3/4 grid-cols-3 gap-4 mx-auto text-white">
+          <div class="p-8 bg-green-400 rounded-xl">
             <h4 class="text-2xl">Deposit</h4>
             <h2 class="text-5xl">$<span id="deposit-total">00</span></h2>
           </div>
 
-          <div class="bg-yellow-500 p-8 rounded-xl">
+          <div class="p-8 bg-yellow-500 rounded-xl">
             <h4 class="text-2xl">Withdraw</h4>
             <h2 class="text-5xl">$<span id="withdraw-total">00</span></h2>
           </div>
 
-          <div class="bg-violet-500 p-8 rounded-xl">
+          <div class="p-8 bg-violet-500 rounded-xl">
             <h4 class="text-2xl">Balance</h4>
             <h2 class="text-5xl">$<span id="balance-total">1240</span></h2>
           </div>
@@ -37,9 +37,9 @@
 
       <!-- Deposit and Withdraw -->
       <section class="mt-12">
-        <div class="grid grid-cols-2 gap-4 w-3/4 mx-auto">
-          <div class="bg-fuchsia-400 p-8 rounded-xl">
-            <h4 class="text-2xl mb-3 text-white">Please Deposit</h4>
+        <div class="grid w-3/4 grid-cols-2 gap-4 mx-auto">
+          <div class="p-8 bg-fuchsia-400 rounded-xl">
+            <h4 class="mb-3 text-2xl text-white">Please Deposit</h4>
             <input
               id="deposit-field"
               class="w-3/4 block mb-3 p-1.5 rounded"
@@ -48,14 +48,14 @@
             />
             <button
               id="btn-deposit"
-              class="bg-blue-900 px-8 py-2 rounded text-white font-medium"
+              class="px-8 py-2 font-medium text-white bg-blue-900 rounded"
             >
               Deposit
             </button>
           </div>
 
-          <div class="bg-sky-400 p-8 rounded-xl">
-            <h4 class="text-2xl mb-3 text-white">Please Withdraw</h4>
+          <div class="p-8 bg-sky-400 rounded-xl">
+            <h4 class="mb-3 text-2xl text-white">Please Withdraw</h4>
             <input
               id="withdraw-field"
               class="w-3/4 block mb-3 p-1.5 rounded"
@@ -64,7 +64,7 @@
             />
             <button
               id="btn-withdraw"
-              class="bg-blue-900 px-8 py-2 rounded text-white font-medium"
+              class="px-8 py-2 font-medium text-white bg-blue-900 rounded"
             >
               Withdraw
             </button>

@@ -56,6 +56,10 @@ header {
   display: flex;
 }
 
+.navbar ul {
+  display: flex;
+}
+
 .navbar li {
   position: relative;
 }

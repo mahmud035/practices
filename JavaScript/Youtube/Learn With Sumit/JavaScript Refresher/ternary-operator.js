@@ -14,14 +14,6 @@
 
   const a = 6;
 
-  if (a % 2 === 0) {
-    // even
-  } else {
-    // odd
-  }
-
   //* Using ternary operator
   const result = a % 2 === 0 ? 'even' : 'odd';
-
-  console.log(result); // even
 }

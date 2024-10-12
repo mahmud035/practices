@@ -64,10 +64,10 @@ function isFish(pet: Fish | Bird): pet is Fish {
 
 function getFood(pet: Fish | Bird) {
   if (isFish(pet)) {
-    pet;
+    console.log(pet); // using 'pet'
     return 'fish food';
   } else {
-    pet;
+    console.log(pet); // using 'pet'
     return 'bird food';
   }
 }

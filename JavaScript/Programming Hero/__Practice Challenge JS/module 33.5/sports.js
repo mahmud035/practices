@@ -33,7 +33,7 @@ const displayPlayers = (players) => {
               <p class="card-text">
               ${
                 player?.strDescriptionEN
-                  ? (player?.strDescriptionEN).slice(0, 100)
+                  ? player.strDescriptionEN.slice(0, 100)
                   : 'Not Available'
               }
               </p>
@@ -75,7 +75,7 @@ const displayPlayerDetails = (player) => {
               <p class="card-text ">
               ${
                 player?.strDescriptionEN
-                  ? (player?.strDescriptionEN).slice(0, 100)
+                  ? player.strDescriptionEN.slice(0, 100)
                   : 'Not Available'
               }
               </p>

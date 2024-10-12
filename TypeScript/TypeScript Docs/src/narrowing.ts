@@ -30,7 +30,6 @@ function getUsersOnlineMessage(numUsersOnline: number) {
 
 // both of these result in 'true'
 Boolean('hello'); // type: boolean, value: true
-!!'world'; // type: true, value: true
 
 function multiplyAll(
   values: number[] | undefined,
@@ -46,8 +45,9 @@ function multiplyAll(
 //* Equality narrowing
 function example(x: string | number, y: string | boolean) {
   if (x === y) {
-    x.toUpperCase();
-    y.toLowerCase();
+    const upper = x.toUpperCase();
+    const lower = y.toLowerCase();
+    console.log(upper, lower);
   } else {
     console.log(x);
     console.log(y);
@@ -92,7 +92,7 @@ function move2(animal: Fish | Bird | Human) {
   if ('swim' in animal) {
     return animal;
   } else {
-    animal;
+    return animal;
   }
 }
 

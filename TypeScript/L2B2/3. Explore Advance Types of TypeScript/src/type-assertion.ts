@@ -1,8 +1,6 @@
 let emni: any;
-
 emni = 'Next level web development';
-
-(emni as string).length;
+const emniLength = (emni as string).length;
 
 function kgToGram(param: string | number): string | number | undefined {
   if (typeof param === 'string') {
@@ -24,6 +22,7 @@ type CustomErrorType = {
 };
 
 try {
+  // some code that might throw an error
 } catch (error) {
   console.log((error as CustomErrorType).message);
 }

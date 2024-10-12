@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="light">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,12 +18,13 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Biker Zone - Tailwind CSS</title>
   </head>
   <body>
     <!-- Featured Bike Section -->
-    <div class="max-w-screen-xl mx-auto pt-32">
-      <div class="container mx-auto px-6">
-        <h2 class="text-center text-2xl sm:text-3xl md:text-5xl font-semibold">
+    <div class="max-w-screen-xl pt-32 mx-auto">
+      <div class="container px-6 mx-auto">
+        <h2 class="text-2xl font-semibold text-center sm:text-3xl md:text-5xl">
           Featured Bikes In This Year
         </h2>
         <p class="text-center text-[#E76F51] font-semibold text-sm pt-2">
@@ -33,7 +34,7 @@
 
         <!-- Bike Images -->
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-24 pt-12"
+          class="grid grid-cols-1 gap-24 pt-12 sm:grid-cols-2 lg:grid-cols-3"
         >
           <img class="grayscale" src="./images/feature-bike.jpg" alt="" />
           <img src="./images/feature-bike.jpg" alt="" />
@@ -43,19 +44,19 @@
     </div>
 
     <!-- Latest News Section -->
-    <div class="max-w-screen-xl mx-auto pt-32">
-      <div class="container mx-auto px-6">
-        <h2 class="text-center text-2xl sm:text-3xl md:text-5xl font-semibold">
+    <div class="max-w-screen-xl pt-32 mx-auto">
+      <div class="container px-6 mx-auto">
+        <h2 class="text-2xl font-semibold text-center sm:text-3xl md:text-5xl">
           Latest News
         </h2>
 
         <!-- News Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12">
+        <div class="grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3">
           <!-- Single Card -->
           <div class="p-4 border-solid border-2 border-[#f5f5f5] rounded-md">
             <img src="./images/bike-1.png" alt="" />
             <div class="pt-5">
-              <h3 class="text-2xl font-semibold pb-3">Ducati XDIAVEL S-73</h3>
+              <h3 class="pb-3 text-2xl font-semibold">Ducati XDIAVEL S-73</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus,
                 fermentum amet faucibus sed id nisi lectus at.
@@ -72,7 +73,7 @@
           <div class="p-4 border-solid border-2 border-[#f5f5f5] rounded-md">
             <img src="./images/bike-2.png" alt="" />
             <div class="pt-5">
-              <h3 class="text-2xl font-semibold pb-3">Ducati XDIAVEL S-73</h3>
+              <h3 class="pb-3 text-2xl font-semibold">Ducati XDIAVEL S-73</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus,
                 fermentum amet faucibus sed id nisi lectus at.
@@ -89,7 +90,7 @@
           <div class="p-4 border-solid border-2 border-[#f5f5f5] rounded-md">
             <img src="./images/bike-3.png" alt="" />
             <div class="pt-5">
-              <h3 class="text-2xl font-semibold pb-3">Ducati XDIAVEL S-73</h3>
+              <h3 class="pb-3 text-2xl font-semibold">Ducati XDIAVEL S-73</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus,
                 fermentum amet faucibus sed id nisi lectus at.
@@ -106,20 +107,20 @@
     </div>
 
     <!-- Happy Client Section -->
-    <div class="max-w-screen-xl mx-auto pt-32">
-      <div class="container mx-auto px-6">
-        <h2 class="text-center text-2xl sm:text-3xl md:text-5xl font-semibold">
+    <div class="max-w-screen-xl pt-32 mx-auto">
+      <div class="container px-6 mx-auto">
+        <h2 class="text-2xl font-semibold text-center sm:text-3xl md:text-5xl">
           Happy <span class="text-[#E76F51]">Client Says</span>
         </h2>
 
         <!-- Cards -->
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-12"
+          class="grid grid-cols-1 gap-10 pt-12 sm:grid-cols-2 lg:grid-cols-3"
         >
           <!-- card-1 -->
           <div class="p-6 border-solid border-2 border-[#f5f5f5] rounded-md">
-            <img class="w-36 mx-auto pt-3" src="./images/user-1.png" alt="" />
-            <div class="text-center pt-5">
+            <img class="pt-3 mx-auto w-36" src="./images/user-1.png" alt="" />
+            <div class="pt-5 text-center">
               <p>
                 Slate helps you see how many more days you need to work to reach
                 your financial goal for the month and year.
@@ -141,8 +142,8 @@
 
           <!-- card-2 -->
           <div class="p-6 border-solid border-2 border-[#f5f5f5] rounded-md">
-            <img class="w-36 mx-auto pt-3" src="./images/user-2.png" alt="" />
-            <div class="text-center pt-5">
+            <img class="pt-3 mx-auto w-36" src="./images/user-2.png" alt="" />
+            <div class="pt-5 text-center">
               <p>
                 Slate helps you see how many more days you need to work to reach
                 your financial goal for the month and year.
@@ -164,8 +165,8 @@
 
           <!-- card-3 -->
           <div class="p-6 border-solid border-2 border-[#f5f5f5] rounded-md">
-            <img class="w-36 mx-auto pt-3" src="./images/user-3.png" alt="" />
-            <div class="text-center pt-5">
+            <img class="pt-3 mx-auto w-36" src="./images/user-3.png" alt="" />
+            <div class="pt-5 text-center">
               <p>
                 Slate helps you see how many more days you need to work to reach
                 your financial goal for the month and year.
@@ -189,15 +190,15 @@
     </div>
 
     <!-- FAQ Section -->
-    <div class="max-w-screen-xl mx-auto pt-32">
-      <div class="container mx-auto px-6">
-        <h2 class="text-center text-2xl sm:text-3xl md:text-5xl font-semibold">
+    <div class="max-w-screen-xl pt-32 mx-auto">
+      <div class="container px-6 mx-auto">
+        <h2 class="text-2xl font-semibold text-center sm:text-3xl md:text-5xl">
           Frequently <span class="text-[#E76F51]">Asked Questions</span>
         </h2>
 
         <!-- FAQ Content -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-16 pt-12"
+          class="grid items-center justify-center grid-cols-1 gap-16 pt-12 md:grid-cols-2"
         >
           <img class="max-w-[350px] mx-auto" src="./images/faq.png" alt="" />
           <div>
@@ -208,7 +209,7 @@
                 <div class="space-y-4">
                   <details class="w-full border rounded-lg cursor-pointer">
                     <summary
-                      class="px-4 py-5 focus:outline-none focus-visible:ring-violet-400 font-medium text-lg"
+                      class="px-4 py-5 text-lg font-medium focus:outline-none focus-visible:ring-violet-400"
                     >
                       What are the most important things I should know about
                       riding a bike?
@@ -222,7 +223,7 @@
                   </details>
                   <details class="w-full border rounded-lg cursor-pointer">
                     <summary
-                      class="px-4 py-5 focus:outline-none focus-visible:ring-violet-400 font-medium text-lg"
+                      class="px-4 py-5 text-lg font-medium focus:outline-none focus-visible:ring-violet-400"
                     >
                       How can I tell if my helmet is old and I need a new one?
                     </summary>
@@ -233,7 +234,7 @@
                   </details>
                   <details class="w-full border rounded-lg cursor-pointer">
                     <summary
-                      class="px-4 py-5 focus:outline-none focus-visible:ring-violet-400 font-medium text-lg"
+                      class="px-4 py-5 text-lg font-medium focus:outline-none focus-visible:ring-violet-400"
                     >
                       My bike has been in storage is it safe to ride?
                     </summary>
@@ -247,7 +248,7 @@
 
                   <details class="w-full border rounded-lg cursor-pointer">
                     <summary
-                      class="px-4 py-5 focus:outline-none focus-visible:ring-violet-400 font-medium text-lg"
+                      class="px-4 py-5 text-lg font-medium focus:outline-none focus-visible:ring-violet-400"
                     >
                       What rules should I follow when riding my bike?
                     </summary>
@@ -270,7 +271,7 @@
     <footer class="py-10 px-6 md:px-10 bg-[#0B0D17] text-white mt-20">
       <div class="max-w-screen-xl mx-auto">
         <div class="">
-          <div class="w-full flex flex-col gap-6 sm:flex-row sm:justify-around">
+          <div class="flex flex-col w-full gap-6 sm:flex-row sm:justify-around">
             <div>
               <p class="grid grid-cols-2 gap-8 pb-4">
                 <span>Download Now</span>
@@ -292,7 +293,7 @@
             </div>
 
             <div class="sm:order-3">
-              <span class="font-semibold text-lg block pb-4">Get the app</span>
+              <span class="block pb-4 text-lg font-semibold">Get the app</span>
               <div class="grid grid-cols-1 gap-4">
                 <img class="w-32 h-10" src="./images/ios.png" alt="" />
                 <img class="w-32 h-10" src="./images/android.png" alt="" />

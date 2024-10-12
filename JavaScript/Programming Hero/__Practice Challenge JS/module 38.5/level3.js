@@ -37,10 +37,9 @@ document.getElementById('btn-delete-name').addEventListener('click', () => {
   localStorage.removeItem('name');
 });
 
-document.getElementById('btn-delete-email'),
-  addEventListener('click', () => {
-    localStorage.removeItem('email');
-  });
+document.getElementById('btn-delete-email').addEventListener('click', () => {
+  localStorage.removeItem('email');
+});
 
 document.getElementById('btn-delete-message').addEventListener('click', () => {
   localStorage.removeItem('message');

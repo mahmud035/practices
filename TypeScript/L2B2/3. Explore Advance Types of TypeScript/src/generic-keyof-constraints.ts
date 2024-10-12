@@ -18,7 +18,7 @@ const b: newTypeUsingKeyOf = 'age'; // OK
 // Ex: real life example
 function getProperty<X, Y extends keyof X>(obj: X, key: Y) {
   // here Y = 'name' | 'age'
-  obj[key];
+  return obj[key];
 }
 
 const properties = getProperty({ name: 'Mr. X', age: 100 }, 'age');

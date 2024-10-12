@@ -46,10 +46,15 @@ console.log(evenFriendsName); */
 
 // Practice Problem: 3
 const findArraySquareAverage = (numbers) => {
+  let sumOfSquares = 0;
+
   for (const number of numbers) {
-    const square = Math.pow(number * number);
-    console.log(square);
+    const square = Math.pow(number, 2);
+    console.log(square); // This line is for logging each square
+    sumOfSquares += square;
   }
+
+  return sumOfSquares / numbers.length;
 };
 
 const array = [2, 3, 4, 5];

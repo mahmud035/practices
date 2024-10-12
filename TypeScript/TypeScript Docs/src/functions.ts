@@ -122,14 +122,15 @@ function fail(msg: string): never {
   throw new Error(msg);
 }
 
-// never also appears when TypeScript determines there’s nothing left in a union.
+// `never` also appears when TypeScript determines there’s nothing left in a union.
 function fn(x: string | number) {
   if (typeof x === 'string') {
     // do something
   } else if (typeof x === 'number') {
     // do something else
   } else {
-    x; // has type 'never'
+    // This block is unreachable, but TypeScript requires a return type
+    throw new Error(`Unexpected type: ${typeof x}`);
   }
 }
 

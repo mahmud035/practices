@@ -21,7 +21,7 @@ navBar.forEach((a) => {
 });
 
 // Swiper Slider
-var swiper = new Swiper('.mySwiper', {
+const swiper = new Swiper('.mySwiper', {
   direction: 'vertical',
   loop: true,
   pagination: {
@@ -32,7 +32,3 @@ var swiper = new Swiper('.mySwiper', {
     delay: 3500,
   },
 });
-
-// Counter Design
-
-// Our Partners

@@ -12,19 +12,15 @@ function getUpper(value: string): string {
 console.log(getUpper('10'));
 console.log(getUpper('pavel'));
 
-function signUpUser(name: string, email: string, isPaid: boolean): void {
-  // console.log(`${name} ${email} ${isPaid}`);
+function signUpUser(name: string, email: string, isPaid: boolean) {
+  return `${name} ${email} ${isPaid}`;
 }
 
 console.log(signUpUser('pavel', 'pavel@gmail.com', false));
 
 // provide default value
-const loginUser = (
-  name: string,
-  email: string,
-  isPaid: boolean = false
-): void => {
-  // console.log(`${name} ${email} ${isPaid}`);
+const loginUser = (name: string, email: string, isPaid: boolean = false) => {
+  return `${name} ${email} ${isPaid}`;
 };
 
 console.log(loginUser('pavel', 'pavel@gmail.com'));

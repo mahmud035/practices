@@ -20,40 +20,18 @@
   // 👉 It is easy to pronounce.
 }
 
-{
-  //* Be careful with comparison using the loose equality operator
+//* Be careful with comparison using the loose equality operator
 
-  // IMPORTANT:
-  // 👉 Loose Equality Operator (==): This comparison operator transforms the operands having the same type before comparison. Be careful with unexpected output.
-  // 👉 Strict Equality Operator (===): This comparison operator compares the value and the type.
+// IMPORTANT:
+// 👉 Loose Equality Operator (==): This comparison operator transforms the operands having the same type before comparison. Be careful with unexpected output.
 
-  // TODO: Always use Strict Equality Operator (=== OR !==).
+// 👉 Strict Equality Operator (===): This comparison operator compares the value and the type.
 
-  [100] == 100; // true
-  // [100] === 100; // false
+// TODO: Always use Strict Equality Operator (=== OR !==).
 
-  '100' == 100; // true
-  '100' === 100; // false
-
-  [] == 0; // true
-  // [] === 0; // false
-
-  '' == false; // true
-  '' === false; // false
-
-  '' == 0; // true
-  '' === 0; // false
-
-  false == 0; // true
-  false === 0; // false
-
-  null == undefined; // true
-  null === undefined; // false
-
-  // NOTE:
-  // 👉 Loose Equality Operator (== OR !=) performs the automatic type conversion before comparison if needed.
-  // Like in the above example, you can get unexpected output with Loose Equality Operator.
-}
+// NOTE:
+// 👉 Loose Equality Operator (== OR !=) performs the automatic type conversion before comparison if needed.
+// Like in the above example, you can get unexpected output with Loose Equality Operator.
 
 {
   //* Check property exists in an object
@@ -444,29 +422,12 @@
    */
 }
 
-{
-  //* Function parameters default value
+//* Function parameters default value
 
-  const isRequired = () => {
-    throw new Error('Argument is required');
-  };
+// NOTE:
+//* 👉 If you `DON'T provide the argument` or provide `undefined`, the default value will be used.
 
-  // NOTE: If argument is not provided, "it will not be reached to function body" and throw error.
-  const setCurrentVideoCode = (videoCode = isRequired()) => {
-    console.log(videoCode);
-  };
-
-  // setCurrentVideoCode('#VD098'); // #VD098
-  // setCurrentVideoCode(''); //
-  // setCurrentVideoCode(null); // null
-
-  // setCurrentVideoCode(); // Error: Argument is required
-  // setCurrentVideoCode(undefined); // Error: Argument is required
-
-  // NOTE:
-  //* 👉 If you don't provide the argument or provide undefined, it will use the default value isRequired() function which throws an error.
-  // 👉 Note that null is considered a value, so passing null will not use the default value isRequired().
-}
+// 👉 Note that `null` is considered a value, so passing `null` will not use the default value.
 
 {
   //* Use of Object Destructuring

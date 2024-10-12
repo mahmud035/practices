@@ -146,7 +146,7 @@ print("pineapple" not in fruits)
 
 # Ex:
 # Parentheses has the highest precedence, meaning that expressions inside parentheses must be evaluated first:
-print((6 + 3) - (6 + 3))
+print((20 + 10) - (10 + 5))
 
 # Ex:
 # Multiplication `*` has higher precedence that addition `+`, and therefore multiplications are evaluated before additions:
