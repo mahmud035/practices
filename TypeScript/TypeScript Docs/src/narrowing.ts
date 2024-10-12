@@ -88,14 +88,6 @@ function move(animal: Fish | Bird) {
   return animal.fly();
 }
 
-function move2(animal: Fish | Bird | Human) {
-  if ('swim' in animal) {
-    return animal;
-  } else {
-    return animal;
-  }
-}
-
 //* instanceof narrowing
 // useful for most values that can be constructed with 'new'
 

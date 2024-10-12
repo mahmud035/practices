@@ -16,14 +16,18 @@ function signUpUser(name: string, email: string, isPaid: boolean) {
   return `${name} ${email} ${isPaid}`;
 }
 
-console.log(signUpUser('pavel', 'pavel@gmail.com', false));
+signUpUser('pavel', 'pavel@gmail.com', false);
 
 // provide default value
-const loginUser = (name: string, email: string, isPaid: boolean = false) => {
+const loginUser = (
+  name: string,
+  email: string,
+  isPaid: boolean = false
+): string => {
   return `${name} ${email} ${isPaid}`;
 };
 
-console.log(loginUser('pavel', 'pavel@gmail.com'));
+loginUser('pavel', 'pavel@gmail.com');
 
 // return union type
 function getValue(myValue: number): boolean | string {
