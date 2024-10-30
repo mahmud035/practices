@@ -564,8 +564,34 @@
   // console.log(cutCube(256, 8));
 }
 
-// Training JS #35: methods of Math---log() and its family
+// Even or Odd
 //* My Solution
 {
-  console.log('hello');
+  const evenOrOdd = (number) => (number % 2 === 0 ? 'Even' : 'Odd');
+
+  // console.log(evenOrOdd(2));
+  // console.log(evenOrOdd(7));
+  // console.log(evenOrOdd(-42));
+  // console.log(evenOrOdd(0));
+}
+
+// Disemvowel Trolls
+//* My Solution
+{
+  const disemvowel = (str) => str.replace(/[aeiouAEIOU]/g, '');
+
+  // console.log(disemvowel('This website is for losers LOL!'));
+}
+
+// Square Every Digit
+//* My Solution
+{
+  const squareDigits = (num) =>
+    +num
+      .toString()
+      .split('')
+      .map((num) => Math.pow(+num, 2))
+      .join('');
+
+  // console.log(squareDigits(3212)); // 9414
 }
