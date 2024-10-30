@@ -595,3 +595,63 @@
 
   // console.log(squareDigits(3212)); // 9414
 }
+
+// Who likes it?
+//* My Solution
+{
+  const likes = (a) => {
+    switch (a.length) {
+      case 0:
+        return 'no one likes this';
+      case 1:
+        return `${a[0]} likes this`;
+      case 2:
+        return `${a[0]} and ${a[1]} like this`;
+      case 3:
+        return `${a[0]}, ${a[1]} and ${a[2]} like this`;
+      default:
+        return `${a[0]}, ${a[1]} and ${a.length - 2} others like this`;
+    }
+  };
+
+  // console.log(likes([]));
+  // console.log(likes(['Peter']));
+  // console.log(likes(['Jacob', 'Alex']));
+  // console.log(likes(['Max', 'John', 'Mark']));
+  // console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
+}
+
+// Find the odd int
+//* My Solution
+{
+  const findOdd = (nums) => {
+    const counts = nums.reduce((acc, num) => {
+      acc[num] = (acc[num] || 0) + 1;
+      return acc;
+    }, {});
+
+    for (const [key, value] of Object.entries(counts)) {
+      if (value % 2 === 1) return +key;
+    }
+  };
+
+  // console.log(findOdd([7])); // 7
+  // console.log(findOdd([0])); // 0
+  // console.log(findOdd([1, 1, 2])); // 2
+  // console.log(findOdd([0, 1, 0, 1, 0])); // 0;
+  // console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
+}
+
+// Descending Order
+//* My Solution
+{
+  const descendingOrder = (num) =>
+    +num
+      .toString()
+      .split('')
+      .sort((a, b) => b - a)
+      .join('');
+
+  // console.log(descendingOrder(1021)); // 2110
+  // console.log(descendingOrder(145263)); // 654321
+}
