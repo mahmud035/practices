@@ -655,3 +655,73 @@
   // console.log(descendingOrder(1021)); // 2110
   // console.log(descendingOrder(145263)); // 654321
 }
+
+// Return Negative
+//* My Solution
+{
+  const makeNegative = (num) => {
+    if (num < 0) return num;
+    if (num === 0) return 0;
+    return -num;
+  };
+
+  // console.log(makeNegative(1)); // -1
+  // console.log(makeNegative(-5)); // -5
+  // console.log(makeNegative(0)); // 0
+  // console.log(makeNegative(0.12)); // -0.12
+}
+
+// Sum of positive
+//* My Solution
+{
+  const positiveSum = (arr) => {
+    if (arr.length === 0) return 0;
+
+    return arr.filter((num) => num > 0).reduce((acc, curr) => acc + curr, 0);
+  };
+
+  // console.log(positiveSum([1, -4, 7, 12])); // 20
+}
+
+// Reversed Strings
+//* My Solution
+{
+  const solution = (str) => str.split('').reverse().join('');
+
+  // console.log(solution('world'));
+  // console.log(solution('word'));
+}
+
+// List Filtering
+//* My Solution
+{
+  const filterList = (list) => list.filter((item) => typeof item === 'number');
+
+  // console.log(filterList([1, 2, 'a', 'b']));
+}
+
+// Get the Middle Character
+//* My Solution
+{
+  const getMiddle = (str) => {
+    const isStrLengthOdd = str.length % 2 === 1;
+
+    return isStrLengthOdd
+      ? str.at(Math.floor(str.length / 2))
+      : `${str.at(str.length / 2 - 1)}${str.at(str.length / 2)}`;
+  };
+
+  // console.log(getMiddle('test')); // 'es'
+  // console.log(getMiddle('testing')); // 't'
+}
+
+// You're a square!
+//* My Solution
+{
+  const isSquare = (num) =>
+    Math.floor(Math.sqrt(num)) * Math.floor(Math.sqrt(num)) === num;
+
+  // console.log(isSquare(3)); // false
+  // console.log(isSquare(25)); // true
+  // console.log(isSquare(88)); // false
+}
