@@ -725,3 +725,109 @@
   // console.log(isSquare(25)); // true
   // console.log(isSquare(88)); // false
 }
+
+// Convert a Number to a String!
+//* My Solution
+{
+  const numberToString = (num) => num.toString();
+
+  // console.log(numberToString(123));
+}
+
+// Convert a String to a Number!
+//* My Solution
+{
+  const stringToNumber = (str) => +str;
+
+  // console.log(stringToNumber('1234'));
+}
+
+// Convert boolean values to strings 'Yes' or 'No'.
+//* My Solution
+{
+  const boolToWord = (bool) => (bool === true ? 'Yes' : 'No');
+
+  // console.log(boolToWord(true));
+  // console.log(boolToWord(false));
+}
+
+// Isograms
+//* My Solution
+{
+  const isIsogram = (str) => {
+    if (str.length === 0) return true;
+
+    const counts = str
+      .toLowerCase()
+      .split('')
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+
+    for (const value of Object.values(counts)) {
+      if (value > 1) return false;
+    }
+
+    return true;
+  };
+
+  // console.log(isIsogram('Dermatoglyphics')); // true
+  // console.log(isIsogram('isogram')); // true
+  // console.log(isIsogram('aba')); // false
+  // console.log(isIsogram('moOse')); // false
+  // console.log(isIsogram('isIsogram')); // false
+  // console.log(isIsogram('')); // true
+}
+
+// Counting Duplicates
+//* My Solution
+{
+  const duplicateCount = (text) => {
+    let count = 0;
+
+    const counts = text
+      .toLowerCase()
+      .split('')
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+
+    for (const value of Object.values(counts)) {
+      if (value > 1) count++;
+    }
+
+    return count;
+  };
+
+  // console.log(duplicateCount('')); // 0
+  // console.log(duplicateCount('abcde')); // 0
+  // console.log(duplicateCount('aabbcde')); // 2
+  // console.log(duplicateCount('aabBcde')); // 2
+}
+
+// Exes and Ohs
+//* My Solution
+{
+  const XO = (str) => {
+    const counts = str
+      .toLowerCase()
+      .split('')
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+
+    const numOfX = counts['x'];
+    const numOfO = counts['o'];
+
+    return numOfX === numOfO ? true : false;
+  };
+
+  // console.log(XO('ooxx')); // true
+  // console.log(XO('xooxx')); // false
+  // console.log(XO('ooxXm')); // true
+  // console.log(XO('zpzpzpp')); // true; when no 'x' and 'o' is present should return true
+  // console.log(XO('zzoo')); // false
+}
