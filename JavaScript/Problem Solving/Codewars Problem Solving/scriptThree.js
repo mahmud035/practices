@@ -1082,5 +1082,96 @@
   const summation = (num) => (num * (num + 1)) / 2;
 
   // console.log(summation(2)); // 3
-  // console.log(summation(8)); // 36
+}
+
+// Find the smallest integer in the array
+//* My Solution
+{
+  const findSmallestInt = (arr) => Math.min(...arr);
+
+  // console.log(findSmallestInt([34, 15, 88, 2])); // 2
+}
+
+// Sum of two lowest positive integers
+//* My Solution
+{
+  const sumTwoSmallestNumbers = (nums) =>
+    nums
+      .sort((a, b) => a - b)
+      .slice(0, 2)
+      .reduce((acc, curr) => acc + curr, 0);
+
+  // console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77])); // 7
+}
+
+// Counting sheep...
+//* My Solution
+{
+  const countSheeps = (sheep) => sheep.filter((s) => s).length;
+
+  // console.log(countSheeps([undefined, null, false, true])); // 1
+}
+
+// Beginner Series #3 Sum of Numbers
+//* My Solution
+{
+  const getSum = (a, b) => {
+    if (a === b) return a;
+
+    const smallNumber = Math.min(a, b);
+    const largeNumber = Math.max(a, b);
+    let sum = 0;
+
+    for (let i = smallNumber; i <= largeNumber; i++) {
+      sum += i;
+    }
+    return sum;
+  };
+
+  // console.log(getSum(1, 2)); // 3
+  // console.log(getSum(1, 1)); // 1 (1 since both are same)
+  // console.log(getSum(-1, 2)); // 2 (-1 + 0 + 1 + 2 = 2)
+}
+
+// Does my number look big in this?
+//* My Solution
+{
+  const narcissistic = (num) => {
+    const narcissisticSum = num
+      .toString()
+      .split('')
+      .map((n, _, arr) => Math.pow(+n, arr.length))
+      .reduce((acc, curr) => acc + curr, 0);
+
+    return narcissisticSum === num ? true : false;
+  };
+
+  // console.log(narcissistic(153));
+  // true => 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+
+  // console.log(narcissistic(1652));
+  // false => 1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
+}
+
+// Your order, please
+//* My Solution
+{
+  const order = (sentence) => {
+    if (sentence.length === 0) return '';
+    const words = sentence.split(' ');
+    const arr = [];
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+
+      for (let j = 0; j < word.length; j++) {
+        // Check if the character is a digit (1-9)
+        if (/^[0-9]*$/.test(word[j])) arr[word[j] - 1] = word;
+      }
+    }
+
+    return arr.join(' ');
+  };
+
+  // console.log(order('is2 Thi1s T4est 3a')); // "Thi1s is2 3a T4est"
 }
