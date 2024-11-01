@@ -1175,3 +1175,37 @@
 
   // console.log(order('is2 Thi1s T4est 3a')); // "Thi1s is2 3a T4est"
 }
+
+// Unique In Order
+//* My Solution
+{
+  const uniqueInOrder = (iterable) => {
+    if (iterable.length === 0) return [];
+
+    const isNumericArray = typeof iterable[0] === 'number';
+    const strArray = isNumericArray ? iterable.map(String) : iterable;
+    const result = [];
+    let currentChar = strArray[0];
+    let count = 0;
+
+    for (let i = 0; i < strArray.length; i++) {
+      const char = strArray[i];
+
+      if (char === currentChar) count++;
+      else {
+        result.push(currentChar.repeat(count));
+        currentChar = char;
+        count = 1;
+      }
+    }
+
+    result.push(currentChar.repeat(count)); // For the last set of characters
+
+    // Convert back to original type
+    return result.map((item) => (isNumericArray ? parseInt(item[0]) : item[0]));
+  };
+
+  // console.log(uniqueInOrder('AAAABBBCCDAABBB')); // ['A', 'B', 'C', 'D', 'A', 'B']
+  // console.log(uniqueInOrder('ABBCcAD')); // ['A', 'B', 'C', 'c', 'A', 'D']
+  // console.log(uniqueInOrder([1, 2, 2, 3, 3])); // [1, 2, 3]
+}
