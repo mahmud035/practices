@@ -1060,3 +1060,27 @@
 
   // console.log(findShort("Let's travel abroad shall we")); // 2
 }
+
+// Credit Card Mask
+//* My Solution
+{
+  const maskify = (cc) => {
+    if (cc.length <= 4) return cc;
+    const lastFourChars = cc.slice(-4);
+    return lastFourChars.padStart(cc.length, '#');
+  };
+
+  // console.log(maskify('4556364607935616')); // "############5616"
+  // console.log(maskify('1')); // '1"
+  // console.log(maskify('')); // ''
+  // console.log(maskify('Skippy')); // '##ippy'
+}
+
+// Grasshopper - Summation;
+//* My Solution
+{
+  const summation = (num) => (num * (num + 1)) / 2;
+
+  // console.log(summation(2)); // 3
+  // console.log(summation(8)); // 36
+}
