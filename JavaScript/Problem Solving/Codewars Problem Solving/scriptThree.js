@@ -922,3 +922,65 @@
   // console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])); // (111) 111-1111
   // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // (123) 456-7890
 }
+
+// Bit Counting
+//* My Solution
+{
+  const countBits = (num) => {
+    if (num === 0) return 0;
+    const binary = num.toString(2);
+
+    const counts = binary.split('').reduce((acc, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
+
+    return counts['1'];
+  };
+
+  // console.log(countBits(0)); // 0
+  // console.log(countBits(4)); // 1
+  // console.log(countBits(7)); // 3
+  // console.log(countBits(10)); // 2
+}
+
+// Mumbling
+//* My Solution
+{
+  const accum = (str) => {
+    return str
+      .toLowerCase()
+      .split('')
+      .map((char, i) => char.repeat(i + 1))
+      .map((word) => `${word.at(0).toUpperCase()}${word.slice(1)}`)
+      .join('-');
+  };
+
+  // console.log(accum('abcd')); // "A-Bb-Ccc-Dddd"
+  // console.log(accum('cwAt')); // "C-Ww-Aaa-Tttt"
+}
+
+// Find The Parity Outlier
+//* My Solution
+{
+  const findOutlier = (nums) => {
+    const odds = nums.filter((num) => Math.abs(num) % 2 === 1);
+    const evens = nums.filter((num) => Math.abs(num) % 2 === 0);
+
+    return odds.length === 1 ? odds[0] : evens[0];
+  };
+
+  // console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])); // 11
+  // console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21])); // 160
+}
+
+// Opposite number
+//* My Solution
+{
+  const opposite = (number) =>
+    number === 0 ? 0 : number > 0 ? -number : Math.abs(number);
+
+  // console.log(opposite(0)); // 0
+  // console.log(opposite(1)); // -1
+  // console.log(opposite(-34)); // 34
+}
