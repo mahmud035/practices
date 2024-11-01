@@ -831,3 +831,94 @@
   // console.log(XO('zpzpzpp')); // true; when no 'x' and 'o' is present should return true
   // console.log(XO('zzoo')); // false
 }
+
+// Duplicate Encoder
+//* My Solution
+{
+  const duplicateEncode = (word) => {
+    const wordLower = word.toLowerCase();
+    let newStr = '';
+
+    const counts = wordLower.split('').reduce((acc, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
+
+    const hasMultipleTimes = (key) => (counts[key] > 1 ? true : false);
+
+    for (const char of wordLower) {
+      hasMultipleTimes(char) ? (newStr += ')') : (newStr += '(');
+    }
+
+    return newStr;
+  };
+
+  // console.log(duplicateEncode('din')); // "((("
+  // console.log(duplicateEncode('recede')); // "()()()"
+  // console.log(duplicateEncode('Success')); // ")())())"
+  // console.log(duplicateEncode('(( @')); // "))(("
+}
+
+// Multiples of 3 or 5
+//* My Solution
+{
+  const solution = (num) => {
+    if (num < 0) return 0;
+
+    const result = Array.from({ length: num - 1 }, (_, i) => i + 1)
+      .filter((n) => n % 3 === 0 || n % 5 === 0 || (n % 3 === 0 && n % 5 === 0))
+      .reduce((acc, curr) => acc + curr, 0);
+
+    return result;
+  };
+
+  // console.log(solution(10)); // 23
+}
+
+// Array.diff
+//* My Solution
+{
+  const arrayDiff = (a, b) => a.filter((n) => !b.includes(n));
+
+  // console.log(arrayDiff([1, 2], [1])); // [2]
+  // console.log(arrayDiff([1, 2, 2], [1])); // [2, 2]
+}
+
+// Sum of Digits / Digital Root
+//* My Solution
+{
+  const digitalRoot = (n) => {
+    const getSum = (num) => {
+      return num
+        .toString()
+        .split('')
+        .map((n) => +n)
+        .reduce((acc, curr) => acc + curr, 0);
+    };
+
+    let sum = getSum(n);
+    while (sum >= 10) {
+      sum = getSum(sum);
+    }
+
+    return sum;
+  };
+
+  // console.log(digitalRoot(16)); // 7
+  // console.log(digitalRoot(942)); // 6
+  // console.log(digitalRoot(132189)); // 6
+  // console.log(digitalRoot(493193)); // 2
+}
+
+// Create Phone Number
+//* My Solution
+{
+  const createPhoneNumber = (nums) =>
+    `(${nums.slice(0, 3).join('')}) ${nums.slice(3, 6).join('')}-${nums
+      .slice(6)
+      .join('')}`;
+
+  // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // (123) 456-7890
+  // console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])); // (111) 111-1111
+  // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // (123) 456-7890
+}
