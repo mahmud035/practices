@@ -984,3 +984,79 @@
   // console.log(opposite(1)); // -1
   // console.log(opposite(-34)); // 34
 }
+
+// Square(n) Sum
+//* My Solution
+{
+  const squareSum = (nums) =>
+    nums.map((num) => Math.pow(num, 2)).reduce((acc, curr) => acc + curr, 0);
+
+  // console.log(squareSum([1, 2, 2]));
+}
+
+// Remove First and Last Character
+//* My Solution
+{
+  const removeChar = (str) => str.slice(1, -1);
+
+  // console.log(removeChar('country')); // 'ountr'
+}
+
+// Replace With Alphabet Position
+//* My Solution
+{
+  const alphabetPosition = (text) => {
+    const validText = text.toLowerCase().match(/[a-z]/g) || [];
+
+    return validText
+      .map((char) => char.charCodeAt(0) - 96)
+      .filter((num) => num > 0)
+      .join(' ');
+  };
+
+  // console.log(alphabetPosition("The sunset sets at twelve o' clock.")); // "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+
+  // console.log(alphabetPosition('w-{3*f:%')); // '23 6'
+}
+
+// Persistent Bugger.
+//* My Solution
+{
+  const persistence = (num) => {
+    if (num < 10) return 0;
+
+    const getMultiply = (num) => {
+      return num
+        .toString()
+        .split('')
+        .map((n) => +n)
+        .reduce((acc, curr) => acc * curr, 1);
+    };
+
+    let multiply = getMultiply(num);
+    let count = 1;
+
+    while (multiply >= 10) {
+      multiply = getMultiply(multiply);
+      count++;
+    }
+
+    return count;
+  };
+
+  // console.log(persistence(39)); // 3
+  // console.log(persistence(999)); // 4
+  // console.log(persistence(4)); // 0
+}
+
+// Shortest Word
+//* My Solution
+{
+  const findShort = (str) =>
+    str
+      .split(' ')
+      .sort((a, b) => a.length - b.length)
+      .at(0).length;
+
+  // console.log(findShort("Let's travel abroad shall we")); // 2
+}
