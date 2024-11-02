@@ -1636,3 +1636,11 @@
 
   // console.log(fakeBin('45385593107843568')); // '01011110001100111'
 }
+
+// Sentence Smash
+//* My Solution
+{
+  const smash = (words) => words.join(' ');
+
+  // console.log(smash(['hello', 'world', 'this', 'is', 'great'])); // 'hello world this is great'
+}
