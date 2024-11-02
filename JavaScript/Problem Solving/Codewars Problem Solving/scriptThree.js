@@ -1254,3 +1254,36 @@
 
   // Output: ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 }
+
+// Detect Pangram
+//* My Solution
+{
+  const isPangram = (str) => {
+    const alphabet = str.toLowerCase().match(/[a-z]/g);
+    const uniqueAlphabet = [...new Set(alphabet)];
+    return uniqueAlphabet.length === 26 ? true : false;
+  };
+
+  // console.log(isPangram('The quick brown fox jumps over the lazy dog.')); // true
+
+  // console.log(isPangram('This is not a pangram.')); // false
+}
+
+// Basic Mathematical Operations
+//* My Solution
+{
+  const basicOp = (operation, value1, value2) => {
+    switch (operation) {
+      case '+':
+        return value1 + value2;
+      case '-':
+        return value1 - value2;
+      case '*':
+        return value1 * value2;
+      case '/':
+        return value1 / value2;
+    }
+  };
+
+  // console.log(basicOp('+', 4, 7)); // 11
+}
