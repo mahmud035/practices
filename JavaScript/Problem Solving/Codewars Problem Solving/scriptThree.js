@@ -1364,3 +1364,97 @@
 
   // console.log(greet('Ryan'));
 }
+
+// Opposites Attract
+//* My Solution
+{
+  const lovefunc = (flower1, flower2) => {
+    const hasEvenNumPetals = flower1 % 2 === 0 || flower2 % 2 === 0;
+    const hasOddNumPetals = flower1 % 2 === 1 || flower2 % 2 === 1;
+    return hasEvenNumPetals && hasOddNumPetals ? true : false;
+  };
+
+  // console.log(lovefunc(1, 4)); // true
+  // console.log(lovefunc(2, 2)); // false
+  // console.log(lovefunc(873, 413)); // false
+}
+
+// Moving Zeros To The End
+//* My Solution
+{
+  const moveZeros = (arr) => {
+    const newArr = [];
+    const zeros = [];
+
+    for (const item of arr) {
+      if (item === 0) zeros.push(item);
+      else newArr.push(item);
+    }
+
+    return [...newArr, ...zeros];
+  };
+
+  // console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, 'a'])); // [false,1,1,2,1,3,"a",0,0]
+}
+
+// A Needle in the Haystack
+//* My Solution
+{
+  const findNeedle = (haystack) =>
+    `found the needle at position ${haystack.indexOf('needle')}`;
+
+  // console.log(
+  //   findNeedle([
+  //     'hay',
+  //     'junk',
+  //     'hay',
+  //     'hay',
+  //     'moreJunk',
+  //     'needle',
+  //     'randomJunk',
+  //   ])
+  // );
+  // "found the needle at position 5"
+}
+
+// Ones and Zeros
+//* My Solution
+{
+  const binaryArrayToNumber = (arr) => Number.parseInt(arr.join(''), 2);
+
+  // console.log(binaryArrayToNumber([0, 0, 1, 0])); // 2
+  // console.log(binaryArrayToNumber([0, 1, 0, 1])); // 5
+}
+
+// Is n divisible by x and y?
+//* My Solution
+{
+  const isDivisible = (n, x, y) => n % x === 0 && n % y === 0;
+
+  // console.log(isDivisible(12, 3, 4)); // true;
+  // console.log(isDivisible(3, 3, 4)); // false
+}
+
+// Beginner Series #1 School Paperwork
+//* My Solution
+{
+  const paperwork = (n, m) => {
+    if (n < 0 || m < 0) return 0;
+    return n * m;
+  };
+
+  // console.log(paperwork(5, 5)); // 25
+  // console.log(paperwork(5, -5)); // 0
+}
+
+// Are You Playing Banjo?
+//* My Solution
+{
+  const areYouPlayingBanjo = (name) =>
+    name.toLowerCase().startsWith('r')
+      ? `${name} plays banjo`
+      : `${name} does not play banjo`;
+
+  // console.log(areYouPlayingBanjo('Ringo'));
+  // console.log(areYouPlayingBanjo('rolf'));
+}
