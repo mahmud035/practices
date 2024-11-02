@@ -1209,3 +1209,48 @@
   // console.log(uniqueInOrder('ABBCcAD')); // ['A', 'B', 'C', 'c', 'A', 'D']
   // console.log(uniqueInOrder([1, 2, 2, 3, 3])); // [1, 2, 3]
 }
+
+// Friend or Foe?
+//* My Solution
+{
+  const friend = (friends) => friends.filter((f) => f.length === 4);
+
+  // console.log(friend(['Ryan', 'Kieran', 'Mark'])); // ["Ryan", "Mark"]
+}
+
+// Two to One
+//* My Solution
+{
+  const longest = (str1, str2) => {
+    const combinedArr = [
+      ...str1.split('').sort(),
+      ...str2.split('').sort(),
+    ].sort();
+
+    return [...new Set(combinedArr)].join('');
+  };
+
+  // console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq')); // 'abcdefklmopqwxy'
+}
+
+// Categorize New Member
+//* My Solution
+{
+  const openOrSenior = (data) =>
+    data.flatMap(([age, handicap]) =>
+      age >= 55 && handicap > 7 ? 'Senior' : 'Open'
+    );
+
+  // console.log(
+  //   openOrSenior([
+  //     [18, 20],
+  //     [45, 2],
+  //     [61, 12],
+  //     [37, 6],
+  //     [21, 21],
+  //     [78, 9],
+  //   ])
+  // );
+
+  // Output: ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+}
