@@ -1458,3 +1458,63 @@
   // console.log(areYouPlayingBanjo('Ringo'));
   // console.log(areYouPlayingBanjo('rolf'));
 }
+
+// Number of People in the Bus
+//* My Solution
+{
+  const number = function (busStops) {
+    let peopleGetOnBus = 0;
+    let peopleGetOffBus = 0;
+
+    for (const [getOn, getOff] of busStops) {
+      peopleGetOnBus += getOn;
+      peopleGetOffBus += getOff;
+    }
+
+    return peopleGetOnBus - peopleGetOffBus;
+  };
+
+  // console.log(
+  //   number([
+  //     [10, 0],
+  //     [3, 5],
+  //     [5, 8],
+  //   ])
+  // ); // 5
+}
+
+// Find the unique number
+//* My Solution
+{
+  const findUniq = (arr) => {
+    const counts = arr.reduce((acc, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
+
+    for (const [key, value] of Object.entries(counts)) {
+      if (value === 1) return +key;
+    }
+  };
+
+  // console.log(findUniq([1, 1, 1, 2, 1, 1])); // 2
+  // console.log(findUniq([0, 0, 0.55, 0, 0])); // 0.55
+}
+
+// Simple Pig Latin
+//* My Solution
+{
+  const pigIt = (str) => {
+    // regex for checking punctuation marks
+    const regex = /^[.,\/#!?$%\^&\*;:{}=\-_`~()]+$/;
+
+    return str
+      .split(' ')
+      .map((word) => `${word.slice(1)}${word.at(0)}`)
+      .map((word) => (regex.test(word) ? word : `${word}ay`))
+      .join(' ');
+  };
+
+  // console.log(pigIt('Pig latin is cool')); // igPay atinlay siay oolcay
+  // console.log(pigIt('Hello world !')); // elloHay orldway !
+}
