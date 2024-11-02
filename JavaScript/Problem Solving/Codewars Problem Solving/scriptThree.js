@@ -1579,3 +1579,60 @@
   // console.log(oddOrEven([0, 1, 4])); // odd
   // console.log(oddOrEven([0, -1, -5])); // even
 }
+
+// Reverse words
+//* My Solution
+{
+  const reverseWords = (str) => {
+    return str
+      .split(' ')
+      .map((word) => word.split('').reverse())
+      .flatMap((wordArr) => wordArr.join(''))
+      .join(' ');
+  };
+
+  // console.log(reverseWords('This is an example!')); // 'sihT si na !elpmaxe'
+}
+
+// Sort the odd
+//* My Solution
+{
+  const sortArray = (arr) => {
+    if (arr.length === 0) return [];
+
+    let index = 0;
+    const sortedOddNums = arr
+      .filter((num) => num % 2 !== 0)
+      .sort((a, b) => a - b);
+
+    for (let i = 0; i < arr.length; i++) {
+      const num = arr[i];
+      if (num % 2 !== 0) {
+        arr[i] = sortedOddNums[index];
+        index++;
+      }
+    }
+
+    return arr;
+  };
+
+  // console.log(sortArray([7, 1])); // [1, 7]
+  // console.log(sortArray([5, 8, 6, 3, 4])); // [3, 8, 6, 5, 4]
+}
+
+// Fake Binary
+//* My Solution
+{
+  const fakeBin = (numericStr) => {
+    return numericStr
+      .split('')
+      .map((n) => +n)
+      .map((n) => {
+        if (n < 5) return '0';
+        else return '1';
+      })
+      .join('');
+  };
+
+  // console.log(fakeBin('45385593107843568')); // '01011110001100111'
+}
