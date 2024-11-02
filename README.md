@@ -38,6 +38,7 @@ The majority of the exercises are implemented in:
 - TypeScript
 - Python
 - C
+- C++
 
 Feel free to explore the various subdirectories and files to find solutions to common coding problems.
 
