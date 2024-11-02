@@ -1287,3 +1287,49 @@
 
   // console.log(basicOp('+', 4, 7)); // 11
 }
+
+// Find the next perfect square!
+//* My Solution
+{
+  const findNextSquare = (num) => {
+    const isPerfectSquare = Number.isInteger(Math.sqrt(num));
+    if (!isPerfectSquare) return -1;
+    const nextPerfectSquare = Math.pow(Math.sqrt(num) + 1, 2);
+    return nextPerfectSquare;
+  };
+
+  // console.log(findNextSquare(121)); // 144
+  // console.log(findNextSquare(625)); // 676
+  // console.log(findNextSquare(114)); // -1 because 114 is not a perfect square
+}
+
+// String ends with?
+//* My Solution
+{
+  const solution = (str, ending) => str.endsWith(ending);
+
+  // console.log(solution('abc', 'bc')); // true
+}
+
+// Regex validate PIN code
+//* My Solution
+{
+  const validatePIN = (pin) => {
+    // regex pattern to check if a string contains exactly 4 digits or exactly 6 digits
+    const regex = /^(?:\d{4}|\d{6})$/;
+    return regex.test(pin);
+  };
+
+  // console.log(validatePIN('1234')); // true
+  // console.log(validatePIN('123456')); // true
+  // console.log(validatePIN('12345')); // false
+  // console.log(validatePIN('a234')); // false
+}
+
+// Binary Addition
+//* My Solution
+{
+  const addBinary = (a, b) => (a + b).toString(2);
+
+  console.log(addBinary(1, 1)); // '10' (1 + 1 = 2 in decimal or 10 in binary)
+}
