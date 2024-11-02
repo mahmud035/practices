@@ -1518,3 +1518,64 @@
   // console.log(pigIt('Pig latin is cool')); // igPay atinlay siay oolcay
   // console.log(pigIt('Hello world !')); // elloHay orldway !
 }
+
+// How good are you really?
+//* My Solution
+{
+  const betterThanAverage = (classPoints, myPoint) => {
+    const allPoints = [...classPoints, myPoint];
+    const sum = allPoints.reduce((acc, curr) => acc + curr, 0);
+    const average = sum / allPoints.length;
+    return myPoint > average ? true : false;
+  };
+
+  // console.log(betterThanAverage([2, 3], 5)); // true
+}
+
+// Count of positives / sum of negatives
+//* My Solution
+{
+  const countPositivesSumNegatives = (input) => {
+    if (input?.length === 0 || input === null) return [];
+
+    let countPositives = 0;
+    const negativeNums = [];
+
+    input.forEach((num) => {
+      if (num > 0) countPositives++;
+      if (num < 0) negativeNums.push(num);
+    });
+
+    const sumOfNegatives = negativeNums.reduce((acc, curr) => acc + curr, 0);
+
+    return [countPositives, sumOfNegatives];
+  };
+
+  // console.log(
+  //   countPositivesSumNegatives([
+  //     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15,
+  //   ])
+  // ); // [10, -65]
+}
+
+// Odd or Even?
+//* My Solution
+{
+  const oddOrEven = (array) => {
+    if (array.length === 0 || (array.length === 1 && array[0] === 0))
+      return 'even';
+    if (array.length === 1 && array[0] === 1) return 'odd';
+
+    const sum = array.reduce((acc, curr) => acc + curr, 0);
+    const isEven = sum % 2 === 0;
+
+    return isEven ? 'even' : 'odd';
+  };
+
+  // console.log(oddOrEven([])); // even
+  // console.log(oddOrEven([0])); // even
+  // console.log(oddOrEven([1])); // odd
+
+  // console.log(oddOrEven([0, 1, 4])); // odd
+  // console.log(oddOrEven([0, -1, -5])); // even
+}
