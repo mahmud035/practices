@@ -1331,5 +1331,36 @@
 {
   const addBinary = (a, b) => (a + b).toString(2);
 
-  console.log(addBinary(1, 1)); // '10' (1 + 1 = 2 in decimal or 10 in binary)
+  // console.log(addBinary(1, 1)); // '10' (1 + 1 = 2 in decimal or 10 in binary)
+}
+
+// Keep Hydrated!
+//* My Solution
+{
+  const litres = (time) => Math.floor(time * 0.5);
+
+  // console.log(litres(3)); // 1
+  // console.log(litres(6.7)); // 3
+}
+
+// Convert number to reversed array of digits
+//* My Solution
+{
+  const digitize = (num) =>
+    num
+      .toString()
+      .split('')
+      .map((n) => +n)
+      .reverse();
+
+  // console.log(digitize(35231)); // [1, 3, 2, 5, 3];
+  // console.log(digitize(0)); // [0]
+}
+
+// Returning Strings
+//* My Solution
+{
+  const greet = (name) => `Hello, ${name} how are you doing today?`;
+
+  // console.log(greet('Ryan'));
 }
