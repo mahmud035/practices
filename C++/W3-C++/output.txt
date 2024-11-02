@@ -1,0 +1,7 @@
+Student ID: 15
+Student Age: 23
+Student Fee: 75.25
+Student Grade: B
+Length is: 4
+Width is: 6
+Area is: 24
