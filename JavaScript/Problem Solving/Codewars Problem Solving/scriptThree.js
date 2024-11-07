@@ -1701,3 +1701,18 @@
   // console.log(countBy(1, 10)); // [1,2,3,4,5,6,7,8,9,10]
   // console.log(countBy(2, 5)); // [2,4,6,8,10]
 }
+
+// Find Maximum and Minimum Values of a List
+//* My Solution
+{
+  const min = function (list) {
+    return Math.min(...list);
+  };
+
+  const max = function (list) {
+    return Math.max(...list);
+  };
+
+  // console.log(min([4, 6, 2, 1, 9, 63, -134, 566]));
+  // console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
+}
