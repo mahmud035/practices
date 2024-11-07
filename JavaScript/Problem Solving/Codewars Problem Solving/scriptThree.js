@@ -1644,3 +1644,60 @@
 
   // console.log(smash(['hello', 'world', 'this', 'is', 'great'])); // 'hello world this is great'
 }
+
+// Find missing numbers
+//* My Solution
+{
+  const findMissingNumbers = (arr) => {
+    const missingNums = [];
+    let startingValue = arr.at(0);
+    let endingValue = arr.at(-1);
+
+    for (let i = startingValue; i <= endingValue; i++) {
+      if (!arr.includes(i)) missingNums.push(i);
+    }
+
+    return missingNums;
+  };
+
+  // console.log(findMissingNumbers([-3, -2, 1, 5]));
+  // [-1, 0, 2, 3, 4];
+}
+
+// Find the missing letter
+//* My Solution
+{
+  const findMissingLetter = (arr) => {
+    const charCodes = arr.map((char) => char.charCodeAt(0));
+    let startingCharCode = charCodes.at(0);
+    let endingCharCode = charCodes.at(-1);
+    let missingCharCode;
+
+    for (let i = startingCharCode; i <= endingCharCode; i++) {
+      if (!charCodes.includes(i)) {
+        missingCharCode = i;
+        break;
+      }
+    }
+
+    return String.fromCharCode(missingCharCode);
+  };
+
+  // console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])); // 'e'
+  // console.log(findMissingLetter(['O', 'Q', 'R', 'S'])); // 'P'
+}
+
+// Count by X
+//* My Solution
+{
+  const countBy = (number, numberOfTimesToCount) => {
+    const arr = [];
+    for (let i = 1; i <= numberOfTimesToCount; i++) {
+      arr.push(number * i);
+    }
+    return arr;
+  };
+
+  // console.log(countBy(1, 10)); // [1,2,3,4,5,6,7,8,9,10]
+  // console.log(countBy(2, 5)); // [2,4,6,8,10]
+}
