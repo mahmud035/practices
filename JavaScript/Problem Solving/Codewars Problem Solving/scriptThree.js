@@ -1740,3 +1740,57 @@
   // console.log(swap('Hello World!'));
   // console.log(swap('   @@@'));
 }
+
+// The highest profit wins!
+//* My Solution
+{
+  const minMax = (arr) => [Math.min(...arr), Math.max(...arr)];
+
+  // console.log(minMax([1, 2, 3, 4, 5]));
+  // console.log(minMax([1]));
+}
+
+// Take a Ten Minutes Walk
+//* My Solution
+{
+  const isValidWalk = (walk) => {
+    if (walk.length !== 10) return false;
+
+    let northSouth = 0;
+    let eastWest = 0;
+
+    for (let i = 0; i < walk.length; i++) {
+      if (walk[i] === 'n') northSouth++;
+      if (walk[i] === 's') northSouth--;
+      if (walk[i] === 'e') eastWest++;
+      if (walk[i] === 'w') eastWest--;
+    }
+
+    return northSouth === 0 && eastWest === 0;
+  };
+
+  // console.log(isValidWalk(['w'])); // false
+  // console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'])); // true
+  // console.log(isValidWalk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'])); // false
+}
+
+// Beginner Series #2 Clock
+//* My Solution
+{
+  const past = (h, m, s) => (h * 60 * 60 + m * 60 + s) * 1000;
+
+  // console.log(past(0, 1, 1)); // 61000
+  // console.log(past(1, 1, 1)); // 3661000
+}
+
+// Beginner Series #4 Cockroach
+//* My Solution
+{
+  const cockroachSpeed = (speedInKmPerHour) =>
+    Math.floor(speedInKmPerHour * (100000 / 3600));
+
+  // Formula: cm/s = km/h * (100000 / 3600)
+
+  // console.log(cockroachSpeed(1.08));
+  // console.log(cockroachSpeed(3.3838214281631234));
+}
