@@ -1716,3 +1716,27 @@
   // console.log(min([4, 6, 2, 1, 9, 63, -134, 566]));
   // console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
 }
+
+// Changing letters
+//* My Solution
+{
+  const swap = (str) =>
+    str
+      .split('')
+      .map((char) => {
+        if (/^[aeiou]$/.test(char)) return char.toUpperCase();
+        else return char;
+      })
+      .join('');
+
+  // console.log(swap('Hello World!'));
+  // console.log(swap('   @@@'));
+}
+
+//* Best Practice
+{
+  const swap = (str) => str.replace(/[aeiou]/g, (char) => char.toUpperCase());
+
+  // console.log(swap('Hello World!'));
+  // console.log(swap('   @@@'));
+}
