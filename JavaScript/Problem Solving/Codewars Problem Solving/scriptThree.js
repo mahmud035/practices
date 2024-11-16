@@ -1794,3 +1794,100 @@
   // console.log(cockroachSpeed(1.08));
   // console.log(cockroachSpeed(3.3838214281631234));
 }
+
+// RGB To Hex Conversion
+//* My Solution
+{
+  const rgb = (r, g, b) => {
+    const clamp = (value) => Math.max(0, Math.min(255, value));
+    const toHex = (value) =>
+      clamp(value).toString(16).padStart(2, '0').toUpperCase();
+
+    return `${toHex(r)}${toHex(g)}${toHex(b)}`;
+  };
+
+  // console.log(rgb(255, 99, 71));
+  // console.log(rgb(0, 255, 0));
+  // console.log(rgb(0, 0, 0));
+}
+
+// Find all occurrences of an element in an array
+//* My Solution
+{
+  const findAll = (arr, n) => {
+    const indexPositionsOfN = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === n) indexPositionsOfN.push(i);
+    }
+
+    return indexPositionsOfN;
+  };
+
+  // console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3)); // [2, 4]
+}
+
+// Find Count of Most Frequent Item in an Array
+//* My Solution
+{
+  const mostFrequentItemCount = (array) => {
+    if (array.length === 0) return 0;
+
+    const counts = array.reduce((acc, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {});
+
+    const maxCount = Math.max(...Object.values(counts));
+    return maxCount;
+  };
+
+  // console.log(
+  //   mostFrequentItemCount([3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3])
+  // ); // 5
+  // console.log(mostFrequentItemCount([])); // 0
+}
+
+// Find the most frequently occurring elements in arrays
+//* My Solution
+{
+  const getMostFrequent = (forecast) => {
+    const { temperature: dailyTemperatures } = forecast;
+
+    // Helper function to count occurrences of each temperatures in an array
+    const countOccurrences = (temperatures) => {
+      return temperatures.reduce((counts, temp) => {
+        counts[temp] = (counts[temp] || 0) + 1;
+        return counts;
+      }, {});
+    };
+
+    // Helper function to find the most frequent temperatures
+    const findMostFrequent = (temperatureCounts, originalArray) => {
+      const maxFrequency = Math.max(...Object.values(temperatureCounts));
+
+      return originalArray
+        .slice() // Create a copy of the array to avoid mutation
+        .reverse() // Reverse the array to prioritize the last occurrence in case of a tie
+        .find((temp) => temperatureCounts[temp] === maxFrequency);
+    };
+
+    return dailyTemperatures.map((dayTemperature) => {
+      const temperatureCounts = countOccurrences(dayTemperature);
+
+      return findMostFrequent(temperatureCounts, dayTemperature);
+    });
+  };
+
+  // console.log(
+  //   getMostFrequent({
+  //     temperature: [
+  //       [15, 17, 19, 21, 21, 21, 20, 16],
+  //       [16, 17, 22, 22, 22, 22, 20, 16],
+  //       [12, 17, 19, 20, 20, 20, 20, 18],
+  //       [14, 15, 19, 19, 20, 22, 18, 17],
+  //       [15, 17, 24, 24, 24, 20, 20, 20],
+  //     ],
+  //   })
+  // ); // [21,22,20,19,20]
+}
