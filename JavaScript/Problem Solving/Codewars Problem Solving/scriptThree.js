@@ -1891,3 +1891,137 @@
   //   })
   // ); // [21,22,20,19,20]
 }
+
+// Grasshopper - Grade book
+//* My Solution
+{
+  const getGrade = (s1, s2, s3) => {
+    const score = (s1 + s2 + s3) / 3;
+
+    if (score >= 90 && score <= 100) return 'A';
+    if (score >= 80 && score < 90) return 'B';
+    if (score >= 70 && score < 80) return 'C';
+    if (score >= 60 && score < 70) return 'D';
+    if (score >= 0 && score < 60) return 'F';
+  };
+
+  // console.log(getGrade(95, 90, 93)); // Output: 'A'
+}
+
+// Break camelCase
+//* My Solution
+{
+  const solution = (str) => {
+    if (str.length === 0) return '';
+
+    // Check if every character in the string is lowercase
+    if (/^[a-z]+$/.test(str)) return str;
+
+    const splitCamelCase = str.split(/(?=[A-Z])/);
+    return splitCamelCase.join(' ');
+  };
+
+  // console.log(solution('')); // ''
+  // console.log(solution('identifier')); // 'identifier'
+  // console.log(solution('camelCasing')); // 'camel Casing'
+  // console.log(solution('camelCasingTest')); // 'camel Casing Test'
+}
+
+// Grasshopper - Personalized Message
+//* My Solution
+{
+  const greet = (name, owner) =>
+    name === owner ? `Hello boss` : `Hello guest`;
+
+  // console.log(greet('Daniel', 'Daniel'));
+  // console.log(greet('Greg', 'Daniel'));
+}
+
+// Get the mean of an array
+//* My Solution
+{
+  const getAverage = (marks) => {
+    const sum = marks.reduce((acc, curr) => acc + curr, 0);
+    return Math.floor(sum / marks.length);
+  };
+
+  // console.log(getAverage([1, 2, 3, 4, 5]));
+}
+
+// Remove exclamation marks
+//* My Solution
+{
+  const removeExclamationMarks = (str) => str.replaceAll('!', '');
+
+  // console.log(removeExclamationMarks('Hello World!'));
+}
+
+// Write Number in Expanded Form
+//* My Solution
+{
+  const expandedForm = (num) => {
+    const numStr = num.toString();
+    const nums = [];
+    let matchingPlaceValue = 1;
+
+    for (let i = numStr.length - 1; i >= 0; i--) {
+      nums.push(numStr[i] * matchingPlaceValue);
+      matchingPlaceValue *= 10;
+    }
+
+    return nums
+      .reverse()
+      .filter((num) => num > 0)
+      .join(' + ');
+  };
+
+  // console.log(expandedForm(42)); // '40 + 2'
+  // console.log(expandedForm(70304)); // '70000 + 300 + 4'
+}
+
+// Write Number in Expanded Form - Part 2
+//* My Solution
+{
+  const expandedForm = (num) => {
+    const [integerPart, fractionalPart] = num.toString().split('.');
+    const integerParts = [];
+    const fractionalParts = [];
+    let valueForInt = 1;
+    let valueForFraction = 1;
+
+    for (let i = integerPart.length - 1; i >= 0; i--) {
+      integerParts.push(integerPart[i] * valueForInt);
+      valueForInt *= 10;
+    }
+
+    for (let i = 0; i <= fractionalPart.length - 1; i++) {
+      valueForFraction *= 10;
+
+      if (fractionalPart[i] !== '0') {
+        fractionalParts.push(`${fractionalPart[i]}/${valueForFraction}`);
+      }
+    }
+
+    // If only provide fractional part
+    if (integerPart === '0') return fractionalParts.join(' + ');
+
+    return `${integerParts
+      .reverse()
+      .filter((num) => num > 0)
+      .join(' + ')} + ${fractionalParts.join('+ ')}`;
+  };
+
+  // console.log(expandedForm(807.304)); // '800 + 7 + 3/10 + 4/1000'
+}
+
+// Double Char
+//* My Solution
+{
+  const doubleChar = (str) =>
+    str
+      .split('')
+      .map((char) => char.repeat(2))
+      .join('');
+
+  // console.log(doubleChar('String')); // 'SSttrriinngg'
+}
