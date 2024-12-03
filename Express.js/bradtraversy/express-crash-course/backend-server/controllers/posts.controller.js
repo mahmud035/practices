@@ -16,17 +16,28 @@ export const getPosts = async (req, res) => {
 
 // @desc   Get single post
 // @route  GET /posts/:id
-export const getPost = async (req, res) => {
+export const getPost = async (req, res, next) => {
   const { id } = req.params;
 
   // Check if the provided id is a valid MongoDB ObjectId
-  if (!ObjectId.isValid(id))
-    return res.status(400).send({ message: 'Invalid post ID' });
+  if (!ObjectId.isValid(id)) {
+    const error = new Error('Invalid post ID');
+    error.status = 400;
+    return next(error);
+
+    // return res.status(400).send({ message: 'Invalid post ID' }); // 400 Bad Request
+  }
 
   const query = { _id: new ObjectId(id) };
   const result = await posts.findOne(query);
 
-  if (!result) return res.status(404).send({ message: `Post not found` });
+  if (!result) {
+    const error = new Error('Post not found');
+    error.status = 404;
+    return next(error);
+
+    // return res.status(404).send({ message: `Post not found` }); // 404 Not Found
+  }
 
   res.status(200).send(result);
 };
@@ -45,13 +56,18 @@ export const createPost = async (req, res) => {
 
 // @desc   Update a post
 // @route  PUT /posts/:id
-export const updatePost = async (req, res) => {
+export const updatePost = async (req, res, next) => {
   try {
     const { id } = req.params;
 
     // Check if the provided id is a valid MongoDB ObjectId
-    if (!ObjectId.isValid(id))
-      return res.status(400).send({ message: 'Invalid post ID' }); // 400 Bad Request
+    if (!ObjectId.isValid(id)) {
+      const error = new Error('Invalid post ID');
+      error.status = 400;
+      return next(error);
+
+      // return res.status(400).send({ message: 'Invalid post ID' }); // 400 Bad Request
+    }
 
     const updatedPost = req.body;
     const filter = { _id: new ObjectId(id) };
@@ -62,8 +78,13 @@ export const updatePost = async (req, res) => {
       options
     );
 
-    if (result.matchedCount === 0)
-      return res.status(404).send({ message: 'Post not found' }); // 404 Not Found
+    if (result.matchedCount === 0) {
+      const error = new Error('Post not found');
+      error.status = 404;
+      return next(error);
+
+      // return res.status(404).send({ message: 'Post not found' }); // 404 Not Found
+    }
 
     res.status(200).send(result); // 200 OK
   } catch (error) {

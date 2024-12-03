@@ -5,6 +5,7 @@ import { dbConnect, getDatabase } from './db.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { logStuff } from './middleware/logStuff.js';
 import { myLogger } from './middleware/myLogger.js';
+import { notFound } from './middleware/notFound.js';
 import postsRoutes from './routes/posts.route.js';
 
 const app = express();
@@ -30,6 +31,7 @@ app.get('/', logStuff, (req, res) => {
 });
 
 //* Error Handler
+app.use(notFound);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
