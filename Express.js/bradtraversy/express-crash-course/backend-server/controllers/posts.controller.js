@@ -6,7 +6,7 @@ import { posts } from '../index.js';
 export const getPosts = async (req, res) => {
   try {
     const query = {};
-    const limit = parseInt(req.query.limit) || 5;
+    const limit = parseInt(req.query.limit) || 10;
     const result = await posts.find(query).limit(limit).toArray();
     res.status(200).send(result); // 200 OK
   } catch (error) {
