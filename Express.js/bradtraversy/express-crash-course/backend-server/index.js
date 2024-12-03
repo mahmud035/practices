@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import { dbConnect, getDatabase } from './db.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { logStuff } from './middleware/logStuff.js';
-import { myLogger } from './middleware/myLogger.js';
+import { logger } from './middleware/logger.js';
 import { notFound } from './middleware/notFound.js';
 import postsRoutes from './routes/posts.route.js';
 
@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 //* Middleware
-app.use(myLogger);
+app.use(logger);
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
