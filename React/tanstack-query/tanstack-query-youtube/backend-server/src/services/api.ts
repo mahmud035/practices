@@ -1,10 +1,10 @@
-import axios from "axios";
-import { Todo } from "../types/todo";
-import { Project } from "../types/project";
-import { Product } from "../types/product";
-import { User } from "../types/user";
+import axios from 'axios';
+import { Product } from '../types/product';
+import { Project } from '../types/project';
+import { Todo } from '../types/todo';
+import { User } from '../types/user';
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = 'http://localhost:8080';
 
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
@@ -12,11 +12,11 @@ export const getTodosIds = async () => {
   // the axios throws errors for unsuccessful http call automatically
   // but fetch don't
 
-  return (await axiosInstance.get<Todo[]>("todos")).data.map((item) => item.id);
+  return (await axiosInstance.get<Todo[]>('todos')).data.map((item) => item.id);
 };
 
 export const createTodo = async (data: Todo) => {
-  await axiosInstance.post("todos", data);
+  await axiosInstance.post('todos', data);
 };
 
 export const getTodo = async (id: number) => {
@@ -47,4 +47,4 @@ export const getProduct = async (id: number) =>
   (await axiosInstance.get<Product>(`products/${id}`)).data;
 
 export const getUsers = async () =>
-  (await axiosInstance.get<User[]>("users")).data;
+  (await axiosInstance.get<User[]>('users')).data;

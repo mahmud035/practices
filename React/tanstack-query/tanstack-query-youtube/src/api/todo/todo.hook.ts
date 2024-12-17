@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ITodo } from '../../types/todo';
 import { addTodo, deleteTodo, getTodos, updateTodo } from './todo.api';
 
-// Queries Hook
+//* Queries Hook
 export const useGetTodosQuery = () => {
   return useQuery({
     queryKey: ['todos'],
@@ -10,7 +10,7 @@ export const useGetTodosQuery = () => {
   });
 };
 
-// Mutations Hook
+//* Mutations Hook
 export const useAddTodoMutation = () => {
   const queryClient = useQueryClient();
 
