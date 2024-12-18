@@ -17,6 +17,7 @@ export function calculateDiscount(price, discountCode) {
   }
 
   let discount = 0;
+
   if (discountCode === 'SAVE10') {
     discount = 0.1;
   } else if (discountCode === 'SAVE20') {
