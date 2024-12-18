@@ -5,9 +5,9 @@ import Loading from '../shared/Loading';
 
 export default function PaginationWithPageNumbers() {
   const [page, setPage] = useState(1);
-  const itemsPerPage = 3; // Number of projects per page
-
   const { isPending, data, isError, error } = useGetProjectsQueryTwo(page);
+
+  const itemsPerPage = 3; // Number of projects per page
   const totalPages = data ? Math.ceil(data.totalCount / itemsPerPage) : 1;
 
   const handlePageChange = (newPage: number) => {
@@ -48,6 +48,7 @@ export default function PaginationWithPageNumbers() {
           Prev
         </button>
 
+        {/* Dynamically generates a series of page number buttons using Array.from() */}
         {/* Page Numbers */}
         {Array.from({ length: totalPages }, (_, index) => index + 1).map(
           (pageNumber) => (
