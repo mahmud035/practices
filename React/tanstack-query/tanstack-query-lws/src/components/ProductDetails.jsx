@@ -1,3 +1,5 @@
+import placeholderImage from '../assets/placeholder-image.svg';
+
 const ProductDetails = ({ selectedProduct }) => {
   const { title, description, price, rating, thumbnail } =
     selectedProduct || {};
@@ -9,9 +11,11 @@ const ProductDetails = ({ selectedProduct }) => {
         <figure>
           <img
             src={
-              thumbnail?.startsWith('http')
+              thumbnail?.length > 0 && thumbnail?.startsWith('http')
                 ? thumbnail
-                : 'https://images.pexels.com/photos/1694874/pexels-photo-1694874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                : thumbnail?.length > 0 && !thumbnail?.startsWith('http')
+                ? 'https://images.pexels.com/photos/1694874/pexels-photo-1694874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                : placeholderImage
             }
             alt="Phone Image"
             className="w-full h-56"

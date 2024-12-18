@@ -10,6 +10,7 @@ export const useGetProjectsQuery = (page = 1) => {
   });
 };
 
+// For pagination with page numbers
 export const useGetProjectsQueryTwo = (page = 1) => {
   return useQuery({
     queryKey: ['projects', { page }],

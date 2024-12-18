@@ -9,7 +9,7 @@ import {
 //* Queries Hook
 export const useGetProductsQuery = (page) => {
   return useQuery({
-    queryKey: ['products', page],
+    queryKey: ['products', { page }],
     queryFn: () => getProducts(page),
     placeholderData: keepPreviousData,
   });
