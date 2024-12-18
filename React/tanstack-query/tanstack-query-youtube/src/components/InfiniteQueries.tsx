@@ -13,6 +13,7 @@ export default function InfiniteQueries() {
     isFetchingNextPage,
     isPending,
     isError,
+    error,
   } = getProductsQuery;
 
   return (
@@ -22,7 +23,7 @@ export default function InfiniteQueries() {
         {isPending ? (
           <Loading />
         ) : isError ? (
-          <ErrorMessage />
+          <ErrorMessage message={error.message} />
         ) : (
           <>
             {data.pages.map((group, i) => (

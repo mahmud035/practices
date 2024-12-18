@@ -7,7 +7,7 @@ import { IProject } from '../types/project';
 export default function Pagination() {
   const [page, setPage] = useState(1);
   const getProjectsQuery = useGetProjectsQuery(page);
-  const { isPending, isError, data, isFetching, isPlaceholderData } =
+  const { isPending, isError, data, error, isFetching, isPlaceholderData } =
     getProjectsQuery;
 
   return (
@@ -17,10 +17,10 @@ export default function Pagination() {
         {isPending ? (
           <Loading />
         ) : isError ? (
-          <ErrorMessage />
+          <ErrorMessage message={error.message} />
         ) : (
           <div>
-            {data?.data.map((project: IProject) => (
+            {data?.map((project: IProject) => (
               <div
                 key={project.id}
                 className="flex items-center justify-between p-4 border-b"
@@ -49,7 +49,8 @@ export default function Pagination() {
           }}
           className="text-white bg-teal-500 py-2.5 px-4 rounded font-medium disabled:hover:cursor-not-allowed disabled:bg-teal-300"
           // Disable the Next Page button until we know a next page is available
-          disabled={isPlaceholderData || data?.data.length < 3}
+          // NOTE: To disable the button instead of using "(data || [])?.length < 3", I need to use something based on API response.
+          disabled={isPlaceholderData || (data || [])?.length < 3}
         >
           Next Page
         </button>

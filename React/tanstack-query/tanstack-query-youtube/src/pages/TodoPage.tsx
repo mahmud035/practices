@@ -120,7 +120,7 @@ export default function TodoPage() {
         {getTodosQuery.isPending ? (
           <Loading />
         ) : getTodosQuery.isError ? (
-          <ErrorMessage />
+          <ErrorMessage message={getTodosQuery.error.message} />
         ) : getTodosQuery.data.length > 0 ? (
           getTodosQuery.data.map((todo) => (
             <div
