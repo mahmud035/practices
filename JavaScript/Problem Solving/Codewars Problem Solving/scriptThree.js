@@ -2025,3 +2025,52 @@
 
   // console.log(doubleChar('String')); // 'SSttrriinngg'
 }
+
+// You Can't Code Under Pressure #1
+//* My Solution
+{
+  const doubleInteger = (i) => 2 * i;
+}
+
+// Count characters in your string
+//* My Solution
+{
+  const count = (string) => {
+    const strCount = string.split('').reduce((acc, item) => {
+      acc[item] = (acc[item] || 0) + 1;
+      return acc;
+    }, {});
+
+    return strCount;
+  };
+
+  // console.log(count('aba')); // {'a': 2, 'b': 1}
+  // console.log(count('')); // {}
+}
+
+// Removing Elements
+//* My Solution
+{
+  const removeEveryOther = (arr) => {
+    const modifiedArr = [arr[0]];
+    const remainingArr = arr.slice(1);
+
+    for (let i = 0; i < remainingArr.length; i++) {
+      if (i % 2 !== 0) modifiedArr.push(remainingArr[i]);
+    }
+
+    return modifiedArr;
+  };
+
+  // console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again'])); // ['Hello', 'Hello Again']
+  // console.log(removeEveryOther([[1, 2]])); // [[1, 2]]
+}
+
+//* Best Practices
+{
+  const removeEveryOther = (arr) =>
+    arr.filter((element, index) => index % 2 === 0);
+
+  // console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again'])); // ['Hello', 'Hello Again']
+  // console.log(removeEveryOther([[1, 2]])); // [[1, 2]]
+}
