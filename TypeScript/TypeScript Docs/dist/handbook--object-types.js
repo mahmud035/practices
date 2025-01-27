@@ -9,9 +9,9 @@ function draw(circle) {
 }
 draw({ color: 'blue', radius: 42 }); // OK
 let boxA = { contents: 'hello' };
-boxA.contents;
+console.log(boxA.contents);
 let boxB = { contents: 'world' };
-boxB.contents;
+console.log(boxB.contents);
 function setContents(box, newContents) {
     box.contents = newContents;
 }

@@ -29,7 +29,6 @@ function getUsersOnlineMessage(numUsersOnline) {
 }
 // both of these result in 'true'
 Boolean('hello'); // type: boolean, value: true
-!!'world'; // type: true, value: true
 function multiplyAll(values, factor) {
     if (!values) {
         return values;
@@ -41,8 +40,9 @@ function multiplyAll(values, factor) {
 //* Equality narrowing
 function example(x, y) {
     if (x === y) {
-        x.toUpperCase();
-        y.toLowerCase();
+        const upper = x.toUpperCase();
+        const lower = y.toLowerCase();
+        console.log(upper, lower);
     }
     else {
         console.log(x);
@@ -62,14 +62,6 @@ function move(animal) {
         return animal.swim();
     }
     return animal.fly();
-}
-function move2(animal) {
-    if ('swim' in animal) {
-        return animal;
-    }
-    else {
-        animal;
-    }
 }
 //* instanceof narrowing
 // useful for most values that can be constructed with 'new'
@@ -100,7 +92,7 @@ function padLeft2(padding, input) {
  * padLeft returns from within its first if block. TypeScript was able to analyze this code and see that the rest of the body (return padding + input;) is unreachable in the case where padding is a number. As a result, it was able to remove number from the type of padding (narrowing from string | number to string) for the rest of the function.
  *
  * This analysis of code based on reachability is called control flow analysis, and TypeScript uses this flow analysis to narrow types as it encounters type guards and assignments. When a variable is analyzed, control flow can split off and re-merge over and over again, and that variable can be observed to have a different type at each point.
- *  */
+ */
 function example2() {
     let x;
     x = Math.random() < 0.5;

@@ -56,7 +56,7 @@ function example(x: string | number, y: string | boolean) {
 
 /**
  * JavaScript’s looser equality checks with == and != also get narrowed correctly. If you’re unfamiliar, checking whether something == null actually not only checks whether it is specifically the value null - it also checks whether it’s potentially undefined. The same applies to == undefined: it checks whether a value is either null or undefined.
- *  */
+ */
 
 interface Container {
   value: number | null | undefined;
@@ -124,7 +124,7 @@ function padLeft2(padding: number | string, input: string) {
  * padLeft returns from within its first if block. TypeScript was able to analyze this code and see that the rest of the body (return padding + input;) is unreachable in the case where padding is a number. As a result, it was able to remove number from the type of padding (narrowing from string | number to string) for the rest of the function.
  *
  * This analysis of code based on reachability is called control flow analysis, and TypeScript uses this flow analysis to narrow types as it encounters type guards and assignments. When a variable is analyzed, control flow can split off and re-merge over and over again, and that variable can be observed to have a different type at each point.
- *  */
+ */
 
 function example2() {
   let x: string | number | boolean;

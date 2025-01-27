@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import React from 'react';
+import { useFieldArray, useForm } from 'react-hook-form';
 
 let renderCount = 0;
 
@@ -25,7 +25,7 @@ const YouTubeForm = () => {
       submitCount,
     },
   } = useForm({
-    //* INFO: set previously saved data as a defaultValues
+    //* NOTE: Set previously loaded data as a defaultValues
     // defaultValues: async () => {
     //   const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
     //   const data = await res.json();
@@ -103,10 +103,12 @@ const YouTubeForm = () => {
   // }, [isSubmitSuccessful]);
 
   renderCount++;
+
   return (
     <div>
       <h1>YouTube Form ({renderCount / 2})</h1>
       <form onSubmit={handleSubmit(handleRegister, onError)} noValidate>
+        {/* Username */}
         <div className="form-control">
           <label htmlFor="username">Username</label>
           <input
@@ -125,6 +127,7 @@ const YouTubeForm = () => {
             <span className="error">{errors?.username?.message}</span>
           )}
         </div>
+        {/* Email */}
         <div className="form-control">
           <label htmlFor="email">E-mail</label>
           <input
@@ -169,6 +172,7 @@ const YouTubeForm = () => {
             <span className="error">{errors?.email?.message}</span>
           )}
         </div>
+        {/* Channel */}
         <div className="form-control">
           <label htmlFor="channel">Channel</label>
           <input
@@ -188,13 +192,14 @@ const YouTubeForm = () => {
             <span className="error">{errors?.channel?.message}</span>
           )}
         </div>
+        {/* Age */}
         <div className="form-control">
           <label htmlFor="age">Age</label>
           <input
             {...register('age', {
               required: {
                 value: true,
-                message: 'Age name is required',
+                message: 'Age is required',
               },
               valueAsNumber: true,
             })}
@@ -204,6 +209,7 @@ const YouTubeForm = () => {
 
           {errors.age && <span className="error">{errors?.age?.message}</span>}
         </div>
+        {/* Date Of Birth */}
         <div className="form-control">
           <label htmlFor="age">Date Of Birth</label>
           <input
@@ -220,6 +226,7 @@ const YouTubeForm = () => {
 
           {errors.dob && <span className="error">{errors?.dob?.message}</span>}
         </div>
+        {/* Twitter */}
         <div className="form-control">
           <label htmlFor="twitter">Twitter</label>
           <input
@@ -237,6 +244,7 @@ const YouTubeForm = () => {
             <span className="error">{errors?.social?.twitter?.message}</span>
           )}
         </div>
+        {/* Facebook */}
         <div className="form-control">
           <label htmlFor="facebook">Facebook</label>
           <input
@@ -254,6 +262,7 @@ const YouTubeForm = () => {
             <span className="error">{errors?.social?.facebook?.message}</span>
           )}
         </div>
+        {/* Primary Phone Number */}
         <div className="form-control">
           <label htmlFor="primary-phone">Primary Phone Number</label>
           <input
@@ -271,6 +280,7 @@ const YouTubeForm = () => {
             <span className="error">{errors?.phoneNumbers[0]?.message}</span>
           )}
         </div>
+        {/* Secondary Phone Number */}
         <div className="form-control">
           <label htmlFor="secondary-phone">Secondary Phone Number</label>
           <input
@@ -307,13 +317,16 @@ const YouTubeForm = () => {
         {/* lec: 15 => Dynamic Fields END */}
         <button type="button" onClick={handleGetValues}>
           Get Values
-        </button>{' '}
+        </button>
+        &nbsp;
         <button type="button" onClick={handleSetValue}>
           Set Value
-        </button>{' '}
+        </button>
+        &nbsp;
         <button disabled={!isDirty || !isValid || isSubmitting}>Submit</button>
       </form>
-      <DevTool control={control} /> {/* set up the dev tool */}
+
+      <DevTool control={control} />
     </div>
   );
 };

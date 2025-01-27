@@ -2074,3 +2074,64 @@
   // console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again'])); // ['Hello', 'Hello Again']
   // console.log(removeEveryOther([[1, 2]])); // [[1, 2]]
 }
+
+// Two Sum
+//* My Solution
+{
+  const twoSum = (numbers, target) => {
+    const indexes = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      for (let j = i + 1; j < numbers.length; j++) {
+        if (numbers[i] + numbers[j] === target) {
+          indexes.push(i);
+          indexes.push(j);
+        }
+      }
+    }
+    return indexes;
+  };
+
+  // console.log(twoSum([1, 2, 3], 4)); // returns [0, 2] or [2, 0]
+  // console.log(twoSum([3, 2, 4], 6)); // returns [1, 2] or [2, 1]
+}
+
+// Get Planet Name By ID
+//* My Solution
+{
+  const getPlanetName = (id) => {
+    let name;
+
+    switch (id) {
+      case 1:
+        name = 'Mercury';
+        break;
+      case 2:
+        name = 'Venus';
+        break;
+      case 3:
+        name = 'Earth';
+        break;
+      case 4:
+        name = 'Mars';
+        break;
+      case 5:
+        name = 'Jupiter';
+        break;
+      case 6:
+        name = 'Saturn';
+        break;
+      case 7:
+        name = 'Uranus';
+        break;
+      case 8:
+        name = 'Neptune';
+    }
+
+    return name;
+  };
+
+  // console.log(getPlanetName(2)); // 'Venus'
+  // console.log(getPlanetName(3)); // 'Earth'
+  // console.log(getPlanetName(5)); // 'Jupiter'
+}
