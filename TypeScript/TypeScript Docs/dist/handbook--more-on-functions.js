@@ -1,4 +1,3 @@
-"use strict";
 //* Function Type Expressions
 function greeter(fn) {
     fn('Hello, World');
@@ -131,3 +130,4 @@ const f3 = function () {
 const v1 = f1();
 const v2 = f2();
 const v3 = f3();
+export {};

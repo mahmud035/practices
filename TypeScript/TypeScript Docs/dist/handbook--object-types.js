@@ -1,4 +1,3 @@
-"use strict";
 const cc = {
     color: 'red',
     radius: 42,
@@ -15,3 +14,4 @@ console.log(boxB.contents);
 function setContents(box, newContents) {
     box.contents = newContents;
 }
+export {};

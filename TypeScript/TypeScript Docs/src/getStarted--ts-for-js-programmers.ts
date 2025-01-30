@@ -1,3 +1,5 @@
+export {};
+
 // Types by Inference
 let helloWord = 'hello world';
 

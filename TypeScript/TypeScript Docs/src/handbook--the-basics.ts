@@ -1,17 +1,17 @@
-{
-  let message = 'Hello World';
-  const messageLower = message.toLowerCase();
-  console.log(messageLower);
+export {};
 
-  const user = {
-    name: 'Daniel',
-    age: 26,
-  };
-  console.log(user);
+let message = 'Hello World';
+const messageLower = message.toLowerCase();
 
-  function greet(person: string, date: Date): void {
-    console.log(`Hello ${person}, today is ${date.toLocaleDateString()}!`);
-  }
+const user = {
+  name: 'Daniel',
+  age: 26,
+};
 
-  greet('John', new Date());
+console.log({ messageLower, user });
+
+function greet(person: string, date: Date): string {
+  return `Hello ${person}, today is ${date.toDateString()}!`;
 }
+
+console.log(greet('John', new Date()));

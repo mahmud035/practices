@@ -1,3 +1,5 @@
+export {};
+
 //* Extending Interface
 interface BasicAddress {
   name?: string;

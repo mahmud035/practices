@@ -1,4 +1,3 @@
-"use strict";
 // Types by Inference
 let helloWord = 'hello world';
 const user = {
@@ -39,3 +38,4 @@ class VirtualPoint {
 }
 const newVPoint = new VirtualPoint(13, 56);
 logPoint(newVPoint); // X: 13, Y: 56
+export {};
