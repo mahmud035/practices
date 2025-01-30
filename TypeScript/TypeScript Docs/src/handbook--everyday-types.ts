@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* Basic Types
 // TypeScript provides basic types to represent common values:

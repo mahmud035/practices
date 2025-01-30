@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* Basic Types
 // TypeScript provides basic types to represent common values:
 // Primitive Types
@@ -162,3 +160,4 @@ function doSomething(x) {
 function liveDangerously(x) {
     console.log(x.toFixed()); // No Error
 }
+export {};
