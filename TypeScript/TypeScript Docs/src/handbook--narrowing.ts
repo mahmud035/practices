@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* `typeof` type guards
 function padLeft(padding: number | string, input: string): string {

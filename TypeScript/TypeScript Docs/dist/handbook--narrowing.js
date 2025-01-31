@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* `typeof` type guards
 function padLeft(padding, input) {
     if (typeof padding === 'number') {
@@ -149,3 +147,4 @@ function getArea2(shape) {
             return _exhaustiveCheck;
     }
 }
+export {};
