@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* The `keyof` type operator
 /**

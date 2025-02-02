@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 // Equivalent to: "name" | "age" | "location"
 // ----------------------------------------
 // Key Use Cases
@@ -15,4 +13,5 @@ getValue(person, 'age'); // ✅ OK (returns `number`)
 // 3. Combining with `typeof` for Runtime Objects
 // Extract keys from a concrete object:
 const config = { theme: 'dark', fontSize: 14 };
+export {};
 // { onClick: () => void; onHover: () => void; }
