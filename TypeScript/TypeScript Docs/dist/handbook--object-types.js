@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 function greet(person) {
     return `Hello ${person.name}`;
 }
@@ -96,3 +94,4 @@ function readButtonInput(name, version, ...input) {
 function doSomething(pair) {
     // pair[0] = 'hello'; // ❌ Error: Cannot assign to '0' because it is a read-only property.
 }
+export {};
