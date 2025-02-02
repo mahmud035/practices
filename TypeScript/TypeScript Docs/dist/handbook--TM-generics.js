@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* Hello World of Generics
 function identity(arg) {
     return arg;
@@ -89,3 +87,4 @@ function save(item) {
 }
 const obj = { id: 1, serialize: () => 'data' };
 save(obj); // ✅ OK -> data 1
+export {};

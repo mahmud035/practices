@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* Hello World of Generics
 function identity<T>(arg: T): T {
