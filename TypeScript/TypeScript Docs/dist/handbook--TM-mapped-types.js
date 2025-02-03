@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 /*
 {
   getName: () => string;
@@ -17,6 +15,7 @@ const frozenPerson = freeze({ name: 'Alice', age: 30 });
 // { id: string | null; age: number | null }
 // 3. Derive Types from Configuration Objects
 const config = { theme: 'dark', fontSize: 14 };
+export {};
 /*
 {
   onThemeChange: (callback: (value: string) => void) => void;
