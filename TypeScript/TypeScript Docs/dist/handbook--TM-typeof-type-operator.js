@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* The `typeof` type operator
 /**
  * The `typeof` "type operator" in TypeScript is used to capture the type of a value or variable at compile time.
@@ -59,3 +57,4 @@ const appConfig = {
 */
 // Use in a function
 function validateConfig(config) { }
+export {};

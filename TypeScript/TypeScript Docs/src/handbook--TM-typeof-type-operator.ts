@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* The `typeof` type operator
 /**
