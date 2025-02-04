@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 const updateUser = (user) => {
     // Now you can update one or more properties without providing the whole object
 };
@@ -105,3 +103,4 @@ const cats = {
     boris: { age: 5, breed: 'Maine Coon' },
     mordred: { age: 16, breed: 'British Shorthair' },
 };
+export {};
