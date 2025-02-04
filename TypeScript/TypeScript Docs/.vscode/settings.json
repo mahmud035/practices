@@ -6,7 +6,9 @@
     "Pingable",
     "raidus",
     "strs",
-    "TJSON"
+    "TJSON",
+    "Uncapitalize",
+    "Uncapitalizes"
   ],
   "liveServer.settings.port": 5501
 }

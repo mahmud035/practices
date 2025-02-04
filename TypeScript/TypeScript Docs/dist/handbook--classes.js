@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* Classes (ChatGPT & DeepSeek) 👇
 /**
  * Classes in TypeScript serve as blueprints for creating objects with properties and methods, much like classes in other object-oriented programming languages.
@@ -261,3 +259,4 @@ class SonarCl {
         console.log('ping!');
     }
 }
+export {};
