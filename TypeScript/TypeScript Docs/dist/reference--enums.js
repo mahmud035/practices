@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* Enums (ChatGPT & DeepSeek) 👇
 /**
  * Enums (enumerations) are a TypeScript feature to define a set of named constants, making code more:
@@ -61,3 +59,4 @@ const LogLevelConst = {
     Warn: 'Warn',
     Info: 'Info',
 };
+export {};
