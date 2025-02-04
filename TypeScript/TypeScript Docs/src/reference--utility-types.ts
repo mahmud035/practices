@@ -432,3 +432,32 @@ type APIResponse = Readonly<Partial<IUser>>;
 
 // Use with Generics:
 function updateEntity<T>(payload: Partial<T>) {}
+
+// -----------------------------------------------------------------------
+
+//* Utility Types (TypeScript Documentation) 👇
+
+// Awaited<Type>
+// Unwrap promise types recursively.
+
+type A = Awaited<Promise<string>>; // string
+
+type B = Awaited<Promise<Promise<number>>>; // number
+
+type C = Awaited<boolean | Promise<number>>; // number | boolean
+
+// Record<Keys, Type>
+// Constructs an object type whose property keys are `Keys` and whose property values are `Type`. This utility can be used to map the properties of a type to another type.
+
+type CatName = 'miffy' | 'boris' | 'mordred';
+
+interface ICatInfo {
+  age: number;
+  breed: string;
+}
+
+const cats: Record<CatName, ICatInfo> = {
+  miffy: { age: 10, breed: 'Persian' },
+  boris: { age: 5, breed: 'Maine Coon' },
+  mordred: { age: 16, breed: 'British Shorthair' },
+};
