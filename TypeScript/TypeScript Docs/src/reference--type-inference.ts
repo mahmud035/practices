@@ -1,4 +1,4 @@
-// export {};
+export {};
 
 //* Type Inference (ChatGPT & DeepSeek) 👇
 /**

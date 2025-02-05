@@ -1,5 +1,3 @@
-"use strict";
-// export {};
 //* Type Inference (ChatGPT & DeepSeek) 👇
 /**
  * Type Inference means How the compiler automatically determines types when they aren't explicitly annotated:
@@ -81,6 +79,7 @@ function parse(input) {
         return input.toString();
     }
 }
+export {};
 //* 4. API Boundaries: For public interfaces/parameters
 // ----------------------------------------
 // Best Practices
