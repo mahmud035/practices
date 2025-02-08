@@ -2135,3 +2135,55 @@
   // console.log(getPlanetName(3)); // 'Earth'
   // console.log(getPlanetName(5)); // 'Jupiter'
 }
+
+// Equal Sides Of An Array
+//* My Solution
+{
+  function findEvenIndex(arr) {
+    const totalSum = arr.reduce((acc, curr) => acc + curr, 0);
+    let leftSum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (leftSum === totalSum - leftSum - arr[i]) return i; // Found the index
+      leftSum += arr[i]; // Update left sum
+    }
+
+    return -1; // No index found
+  }
+
+  // Test cases
+  // console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1])); // Output: 3
+  // console.log(findEvenIndex([1, 100, 50, -51, 1, 1])); // Output: 1
+  // console.log(findEvenIndex([20, 10, -80, 10, 10, 15, 35])); // Output: 0
+  // console.log(findEvenIndex([1, 2, 3])); // Output: -1 (No index found)
+  // console.log(findEvenIndex([5])); // Output: 0 (Single element)
+}
+
+// Is a number prime?
+//* My Solution
+{
+  function isPrime(num) {
+    if (num <= 1) return false; // Prime numbers must be > 1
+    if (num === 2) return true; // 2 is the only even prime
+    if (num % 2 === 0) return false; // Even numbers are not prime
+
+    const sqrtNum = Math.sqrt(num); // Only need to check up to √n
+    for (let i = 3; i <= sqrtNum; i += 2) {
+      if (num % i === 0) return false; // If divisible, not prime
+    }
+
+    return true; // Passed all checks, so it's prime
+  }
+
+  // Test Cases
+  // console.log(isPrime(1)); // false
+  // console.log(isPrime(2)); // true
+  // console.log(isPrime(3)); // true
+  // console.log(isPrime(4)); // false
+  // console.log(isPrime(-5)); // false
+  // console.log(isPrime(17)); // true
+  // console.log(isPrime(18)); // false
+  // console.log(isPrime(19)); // true
+  // console.log(isPrime(997)); // true (a prime number)
+  // console.log(isPrime(1000000007)); // true (large prime)
+}
