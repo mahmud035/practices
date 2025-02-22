@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+body {
+  background: #f5f9eb;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: #f5f9eb;
+  width: 100%;
+  margin-right: 10px;
+}
+
+button {
+  border-radius: 10px;
+  background: #454545;
+  padding: 5px;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 14px 14px;
+  cursor: pointer;
+}
+
+.container {
+  background: #fcfff3;
+  padding: 50px;
+}
+
+.tasks-list {
+  margin-top: 3rem;
+}
+
+.task {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background: #f5f9eb;
+  padding: 7px 20px;
+  font-family: sans-serif;
+}
+
+.task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.update,
+.delete {
+  padding: 7px 10px;
+  cursor: pointer;
+}
