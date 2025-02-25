@@ -7,7 +7,7 @@ export default function Accordion() {
 
   return (
     <>
-      <h2>Almaty, Kazakhstan</h2>
+      <h2>Accordion</h2>
       <Panel
         title="What Is HTML?"
         isActive={activeIndex === 0}

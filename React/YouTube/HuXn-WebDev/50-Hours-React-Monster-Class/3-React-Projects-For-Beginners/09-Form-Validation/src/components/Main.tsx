@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../index.css';
 
 export default function Main() {
   const [username, setUsername] = useState('');
@@ -27,15 +28,15 @@ export default function Main() {
       setUserColor('red');
     }
 
-    if (email.includes('@gmail')) {
+    if (email.includes('@')) {
       setErrorEmail('');
       setEmailColor('green');
     } else {
       setEmailColor('red');
-      setErrorEmail('Email should have @gmail');
+      setErrorEmail('Email should have @');
     }
 
-    if (password.length > 8) {
+    if (password.length >= 8) {
       setErrorPassword('');
       setPasswordColor('green');
     } else {
@@ -43,7 +44,7 @@ export default function Main() {
       setPasswordColor('red');
     }
 
-    if (password != '' && password == confirmPassword) {
+    if (password !== '' && password === confirmPassword) {
       setErrorConfirmPassword('');
       setConfirmPasswordColor('green');
     } else {
@@ -93,7 +94,9 @@ export default function Main() {
         />
         <p className="error">{errorConfirmPassword}</p>
 
-        <button className="submit-btn">Submit</button>
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
       </form>
     </div>
   );
