@@ -1,14 +1,13 @@
 interface IButtonProps {
   title: string;
   value: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({ onClickHandler, title, value }: IButtonProps) {
+export default function Button({ onClick, title, value }: IButtonProps) {
   return (
-    <div>
-      <button onClick={onClickHandler} value={value} className="btns">
-        {title}
-      </button>
-    </div>
+    <button onClick={onClick} value={value} className="btns">
+      {title}
+    </button>
   );
 }

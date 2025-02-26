@@ -2,13 +2,23 @@ import { AiOutlineShoppingCart, AiOutlineUserAdd } from 'react-icons/ai';
 import { FiHeart } from 'react-icons/fi';
 import './Navigation.css';
 
-export default function Navigation() {
+interface INavigationProps {
+  searchQuery: string;
+  onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function Navigation({
+  searchQuery,
+  onSearchChange,
+}: INavigationProps) {
   return (
     <nav>
       <div className="nav-container">
         <input
+          type="search"
           className="search-input"
-          type="text"
+          value={searchQuery}
+          onChange={onSearchChange}
           placeholder="Enter your search shoes."
         />
       </div>
@@ -16,10 +26,10 @@ export default function Navigation() {
         <a href="#">
           <FiHeart className="nav-icons" />
         </a>
-        <a href="">
+        <a href="#">
           <AiOutlineShoppingCart className="nav-icons" />
         </a>
-        <a href="">
+        <a href="#">
           <AiOutlineUserAdd className="nav-icons" />
         </a>
       </div>
