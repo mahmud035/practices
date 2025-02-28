@@ -1,7 +1,3 @@
-import StateCounter from './components/useState/StateCounter';
-import TodoList from './components/useState/TodoList';
-import UserProfile from './components/useState/UserProfile';
-
 export default function App() {
   return (
     <div>
@@ -14,13 +10,19 @@ export default function App() {
       /> */}
 
       {/* useState */}
-      <StateCounter />
+      {/* <StateCounter />
       <UserProfile />
-      <TodoList />
+      <TodoList /> */}
 
       {/* useEffect */}
       {/*  <Product />
       <UserList /> */}
+
+      {/* useRef, Forms, Events */}
+      {/* <Form />
+      <FocusInput />
+      <ContactForm />
+      <EventHandling /> */}
     </div>
   );
 }
