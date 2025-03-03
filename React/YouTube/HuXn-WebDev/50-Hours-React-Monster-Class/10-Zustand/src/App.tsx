@@ -1,15 +1,16 @@
-import Counter from './components/Counter';
-import TicTacToe from './components/TicTacToe/TicTacToe';
-import TodoApp from './components/TodoApp';
-import User from './components/User';
+import NoteApp from './Projects/Note App/NoteApp';
 
 export default function App() {
   return (
     <div>
-      <TicTacToe />
-      <Counter />
+      {/* ChatGPT & Deepseek */}
+      {/* <Counter />
       <User />
       <TodoApp />
+      <TicTacToe /> */}
+
+      {/* Projects */}
+      <NoteApp />
     </div>
   );
 }

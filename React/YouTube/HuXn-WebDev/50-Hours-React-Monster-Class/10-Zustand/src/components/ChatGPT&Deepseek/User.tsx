@@ -1,4 +1,4 @@
-import useUserStore from '../stores/userStore';
+import useUserStore from '../../stores/userStore';
 
 export default function User() {
   const { name, loading, fetchUser } = useUserStore(); // Get state and actions from the store

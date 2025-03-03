@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useTodoStore from '../stores/todoStore';
+import useTodoStore from '../../stores/todoStore';
 
 export default function TodoApp() {
   const { todos, addTodo, removeTodo, clearTodos } = useTodoStore();

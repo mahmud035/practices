@@ -1,4 +1,4 @@
-import useCounterStore from '../stores/counterStore';
+import useCounterStore from '../../stores/counterStore';
 
 export default function Counter() {
   const { count, increment, decrement } = useCounterStore(); // Get state and actions from the store
