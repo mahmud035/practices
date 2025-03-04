@@ -1,51 +1,61 @@
 import { useState } from 'react';
 import useNoteStore, { INote } from '../../stores/noteStore';
 
+const defaultFormData = {
+  id: '',
+  title: '',
+  content: '',
+};
+
 export default function NoteApp() {
   const { notes, addNote, updateNote, removeNote } = useNoteStore();
-  const [title, setTitle] = useState<string>('');
-  const [content, setContent] = useState<string>('');
-  const [editingNote, setEditingNote] = useState<INote | null>(null);
+  const [formData, setFormData] = useState<INote>(defaultFormData);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
-  const handleAddNote = () => {
-    if (title.trim() === '' || content.trim() === '') return;
-
-    addNote({
-      id: crypto.randomUUID(),
-      title,
-      content,
-    });
-
-    setTitle('');
-    setContent('');
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleEditNote = (note: INote) => {
-    setEditingNote(note);
-    setTitle(note.title);
-    setContent(note.content);
-  };
+  // Create or Update Note
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (formData.title.trim() === '' || formData.content.trim() === '') return;
 
-  const handleUpdateNote = () => {
-    if (title.trim() === '' || content.trim() === '') return '';
-
-    if (editingNote) {
-      updateNote(editingNote.id, { title, content });
-      setEditingNote(null);
+    if (editingId) {
+      updateNote(formData.id, {
+        title: formData.title,
+        content: formData.content,
+      });
+    } else {
+      addNote({
+        id: crypto.randomUUID(),
+        title: formData.title,
+        content: formData.content,
+      });
     }
 
-    setTitle('');
-    setContent('');
+    setFormData(defaultFormData);
+    setEditingId(null);
   };
 
-  const handleCancelNote = () => {
-    setEditingNote(null);
-    setTitle('');
-    setContent('');
+  // Edit Note
+  const handleEditNote = (note: INote) => {
+    setEditingId(note.id);
+    setFormData(note);
   };
 
+  // Delete Note
   const handleRemoveNote = (id: string) => {
     removeNote(id);
+  };
+
+  // Cancel Note
+  const handleCancelNote = () => {
+    setEditingId(null);
+    setFormData(defaultFormData);
   };
 
   return (
@@ -55,26 +65,28 @@ export default function NoteApp() {
           Note Taking App
         </h1>
 
-        <div className="space-y-4 mb-6">
+        <form onSubmit={handleSubmit} className="space-y-4 mb-6">
           <input
             type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
             placeholder="Note Title"
             className="w-full px-4 py-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
             placeholder="Note Content"
             className="w-full h-32 px-4 py-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <div className="flex justify-between">
-            {editingNote ? (
+            {editingId ? (
               <>
                 <button
-                  onClick={handleUpdateNote}
+                  type="submit"
                   className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   Update Note
@@ -88,14 +100,14 @@ export default function NoteApp() {
               </>
             ) : (
               <button
-                onClick={handleAddNote}
+                type="submit"
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Add Note
               </button>
             )}
           </div>
-        </div>
+        </form>
 
         <ul className="space-y-4">
           {notes.map((note) => (
