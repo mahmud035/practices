@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export interface INote {
   id: string;
@@ -13,22 +14,27 @@ interface INoteStore {
   removeNote: (id: string) => void;
 }
 
-const useNoteStore = create<INoteStore>()((set) => ({
-  notes: [],
-  addNote: (note) =>
-    set((state) => ({
-      notes: [...state.notes, note],
-    })),
-  updateNote: (id, updatedNote) =>
-    set((state) => ({
-      notes: state.notes.map((note) =>
-        note.id === id ? { ...note, ...updatedNote } : note
-      ),
-    })),
-  removeNote: (id) =>
-    set((state) => ({
-      notes: state.notes.filter((note) => note.id !== id),
-    })),
-}));
+const useNoteStore = create<INoteStore>()(
+  persist(
+    (set) => ({
+      notes: [],
+      addNote: (note) =>
+        set((state) => ({
+          notes: [...state.notes, note],
+        })),
+      updateNote: (id, updatedNote) =>
+        set((state) => ({
+          notes: state.notes.map((note) =>
+            note.id === id ? { ...note, ...updatedNote } : note
+          ),
+        })),
+      removeNote: (id) =>
+        set((state) => ({
+          notes: state.notes.filter((note) => note.id !== id),
+        })),
+    }),
+    { name: 'note-storage' }
+  )
+);
 
 export default useNoteStore;

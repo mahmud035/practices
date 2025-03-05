@@ -8,7 +8,7 @@ const defaultFormData = {
 };
 
 export default function NoteApp() {
-  const { notes, addNote, updateNote, removeNote } = useNoteStore();
+  const { notes, addNote, updateNote, removeNote } = useNoteStore(); // Get state and actions from the store
   const [formData, setFormData] = useState<INote>(defaultFormData);
   const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -65,6 +65,7 @@ export default function NoteApp() {
           Note Taking App
         </h1>
 
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4 mb-6">
           <input
             type="text"
@@ -109,9 +110,10 @@ export default function NoteApp() {
           </div>
         </form>
 
-        <ul className="space-y-4">
+        {/* Display Notes */}
+        <div className="space-y-4">
           {notes.map((note) => (
-            <li key={note.id} className="p-4 bg-gray-50 rounded-lg shadow-sm">
+            <div key={note.id} className="p-4 bg-gray-50 rounded-lg shadow-sm">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {note.title}
               </h2>
@@ -130,9 +132,9 @@ export default function NoteApp() {
                   Delete
                 </button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

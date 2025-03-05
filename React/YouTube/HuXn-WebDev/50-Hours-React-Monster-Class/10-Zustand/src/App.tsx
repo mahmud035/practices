@@ -1,16 +1,18 @@
-import NoteApp from './Projects/Note App/NoteApp';
-
 export default function App() {
   return (
     <div>
-      {/* ChatGPT & Deepseek */}
+      {/* NOTE: ChatGPT & Deepseek */}
+
       {/* <Counter />
       <User />
       <TodoApp />
       <TicTacToe /> */}
 
-      {/* Projects */}
-      <NoteApp />
+      {/* NOTE: Projects */}
+
+      {/* <NoteApp /> */}
+      {/* <RecipeApp /> */}
+      {/* <ExpenseTrackerApp /> */}
     </div>
   );
 }
