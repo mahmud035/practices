@@ -1,3 +1,5 @@
+import MealApp from './Projects/4. Meals App/MealApp';
+
 export default function App() {
   return (
     <div>
@@ -13,6 +15,7 @@ export default function App() {
       {/* <NoteApp /> */}
       {/* <RecipeApp /> */}
       {/* <ExpenseTrackerApp /> */}
+      <MealApp />
     </div>
   );
 }
