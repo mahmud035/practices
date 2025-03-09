@@ -5,7 +5,7 @@ export {};
 
 // Primitive Types
 const count: number = 42;
-const fullName: string = 'John Doe';
+const fullName: string = 'Alice Bob';
 const isDone: boolean = true;
 
 // Arrays
