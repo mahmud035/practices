@@ -2,6 +2,7 @@
   "name": "10-zustand",
   "private": true,
   "version": "0.0.0",
+  "description": "Zustand Basic to Intermediate with 10 projects",
   "type": "module",
   "scripts": {
     "dev": "vite",
