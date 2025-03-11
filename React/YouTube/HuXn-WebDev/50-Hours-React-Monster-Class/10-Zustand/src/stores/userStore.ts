@@ -11,6 +11,7 @@ interface IUserStore {
 const useUserStore = create<IUserStore>()((set) => ({
   name: '',
   loading: false,
+
   fetchUser: async (id) => {
     set({ loading: true });
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);

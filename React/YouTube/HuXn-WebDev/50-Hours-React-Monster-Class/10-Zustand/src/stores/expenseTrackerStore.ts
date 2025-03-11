@@ -14,10 +14,12 @@ interface IExpenseTrackerStore {
 
 const useExpenseTrackerStore = create<IExpenseTrackerStore>()((set) => ({
   expenses: [],
+
   addExpense: (expense) =>
     set((state) => ({
       expenses: [...state.expenses, expense],
     })),
+
   removeExpense: (id) =>
     set((state) => ({
       expenses: state.expenses.filter((expense) => expense.id !== id),

@@ -38,18 +38,21 @@ const useTodoStore = create<ITodoStore>()(
   persist(
     (set) => ({
       todos: [],
+
       addTodo: (todo: string) =>
         set(
           produce((state: ITodoStore) => {
             state.todos.push(todo);
           })
         ),
+
       removeTodo: (index: number) =>
         set(
           produce((state: ITodoStore) => {
             state.todos.splice(index, 1);
           })
         ),
+
       clearTodos: () => set({ todos: [] }),
     }),
     { name: 'todo-storage' } // Unique name for localStorage
