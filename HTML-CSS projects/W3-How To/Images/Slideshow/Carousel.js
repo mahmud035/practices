@@ -1,5 +1,4 @@
 let slideIndex = 1;
-showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
@@ -25,7 +24,14 @@ function showSlides(n) {
   dots[slideIndex - 1].className += ' active';
 }
 
-// Automatic slideshow functionality
+// Show the first slide when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  showSlides(slideIndex);
+});
+
+// ===========================================================
+//           Automatic slideshow functionality
+// ===========================================================
 function autoSlide() {
   plusSlides(1); // Move to the next slide
 }
