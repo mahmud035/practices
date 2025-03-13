@@ -17,7 +17,7 @@ interface IFormStoreState {
   resetForm: () => void;
 }
 
-// Create the Zustand store with TypeScript
+// Create the zustand store with TypeScript
 const useFormStore = create<IFormStoreState>()((set) => ({
   formFields: [],
 
