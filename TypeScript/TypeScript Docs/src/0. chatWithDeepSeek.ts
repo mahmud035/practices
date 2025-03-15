@@ -462,3 +462,5 @@ type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
 const validJson: Json = {
   users: [{ name: 'Alice', scores: [95, 87] }, { config: { darkMode: true } }],
 };
+
+console.log(validJson);
