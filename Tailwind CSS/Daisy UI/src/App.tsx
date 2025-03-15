@@ -1,9 +1,11 @@
-import Button from './components/Button';
+import Modal from './components/Modal';
 
 export default function App() {
   return (
-    <div>
-      <Button />
-    </div>
+    <>
+      {/* <Button /> */}
+      {/* <Dropdown /> */}
+      <Modal />
+    </>
   );
 }
