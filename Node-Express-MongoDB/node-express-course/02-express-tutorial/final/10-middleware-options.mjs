@@ -1,14 +1,14 @@
 import express from 'express';
-import morgan from 'morgan';
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 // Flow: req => middleware => res
 
+//* Middleware options (Custom middleware, Built-in middleware, Third-party middleware)
 // app.use([logger, authorize])
 // app.use(express.static('./public'))
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
   res.send('Home');

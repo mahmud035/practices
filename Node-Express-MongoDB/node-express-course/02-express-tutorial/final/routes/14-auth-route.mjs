@@ -8,4 +8,4 @@ router.post('/', (req, res) => {
   res.status(401).send('Please Provide Credentials');
 });
 
-export default router;
+export const AuthRoutes = router;

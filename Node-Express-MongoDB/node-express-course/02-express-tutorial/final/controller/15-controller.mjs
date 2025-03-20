@@ -1,10 +1,10 @@
-import { people } from '../data.js';
+import { people } from '../../data.js';
 
-const getPeople = (req, res) => {
+const getPeople = (req, res, next) => {
   res.status(200).json({ success: true, data: people });
 };
 
-const createPerson = (req, res) => {
+const createPerson = (req, res, next) => {
   const { name } = req.body;
   if (!name) {
     return res
@@ -14,7 +14,7 @@ const createPerson = (req, res) => {
   res.status(201).send({ success: true, person: name });
 };
 
-const createPersonPostman = (req, res) => {
+const createPersonPostman = (req, res, next) => {
   const { name } = req.body;
   if (!name) {
     return res
@@ -24,7 +24,7 @@ const createPersonPostman = (req, res) => {
   res.status(201).send({ success: true, data: [...people, name] });
 };
 
-const updatePerson = (req, res) => {
+const updatePerson = (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;
 
@@ -44,7 +44,7 @@ const updatePerson = (req, res) => {
   res.status(200).json({ success: true, data: newPeople });
 };
 
-const deletePerson = (req, res) => {
+const deletePerson = (req, res, next) => {
   const person = people.find((person) => person.id === Number(req.params.id));
   if (!person) {
     return res
@@ -57,7 +57,7 @@ const deletePerson = (req, res) => {
   return res.status(200).json({ success: true, data: newPeople });
 };
 
-export {
+export const PeopleController = {
   createPerson,
   createPersonPostman,
   deletePerson,

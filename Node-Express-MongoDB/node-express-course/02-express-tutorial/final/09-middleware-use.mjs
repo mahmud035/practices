@@ -17,11 +17,11 @@ app.get('/about', (req, res) => {
   res.send('About');
 });
 
-app.get('/api/products', (req, res) => {
+app.get('/api/v1/products', (req, res) => {
   res.send('Products');
 });
 
-app.get('/api/items', (req, res) => {
+app.get('/api/v1/items', (req, res) => {
   console.log(req.user);
   res.send('Items');
 });

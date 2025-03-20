@@ -31,9 +31,12 @@ app.get('/api/v1/products/:productId', (req, res) => {
   return res.status(200).json(singleProduct);
 });
 
+// Multiple params
 app.get('/api/v1/products/:productId/reviews/:reviewId', (req, res) => {
-  console.log(req.params);
-  res.send('hello world');
+  const { productId, reviewId } = req.params;
+
+  console.log(productId, reviewId);
+  res.json({ productId, reviewId });
 });
 
 // Get products with query
@@ -49,8 +52,9 @@ app.get('/api/v1/query', (req, res) => {
 
   if (limit) sortedProducts = sortedProducts.slice(0, Number(limit));
 
-  if (sortedProducts.length < 1)
+  if (sortedProducts.length < 1) {
     return res.status(200).json({ success: true, data: [] });
+  }
 
   res.status(200).json(sortedProducts);
 });
