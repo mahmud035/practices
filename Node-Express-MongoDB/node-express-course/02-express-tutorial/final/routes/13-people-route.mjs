@@ -9,6 +9,7 @@ router.post('/postman', PeopleController.createPersonPostman);
 router.put('/:id', PeopleController.updatePerson);
 router.delete('/:id', PeopleController.deletePerson);
 
+// Methods Chain
 // router
 //   .route('/')
 //   .get(PeopleController.getPeople)
