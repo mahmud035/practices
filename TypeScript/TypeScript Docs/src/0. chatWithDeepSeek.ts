@@ -138,6 +138,8 @@ function identity<T>(arg: T): T {
 const output1 = identity<string>('Hello'); // Explicit type
 const output2 = identity(42); // Type inferred as "number"
 
+console.log(output1, output2);
+
 // Generic Interface:
 interface IBox<T> {
   value: T;
