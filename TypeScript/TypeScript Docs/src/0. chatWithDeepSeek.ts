@@ -27,6 +27,7 @@ function logMessage(): void {
   console.info('This returns nothing');
 }
 
+logMessage();
 console.log(count, fullName, isDone, numbers, names, mix, user, dynamicValue);
 
 //* Type Inference
