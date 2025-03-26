@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import { styleText } from 'util';
 import { products } from './data.js';
 
 // App
@@ -27,5 +28,7 @@ app.get('/api/v1/products/:id', (req, res) => {
 
 // Server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(
+    styleText(['blue'], `Server is running on http://localhost:${port}`)
+  );
 });

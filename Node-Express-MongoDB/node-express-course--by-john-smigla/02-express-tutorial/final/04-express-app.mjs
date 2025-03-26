@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Drive __dirname equivalent in ES modules
+// Get current path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
