@@ -207,9 +207,11 @@ function getArea2(shape: Shape2) {
       return Math.PI * shape.radius ** 2;
     case 'square':
       return shape.side ** 2;
+    case 'triangle':
+      return shape.sideLength * 0.5;
 
     default:
-      const _exhaustiveCheck = shape;
+      const _exhaustiveCheck: never = shape;
       return _exhaustiveCheck;
   }
 }

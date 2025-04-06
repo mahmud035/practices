@@ -99,6 +99,7 @@ console.log(pair.getPair()); // Outputs: [42, "Answer"]
  *
  * `T extends Lengthwise`: This constraint ensures that whatever type is used for `T` must have a `length` property.
  */
+
 interface ILengthwise {
   length: number;
 }
