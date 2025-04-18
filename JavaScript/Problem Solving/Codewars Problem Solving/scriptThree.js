@@ -2187,3 +2187,14 @@
   // console.log(isPrime(997)); // true (a prime number)
   // console.log(isPrime(1000000007)); // true (large prime)
 }
+
+// Round by 0.5 steps
+//* My Solution
+{
+  const solution = (n) => Math.round(n * 2) / 2;
+
+  console.log(solution(4.2), 4);
+  console.log(solution(4.4), 4.5);
+  console.log(solution(4.6), 4.5);
+  console.log(solution(4.8), 5);
+}
