@@ -1,4 +1,4 @@
-// NOTE: Reference Links:
+// IMPORTANT: Reference Links:
 // 1. https://www.perplexity.ai/search/dsa-with-js-FFYXee2lRmyenRJzNaqb.g
 // 2. https://www.doabledanny.com/big-o-notation-in-javascript
 // 3. https://adrianmejia.com/how-to-find-time-complexity-of-an-algorithm-code-big-o-notation/
@@ -6,7 +6,9 @@
 
 /**
  * What is Time Complexity?
- * ✅ Amount of work the CPU has to do (time complexity) as the input size grows (towards infinity).
+ * ✅ Amount of work the CPU has to do (time complexity) as the input size grows (towards infinity). Or
+ * ✅ How code slows as data grows.
+ *
  * ✅ Big O = Big Order function. Drop constants and lower order terms. E.g. O(3*n^2 + 10n + 10) becomes O(n^2).
  * ✅ Big O notation cares about the worst-case scenario.
  */
