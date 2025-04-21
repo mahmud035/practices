@@ -1,6 +1,19 @@
-// https://www.perplexity.ai/search/dsa-with-js-FFYXee2lRmyenRJzNaqb.g
+// NOTE: Reference Links:
+// 1. https://www.perplexity.ai/search/dsa-with-js-FFYXee2lRmyenRJzNaqb.g
+// 2. https://www.doabledanny.com/big-o-notation-in-javascript
+// 3. https://adrianmejia.com/how-to-find-time-complexity-of-an-algorithm-code-big-o-notation/
+// 4. https://chat.deepseek.com/a/chat/s/a8c66268-304f-452c-b712-8a781b9fcd47
+
+/**
+ * What is Time Complexity?
+ * ✅ Amount of work the CPU has to do (time complexity) as the input size grows (towards infinity).
+ * ✅ Big O = Big Order function. Drop constants and lower order terms. E.g. O(3*n^2 + 10n + 10) becomes O(n^2).
+ * ✅ Big O notation cares about the worst-case scenario.
+ */
 
 // O(1) - Constant Time Complexity: An algorithm with O(1) complexity takes the same amount of time to execute regardless of the input size.
+
+// As long as you have a fixed number of operations, it will be constant time, even if we have 1 or 100 of these statements.
 
 // In JavaScript, operations like accessing an array element by index, object property access, or performing basic arithmetic operations all have constant time complexity. These operations execute in the same amount of time regardless of whether you're working with small or large data sets.
 
