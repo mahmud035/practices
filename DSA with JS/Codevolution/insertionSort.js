@@ -10,11 +10,10 @@ function insertionSort(array) {
 
     array[previousIndex + 1] = current;
   }
+  return array;
 }
 
-const array = [4, 1, 5, 2, 3];
-insertionSort(array);
-console.log(array); // [1, 2, 3, 4, 5]
+console.log(insertionSort([4, 1, 5, 2, 3])); // [1, 2, 3, 4, 5]
 
 // Time Complexity: O(n²) - Quadratic Time Complexity
 // The algorithm has two nested loops, each iterating through the array. In the worst case, it compares every element with every other element, leading to n * n = n² comparisons.
