@@ -14,6 +14,11 @@ class QueueOptimizedCl {
     const item = this.items[this.front];
     delete this.items[this.front];
     this.front++;
+    if (this.isEmpty()) {
+      this.front = 0;
+      this.rear = 0;
+      this.items = {}; // Reset the items object to free up memory
+    }
     return item;
   }
 
@@ -22,7 +27,7 @@ class QueueOptimizedCl {
   }
 
   peek() {
-    this.items[this.front];
+    return this.items[this.front];
   }
 
   size() {
