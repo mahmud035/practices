@@ -17,6 +17,10 @@ class DoublyLinkedList {
     return this.size === 0; // Check if the list is empty
   }
 
+  getSize() {
+    return this.size; // Return the size of the list
+  }
+
   // O(1)
   addAtFront(data) {
     const newNode = new Node(data);
