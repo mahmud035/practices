@@ -11,6 +11,7 @@ class BinaryTree {
     this._root = null; // root node
   }
 
+  // Depth First Search
   // Pre-order traversal (Root -> Left -> Right)
   traversePreOrder() {
     function traversePreOrderHelper(node) {
