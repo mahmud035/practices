@@ -125,15 +125,15 @@ class BinarySearchTree {
   }
 
   // Min Node
-  min(root) {
+  minNode(root) {
     if (!root.left) return root;
-    return this.min(root.left);
+    return this.minNode(root.left);
   }
 
   // Max Node
-  max(root) {
+  maxNode(root) {
     if (!root.right) return root;
-    return this.max(root.right);
+    return this.maxNode(root.right);
   }
 
   // Deletion
@@ -159,7 +159,7 @@ class BinarySearchTree {
       else if (!root.right) return root.left;
 
       // Case 3: Two children
-      const minRight = this.min(root.right);
+      const minRight = this.minNode(root.right);
       root.value = minRight.value;
       root.right = this.deleteNode(root.right, minRight.value);
     }
@@ -200,10 +200,10 @@ bst.traversePostOrder();
 bst.traverseLevelOrder();
 
 // Min & Max Node
-console.log('Min', bst.min(bst.root)); // 3
-console.log('Max', bst.max(bst.root)); // 30
+console.log('Min', bst.minNode(bst.root)); // 3
+console.log('Max', bst.maxNode(bst.root)); // 30
 
-// Delete Node
+// Deletion
 // bst.delete(30);
 // bst.traverseLevelOrder();
 
