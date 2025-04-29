@@ -104,7 +104,24 @@ class BinarySearchTree {
     traversePostOrderHelper(currentRoot);
   }
 
-  // Level-order traversal (Breadth-first search)
+  /* 
+   Level-order traversal (Breadth First Search: BFS)
+   This method essentially visits each node level by level instead of going deep into the left or right.
+  */
+  traverseLevelOrder() {
+    const root = this.root;
+    const queue = [];
+
+    if (!root) return;
+    queue.push(root);
+
+    while (queue.length) {
+      const temp = queue.shift();
+      console.log('Breadth First Search', temp.value);
+      if (temp.left) queue.push(temp.left);
+      if (temp.right) queue.push(temp.right);
+    }
+  }
 
   removeNode(value) {}
 }
@@ -124,8 +141,12 @@ bst.insert(30);
 console.log(bst.findNode(13)); // true
 console.log(bst.findNode(40)); // false
 
+// DFS
 bst.traversePreOrder();
 bst.traverseInOrder();
 bst.traversePostOrder();
+
+// BFS
+bst.traverseLevelOrder();
 
 console.log(bst);
