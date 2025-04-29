@@ -53,7 +53,7 @@ class BinarySearchTree {
 
     while (currentRoot) {
       if (value < currentRoot.value) currentRoot = currentRoot.left;
-      if (value > currentRoot.value) currentRoot = currentRoot.right;
+      else if (value > currentRoot.value) currentRoot = currentRoot.right;
       else {
         found = true; // we've found the node
         break;
@@ -96,8 +96,9 @@ class BinarySearchTree {
     const currentRoot = this.root;
 
     function traversePostOrderHelper(node) {
-      if (node.left) traversePostOrderHelper(node.left);
-      if (node.right) traversePostOrderHelper(node.right);
+      if (!node) return;
+      traversePostOrderHelper(node.left);
+      traversePostOrderHelper(node.right);
       console.log('Post-order Traversal', node.value);
     }
 
@@ -116,19 +117,62 @@ class BinarySearchTree {
     queue.push(root);
 
     while (queue.length) {
-      const temp = queue.shift();
-      console.log('Breadth First Search', temp.value);
-      if (temp.left) queue.push(temp.left);
-      if (temp.right) queue.push(temp.right);
+      const current = queue.shift();
+      console.log('Breadth First Search', current.value);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
     }
   }
 
-  removeNode(value) {}
+  // Min Node
+  min(root) {
+    if (!root.left) return root;
+    return this.min(root.left);
+  }
+
+  // Max Node
+  max(root) {
+    if (!root.right) return root;
+    return this.max(root.right);
+  }
+
+  // Deletion
+  delete(value) {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  deleteNode(root, value) {
+    if (root === null) return root;
+
+    if (value < root.value) {
+      root.left = this.deleteNode(root.left, value);
+    } else if (value > root.value) {
+      root.right = this.deleteNode(root.right, value);
+    } else {
+      // Node to delete found
+
+      // Case 1: No children
+      if (!root.left && !root.right) return null;
+
+      // Case 2: One child
+      if (!root.left) return root.right;
+      else if (!root.right) return root.left;
+
+      // Case 3: Two children
+      const minRight = this.min(root.right);
+      root.value = minRight.value;
+      root.right = this.deleteNode(root.right, minRight.value);
+    }
+
+    return root;
+  }
 }
 
+// Instance of a binary search tree
 const bst = new BinarySearchTree();
 console.log(`Tree is empty: ${bst.isEmpty()}`); // true
 
+// Insert
 bst.insert(10);
 bst.insert(5);
 bst.insert(3);
@@ -138,6 +182,12 @@ bst.insert(20);
 bst.insert(6);
 bst.insert(30);
 
+// bst.insert(10);
+// bst.insert(5);
+// bst.insert(15);
+// bst.insert(3);
+
+// Search
 console.log(bst.findNode(13)); // true
 console.log(bst.findNode(40)); // false
 
@@ -148,5 +198,13 @@ bst.traversePostOrder();
 
 // BFS
 bst.traverseLevelOrder();
+
+// Min & Max Node
+console.log('Min', bst.min(bst.root)); // 3
+console.log('Max', bst.max(bst.root)); // 30
+
+// Delete Node
+// bst.delete(30);
+// bst.traverseLevelOrder();
 
 console.log(bst);
