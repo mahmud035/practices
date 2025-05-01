@@ -1,22 +1,21 @@
 function binarySearch(sortedArr, target) {
   let leftIndex = 0;
-  let rightIndex = sortedArr.length - 1;
+  let rightIndx = sortedArr.length - 1;
 
-  while (leftIndex <= rightIndex) {
-    const middleIndex = Math.floor((leftIndex + rightIndex) / 2);
+  while (leftIndex <= rightIndx) {
+    const middleIndex = Math.floor((leftIndex + rightIndx) / 2);
 
-    if (sortedArr[middleIndex] === target) {
+    if (target === sortedArr[middleIndex]) {
       return middleIndex; // Target found at middleIndex
-    } else if (sortedArr[middleIndex] < target) {
+    } else if (target > sortedArr[middleIndex]) {
       leftIndex = middleIndex + 1; // Search in the rightIndex half
     } else {
-      rightIndex = middleIndex - 1; // Search in the leftIndex halt
+      rightIndx = middleIndex - 1; // Search in the leftIndex halt
     }
   }
 
   return -1; // Target not found
 }
-
 console.log(binarySearch([-5, 2, 4, 6, 10], 10)); // Output: 4
 console.log(binarySearch([-5, 2, 4, 6, 10], 6)); // Output: 3
 console.log(binarySearch([-5, 2, 4, 6, 10], 20)); // Output: -1
