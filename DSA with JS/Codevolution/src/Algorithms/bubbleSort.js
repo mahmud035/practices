@@ -6,10 +6,8 @@ function swap(array, index1, index2) {
 
 function bubbleSort(array) {
   for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      if (array[j] > array[i]) {
-        swap(array, i, j);
-      }
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] > array[j]) swap(array, i, j);
     }
   }
   return array;

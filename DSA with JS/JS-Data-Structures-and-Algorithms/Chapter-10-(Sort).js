@@ -73,3 +73,7 @@ function insertionSort(array) {
 
 console.log(insertionSort([-6, 20, 8, -2, 4])); // [-6, -2, 4, 8, 20]
 console.log(insertionSort([6, 1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5, 6]
+
+// Quick Sort: Quicksort works by obtaining a pivot (the central point) and partitioning the array around it (bigger elements on one side and smaller elements on the other side) until everything is sorted.
+
+// This sort is a recursive one and uses the divide-and-conquer methodology to break the quadratic complexity barrier and get the time complexity down to O(n log(n)).
