@@ -12,8 +12,8 @@ function swap(array, index1, index2) {
 
 function bubbleSort(array) {
   for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      if (array[i] < array[j]) swap(array, i, j);
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] > array[j]) swap(array, i, j);
     }
   }
   return array;
@@ -22,4 +22,54 @@ function bubbleSort(array) {
 console.log(bubbleSort([-6, 20, 8, -2, 4])); // [-6, -2, 4, 8, 20]
 console.log(bubbleSort([6, 1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5, 6]
 
-// Selection Sort
+// Selection Sort: Selection sorting works by scanning the elements for the smallest element and inserting it into the current position of the array.
+
+// In the code, there is one for loop to iterate through the array and one nested for loop to scan to get the minimum element
+
+// O(n²) - Quadratic Time Complexity (Two nested loops)
+
+function selectionSort(array) {
+  let min;
+
+  for (let i = 0; i < array.length; i++) {
+    // Set minium to this position
+    min = i;
+
+    // Check the rest of the array to see if anything is smaller
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[min]) min = j;
+    }
+
+    // If the minium isn't in the position, swap it
+    if (i !== min) swap(array, i, min);
+  }
+
+  return array;
+}
+
+console.log(selectionSort([-6, 20, 8, -2, 4])); // [-6, -2, 4, 8, 20]
+console.log(selectionSort([6, 1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5, 6]
+
+// Insertion Sort: Insertion sort works similarly to selection sort by searching the array sequentially and moving the unsorted items into a sorted subList on the left side of the array.
+
+// The outer for loop iterates over the array indices, and the inner for loop moves the unsorted items into the sorted subList on the left side of the array.
+
+// O(n²) - Quadratic Time Complexity (Two nested loops)
+
+function insertionSort(array) {
+  for (let i = 1; i < array.length; i++) {
+    let currentValue = array[i];
+    let previousIndex = i - 1;
+
+    while (previousIndex >= 0 && array[previousIndex] > currentValue) {
+      array[previousIndex + 1] = array[previousIndex];
+      previousIndex--;
+    }
+
+    array[previousIndex + 1] = currentValue;
+  }
+  return array;
+}
+
+console.log(insertionSort([-6, 20, 8, -2, 4])); // [-6, -2, 4, 8, 20]
+console.log(insertionSort([6, 1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5, 6]
