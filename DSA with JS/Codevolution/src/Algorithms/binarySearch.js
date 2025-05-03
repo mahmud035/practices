@@ -1,3 +1,15 @@
+/*
+🧠 Binary Search: Step-by-Step Intuition
+  1. Start with two pointers: left at the beginning, right at the end of the sorted array.
+  2. Calculate the middle index between left and right.
+  3. Compare the target value with the middle element.
+  4. If target equals the middle element, return the middle index (target found).
+  5. If target is greater than the middle element, move the left pointer to middle + 1 (search right half).
+  6. If target is less than the middle element, move the right pointer to middle - 1 (search left half).
+  7. Repeat steps 2-6 until left pointer exceeds right pointer.
+  8. If the target is not found, return -1.
+*/
+
 function binarySearch(sortedArr, target) {
   let leftIndex = 0;
   let rightIndx = sortedArr.length - 1;

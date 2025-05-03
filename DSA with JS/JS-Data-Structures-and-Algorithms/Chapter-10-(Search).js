@@ -22,6 +22,18 @@ console.log(linearSearchTwo([1, 2, 3, 4, 5, 6, 7, 8, 9], 10)); // false
 
 // Logarithmic time complexity, represented as O(log n), occurs when the execution time of an algorithm grows logarithmically with the input size. This means that as the input size increases, the time required to complete the algorithm increases at a much slower rate compared to linear time complexity. "Logarithmic time complexity is often seen in algorithms that divide the input data in half at each step, such as binary search".
 
+/*
+🧠 Binary Search: Step-by-Step Intuition
+  1. Start with two pointers: left at the beginning, right at the end of the sorted array.
+  2. Calculate the middle index between left and right.
+  3. Compare the target value with the middle element.
+  4. If target equals the middle element, return the middle index (target found).
+  5. If target is greater than the middle element, move the left pointer to middle + 1 (search right half).
+  6. If target is less than the middle element, move the right pointer to middle - 1 (search left half).
+  7. Repeat steps 2-6 until left pointer exceeds right pointer.
+  8. If the target is not found, return -1.
+*/
+
 // O(log n) - Input size reduced by half
 function binarySearch(sortedArr, target) {
   let leftIndex = 0;

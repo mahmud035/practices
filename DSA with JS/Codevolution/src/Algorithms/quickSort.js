@@ -1,3 +1,15 @@
+/*
+🧠 Quick Sort: Step-by-Step Intuition
+  1. Choose a pivot element (commonly the last element).
+  2. Partition the array into two subArrays:
+    - Left subarray with elements smaller than the pivot.
+    - Right subarray with elements greater than or equal to the pivot.
+  3. Recursively apply quickSort to both subArrays.
+  4. Combine the sorted left subarray, pivot, and sorted right subarray.
+  5. Repeat until subArrays are of size 0 or 1 (base case).
+  6. The recursion tree depth is about log(n), and partitioning takes O(n), resulting in average O(n log n) complexity.
+*/
+
 function quickSort(array) {
   if (array.length <= 1) return array; // Base case: if the array is empty or has one element, it's already sorted
 
@@ -6,8 +18,9 @@ function quickSort(array) {
   const rightArray = []; // Elements greater than the pivot
 
   for (let i = 0; i < array.length - 1; i++) {
-    if (array[i] < pivot) leftArray.push(array[i]);
-    else rightArray.push(array[i]);
+    const element = array[i];
+    if (element < pivot) leftArray.push(element);
+    else rightArray.push(element);
   }
 
   return [...quickSort(leftArray), pivot, ...quickSort(rightArray)]; // Combine sorted leftArray, pivot, and sorted rightArray
