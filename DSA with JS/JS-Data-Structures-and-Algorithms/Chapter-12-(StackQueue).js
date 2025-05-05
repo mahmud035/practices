@@ -1,248 +1,234 @@
-function Stack(array) {
-    this.array = [];
-    if (array) this.array = array;
-}
+class Stack {
+  constructor(array) {
+    this.array = array || [];
+  }
 
-Stack.prototype.getBuffer = function() {
+  getBuffer() {
     return this.array.slice();
-}
+  }
 
-Stack.prototype.isEmpty = function() {
-    return this.array.length == 0;
-}
+  isEmpty() {
+    return this.array.length === 0;
+  }
 
-//instance of the stack class
-var stack1 = new Stack();
-
-console.log(stack1); // {array: []}
-
-Stack.prototype.peek = function() {
-    return this.array[this.array.length - 1];
-}
-stack1.push(10);
-console.log(stack1.peek()); // 10
-stack1.push(5);
-console.log(stack1.peek()); // 5
-
-Stack.prototype.push = function(value) {
+  // O(1)
+  push(value) {
     this.array.push(value);
-}
+  }
 
-stack1.push(1);
-stack1.push(2);
-stack1.push(3);
-console.log(stack1); // {array: [1,2,3]}
-
-
-Stack.prototype.pop = function() {
+  // O(1)
+  pop() {
     return this.array.pop();
-};
+  }
 
-stack1.pop(1);
-stack1.pop(2);
-stack1.pop(3);
-
-console.log(stack1); // {array: []}
-
-
-function stackAccessNthTopNode(stack, n) {
-    if (n <= 0) throw 'error'
-    
-    var bufferArray = stack.getBuffer();
-    var bufferStack = new Stack(bufferArray);
-
-    while (--n !== 0) {
-        bufferStack.pop();
-    }
-    return bufferStack.pop();
+  // O(1)
+  peek() {
+    return this.array.at(-1);
+  }
 }
 
-var stack2 = new Stack();
+// Instance of the stack class
+const stack1 = new Stack();
+
+console.log(stack1); // Stack { array: [] }
+
+stack1.push(10);
+stack1.push(20);
+stack1.push(30);
+
+console.log(stack1.peek()); // 30
+
+// stack1.pop();
+// stack1.pop();
+
+// ==================================================
+
+// Access: To access the nth node from the top, you need to call pop n number of times.
+
+// O(n)
+function stackAccessNthTopNode(stack, n) {
+  const bufferArray = stack.getBuffer();
+  if (n <= 0) throw new Error('Error');
+
+  const bufferStack = new Stack(bufferArray);
+
+  while (--n !== 0) {
+    bufferStack.pop();
+  }
+  return bufferStack.pop();
+}
+
+const stack2 = new Stack();
 stack2.push(1);
 stack2.push(2);
 stack2.push(3);
-stackAccessNthTopNode(stack2, 2); // 2
+console.log(stackAccessNthTopNode(stack2, 2)); // 2
 
-function stackSearch(stack, element){
-    var bufferArray = stack.getBuffer();
+// Search: Searching the stack data structure for a specific element is a critical operation. To do this, you must first create a buffer stack so that pop can be called on that buffer stack. This way, the original stack is not mutated, and nothing is removed from it.
 
-    var bufferStack = new Stack(bufferArray);
+// O(n)
+function stackSearch(stack, element) {
+  const bufferArray = stack.getBuffer();
 
-    while(!bufferStack.isEmpty()){
-        if(bufferStack.pop()==element){
-            return true;
-        }
-    }
-    return false;
-}
-var stack3 = new Stack();
-stack3.push(1);
-stack3.push(2);
-stack3.push(3);
-stackSearch(stack3,3); // true
+  const bufferStack = new Stack(bufferArray); // copy into buffer
 
-function Queue(array) {
-    this.array = [];
-    if (array) this.array = array;
+  while (!bufferStack.isEmpty()) {
+    if (bufferStack.pop() === element) return true;
+  }
+  return false;
 }
 
-Queue.prototype.getBuffer = function() {
+// ==================================================
+
+// Queues: A queue is also a data structure, but you can remove only the first added element. This is a principle known as first in, first out (FIFO).
+
+/*
+  In JavaScript, arrays have methods that define the queue class: `shift()` and `push()`. Recall that the `shift()` method on an array in JavaScript removes and returns the first element of the array. Adding to a queue is commonly known as `enqueuing`, and removing from a queue is known as `dequeuing`. `shift()` can be used for the `dequeue`, and `.push()` can be used for the enqueue.
+*/
+
+class Queue {
+  constructor(array) {
+    this.array = array || [];
+  }
+
+  getBuffer() {
     return this.array.slice();
-}
+  }
 
-Queue.prototype.isEmpty = function() {
-    return this.array.length == 0;
-}
+  isEmpty() {
+    return this.array.length === 0;
+  }
 
-//instance of the queue class
-var queue1 = new Queue();
+  // O(1)
+  enqueue(value) {
+    this.array.push(value);
+  }
 
-console.log(queue1); // { array: [] }
-
-Queue.prototype.peek = function() {
-    return this.array[0];
-}
-
-
-Queue.prototype.enqueue = function(value) {
-    return this.array.push(value);
-}
-
-
-Queue.prototype.dequeue = function() {
+  // O(n)
+  dequeue() {
     return this.array.shift();
-};
+  }
 
-var queue1 = new Queue();
+  peek() {
+    return this.array.at(0);
+  }
+}
 
-queue1.enqueue(1);
-queue1.enqueue(2);
-queue1.enqueue(3);
+// Instance of the queue class
+const queue1 = new Queue();
 
-console.log(queue1); // {array: [1,2,3]}
+console.log(queue1); // Queue { array: [] }
+
+queue1.enqueue(10);
+queue1.enqueue(20);
+queue1.enqueue(30);
+
+console.log(queue1); // {array: [10, 20, 30]}
 
 queue1.dequeue();
-console.log(queue1); // {array: [2,3]}
+console.log(queue1); // {array: [20, 30]}
 
 queue1.dequeue();
-console.log(queue1); // {array: [3]}
+console.log(queue1); // {array: [30]}
 
+// ==================================================
 
+// Access: To access the nth last-added node, you need to call dequeue n number of times. A buffer is needed to prevent modification to the original queue.
+
+// O(n)
 function queueAccessNthTopNode(queue, n) {
-    if (n <= 0) throw 'error'
+  const bufferArray = queue.getBuffer();
+  if (n <= 0) throw new Error('Error');
 
-    var bufferArray = queue.getBuffer();
-    var bufferQueue = new Queue(bufferArray);
+  const bufferQueue = new Queue(bufferArray);
 
-    while (--n !== 0) {
-        bufferQueue.dequeue();
-    }
-    return bufferQueue.dequeue();
+  while (--n !== 0) {
+    bufferQueue.dequeue();
+  }
+  return bufferArray.dequeue();
 }
 
+// Search: You might need to search a queue to check whether an element exists within a queue. Again, this involves creating a buffer queue first to avoid modifications to the original queue.
 
+// O(n)
 function queueSearch(queue, element) {
-    var bufferArray = queue.getBuffer();
+  const bufferArray = queue.bufferArray();
+  const bufferQueue = new Queue(bufferArray);
 
-    var bufferQueue = new Queue(bufferArray);
-
-    while (!bufferQueue.isEmpty()) {
-        if (bufferQueue.dequeue() == element) {
-            return true;
-        }
-    }
-    return false;
+  while (!bufferQueue.isEmpty()) {
+    if (bufferQueue.dequeue() === element) return true;
+  }
+  return false;
 }
 
+//* ------- Exercise Solutions -------
 
+// DESIGN A STACK USING ONLY QUEUES AND THEN DESIGN A QUEUE USING ONLY STACKS
 
+// Stack Using Queues (Not Completed Yet)
 
-function TwoStackQueue() {
+class TwoStackQueue {
+  constructor() {
     this.inbox = new Stack();
     this.outbox = new Stack();
-}
+  }
 
-TwoStackQueue.prototype.enqueue = function(val) {
-    this.inbox.push(val);
-}
+  enqueue(value) {
+    this.inbox.push(value);
+  }
 
-TwoStackQueue.prototype.dequeue = function() {
+  dequeue() {
     if (this.outbox.isEmpty()) {
-        while (!this.inbox.isEmpty()) {
-            this.outbox.push(this.inbox.pop());
-        }
+      while (!this.inbox.isEmpty()) {
+        this.outbox.push(this.inbox.pop());
+      }
     }
+
     return this.outbox.pop();
-};
-var queue = new TwoStackQueue();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-queue.dequeue(); // 1
-queue.dequeue(); // 2
-queue.dequeue(); // 3
-
-
-
-function QueueStack() {
-    this.inbox = new Queue(); // first stack
+  }
 }
 
-QueueStack.prototype.push = function(val) {
-    this.inbox.enqueue(val);
-};
+// DESIGN A CASHIER CLASS THAT TAKES IN A CUSTOMER OBJECT AND HANDLES FOOD ORDERING ON A FIRST-COME, FIRST-SERVED BASIS
 
-QueueStack.prototype.pop = function() {
-    var size = this.inbox.array.length - 1;
-    var counter = 0;
-    var bufferQueue = new Queue();
+/*
+  Here are the requirements:
+    1. The cashier requires a customer name and order item for the order.
+    2. The customer who was served first is processed first.
+  Here are the required implementations:
+    • addOrder(customer): Enqueues a customer object to be processed by
+    deliverOrder()
+    • deliverOrder(): Prints the name and order for the next customer to be
+    processed
+*/
 
-    while (++counter <= size) {
-        bufferQueue.enqueue(this.inbox.dequeue());
-    }
-    var popped = this.inbox.dequeue();
-    this.inbox = bufferQueue;
-    return popped
-};
-
-var stack = new QueueStack();
-
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.push(4);
-stack.push(5);
-
-console.log(stack.pop()); // 5
-console.log(stack.pop()); // 4
-console.log(stack.pop()); // 3
-console.log(stack.pop()); // 2
-console.log(stack.pop()); // 1
-
-
-function Customer(name, order) {
+class Customer {
+  constructor(name, order) {
     this.name = name;
     this.order = order;
+  }
 }
 
-function Cashier() {
+class Cashier {
+  constructor() {
     this.customers = new Queue();
-}
+  }
 
-Cashier.prototype.addOrder = function(customer) {
+  addOrder(customer) {
     this.customers.enqueue(customer);
+  }
+
+  deliverOrder() {
+    const finishedCustomer = this.customers.dequeue();
+    console.log(
+      `${finishedCustomer.name} your ${finishedCustomer.order} is ready`
+    );
+  }
 }
 
-Cashier.prototype.deliverOrder = function() {
-    var finishedCustomer = this.customers.dequeue();
-
-    console.log(finishedCustomer.name + ", your " + finishedCustomer.order + " is ready!");
-}
-
-var cashier = new Cashier();
-var customer1 = new Customer('Jim', "Fries");
-var customer2 = new Customer('Sammie', "Burger");
-var customer3 = new Customer('Peter', "Drink");
+const cashier = new Cashier();
+const customer1 = new Customer('Jim', 'Fries');
+const customer2 = new Customer('Sammie', 'Burger');
+const customer3 = new Customer('Peter', 'Drink');
 
 cashier.addOrder(customer1);
 cashier.addOrder(customer2);
@@ -252,52 +238,28 @@ cashier.deliverOrder(); // Jim, your Fries is ready!
 cashier.deliverOrder(); // Sammie, your Burger is ready!
 cashier.deliverOrder(); // Peter, your Drink is ready!
 
+// DESIGN A PARENTHESIS VALIDATION CHECKER USING A STACK
+
+// ((())) is a valid parentheses set, while ((() and ))) are not. A stack can be used to check the validity of parentheses by storing the left parenthesis and using push and triggering pop when the right parenthesis is seen.
+
+// If there is anything left in the stack afterward, it is not a valid parentheses set. Also, it is not a valid parentheses set if more right parentheses are seen than left ones. Using these rules, use a stack to store the most recent parenthesis.
 
 function isParenthesisValid(validationString) {
-    var stack = new Stack();
-    for (var pos = 0; pos < validationString.length; pos++) {
-        var currentChar = validationString.charAt(pos);
-        if (currentChar == "(") {
-            stack.push(currentChar);
-        } else if (currentChar == ")") {
+  const stack = new Stack();
 
-            if (stack.isEmpty())
-                return false;
+  for (let pos = 0; pos < validationString.length; pos++) {
+    const currentChar = validationString.charAt(pos);
 
-            stack.pop();
-        }
+    if (currentChar === '(') stack.push(currentChar);
+    else if (currentChar === ')') {
+      if (stack.isEmpty()) return false;
+      stack.pop();
     }
-    return stack.isEmpty();
-}
-isParenthesisValid("((()"); // false;
-isParenthesisValid("(((("); // false;
-isParenthesisValid("()()"); // true;
+  }
 
-
-
-function sortableStack(size) {
-    this.size = size;
-
-    this.mainStack = new Stack();
-    this.sortedStack = new Stack();
-
-    // let's initialize it with some random ints
-    for (var i = 0; i < this.size; i++) {
-        this.mainStack.push(Math.floor(Math.random() * 11));
-    }
+  return stack.isEmpty();
 }
 
-sortableStack.prototype.sortStackDescending = function() {
-    while (!this.mainStack.isEmpty()) {
-        var temp = this.mainStack.pop();
-        while (!this.sortedStack.isEmpty() && this.sortedStack.peek() < temp) {
-            this.mainStack.push(this.sortedStack.pop());
-        }
-        this.sortedStack.push(temp);
-    }
-}
-
-var ss = new sortableStack(10);
-console.log(ss); // [ 8, 3, 4, 4, 1, 2, 0, 9, 7, 8 ]
-ss.sortStackDescending();
-console.log(ss.sortedStack); // [ 9, 8, 8, 7, 4, 4, 3, 2, 1, 0 ]
+console.log(isParenthesisValid('((()')); // false
+console.log(isParenthesisValid('((((')); // false
+console.log(isParenthesisValid('()()')); // true
