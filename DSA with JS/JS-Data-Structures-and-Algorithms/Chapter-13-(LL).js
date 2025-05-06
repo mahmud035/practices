@@ -1,262 +1,231 @@
-function SinglyLinkedListNode(data) {
-  this.data = data;
-  this.next = null;
-}
-
-function SinglyLinkedList() {
-  this.head = null;
-  this.size = 0;
-}
-
-SinglyLinkedList.prototype.isEmpty = function () {
-  return this.size == 0;
-};
-
-SinglyLinkedList.prototype.insert = function (value) {
-  if (this.head === null) {
-    //If first node
-    this.head = new SinglyLinkedListNode(value);
-  } else {
-    var temp = this.head;
-    this.head = new SinglyLinkedListNode(value);
-    this.head.next = temp;
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null; // Pointer to the next node
   }
-  this.size++;
-};
-var sll1 = new SinglyLinkedList();
-sll1.insert(1); // linked list is now: 1 -> null
-sll1.insert(12); // linked list is now: 12 -> 1 -> null
-sll1.insert(20); // linked list is now: 20 -> 12 -> 1 -> null
+}
 
-SinglyLinkedList.prototype.remove = function (value) {
-  var currentHead = this.head;
-  if (currentHead.data == value) {
-    // just shift the head over. Head is now this new value
-    this.head = currentHead.next;
-    this.size--;
-  } else {
-    var prev = currentHead;
-    while (currentHead.next) {
-      if (currentHead.data == value) {
-        // remove by skipping
-        prev.next = currentHead.next;
-        prev = currentHead;
-        currentHead = currentHead.next;
-        break; // break out of the loop
+class LinkedList {
+  constructor() {
+    this.head = null; // Pointer to the first node
+    this.size = 0; // Size of the linked list
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  getSize() {
+    return this.size;
+  }
+
+  // O(1)
+  prepend(value) {
+    const newNode = new Node(value);
+
+    // Case 1: If the list is empty, set head to new node
+    if (this.isEmpty()) {
+      this.head = newNode;
+    }
+
+    // Case 2: If the list is not empty, link new node to the current head and update head to the new node
+    else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.size++;
+  }
+
+  // O(n)
+  append(value) {
+    const newNode = new Node(value);
+
+    // Case 1: If the list is empty, set head to new node
+    if (this.isEmpty()) {
+      this.head = newNode;
+    }
+
+    // Case 2: If the list is not empty, traverse to the end and link the last node to the new node
+    else {
+      let currentNode = this.head;
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next; // Move to the next node
       }
-      prev = currentHead;
-      currentHead = currentHead.next;
+      currentNode.next = newNode; // Link last node to new node
     }
-    //if wasn't found in the middle or head, must be tail
-    if (currentHead.data == value) {
-      prev.next = null;
+
+    this.size++;
+  }
+
+  // O(n)
+  insert(value, index) {
+    if (index < 0 || index > this.size) return 'Invalid index';
+    if (index === 0) return this.prepend(value); // Insert at head
+
+    const newNode = new Node(value);
+    let prevNode = this.head; // Start from head
+
+    for (let i = 0; i < index - 1; i++) {
+      prevNode = prevNode.next;
     }
-    this.size--;
+
+    newNode.next = prevNode.next; // First set new node's next
+    prevNode.next = newNode; // Then update previous node's next
+    this.size++;
   }
-};
-var sll1 = new SinglyLinkedList();
-sll1.insert(1); // linked list is now:  1 -> null
-sll1.insert(12); // linked list is now: 12 -> 1 -> null
-sll1.insert(20); // linked list is now: 20 -> 12 -> 1 -> null
-sll1.remove(12); // linked list is now: 20 -> 1 -> null
-sll1.remove(20); // linked list is now: 1 -> null
 
-SinglyLinkedList.prototype.deleteAtHead = function () {
-  var toReturn = null;
+  // O(n)
+  removeFrom(index) {
+    if (index < 0 || index >= this.size) return 'Invalid index';
 
-  if (this.head !== null) {
-    toReturn = this.head.data;
-    this.head = this.head.next;
-    this.size--;
-  }
-  return toReturn;
-};
-
-var sll1 = new SinglyLinkedList();
-sll1.insert(1); // linked list is now:  1 -> null
-sll1.insert(12); // linked list is now: 12 -> 1 -> null
-sll1.insert(20); // linked list is now: 20 -> 12 -> 1 -> null
-sll1.deleteAtHead(); // linked list is now:  12 -> 1 -> null
-
-function DoublyLinkedListNode(data) {
-  this.data = data;
-  this.next = null;
-  this.prev = null;
-}
-
-function DoublyLinkedList() {
-  this.head = null;
-  this.tail = null;
-  this.size = 0;
-}
-DoublyLinkedList.prototype.isEmpty = function () {
-  return this.size == 0;
-};
-
-DoublyLinkedList.prototype.insertAtHead = function (value) {
-  if (this.head === null) {
-    //If first node
-    this.head = new DoublyLinkedListNode(value);
-    this.tail = this.head;
-  } else {
-    var temp = new DoublyLinkedListNode(value);
-    temp.next = this.head;
-    this.head.prev = temp;
-    this.head = temp;
-  }
-  this.size++;
-};
-var dll1 = new DoublyLinkedList();
-dll1.insertAtHead(10); // ddl1's structure: tail: 10  head: 10
-dll1.insertAtHead(12); // ddl1's structure: tail: 10  head: 12
-dll1.insertAtHead(20); // ddl1's structure: tail: 10  head: 20
-
-DoublyLinkedList.prototype.insertAtTail = function (value) {
-  if (this.tail === null) {
-    //If first node
-    this.tail = new DoublyLinkedListNode(value);
-    this.head = this.tail;
-  } else {
-    var temp = new DoublyLinkedListNode(value);
-    temp.prev = this.tail;
-    this.tail.next = temp;
-    this.tail = temp;
-  }
-  this.size++;
-};
-
-var dll1 = new DoublyLinkedList();
-dll1.insertAtHead(10); // ddl1's structure: tail: 10  head: 10
-dll1.insertAtHead(12); // ddl1's structure: tail: 10  head: 12
-dll1.insertAtHead(20); // ddl1's structure: tail: 10  head: 20
-dll1.insertAtTail(30); // ddl1's structure: tail: 30  head: 20
-
-DoublyLinkedList.prototype.deleteAtHead = function () {
-  var toReturn = null;
-
-  if (this.head !== null) {
-    toReturn = this.head.data;
-
-    if (this.tail === this.head) {
-      this.head = null;
-      this.tail = null;
-    } else {
+    let removeNode;
+    if (index === 0) {
+      removeNode = this.head;
       this.head = this.head.next;
-      this.head.prev = null;
-    }
-  }
-  this.size--;
-  return toReturn;
-};
-
-DoublyLinkedList.prototype.deleteAtTail = function () {
-  var toReturn = null;
-
-  if (this.tail !== null) {
-    toReturn = this.tail.data;
-
-    if (this.tail === this.head) {
-      this.head = null;
-      this.tail = null;
     } else {
-      this.tail = this.tail.prev;
-      this.tail.next = null;
+      let prevNode = this.head; // Start from node
+
+      for (let i = 0; i < index - 1; i++) {
+        prevNode = prevNode.next;
+      }
+
+      removeNode = prevNode.next;
+      prevNode.next = removeNode.next; // Link previous node to the next node of the node to be removed
     }
-  }
-  this.size--;
-  return toReturn;
-};
-var dll1 = new DoublyLinkedList();
-dll1.insertAtHead(10); // ddl1's structure: tail: 10  head: 10
-dll1.insertAtHead(12); // ddl1's structure: tail: 10  head: 12
-dll1.insertAtHead(20); // ddl1's structure: tail: 10  head: 20
-dll1.insertAtTail(30); // ddl1's structure: tail: 30  head: 20
-dll1.deleteAtTail();
 
-DoublyLinkedList.prototype.findStartingHead = function (value) {
-  var currentHead = this.head;
-  while (currentHead.next) {
-    if (currentHead.data == value) {
-      return true;
+    this.size--;
+    return removeNode.value;
+  }
+
+  // O(n)
+  removeValue(value) {
+    if (this.isEmpty()) {
+      console.log('List is empty');
+      return;
     }
-    currentHead = currentHead.next;
-  }
-  return false;
-};
-var dll1 = new DoublyLinkedList();
-dll1.insertAtHead(10); // ddl1's structure: tail: 10  head: 10
-dll1.insertAtHead(12); // ddl1's structure: tail: 10  head: 12
-dll1.insertAtHead(20); // ddl1's structure: tail: 10  head: 20
-dll1.insertAtTail(30); // ddl1's structure: tail: 30  head: 20
-dll1.findStartingHead(10); // true
-dll1.findStartingHead(100); // false
 
-DoublyLinkedList.prototype.findStartingTail = function (value) {
-  var currentTail = this.tail;
-  while (currentTail.prev) {
-    if (currentTail.data == value) {
-      return true;
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
     }
-    currentTail = currentTail.prev;
-  }
-  return false;
-};
 
-var dll1 = new DoublyLinkedList();
-dll1.insertAtHead(10); // ddl1's structure: tail: 10  head: 10
-dll1.insertAtHead(12); // ddl1's structure: tail: 10  head: 12
-dll1.insertAtHead(20); // ddl1's structure: tail: 10  head: 20
-dll1.insertAtTail(30); // ddl1's structure: tail: 30  head: 20
-dll1.findStartingTail(10); // true
-dll1.findStartingTail(100); // false
+    let prevNode = this.head; // Start from head
+    while (prevNode.next !== null && prevNode.next.value !== value) {
+      prevNode = prevNode.next;
+    }
 
-function reverseSingleLinkedList(sll) {
-  var node = sll.head;
-  var prev = null;
-  while (node) {
-    var temp = node.next;
-    node.next = prev;
-    prev = node;
-    if (!temp) break;
-    node = temp;
+    if (prevNode.next === null) {
+      console.log('Value not found in the list');
+      return;
+    }
+
+    const removeNode = prevNode.next;
+    prevNode.next = removeNode.next; // Link previous node to the next node of the node to be removed
+    this.size--;
+    return removeNode.value;
   }
-  return node;
+
+  // O(n)
+  find(value) {
+    if (this.isEmpty()) {
+      console.log('List is empty');
+      return;
+    }
+
+    let currentNode = this.head; // Start from head
+    while (currentNode.next !== null) {
+      if (currentNode.value === value) return currentNode.value;
+      currentNode = currentNode.next;
+    }
+
+    console.log('Value not found in the list');
+    return null;
+  }
+
+  reverse() {
+    let prev = null; // Tracks the previous node
+    let current = this.head; // Start with the head node
+    let next = null; // Will store the next node temporarily
+
+    while (current !== null) {
+      next = current.next; // Save the next node
+      current.next = prev; // Reverse the link
+      prev = current; // Move prev forward
+      current = next; // Move current forward
+    }
+
+    this.head = prev; // Update head to the new first node
+  }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log(`List is empty`);
+      return;
+    }
+
+    let currentNode = this.head;
+    let listValues = '';
+
+    while (currentNode) {
+      listValues += ` ${currentNode.value}`;
+      currentNode = currentNode.next;
+    }
+    console.log(listValues.trim());
+  }
 }
 
-// delete duplicates in unsorted linkedList
-function deleteDuplicateInUnsortedSll(sll1) {
-  var track = [];
+// Create an instance of LinkedList and test the methods
+const list = new LinkedList();
 
-  var temp = sll1.head;
-  var prev = null;
-  while (temp) {
-    if (track.indexOf(temp.data) >= 0) {
-      prev.next = temp.next;
-      sll1.size--;
-    } else {
-      track.push(temp.data);
-      prev = temp;
-    }
-    temp = temp.next;
-  }
-  console.log(temp);
-}
+console.log(`List is empty? ${list.isEmpty()}`); // List is empty? true
+console.log(`List size: ${list.getSize()}`); // List size: 0
 
-//delete duplicates in unsorted linkedList
-function deleteDuplicateInUnsortedSllBest(sll1) {
-  var track = {};
+list.prepend(10);
+list.print(); // 10
 
-  var temp = sll1.head;
-  var prev = null;
-  while (temp) {
-    if (track[temp.data]) {
-      prev.next = temp.next;
-      sll1.size--;
-    } else {
-      track[temp.data] = true;
-      prev = temp;
-    }
-    temp = temp.next;
-  }
-  console.log(temp);
-}
+list.prepend(20);
+list.prepend(30);
+list.print(); // 30 20 10
+
+list.append(40);
+list.append(50);
+list.print(); // 30 20 10 40 50
+
+console.log(list.insert(5, -10)); // Invalid index
+list.insert(5, 0);
+list.print(); // 5 30 20 10 40 50
+
+list.insert(7, 2);
+list.print(); // 5 30 7 20 10 40 50
+
+list.insert(15, 5);
+list.print(); // 5 30 7 20 10 15 40 50
+
+console.log(list.removeFrom(8)); // Invalid index
+
+list.removeFrom(0);
+list.print(); // 30 7 20 10 15 40 50
+
+list.removeFrom(2);
+list.print(); // 30 7 10 15 40 50
+
+list.removeFrom(4);
+list.print(); // 30 7 10 15 50
+
+list.removeValue(10);
+list.print(); // 30 7 15 50
+
+list.removeValue(15);
+list.print(); // 30 7 50
+
+console.log(list.find(7)); // 7
+list.find(200); // Value not found in the list
+
+list.reverse();
+list.print(); // Reversed list: 50 7 30
+list.reverse();
+list.print(); // 30 7 50 (Reversed back to original)
+
+console.log(list);

@@ -28,7 +28,7 @@ class LinkedList {
       this.head = newNode;
     }
 
-    // Case 2: If the list is not empty, link new node to the current head and update head to new node
+    // Case 2: If the list is not empty, link new node to the current head and update head to the new node
     else {
       newNode.next = this.head;
       this.head = newNode;
@@ -48,30 +48,34 @@ class LinkedList {
 
     // Case 2: If the list is not empty, traverse to the end and link the last node to the new node
     else {
-      let prev = this.head;
-      while (prev.next !== null) {
-        prev = prev.next; // Move to the next node
+      let currentNode = this.head;
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next; // Move to the next node
       }
-      prev.next = newNode; // Link last node to new node
+      currentNode.next = newNode; // Link last node to new node
     }
 
     this.size++;
   }
 
+  // O(n)
   insert(value, index) {
     if (index < 0 || index > this.size) return 'Invalid index';
     if (index === 0) return this.prepend(value); // Insert at head
 
     const newNode = new Node(value);
-    let prev = this.head; // Start from head
+    let prevNode = this.head; // Start from head
+
     for (let i = 0; i < index - 1; i++) {
-      prev = prev.next;
+      prevNode = prevNode.next;
     }
-    prev.next = newNode;
-    newNode.next = prev.next;
+
+    newNode.next = prevNode.next; // First set new node's next
+    prevNode.next = newNode; // Then update previous node's next
     this.size++;
   }
 
+  // O(n)
   removeFrom(index) {
     if (index < 0 || index >= this.size) return 'Invalid index';
 
@@ -80,18 +84,21 @@ class LinkedList {
       removeNode = this.head;
       this.head = this.head.next;
     } else {
-      let prev = this.head;
+      let prevNode = this.head; // Start from node
+
       for (let i = 0; i < index - 1; i++) {
-        prev = prev.next;
+        prevNode = prevNode.next;
       }
-      removeNode = prev.next;
-      prev.next = removeNode.next; // Link previous node to the next node of the node to be removed
+
+      removeNode = prevNode.next;
+      prevNode.next = removeNode.next; // Link previous node to the next node of the node to be removed
     }
 
     this.size--;
     return removeNode.value;
   }
 
+  // O(n)
   removeValue(value) {
     if (this.isEmpty()) {
       console.log('List is empty');
@@ -104,59 +111,66 @@ class LinkedList {
       return value;
     }
 
-    let prev = this.head;
-    while (prev.next !== null && prev.next.value !== value) {
-      prev = prev.next;
+    let prevNode = this.head; // Start from head
+    while (prevNode.next !== null && prevNode.next.value !== value) {
+      prevNode = prevNode.next;
     }
-    if (prev.next === null) {
+
+    if (prevNode.next === null) {
       console.log('Value not found in the list');
       return;
     }
-    const removeNode = prev.next;
-    prev.next = removeNode.next; // Link previous node to the next node of the node to be removed
+
+    const removeNode = prevNode.next;
+    prevNode.next = removeNode.next; // Link previous node to the next node of the node to be removed
     this.size--;
     return removeNode.value;
   }
 
+  // O(n)
   find(value) {
     if (this.isEmpty()) {
       console.log('List is empty');
       return;
     }
 
-    let currentHead = this.head;
-    while (currentHead !== null) {
-      if (currentHead.value === value) return currentHead.value;
-      currentHead = currentHead.next;
+    let currentNode = this.head; // Start from head
+    while (currentNode.next !== null) {
+      if (currentNode.value === value) return currentNode.value;
+      currentNode = currentNode.next;
     }
+
     console.log('Value not found in the list');
     return null;
   }
 
   reverse() {
-    let prev = null;
-    let current = this.head;
-    let next = null;
+    let prev = null; // Tracks the previous node
+    let current = this.head; // Start with the head node
+    let next = null; // Will store the next node temporarily
+
     while (current !== null) {
-      next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
+      next = current.next; // Save the next node
+      current.next = prev; // Reverse the link
+      prev = current; // Move prev forward
+      current = next; // Move current forward
     }
-    this.head = prev;
+
+    this.head = prev; // Update head to the new first node
   }
 
   print() {
     if (this.isEmpty()) {
-      console.log('List is empty');
+      console.log(`List is empty`);
       return;
     }
 
-    let current = this.head;
+    let currentNode = this.head;
     let listValues = '';
-    while (current !== null) {
-      listValues += ` ${current.value}`;
-      current = current.next;
+
+    while (currentNode) {
+      listValues += ` ${currentNode.value}`;
+      currentNode = currentNode.next;
     }
     console.log(listValues.trim());
   }
@@ -165,9 +179,8 @@ class LinkedList {
 // Create an instance of LinkedList and test the methods
 const list = new LinkedList();
 
-console.log(`List is empty? ${list.isEmpty()}`); // list is empty? true
+console.log(`List is empty? ${list.isEmpty()}`); // List is empty? true
 console.log(`List size: ${list.getSize()}`); // List size: 0
-list.print();
 
 list.prepend(10);
 list.print(); // 10
@@ -180,18 +193,39 @@ list.append(40);
 list.append(50);
 list.print(); // 30 20 10 40 50
 
-console.log(list.removeFrom(2));
-list.print(); // 30 20 40 50
+console.log(list.insert(5, -10)); // Invalid index
+list.insert(5, 0);
+list.print(); // 5 30 20 10 40 50
 
-list.removeValue(40);
-list.print(); // 30 20 50
+list.insert(7, 2);
+list.print(); // 5 30 7 20 10 40 50
 
-list.find(20); // 20
-list.find(100); // Value not found in the list
+list.insert(15, 5);
+list.print(); // 5 30 7 20 10 15 40 50
+
+console.log(list.removeFrom(8)); // Invalid index
+
+list.removeFrom(0);
+list.print(); // 30 7 20 10 15 40 50
+
+list.removeFrom(2);
+list.print(); // 30 7 10 15 40 50
+
+list.removeFrom(4);
+list.print(); // 30 7 10 15 50
+
+list.removeValue(10);
+list.print(); // 30 7 15 50
+
+list.removeValue(15);
+list.print(); // 30 7 50
+
+console.log(list.find(7)); // 7
+list.find(200); // Value not found in the list
 
 list.reverse();
-list.print(); // 50 20 30 (Reversed list)
+list.print(); // Reversed list: 50 7 30
 list.reverse();
-list.print(); // 30 20 50 (Reversed back to original)
+list.print(); // 30 7 50 (Reversed back to original)
 
 console.log(list);
