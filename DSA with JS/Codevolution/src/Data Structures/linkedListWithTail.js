@@ -12,30 +12,36 @@ class LinkedList {
     this.size = 0; // Size of the linked list
   }
 
+  // O(1)
   isEmpty() {
     return this.size === 0;
   }
 
+  // O(1)
   getSize() {
     return this.size;
   }
 
+  // O(1)
   prepend(value) {
     const newNode = new Node(value);
 
-    // Case 1: If the list is empty, set head and tail to new node
+    // Case 1: If the list is empty, set head and tail to the new node
     if (this.isEmpty()) {
       this.head = newNode;
       this.tail = newNode;
     }
+
     // Case 2: If the list is not empty, link new node to current head and update head to new node
     else {
       newNode.next = this.head;
       this.head = newNode;
     }
+
     this.size++;
   }
 
+  // O(1)
   append(value) {
     const newNode = new Node(value);
 
@@ -54,16 +60,17 @@ class LinkedList {
     this.size++;
   }
 
+  // O(1)
   removeFromFront() {
     if (this.isEmpty()) {
-      console.log('List is empty, nothing to remove');
+      console.log('List is empty. Noting to remove');
       return;
     }
 
-    const value = this.head.value; // Store the value of the head node
+    const removeValue = this.head.value; // Store the value of the head node
 
     // Case 1: If the list has only one node, set head and tail to null
-    if (this.head === this.tail) {
+    if (this.head.value === this.tail.value) {
       this.head = null;
       this.tail = null;
     }
@@ -74,26 +81,28 @@ class LinkedList {
     }
 
     this.size--;
-    return value; // Return the removed value
+    return removeValue;
   }
 
+  // O(n)
   removeFromEnd() {
     if (this.isEmpty()) {
-      console.log('List is empty, nothing to remove');
+      console.log('List is empty. Noting to remove');
       return;
     }
 
-    const value = this.tail.value; // Store the value of the tail node
+    const removeValue = this.tail.value; // Store the value of the tail node
 
     // Case 1: If the list has only one node, set head and tail to null
-    if (this.head === this.tail) {
+    if (this.head.value === this.tail.value) {
       this.head = null;
       this.tail = null;
     }
 
-    // Case 2: If the list has more than one node, traverse to the second last node update tail to the second last node
+    // Case 2: If the list has more than one node, traverse to the second last node and update tail as second last node
     else {
-      let currentNode = this.head;
+      let currentNode = this.head; // Start from head
+
       while (currentNode.next !== this.tail) {
         currentNode = currentNode.next;
       }
@@ -102,7 +111,7 @@ class LinkedList {
     }
 
     this.size--;
-    return value; // Return the removed value
+    return removeValue; // Return the removed value
   }
 
   print() {
@@ -111,11 +120,12 @@ class LinkedList {
       return;
     }
 
-    let currentHead = this.head;
+    let currentNode = this.head; // Start from head
     let listValues = '';
-    while (currentHead !== null) {
-      listValues += ` ${currentHead.value}`;
-      currentHead = currentHead.next;
+
+    while (currentNode) {
+      listValues += ` ${currentNode.value}`;
+      currentNode = currentNode.next;
     }
     console.log(listValues.trim());
   }
