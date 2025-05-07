@@ -49,6 +49,8 @@ class DoublyLinkedList {
       newNode.prev = this.tail;
       this.tail = newNode;
     }
+
+    this.size++;
   }
 
   // O(1)
@@ -102,10 +104,10 @@ class DoublyLinkedList {
   }
 
   // O(n)
-  findStartingHead(value) {
+  findStartingHead(data) {
     let currentHead = this.head;
     while (currentHead.next) {
-      if (currentHead.data === value) return true;
+      if (currentHead.data === data) return true;
       currentHead = currentHead.next;
     }
     return false;

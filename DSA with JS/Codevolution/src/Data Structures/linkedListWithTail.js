@@ -114,6 +114,7 @@ class LinkedList {
     return removeValue; // Return the removed value
   }
 
+  // O(n)
   print() {
     if (this.isEmpty()) {
       console.log('List is empty');

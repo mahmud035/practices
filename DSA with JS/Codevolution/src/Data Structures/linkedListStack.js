@@ -1,5 +1,6 @@
 import LinkedList from './linkedListWithTail.js';
 
+// Stack => LIFO (Last In First Out)
 class LinkedListStack {
   constructor() {
     this.list = new LinkedList(); // Initialize an empty linked list
@@ -49,3 +50,4 @@ stack.pop(); // Pop the top value (2) from the stack
 console.log(stack.getSize()); // 1
 
 console.log(stack);
+stack.print(); // 1

@@ -1,5 +1,6 @@
 import LinkedList from './linkedListWithTail.js';
 
+// Queue => FIFO (First In First Out)
 class LinkedListQueue {
   constructor() {
     this.list = new LinkedList(); // Initialize an empty linked list
@@ -38,7 +39,7 @@ queue.enqueue(2); // Enqueue 2 into the queue
 queue.enqueue(3); // Enqueue 3 into the queue
 
 console.log(queue);
-queue.print();
+queue.print(); // 1 2 3
 
 queue.peek(); // Peek at the front value (1) without removing it
 console.log(queue.getSize()); // 3
@@ -48,3 +49,4 @@ queue.dequeue(); // Dequeue the front value (2) from the queue
 
 console.log(queue.getSize()); // 1
 console.log(queue);
+queue.print(); // 3

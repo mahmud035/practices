@@ -144,6 +144,7 @@ class LinkedList {
     return null;
   }
 
+  // 0(n)
   reverse() {
     let prev = null; // Tracks the previous node
     let current = this.head; // Start with the head node
@@ -396,3 +397,410 @@ console.log(tailList.removeFromEnd()); // List is empty. Nothing to remove
 
 console.log(`List is empty? ${tailList.isEmpty()}`); // true
 console.log(`List size: ${tailList.getSize()}`); // 0
+
+// ==================================================
+console.log('----------- Doubly LinkedList -----------');
+class DoublyLinkedListNode {
+  constructor(data) {
+    this.data = data; // The data store in the node
+    this.next = null; // Pointer to the next node in the list
+    this.prev = null; // Pointer to the previous node int the list
+  }
+}
+
+class DoublyLinkedList {
+  constructor() {
+    this.head = null; // Pointer to the first node in the list
+    this.tail = null; // Pointer to the last node in the list
+    this.size = 0; // Size of the list (Number of nodes)
+  }
+
+  // O(1)
+  isEmpty() {
+    return this.size === 0; // Check if the list is empty
+  }
+
+  // O(1)
+  getSize() {
+    return this.size; // Return the size of the list
+  }
+
+  // O(1)
+  addAtFront(data) {
+    const newNode = new DoublyLinkedListNode(data);
+
+    if (this.isEmpty()) {
+      this.head = newNode; // If the list is empty, set head to the new node
+      this.tail = newNode; // Set tail to the new node as well
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode; // Set the new node as the head of the list
+    }
+
+    this.size++;
+  }
+
+  // O(1)
+  insertAtTail(data) {
+    const newNode = new DoublyLinkedListNode(data);
+
+    if (this.isEmpty()) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+
+    this.size++;
+  }
+
+  // O(1)
+  deleteAtHead() {
+    if (this.isEmpty()) {
+      console.log('List is empty. Nothing to delete');
+      return null;
+    }
+
+    const deleteNode = this.head; // Store the current head node to return later
+
+    // Case 1: If the list has only one node
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null; // Set both head and tail to null
+    }
+
+    // Case 2: If the list has more than one node
+    else {
+      this.head = this.head.next; // Move head pointer to the next node
+      this.head.prev = null;
+    }
+
+    this.size--;
+    return deleteNode.data; // Return the data of the delete node
+  }
+
+  // O(1)
+  deleteAtTail() {
+    if (this.isEmpty()) {
+      console.log('List is empty. Nothing to delete');
+      return null;
+    }
+
+    const deleteNode = this.tail; // Store the current tail node to return later
+
+    // Case 1: If the list has only one node
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    // Case 2: If the list has more than one node
+    else {
+      this.tail = this.tail.prev; // Move tail pointer to the previous node
+      this.tail.next = null;
+    }
+
+    this.size--;
+    return deleteNode.data; // Return the data of the deleted node
+  }
+
+  // O(n)
+  findStartingHead(data) {
+    let currentHead = this.head;
+    while (currentHead.next) {
+      if (currentHead.data === data) return true;
+      currentHead = currentHead.next;
+    }
+    return false;
+  }
+
+  // O(n)
+  findStartingTail(data) {
+    let currentTail = this.tail;
+    while (currentTail.prev) {
+      if (currentTail.data === data) return true;
+      currentTail = currentTail.prev;
+    }
+    return false;
+  }
+
+  // O(n)
+  print() {
+    let currentNode = this.head;
+    const result = [];
+
+    while (currentNode) {
+      result.push(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    console.log(result.join(' <-> '));
+  }
+}
+
+// Create an instance of DoublyLinkedList and test the methods
+const doublyList = new DoublyLinkedList();
+console.log(doublyList.isEmpty()); // true
+
+doublyList.addAtFront(10);
+doublyList.addAtFront(20);
+doublyList.addAtFront(30);
+doublyList.print(); // 30 <-> 20 <-> 10
+
+doublyList.insertAtTail(40);
+doublyList.insertAtTail(50);
+doublyList.insertAtTail(60);
+doublyList.print(); // 30 <-> 20 <-> 10 <-> 40 <-> 50 <-> 60
+
+console.log(doublyList.deleteAtHead());
+console.log(doublyList.deleteAtHead());
+doublyList.print(); // 10 <-> 40 <-> 50 <-> 60
+
+console.log(doublyList.deleteAtTail());
+doublyList.print(); // 10 <-> 40 <-> 50
+
+console.log(doublyList.findStartingHead(10)); // true
+console.log(doublyList.findStartingHead(40)); // true
+console.log(doublyList.findStartingHead(400)); // false
+
+console.log(doublyList.findStartingTail(40)); // true
+console.log(doublyList.findStartingTail(700)); // false
+
+// ==================================================
+console.log('--- Implement Queue Data Structure using LinkedList ---');
+
+class LinkedListWithTailForQueueAndStack {
+  constructor() {
+    this.head = null; // Pointer to the first node
+    this.tail = null; // Pointer to the last node
+    this.size = 0; // Size of the linked list
+  }
+
+  // O(1)
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  // O(1)
+  getSize() {
+    return this.size;
+  }
+
+  // O(1)
+  prepend(value) {
+    const newNode = new Node(value);
+
+    // Case 1: If the list is empty, set head and tail to the new node
+    if (this.isEmpty()) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    // Case 2: If the list is not empty, link new node to current head and update head to new node
+    else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.size++;
+  }
+
+  // O(1)
+  append(value) {
+    const newNode = new Node(value);
+
+    // Case 1: If the list is empty, set head and tail to new node
+    if (this.isEmpty()) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    // Case 2: If the list is not empty, link last node to new node and update tail to new node
+    else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+
+    this.size++;
+  }
+
+  // O(1)
+  removeFromFront() {
+    if (this.isEmpty()) {
+      console.log('List is empty. Noting to remove');
+      return;
+    }
+
+    const removeValue = this.head.value; // Store the value of the head node
+
+    // Case 1: If the list has only one node, set head and tail to null
+    if (this.head.value === this.tail.value) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    // Case 2: If the list has more than one node, update head to the next node
+    else {
+      this.head = this.head.next;
+    }
+
+    this.size--;
+    return removeValue;
+  }
+
+  // O(n)
+  removeFromEnd() {
+    if (this.isEmpty()) {
+      console.log('List is empty. Noting to remove');
+      return;
+    }
+
+    const removeValue = this.tail.value; // Store the value of the tail node
+
+    // Case 1: If the list has only one node, set head and tail to null
+    if (this.head.value === this.tail.value) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    // Case 2: If the list has more than one node, traverse to the second last node and update tail as second last node
+    else {
+      let currentNode = this.head; // Start from head
+
+      while (currentNode.next !== this.tail) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = null;
+      this.tail = currentNode; // Update tail to the second last node
+    }
+
+    this.size--;
+    return removeValue; // Return the removed value
+  }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log('List is empty');
+      return;
+    }
+
+    let currentNode = this.head; // Start from head
+    let listValues = '';
+
+    while (currentNode) {
+      listValues += ` ${currentNode.value}`;
+      currentNode = currentNode.next;
+    }
+    console.log(listValues.trim());
+  }
+}
+
+// Queue => FIFO (First In First Out)
+class LinkedListQueue {
+  constructor() {
+    this.list = new LinkedListWithTailForQueueAndStack(); // Initialize an empty linked list
+  }
+
+  isEmpty() {
+    return this.list.isEmpty(); // Check if the linked list is empty
+  }
+
+  getSize() {
+    return this.list.getSize(); // Get the size of the linked list
+  }
+
+  enqueue(value) {
+    this.list.append(value); // Add a new value to the end of the linked list
+  }
+
+  dequeue() {
+    return this.list.removeFromFront(); // Remove the value from the front of the linked list
+  }
+
+  peek() {
+    return this.isEmpty() ? null : this.list.head.value; // Return the value of the head node without removing it
+  }
+
+  print() {
+    this.list.print(); // Print the linked list
+  }
+}
+
+// Create an instance of LinkedListQueue and test the methods
+const queue = new LinkedListQueue();
+console.log(queue.isEmpty()); // true
+
+queue.enqueue(1); // Enqueue 1 into the queue
+queue.enqueue(2); // Enqueue 2 into the queue
+queue.enqueue(3); // Enqueue 3 into the queue
+
+console.log(queue);
+queue.print(); // 1 2 3
+
+queue.peek(); // Peek at the front value (1) without removing it
+console.log(queue.getSize()); // 3
+
+queue.dequeue(); // Dequeue the front value (1) from the queue
+queue.dequeue(); // Dequeue the front value (2) from the queue
+
+console.log(queue.getSize()); // 1
+console.log(queue);
+queue.print(); // 3
+
+// ==================================================
+console.log('--- Implement Stack Data Structure using LinkedList ---');
+
+// Stack => LIFO (Last In First Out)
+class LinkedListStack {
+  constructor() {
+    this.list = new LinkedListWithTailForQueueAndStack(); // Initialize an empty linked list
+  }
+
+  isEmpty() {
+    return this.list.isEmpty(); // Check if the linked list is empty
+  }
+
+  getSize() {
+    return this.list.getSize(); // Get the size of the linked list
+  }
+
+  push(value) {
+    this.list.prepend(value); // Add a new value to the front of the linked list
+  }
+
+  pop() {
+    return this.list.removeFromFront(); // Remove the value from the front of the linked list
+  }
+
+  peek() {
+    return this.isEmpty() ? null : this.list.head.value; // Return the value of the head node without removing it
+  }
+
+  print() {
+    this.list.print(); // Print the linked list
+  }
+}
+
+// Create an instance of LinkedListStack and test the methods
+const stack = new LinkedListStack();
+console.log(stack.isEmpty()); // true
+
+stack.push(1); // Push 1 into the stack
+stack.push(2); // Push 2 into the stack
+stack.push(3); // Push 3 into the stack
+
+console.log(stack);
+stack.print(); // 3 2 1
+
+stack.peek(); // Peek at the top value (3) without removing it
+console.log(stack.getSize()); // 3
+
+stack.pop(); // Pop the top value (3) from the stack
+stack.pop(); // Pop the top value (2) from the stack
+
+console.log(stack.getSize()); // 1
+
+console.log(stack);
+stack.print(); // 1
