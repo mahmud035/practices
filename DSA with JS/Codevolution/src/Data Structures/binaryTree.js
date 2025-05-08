@@ -11,7 +11,7 @@ class BinaryTree {
     this._root = null; // root node
   }
 
-  // Depth First Search
+  // Depth First Search (DFS)
   // Pre-order traversal (Root -> Left -> Right)
   traversePreOrder() {
     function traversePreOrderHelper(node) {
@@ -39,15 +39,19 @@ class BinaryTree {
   // Post-order traversal (Left -> Right -> Root)
   traversePostOrder() {
     function traversePostOrderHelper(node) {
-      if (node.left) traversePostOrderHelper(node.left);
-      if (node.right) traversePostOrderHelper(node.right);
+      if (!node) return; // base case
+      traversePostOrderHelper(node.left);
+      traversePostOrderHelper(node.right);
       console.log(node.value);
     }
 
     traversePostOrderHelper(this._root);
   }
 
-  // Level-order traversal (Breadth-first search)
+  /* 
+   Level-order traversal (Breadth First Search: BFS)
+   This method essentially visits each node level by level instead of going deep into the left or right.
+  */
   traverseLevelOrder() {
     const root = this._root;
     const queue = [];
