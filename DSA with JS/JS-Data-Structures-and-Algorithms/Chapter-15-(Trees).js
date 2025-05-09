@@ -189,6 +189,50 @@ class BinarySearchTree {
       if (current.right) queue.push(current.right);
     }
   }
+
+  // Min Node
+  minNode(root) {
+    if (!root.left) return root; // base case
+    return this.minNode(root.left);
+  }
+
+  // Max Node
+  maxNode(root) {
+    if (!root.right) return root; // base case
+    return this.maxNode(root.right);
+  }
+
+  // Deletion
+  // O(log n) (for balanced tree)
+  delete(value) {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  deleteNode(root, value) {
+    if (root === null) return root;
+
+    if (value < root.value) {
+      root.left = this.deleteNode(root.left, value);
+    } else if (value > root.value) {
+      root.right = this.deleteNode(root.right, value);
+    } else {
+      // Node to delete found
+
+      // Case 1: No children
+      if (!root.left && !root.right) return null;
+
+      // Case 2: One children
+      if (!root.left) return root.right;
+      else if (!root.right) return root.left;
+
+      // Case 3: Two children
+      const minRight = this.minNode(root.right);
+      root.value = minRight.value;
+      root.right = this.deleteNode(root.right, minRight.value);
+    }
+
+    return root;
+  }
 }
 
 // Instance of a binary search tree
@@ -216,5 +260,13 @@ bst.traversePostOrder();
 
 // BFS
 bst.traverseLevelOrder();
+
+// Min & Max Node
+console.log('Min', bst.minNode(bst.root)); // 3
+console.log('Max', bst.maxNode(bst.root)); // 30
+
+// Deletion
+// bst.delete(17);
+// bst.traverseLevelOrder();
 
 console.log(bst);

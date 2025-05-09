@@ -126,17 +126,18 @@ class BinarySearchTree {
 
   // Min Node
   minNode(root) {
-    if (!root.left) return root;
+    if (!root.left) return root; // base case
     return this.minNode(root.left);
   }
 
   // Max Node
   maxNode(root) {
-    if (!root.right) return root;
+    if (!root.right) return root; // base case
     return this.maxNode(root.right);
   }
 
   // Deletion
+  // O(log n) (for balanced tree)
   delete(value) {
     this.root = this.deleteNode(this.root, value);
   }
@@ -154,7 +155,7 @@ class BinarySearchTree {
       // Case 1: No children
       if (!root.left && !root.right) return null;
 
-      // Case 2: One child
+      // Case 2: One children
       if (!root.left) return root.right;
       else if (!root.right) return root.left;
 
