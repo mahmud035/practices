@@ -2198,3 +2198,63 @@
   // console.log(solution(4.6), 4.5);
   // console.log(solution(4.8), 5);
 }
+
+// Name Array Capping
+//* My Solution
+{
+  const capMe = (names) =>
+    names.map((name) => {
+      if (name.length === 0) return name;
+      return name.at(0).toUpperCase() + name.slice(1).toLowerCase();
+    });
+
+  // console.log(capMe(['jo', 'nelson', 'jurie'])); // ["Jo", "Nelson", "Jurie"]
+}
+
+// Sentence Calculator
+//* My Solution
+
+{
+  /**
+   * Converts a string into a numerical value based on the following rules:
+   * - Lowercase letters (a-z): a=1, b=2, ..., z=26
+   * - Uppercase letters (A-Z): A=2, B=4, ..., Z=52 (double their position)
+   * - Digits (0-9): Added as numeric values
+   *
+   * @param {string} str - The input string to convert.
+   * @returns {number} - The total sum based on character rules.
+   */
+  function lettersToNumbers(str) {
+    const lowerCase = []; // To store all lowercase letters
+    const upperCase = []; // To store all uppercase letters
+    const digits = []; // To store all digit characters
+    const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Reference for uppercase positions
+
+    // Categorize each character in the string
+    str.split('').forEach((char) => {
+      if (/[a-z]/.test(char)) lowerCase.push(char); // Lowercase check
+      else if (/[A-Z]/.test(char)) upperCase.push(char); // Uppercase check
+      else if (/\d/.test(char)) digits.push(char); // Digit check
+    });
+
+    // Sum of lowercase letters based on their position in the alphabet (a=1, ..., z=26)
+    const lowerCaseSum = lowerCase.reduce(
+      (acc, curr) => acc + (curr.charCodeAt() - 96),
+      0
+    );
+
+    // Sum of uppercase letters based on 2 × position in the alphabet (A=2, ..., Z=52)
+    const upperCaseSum = upperCase.reduce((acc, curr) => {
+      const index = upperCaseLetters.indexOf(curr) + 1;
+      return acc + index * 2;
+    }, 0);
+
+    // Sum of digit characters as numbers
+    const digitsSum = digits.reduce((acc, curr) => acc + Number(curr), 0);
+
+    // Return the total sum of all character values
+    return lowerCaseSum + upperCaseSum + digitsSum;
+  }
+
+  // console.log(lettersToNumbers('Give me 5!')); // 73
+}
