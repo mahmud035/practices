@@ -2258,3 +2258,187 @@
 
   // console.log(lettersToNumbers('Give me 5!')); // 73
 }
+
+// Numbers in different systems
+//* My Solution
+
+{
+  const sysNums = (n, sys) => {
+    if (sys === 16) {
+      const hex = n.toString(sys);
+      if (
+        hex.includes('a') ||
+        hex.includes('b') ||
+        hex.includes('c') ||
+        hex.includes('d') ||
+        hex.includes('e') ||
+        hex.includes('f')
+      )
+        return hex;
+      else return Number(hex);
+    }
+    return Number(n.toString(sys));
+  };
+
+  // console.log(sysNums(5, 2)); // 101
+  // console.log(sysNums(5, 8)); // 5
+  // console.log(sysNums(250, 16)); // 'fa'
+  // console.log(sysNums(0, 16)); // 'fa'
+  // console.log(sysNums(4370, 16)); // 1112
+}
+
+//* Best Practices
+{
+  const sysNums = (n, sys) => {
+    const s = n.toString(sys);
+    return /^\d+$/.test(s) ? Number(s) : s;
+  };
+
+  // console.log(sysNums(5, 2)); // 101
+  // console.log(sysNums(5, 8)); // 5
+  // console.log(sysNums(250, 16)); // 'fa'
+  // console.log(sysNums(0, 16)); // 'fa'
+  // console.log(sysNums(4370, 16)); // 1112
+}
+
+// Return substring instance count - 2
+//* My Solution
+
+{
+  function searchSubstr(fullText, searchText, allowOverlap = true) {
+    if (searchText.length === 0) return 0;
+  }
+
+  console.log(searchSubstr('aaabbbcccc', 'bbb')); // 1
+}
+
+// Playing with Sets : Intersection
+//* My Solution
+
+{
+  const A = new Set([1, 2]);
+  const B = new Set([2, 3]);
+
+  function inter(set1, set2) {
+    const intersection = new Set();
+
+    for (const element of set1) {
+      if (set2.has(element)) {
+        intersection.add(element);
+      }
+    }
+
+    return intersection;
+  }
+
+  // console.log(inter(A, B)); // Set {2}
+}
+
+// Recursion #1 - Factorial (retired)
+//* My Solution
+
+{
+  const factorial = (n) => {
+    if (n === 0 || n === 1) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+  };
+
+  // console.log(factorial(0)); // 1
+  // console.log(factorial(1)); // 1
+  // console.log(factorial(5)); // 120
+}
+
+// Recursion #2 - Fibonacci
+//* My Solution
+
+{
+  const fibonacci = (n) => {
+    if (n === 1 || n === 2) return 1; // Base case
+    return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
+  };
+
+  // console.log(fibonacci(1)); // 1
+  // console.log(fibonacci(2)); // 1
+  // console.log(fibonacci(3)); // 2
+  // console.log(fibonacci(4)); // 3
+}
+
+// SillyCASE
+//* My Solution
+
+{
+  function sillyCase(silly) {
+    const index = Math.ceil(silly.length / 2); // Calculate the index for the upper case letter
+    const firstPart = silly.slice(0, index).toLowerCase(); // Lowercase the first part
+    const secondPart = silly.slice(index).toUpperCase(); // Uppercase the second part
+    return firstPart + secondPart; // Concatenate both parts
+  }
+
+  // console.log(sillyCase('foobar')); // fooBAR
+  // console.log(sillyCase('codewars')); // codeWARS
+  // console.log(sillyCase('brian')); // briAN
+}
+
+// Simple Substitution Cipher Helper
+//* My Solution
+
+{
+  const abc1 = 'abcdefghijklmnopqrstuvwxyz';
+  const abc2 = 'etaoinshrdlucmfwypvbgkjqxz';
+
+  function SubstitutionCipher(abc1, abc2) {
+    this.encode = function (str) {
+      let encodedStr = '';
+
+      // Iterate through each character in the input string
+      // and replace it with the corresponding character from abc2
+      // based on its position in abc1
+      // If the character is not found in abc1, it remains unchanged
+      for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        const index = abc1.indexOf(char);
+        if (index !== -1) {
+          // If character found, get the corresponding character from abc2
+          const encodedChar = abc2[index];
+          encodedStr += encodedChar;
+        } else {
+          encodedStr += char; // If character not found, keep it as is
+        }
+      }
+
+      return encodedStr;
+    };
+
+    this.decode = function (str) {
+      let decodedStr = '';
+
+      // Iterate through each character in the input string
+      // and replace it with the corresponding character from abc1
+      // based on its position in abc2
+      // If the character is not found in abc1, it remains unchanged
+      for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        const index = abc2.indexOf(char);
+        if (index !== -1) {
+          // If character found, get the corresponding character from abc1
+          const decodedChar = abc1[index];
+          decodedStr += decodedChar;
+        } else {
+          decodedStr += char; // If character not found, keep it as is
+        }
+      }
+
+      return decodedStr;
+    };
+  }
+
+  const sub = new SubstitutionCipher(abc1, abc2);
+
+  // console.log(sub.encode('abc')); // => "eta"
+  // console.log(sub.encode('xyz')); // => "qxz"
+  // console.log(sub.encode('aeiou')); // => "eirfg"
+
+  // console.log(sub.decode('eta')); // => "abc"
+  // console.log(sub.decode('qxz')); // => "xyz"
+  // console.log(sub.decode('eirfg')); // => "aeiou"
+}
