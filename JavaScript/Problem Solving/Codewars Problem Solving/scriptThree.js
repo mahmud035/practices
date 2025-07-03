@@ -2442,3 +2442,55 @@
   // console.log(sub.decode('qxz')); // => "xyz"
   // console.log(sub.decode('eirfg')); // => "aeiou"
 }
+
+// I need more speed!
+//* My Solution
+
+{
+  function reverse(array) {
+    let leftIndex = 0;
+    let rightIndex = array.length - 1;
+
+    while (leftIndex < rightIndex) {
+      // Swap elements at leftIndex and rightIndex
+      const temp = array[leftIndex];
+      array[leftIndex] = array[rightIndex];
+      array[rightIndex] = temp;
+
+      // Move indices towards the center
+      leftIndex++;
+      rightIndex--;
+    }
+  }
+
+  // console.log(reverse([1, 2, 3, 4, 5])); // [5,4,3,2,1]
+  // console.log(reverse(['hello', 'world', 'how', 'are', 'you', '?'])); // ['?','you','are','how','world','hello']
+}
+
+// Smallest value of an array
+//* My Solution
+
+{
+  function min(arr, toReturn) {
+    const sortedArr = arr.slice().sort((a, b) => a - b);
+    return toReturn === 'value' ? sortedArr[0] : arr.indexOf(sortedArr[0]);
+  }
+
+  // console.log(min([1, 2, 3, 4, 5], 'value')); // 1
+  // console.log(min([1, 2, 3, 4, 5], 'index')); // 0
+}
+
+// Color Ghost
+//* My Solution
+
+{
+  class Ghost {
+    constructor() {
+      const colors = ['white', 'yellow', 'purple', 'red'];
+      const randomIndx = Math.floor(Math.random() * colors.length);
+      this.color = colors[randomIndx];
+    }
+  }
+
+  // console.log(new Ghost().color); // Random color from the array
+}
