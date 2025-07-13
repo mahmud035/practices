@@ -1,0 +1,139 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --bg-primary: #f3ac3c;
+  --bg-secondary: #998235;
+  --bg-tertiary: #1a4341;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circle-1 {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  position: relative;
+}
+
+.vertical-line {
+  width: 15px;
+  height: 60px;
+  background-color: var(--bg-tertiary);
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translateY(-50%);
+}
+
+.circle-2 {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  margin-left: -70px;
+  position: relative;
+  z-index: 999;
+}
+
+.circle-3 {
+  width: 70px;
+  height: 70px;
+  border: 7px solid var(--bg-primary);
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.horizontal-line {
+  width: 200px;
+  height: 30px;
+  background-color: var(--bg-tertiary);
+  margin-left: -20px;
+  position: relative;
+}
+
+.inner-div {
+  width: 65px;
+  height: 45px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  position: absolute;
+  top: -30%;
+  right: -20px;
+}
+
+.inner-horizontal-line-container {
+  position: relative;
+  height: 100%;
+}
+
+.inner-horizontal-line-1 {
+  width: 40px;
+  height: 7px;
+  border-radius: 5px;
+  background-color: var(--bg-tertiary);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.inner-horizontal-line-2 {
+  width: 40px;
+  height: 7px;
+  border-radius: 5px;
+  background-color: var(--bg-tertiary);
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 576px) {
+  .image-container {
+    padding: 0 10px;
+  }
+
+  .circle-1 {
+    width: 160px;
+    height: 160px;
+  }
+
+  .vertical-line {
+    width: 15px;
+    height: 60px;
+  }
+
+  .circle-2 {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .horizontal-line {
+    width: 180px;
+  }
+}
