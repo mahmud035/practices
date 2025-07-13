@@ -2494,3 +2494,6 @@
 
   // console.log(new Ghost().color); // Random color from the array
 }
+
+//
+//* My Solution
