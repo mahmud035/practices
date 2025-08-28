@@ -13,22 +13,25 @@
       image.
     </p>
 
-    <img id="myImage" src="./images/pic_bulboff.gif" alt="" />
+    <img
+      id="myImage"
+      src="https://www.w3schools.com/html/pic_bulboff.gif"
+      alt="light"
+    />
 
-    <p>
-      <button onclick="light(1)">Light On</button>
-      <button onclick="light(0)">Light Off</button>
-    </p>
+    <div>
+      <button onclick="toggleLight(1)">Light On</button>
+      <button onclick="toggleLight(0)">Light Off</button>
+    </div>
 
     <script>
-      function light(sw) {
-        let pic;
-        if (sw == 0) {
-          pic = './images/pic_bulboff.gif';
-        } else {
-          pic = './images/pic_bulbon.gif';
-        }
-        document.getElementById('myImage').src = pic;
+      function toggleLight(switchValue) {
+        let picture;
+        if (switchValue == 0)
+          picture = 'https://www.w3schools.com/html/pic_bulboff.gif';
+        else picture = 'https://www.w3schools.com/html/pic_bulbon.gif';
+
+        document.getElementById('myImage').src = picture;
       }
     </script>
   </body>
