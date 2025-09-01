@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Pseudo Elements</title>
+
+    <style>
+      button {
+        font-size: 15px;
+        padding: 5px 15px;
+      }
+
+      dialog::backdrop {
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Using ::backdrop</h2>
+
+    <p>Click the button to show a dialog box:</p>
+
+    <button id="dialogBtn">Show dialog</button>
+
+    <dialog id="myDialog">
+      <form method="dialog">
+        <p>The background behind this dialog, is a backdrop.</p>
+        <button>Close dialog</button>
+      </form>
+    </dialog>
+
+    <script>
+      const dialogBtn = document.getElementById('dialogBtn');
+      const myDialog = document.getElementById('myDialog');
+      dialogBtn.addEventListener('click', () => myDialog.showModal());
+    </script>
+  </body>
+</html>
