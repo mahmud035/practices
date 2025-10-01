@@ -1,5 +1,7 @@
 'use strict';
 
+// ℹ️ Source: "javascript-best-practices.pdf" file
+
 {
   //* Use proper variable names
 
@@ -36,8 +38,8 @@
 {
   //* Check property exists in an object
 
-  //👉 Option-1: Using "in" operator
-  //👉 Option-2: Using "hasOwnProperty" method
+  // 👉 Option-1: Using "in" operator
+  // 👉 Option-2: Using "hasOwnProperty" method
 
   const employee = {
     id: 1,
