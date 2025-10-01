@@ -26,7 +26,7 @@ function printAll(strs: string | string[] | null) {
 // Falsy values: false, 0, '' (empty string), null, NaN, undefined
 
 function getUsersOnlineMessage(numUsersOnline: number) {
-  if (numUsersOnline) {
+  if (numUsersOnline > 0) {
     return `There are ${numUsersOnline} users online now!`;
   }
   return `Nobody's here! :(`;
@@ -42,11 +42,8 @@ function multiplyAll(
   values: number[] | undefined,
   factor?: number
 ): number[] | undefined {
-  if (!values) {
-    return values;
-  } else {
-    return values.map((x) => x * factor!);
-  }
+  if (!values) return values;
+  else return values.map((x) => x * factor!);
 }
 
 //* Equality narrowing
@@ -93,6 +90,16 @@ function move(animal: Fish | Bird) {
   return animal.fly();
 }
 
+// To reiterate, optional properties will exist in both sides for narrowing. For example, a human could both swim and fly (with the right equipment) and thus should show up in both sides of the in check:
+
+function move2(animal: Fish | Bird | Human) {
+  if ('swim' in animal) {
+    animal; // (parameter) animal: Fish | Human
+  } else {
+    animal; // (parameter) animal: Bird | Human
+  }
+}
+
 //* `instanceof` narrowing
 // JavaScript has an operator for checking whether or not a value is an “instance” of another value.
 // Useful for most values that can be constructed with `new`.
@@ -111,7 +118,7 @@ longValue('JOHN');
 //* Assignments
 // When we assign to any variable, TypeScript looks at the right side of the assignment and narrows the left side appropriately.
 
-let x = Math.random() < 0.5 ? 10 : 'hello world';
+let x = Math.random() < 0.5 ? 10 : 'hello world'; // string | number
 
 x = 1;
 console.log(x);

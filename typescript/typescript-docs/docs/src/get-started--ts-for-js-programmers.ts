@@ -16,6 +16,7 @@ const user: IUser = {
 
 //* Classes
 // Since JavaScript supports classes and object-oriented programming, so does TypeScript. You can use an interface declaration with classes:
+
 class UserAccount {
   id: number;
   name: string;

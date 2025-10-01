@@ -1,5 +1,7 @@
 export {};
 
+// 🔗 https://chat.deepseek.com/share/9c2hlif1jjy42irfid
+
 // ================ Part-01 ================
 
 //* Basic Types
@@ -252,7 +254,6 @@ interface ISuccessResponse<T> {
   status: 'success';
   data: T;
 }
-
 interface IErrorResponse {
   status: 'error';
   errorMessage: string;
@@ -422,7 +423,6 @@ type DeepReadonly<T> = {
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 type ApiEndPoint = `/api/v1/${string}`;
-
 type Route = `${HttpMethod} ${ApiEndPoint}`;
 
 // Valid routes:
