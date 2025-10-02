@@ -33,7 +33,9 @@ function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
 }
 
 const person: IPerson = { name: 'Alice', age: 30, location: 'NYC' };
-getValue(person, 'age'); // ✅ OK (returns `number`)
+getValue(person, 'name'); // ✅ OK (returns 'Alice')
+getValue(person, 'age'); // ✅ OK (returns 30)
+getValue(person, 'location'); // ✅ OK (returns `NYC`)
 // getValue(person, 'email'); // ❌ Error: "email" is not a key of `Person`
 
 // 2. Mapping or Iterating Over Keys
@@ -48,6 +50,7 @@ type OptionalPerson = {
 // Extract keys from a concrete object:
 
 const config = { theme: 'dark', fontSize: 14 };
+type Config = typeof config; // {theme: string; fontSize: number;}
 type ConfigKeys = keyof typeof config; // "theme" | "fontSize"
 
 // 4. Utility Types (e.g., `Pick`, `Omit`)

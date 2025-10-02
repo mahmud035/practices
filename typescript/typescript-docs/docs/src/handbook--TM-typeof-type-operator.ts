@@ -4,7 +4,7 @@ export {};
 /**
  * The `typeof` "type operator" in TypeScript is used to capture the type of a value or variable at compile time.
  *
- * Why Use typeof?
+ * Why Use `typeof`?
  *
  * DRY Principle: Avoid duplicating type definitions.
  * Maintainability: Auto-update types when values change.
@@ -45,7 +45,7 @@ type ConfigKeys = keyof typeof config;
 // 4. Narrow Literal Types with `const`
 // Preserve literal types for `const` variables:
 
-const theme = 'dark' as const; // Type: "dark"
+const theme = 'dark'; // Type: "dark"
 type ThemeType = typeof theme; // "dark" (not `string`)
 
 let size = 14; // Type: number
@@ -65,7 +65,7 @@ type ColorsType = typeof colors;
 // 1. Primitive Values:
 const num = 42;
 type NumType = typeof num;
-// number (not `42` unless `as const` is used)
+// 42
 
 // 2. Utility Types:
 // Combine with `ReturnType` or `Parameters` for advanced inference:

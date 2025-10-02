@@ -123,7 +123,7 @@ console.log(stringContainer.getLength()); // Outputs: 16
 //* Using Type Parameters in Generic Constraints
 /**
  *
-   You can declare a type parameter that is constrained by another   type parameter.
+   You can declare a type parameter that is constrained by another type parameter.
  *
    You can use one type parameter to constrain another, enabling dependencies between generics (e.g., `K extends keyof T`).
  */
@@ -152,6 +152,7 @@ function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
 
 const user = { name: 'Alice', age: 30 };
 getValue(user, 'name'); // ✅ OK -> "Alice"
+getValue(user, 'age'); // ✅ OK -> 30
 // getValue(user, 'email'); // ❌ Error: "email" is not a key of `user`
 
 // 3. Multiple Constraints with Intersection Types

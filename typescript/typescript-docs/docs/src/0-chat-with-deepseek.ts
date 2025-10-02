@@ -1,3 +1,6 @@
+// 🯄 Why use `export {}` at the top a file?
+// If you have a file that doesn’t currently have any `import`s or `export`s, but you want to be treated as a module, add the line `export {}` which will change the file to be a module exporting nothing. This syntax works regardless of your module target.
+
 export {};
 
 // 🔗 https://chat.deepseek.com/share/9c2hlif1jjy42irfid

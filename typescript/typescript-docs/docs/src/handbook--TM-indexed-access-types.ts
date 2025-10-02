@@ -36,6 +36,7 @@ interface IPerson {
   };
 }
 
+type NameType = IPerson['name']; // string
 type AgeType = IPerson['age']; // number
 type AddressType = IPerson['address']; // { city: string }
 

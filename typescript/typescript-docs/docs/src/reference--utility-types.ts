@@ -7,10 +7,10 @@ export {};
  * What are Utility Types?
  *
  * Predefined generic types in TypeScript that:
- * Manipulate existing types
- * Create new types from existing ones
- * Reduce boilerplate code
- * Enhance type safety
+  - Manipulate existing types
+  - Create new types from existing ones
+  - Reduce boilerplate code
+  - Enhance type safety
  */
 
 //* ----------------------------------------
@@ -310,20 +310,20 @@ function sum(a: number, b: number): number {
   return a + b;
 }
 
-type SumParameters = Parameters<typeof sum>; // [number, number]
+type SumParameters = Parameters<typeof sum>; // [a: number, b: number]
 
 class Point {
   constructor(public x: number, public y: number) {}
 }
 
 type PointConstructorParameters = ConstructorParameters<typeof Point>;
-// [number, number]
+// [x: number, y: number]
 
 /**
  * Explanation:
   
- * `Parameters<typeof sum>` extracts the tuple `[number, number]` representing the parameters of the `sum` function.
- * `ConstructorParameters<typeof Point>` extracts the tuple `[number, number]` representing the constructor parameters of the `Point` class.
+ * `Parameters<typeof sum>` extracts the tuple `[a: number, b: number]` representing the parameters of the `sum` function.
+ * `ConstructorParameters<typeof Point>` extracts the tuple `[x: number, y: number]` representing the constructor parameters of the `Point` class.
  */
 
 // ----------------------------------------

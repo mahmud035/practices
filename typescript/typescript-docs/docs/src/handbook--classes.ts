@@ -80,7 +80,7 @@ class EmployeeCl {
     this.id = id;
   }
 
-  public showDetails(): void {
+  showDetails(): void {
     console.log(`${this.name} works in ${this.department}`);
     // Accessing private member within the class is allowed
     console.log(`Salary: ${this.salary}`);
@@ -126,7 +126,7 @@ class ManagerCl extends EmployeeCl {
   }
 
   // Override method to include team size
-  public showDetails(): void {
+  showDetails(): void {
     super.showDetails();
     console.log(`Manages a team of ${this.teamSize} people.`);
   }
@@ -281,7 +281,9 @@ myCar.drive(); // Outputs: The car is driving.
 
 class BookCl {
   // Using parameter properties to declare and initialize
-  constructor(public title: string, private author: string) {}
+  constructor(public title: string, private author: string) {
+    // No body necessary
+  }
 
   getDetails(): void {
     console.log(`Title: ${this.title}, Author: ${this.author}`);
