@@ -209,6 +209,7 @@ interface BasicJob {
 interface FullJob extends BasicJob {
   _id: string;
   salary: number;
+  isRemote: boolean;
   createdAt: Date;
 }
 
@@ -217,6 +218,7 @@ export const job: FullJob = {
   title: 'Developer',
   company: 'Tech Corp',
   salary: 85000,
+  isRemote: true,
   createdAt: new Date(),
 };
 
