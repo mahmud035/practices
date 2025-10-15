@@ -1,3 +1,5 @@
+import mongoose, { Model, Schema } from 'mongoose';
+
 //* Primitives: The Building Blocks
 // These are your bread and butter types:
 
@@ -185,3 +187,50 @@ export interface IJob2 {
   title: string;
   status: JobStatus2; // Can only be one of 4 values
 }
+
+// User Model (This User Model is used inside `handbook--classes.ts` file)
+
+// Extended interface for the document (includes Mongoose properties + passwordHash)
+export interface IUserDocument extends Omit<IUser, '_id'>, mongoose.Document {
+  passwordHash: string;
+}
+
+const userSchema = new Schema<IUserDocument>({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    index: true,
+  },
+  passwordHash: {
+    type: String,
+    required: true,
+    select: false, // Don't include password hash in queries by default
+  },
+  avatar: {
+    type: String,
+    trim: true,
+  },
+  bio: {
+    type: String,
+    trim: true,
+    maxlength: 500,
+  },
+});
+
+// Create indexes
+userSchema.index({ email: 1 });
+
+const User: Model<IUserDocument> = mongoose.model<IUserDocument>(
+  'User',
+  userSchema
+);
+
+export default User;
