@@ -93,7 +93,7 @@ chai-menu:
     price: 50
     size: regular
 
-# Anchors
+# Anchors & Aliases (DRY Principle)
 default-chai-base: &default-base
   tea: black-tea
   water: 200ml
