@@ -1,0 +1,108 @@
+# key: value pair
+chai-type: masala-chai
+temperature: hot
+servings: 2
+brewing-time: 5
+
+chai-recipe:
+  base: black-tea
+  milk: whole-milk
+
+chai-recipe-two:
+  base: black-tea
+  milk: whole-milk
+
+# Data Type
+# String
+chai-name: Masala-Chai
+description: 'Chai with cardamom, ginger'
+tagline: 'The best chai in town'
+
+brewing-instruction: |
+  boil water
+  add tea leaves
+  add milk
+
+brewing-instruction-two: >
+  boil water
+  add tea leaves
+  add milk
+
+# Number
+cups-per-day: 3
+cups-per-day-two: 3.5e+2
+cups-per-day-three: 0xFF22FF
+
+# Boolean
+is-hot: true
+add-sugar: yes
+add-salt: no
+instant: on
+
+# Null
+sweetener: null
+alternative-milk: ~ # Same as null
+
+# Date
+morning-brew: 2025-01-15
+local-time: 2025-01-15 08:30:01
+
+# Collections / List (recommended way)
+spices:
+  - ginger
+  - cloves
+  - black-pepper
+  - 200
+  - true
+
+spices-two: [cardamom, ginger, cloves]
+
+# Nested List
+chai-category:
+  - name: Traditional
+    varieties:
+      - Masala Chai
+      - Ginger Chai
+      - Caedmon Chai
+  - name: Modern
+    varieties:
+      - Vanilla Chai
+      - Chocolate Chai
+
+# Dictionaries
+masala-chai:
+  ingredients:
+    tea: black_tea
+    liquid:
+      water: 200ml
+      milk: 100ml
+    spices:
+      ginger: 1-inch
+      cinnamon: 1-stick
+  preparation:
+    method: simmer
+    duration: 5-minutes
+
+# List of Dictionaries
+chai-menu:
+  - name: Masala Chai
+    price: 30
+    size: regular
+
+  - name: Ginger Chai
+    price: 50
+    size: regular
+
+# Anchors
+default-chai-base: &default-base
+  tea: black-tea
+  water: 200ml
+  brewing-time: 5
+
+morning-chai:
+  <<: *default-base
+  milk: 100ml
+
+evening-chai:
+  <<: *default-base
+  milk: 200ml
