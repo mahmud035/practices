@@ -1,0 +1,105 @@
+name: MERN App CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+    pull_request:
+      branches: [main]
+
+env:
+  NODE_VERSION: '20.x'
+  MONGODB_VERSION: '7.0'
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:7
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ping: 1})'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - use: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        use: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm run build
+
+      - name: Run linter
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./backend
+        env:
+          MONGODB_URI: mongodb://localhost:27017/test
+          JWT_SECRET: test-secret
+        run: npm test -- --coverage
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./backend/coverage/coverage-final.json
+
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - use: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: fronted/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./fronted
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./fronted
+        env:
+          REACT_APP_API_URL: ${{ secrets.API_URL }}
+        run: npm run build
+
+  deploy:
+    needs: [test-backend, test-frontend]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to production
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+        run: |
+          echo "$DEPLOY_KEY" > deploy_key
+          chmod 600 deploy_key
+          ssh -i deploy_key -o StrictHostKeyChecking=no user@$SERVER_HOST '
+            cd /var/www/app &&
+            git pull origin main &&
+            docker-compose down &&
+            docker-compose up -d --build
+          '

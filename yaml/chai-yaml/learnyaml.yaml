@@ -1,4 +1,4 @@
-# document start
+--- # document start
 
 # Comments in YAML look like this.
 # YAML supports single-line comments.
@@ -178,4 +178,5 @@ set2:
   item1: null
   item2: null
   item3: null
-# document end
+
+--- # document end

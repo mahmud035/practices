@@ -1,0 +1,68 @@
+# Part 4: Pro Tips & Common Pitfalls
+#* Things That Will Bite You
+
+# 1. Indentation Hell: YAML is unforgiving with indentation. Use an editor with YAML support (VS Code + YAML extension).
+
+# 2. String Gotchas:
+# These are NOT the same
+value: yes # Boolean true
+value2: 'yes' # String "yes"
+
+# Colons need quotes
+url: 'https://example.com' # Safe
+url2: https://example.com # Might work, might not
+
+# Numbers as strings
+version: '3.8' # String
+version2: 3.8 # Float
+
+# 3. Array Merging Doesn't Work Intuitively:
+base: &base
+  - item1
+  - item2
+
+extended:
+  - *base # This creates nested array [[item1, item2]]
+  - item3
+
+# Better: Use objects for merging
+base2: &base
+  items:
+    - item1
+    - item2
+
+extended2:
+  <<: *base
+  additionalItems:
+    - item3
+
+# 4. Environment Variables:
+# Docker Compose style
+environment:
+  - NODE_ENV=${NODE_ENV:-production} # Default value
+  - PORT=${PORT}
+
+# Kubernetes style (different!)
+env:
+  - name: NODE_ENV
+    value: 'production'
+
+# Best Practices
+# ✅ GOOD: Consistent indentation (2 spaces)
+# ✅ GOOD: Comments explaining non-obvious config
+# ✅ GOOD: Anchors for reusable config
+
+# Database configuration
+database: &db-config
+  host: localhost
+  port: 27017
+  # Connection pool size optimized for 4-core server
+  poolSize: 10
+
+development:
+  database:
+    <<: *db-config
+    name: dev_db
+# ❌ BAD: Mixing tabs and spaces
+# ❌ BAD: No comments on complex config
+# ❌ BAD: Hardcoded values everywhere

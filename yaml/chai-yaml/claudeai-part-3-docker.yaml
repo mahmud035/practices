@@ -1,0 +1,71 @@
+# Part 3: Advanced Patterns (MERN-Specific Use Cases)
+#* Docker Compose (Your Daily Driver)
+
+version: '3.8'
+
+services:
+  # Backend service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+    container_name: mern-backend
+    ports:
+      - '5000:5000'
+    environment: -NODE_ENV=production
+      - MONGODB_URI=mongodb://localhost:27017/my_app
+      - JWT_SECRET=${JWT_SECRET} # From .env file
+    volumes:
+      - ./backend:/app
+      - /app/node_modules # Anonymous volume
+    depends_on:
+      - mongo
+    networks:
+      - mern-network
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:5000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# Fronted services
+fronted:
+  build:
+    context: ./fronted
+    dockerfile: Dockerfile
+  ports:
+    - '3000:3000'
+  environment:
+    - REACT_APP_API_URL=http://localhost:5000
+  volumes:
+    - ./fronted:/app
+    - /app/node_modules
+  depends_on:
+    - backend
+  networks:
+    - mern-network
+# MongoDB
+mongo:
+  image: mongo:7
+  container_name: mongodb
+  ports:
+    - '27017:27017'
+  environment:
+    - MONGO_INITDB_ROOT_USERNAME=admin
+    - MONGO_INITDB_ROOT_PASSWORD=secret
+  volumes:
+    - mongo-data:/data/db
+    - ./mongo-init:/docker-entrypoint-initdb.d
+  networks:
+    - mern-network
+
+volumes:
+  mongo-data:
+    driver: local
+
+networks:
+  mern-network:
+    driver: bridge
