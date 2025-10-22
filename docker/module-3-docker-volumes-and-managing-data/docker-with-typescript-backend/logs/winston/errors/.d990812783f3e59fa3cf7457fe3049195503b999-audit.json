@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-3-docker-volumes-and-managing-data/docker-with-typescript-backend/logs/winston/errors/.d990812783f3e59fa3cf7457fe3049195503b999-audit.json",
+    "files": [
+        {
+            "date": 1761111984923,
+            "name": "/home/mahmud/Workspace/practices/docker/module-3-docker-volumes-and-managing-data/docker-with-typescript-backend/logs/winston/errors/docker-2025-10-22-11-error.log",
+            "hash": "0aea6607be3115bf3305ccd71702fa22719283131ef9174e86f3d07a04391004"
+        }
+    ],
+    "hashType": "sha256"
+}
