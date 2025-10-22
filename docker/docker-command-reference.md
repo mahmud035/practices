@@ -24,16 +24,22 @@ docker run -d -p 5000:5000 --rm --name <containerName> <imageName>:<tag>    # Cr
     --rm        Automatically remove the container and its associated anonymous volumes when it exits
     --name 			Assign a name to the container
 
+# Volumes and data management
+docker volume create <volumeName>	# Create a volume
+docker volume ls									# List volumes
+docker volume rm <volumeName>			# Remove a Volume
+docker run -d -p 5000:5000 --rm --name <containerName> -v <volumeName>:<containerPath> <imageName>:<tag>	# Start a container with a volume from an image
+
 # Logs and debugging
-docker logs <container>          # View logs
-docker logs -f <container>       # Follow Logs (like tail -f)
-docker exec -it <container> sh   # Shell into container
-docker inspect <container>       # Detailed info
+docker logs <container>          	# View logs
+docker logs -f <container>       	# Follow Logs (like tail -f)
+docker exec -it <container> sh   	# Shell into container
+docker inspect <container>       	# Detailed info
 
 # Cleanup
-docker system prune              # Remove unused data
-docker system prune -a           # Remove EVERYTHING unused
-docker volume prune              # Remove unused volumes
+docker system prune              	# Remove unused data
+docker system prune -a           	# Remove EVERYTHING unused
+docker volume prune             	# Remove unused volumes
 
 # System-wide Docker disk usage
 docker system df

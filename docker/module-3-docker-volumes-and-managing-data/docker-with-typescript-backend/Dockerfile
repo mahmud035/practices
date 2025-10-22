@@ -13,6 +13,9 @@ RUN npm ci
 # Copy the application code into the container
 COPY . .
 
+# Anonymous volumes
+# VOLUME [ "/app/logs" ]
+
 # Expose port 5000 (tells Docker this container listens on 5000)
 EXPOSE 5000
 
