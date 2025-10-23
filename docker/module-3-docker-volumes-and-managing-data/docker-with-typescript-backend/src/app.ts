@@ -3,6 +3,7 @@ import express, {
   type Request,
   type Response,
 } from 'express';
+import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { logsRoutes } from './app/modules/logs/logs.routes.js';
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Parsers
 app.use(express.json());
+app.use(morgan('dev'));
 
 // Welcome route
 app.get('/', (req: Request, res: Response) => {

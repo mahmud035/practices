@@ -20,6 +20,7 @@ async function main() {
 main();
 
 process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
   errorLogger.error('😈 Unhandled Rejection is detected, shutting down...');
   errorLogger.error(reason);
 
@@ -32,6 +33,7 @@ process.on('unhandledRejection', (reason) => {
 });
 
 process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
   errorLogger.error('😈 uncaughtException is detected, shutting down...');
   errorLogger.error(err);
   process.exit(1);
