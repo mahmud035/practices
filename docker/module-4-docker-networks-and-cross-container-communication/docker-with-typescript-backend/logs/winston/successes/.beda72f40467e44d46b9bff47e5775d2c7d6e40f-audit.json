@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/.beda72f40467e44d46b9bff47e5775d2c7d6e40f-audit.json",
+    "files": [
+        {
+            "date": 1761231495479,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-23-20-58-15-success.log",
+            "hash": "b61d7c26a0903e5b598f838693f15e99082d42542f620c3a58091ad62657c5be"
+        }
+    ],
+    "hashType": "sha256"
+}
