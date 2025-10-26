@@ -6,9 +6,19 @@
     "auditLog": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/errors/.5ad6f216965761c5d2715fb47ffc814d9b32e19f-audit.json",
     "files": [
         {
-            "date": 1761231495482,
-            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/errors/docker-2025-10-23-20-error.log",
-            "hash": "2fdc1fc351626bc0b334ddbbcc0437120f226080ad09168eb3e7147252e88d60"
+            "date": 1761447593360,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/errors/docker-2025-10-26-08-error.log",
+            "hash": "130c63443444949c45f8a3f85fc077a8bde4dea35a6e22da028ad5b0daa844e3"
+        },
+        {
+            "date": 1761448364067,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/errors/docker-2025-10-26-09-error.log",
+            "hash": "290a81dd9a970cd03d9de98248ee3cf347110881f75ce33b844145e8c3a2b3b2"
+        },
+        {
+            "date": 1761463450755,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/errors/docker-2025-10-26-13-error.log",
+            "hash": "383b0cbc04be847c4a531b6a36965607fa5bff55e8e82a3f7a1911510e1cfc94"
         }
     ],
     "hashType": "sha256"
