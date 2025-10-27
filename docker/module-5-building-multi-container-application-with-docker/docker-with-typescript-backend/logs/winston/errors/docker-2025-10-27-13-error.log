@@ -1,0 +1,4 @@
+2025-10-27 13:28:53 [DOCKER] error: Cannot convert object to primitive value
+2025-10-27 13:31:55 [DOCKER] error: Cannot convert object to primitive value
+2025-10-27 13:35:10 [DOCKER] error: Cannot convert object to primitive value
+2025-10-27 13:40:22 [DOCKER] error: User validation failed: password: Path `password` is required., email: Path `email` is required.

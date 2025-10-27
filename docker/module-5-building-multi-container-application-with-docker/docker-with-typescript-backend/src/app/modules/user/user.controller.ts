@@ -8,7 +8,7 @@ const createUser = catchAsync(async (req, res) => {
   console.log(req.file);
 
   const user = await UserServices.createUser({
-    ...JSON.parse(req.body),
+    ...JSON.parse(req.body.data),
     profilePhoto: req.file?.path,
   });
 

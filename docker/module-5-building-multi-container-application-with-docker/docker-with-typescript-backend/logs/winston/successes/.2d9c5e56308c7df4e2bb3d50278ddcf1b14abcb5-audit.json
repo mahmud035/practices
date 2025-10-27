@@ -1,0 +1,60 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/.2d9c5e56308c7df4e2bb3d50278ddcf1b14abcb5-audit.json",
+    "files": [
+        {
+            "date": 1761549646342,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-20-46-success.log",
+            "hash": "e867f1131e2c6e639a0a1a916d890acf3457521ce1681b6726977cb3676ac980"
+        },
+        {
+            "date": 1761549647815,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-20-47-success.log",
+            "hash": "8bb00fe2c208a7ab97518eb8dc60a563bfc7433add884cdcc1b15c1fcae89a53"
+        },
+        {
+            "date": 1761549772797,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-22-52-success.log",
+            "hash": "ecf9095f4dd73ab78cb0886388211de0b012456e3b55121ad6043a041c75c611"
+        },
+        {
+            "date": 1761549774249,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-22-54-success.log",
+            "hash": "d40bfdfe02e8fb31195f83a2ab791611e3c1cbadbd9aed6f6ba7e105ae4ba572"
+        },
+        {
+            "date": 1761550479383,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-34-39-success.log",
+            "hash": "104ea9961eb79aff23c0d01c4ac089843d8eb613d0c4fd9fbdaadb3da1f4fd51"
+        },
+        {
+            "date": 1761550480838,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-34-40-success.log",
+            "hash": "ffefbdf4229f3d6250cb743c24c55420807bc2bb4b6c04fb7c45465188ab8ee3"
+        },
+        {
+            "date": 1761550776933,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-39-36-success.log",
+            "hash": "d5c1943bc76120efabb00055a68ca6146a8d6accb195587c6e283dc44db94195"
+        },
+        {
+            "date": 1761550778460,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-39-38-success.log",
+            "hash": "2cf85124aeec0e1be3bb3425c50464f7de537e888e8bdfa6f35e064e02eb7f94"
+        },
+        {
+            "date": 1761550936676,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-42-16-success.log",
+            "hash": "5d34d8e4375e8c3c22728e1bbf1e75b3b68ece434f8bb6ba3e387f7adb6b7602"
+        },
+        {
+            "date": 1761550937988,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-27-13-42-17-success.log",
+            "hash": "ab8b78a9661dced04f14f726e040b36a94c344f2a3ff4b76429f05fa3722eb8c"
+        }
+    ],
+    "hashType": "sha256"
+}
