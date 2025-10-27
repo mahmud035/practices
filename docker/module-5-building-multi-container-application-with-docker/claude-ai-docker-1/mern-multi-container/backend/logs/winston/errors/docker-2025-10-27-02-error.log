@@ -1,0 +1,2 @@
+2025-10-27 02:48:47 [DOCKER] error: getaddrinfo EAI_AGAIN mongodb-container
+2025-10-27 02:52:59 [DOCKER] error: getaddrinfo EAI_AGAIN mongodb-container

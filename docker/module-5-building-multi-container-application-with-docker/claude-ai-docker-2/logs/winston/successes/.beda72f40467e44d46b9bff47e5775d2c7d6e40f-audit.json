@@ -1,0 +1,40 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/.beda72f40467e44d46b9bff47e5775d2c7d6e40f-audit.json",
+    "files": [
+        {
+            "date": 1761447593357,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-08-59-53-success.log",
+            "hash": "01aad5130e2bd64fa97c51127de8726e006279c1f9cbe2dba5d90083d268322d"
+        },
+        {
+            "date": 1761447594540,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-08-59-54-success.log",
+            "hash": "64046eccb379a72acfcae7392316062127501f58141ebddb154a600dec0dc6b0"
+        },
+        {
+            "date": 1761448364058,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-09-12-44-success.log",
+            "hash": "a340131d7e159ea3a0970349bd9dc81c82d976fe077478fe72943b395cc8d9bb"
+        },
+        {
+            "date": 1761448365516,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-09-12-45-success.log",
+            "hash": "4a774081d9d64b0d57cc93c3a85dbea0b34d4460c78358b740ab8127247c7a67"
+        },
+        {
+            "date": 1761463450751,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-13-24-10-success.log",
+            "hash": "52bacda8dc2b72c7a585a9042a2fe4ebd55badc92e1073e0a8556057d8c14a7c"
+        },
+        {
+            "date": 1761463452173,
+            "name": "/home/mahmud/Workspace/practices/docker/module-4-docker-networks-and-cross-container-communication/docker-with-typescript-backend/logs/winston/successes/docker-2025-10-26-13-24-12-success.log",
+            "hash": "7d4a8d9e7d89b3ba8212ab3daddf004daf390bde63b146888f3d6fe2091568b1"
+        }
+    ],
+    "hashType": "sha256"
+}

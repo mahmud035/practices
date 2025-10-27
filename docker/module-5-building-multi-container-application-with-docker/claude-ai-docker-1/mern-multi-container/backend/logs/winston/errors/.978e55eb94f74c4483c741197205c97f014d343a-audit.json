@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/errors/.978e55eb94f74c4483c741197205c97f014d343a-audit.json",
+    "files": [
+        {
+            "date": 1761524206758,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/errors/docker-2025-10-27-06-error.log",
+            "hash": "0d7c1fbe11f4f4ab6af16fc1db42883d5a0f307a72ac415460d291d24d7001a3"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,15 @@
+node_modules
+dist
+build
+.vscode
+.vercel
+
+# Environment files with secrets
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+
+# Keep the template
+!.env.example

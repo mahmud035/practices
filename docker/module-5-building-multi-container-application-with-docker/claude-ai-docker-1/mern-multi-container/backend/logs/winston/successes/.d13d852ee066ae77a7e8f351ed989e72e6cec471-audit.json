@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/.d13d852ee066ae77a7e8f351ed989e72e6cec471-audit.json",
+    "files": [
+        {
+            "date": 1761524206755,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/docker-2025-10-27-06-16-46-success.log",
+            "hash": "0492624cc848e1fcb99a017f1bc1414d8cd77669d6c03a5629636d4004072b46"
+        },
+        {
+            "date": 1761524236708,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/docker-2025-10-27-06-17-16-success.log",
+            "hash": "273562df69e2058d8bccdf23b856584c185811b962c99a258c3c05fec2e12849"
+        },
+        {
+            "date": 1761524254449,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/docker-2025-10-27-06-17-34-success.log",
+            "hash": "b0e5d09845706f34fcb3e18ec0a671d50d3920cfa4e5cbc0293b5c2417ce29b2"
+        },
+        {
+            "date": 1761524290843,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/docker-2025-10-27-06-18-10-success.log",
+            "hash": "48f938e8b89a14a07fb03538f43f4fc033fdecfe18c897fd4d726208b08f76f5"
+        },
+        {
+            "date": 1761524307456,
+            "name": "/home/mahmud/Workspace/practices/docker/module-5-building-multi-container-application-with-docker/claude-ai-docker-2/logs/winston/successes/docker-2025-10-27-06-18-27-success.log",
+            "hash": "a2bc3e79f94ba19dee181837947da1fc3fefed34b8fb9d5eef0e5c9e478b68ab"
+        }
+    ],
+    "hashType": "sha256"
+}
