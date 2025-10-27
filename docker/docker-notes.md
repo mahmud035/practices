@@ -93,7 +93,6 @@ docker run -p 5000:5000 --rm \
 📖 MUST READ: https://claude.ai/share/b362d7af-eb55-49e5-8421-565eed6482ad
 
 # The Complete Command Summary
-
 # 1. Create network and volume
 docker network create myapp-network
 docker volume create mongo-data
@@ -103,6 +102,7 @@ docker run -d --rm \
   --name mongodb-container \
   --network myapp-network
   -v mongo-data:/data/db \
+  -p 27018:27017 \ 👉 Only provide port, when want to connect MongoDB + MongoDB Compass
   mongo
 
 # 3. Build Backend image
@@ -118,8 +118,19 @@ docker run -d --rm \
   -v "$(pwd)":/app \
   -v /app/node_modules \
   ts-backend:dev
+  
+# 5. Start Frontend:
+docker run -d --rm \
+  -p 3000:3000 \
+  --name dev-frontend \
+  --network myapp-network \
+  --env-file .env \
+  -v "$(pwd)":/app \
+  -v /app/node_modules \
+  nextjs-frontend:dev
 
-# 5. Verify
+# 6. Verify
 docker ps -a
-docker logs -f backend
+docker logs -f dev-backend
+docker logs -f dev-frontend
 docker logs -f mongodb-container

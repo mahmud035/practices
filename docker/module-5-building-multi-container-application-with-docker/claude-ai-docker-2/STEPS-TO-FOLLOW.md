@@ -1,5 +1,7 @@
 # Steps To Build A Multi Container Application
 
+# MongoDB -> Backend -> Frontend
+
 ## Prerequisites
 
 - Docker installed
@@ -30,8 +32,9 @@
 ```bash
    docker run -d --rm \
    --name mongodb-container \
-   --network myapp-network
+   --network myapp-network \
    -v mongo-data:/data/db \
+   -p 27018:27017 \ 👉 Only provide port, when want to connect MongoDB + MongoDB Compass
    mongo
 ```
 
@@ -47,14 +50,14 @@
 
 ---
 
-3. Start backend:
+3. Start Backend:
 
 ```bash
    docker run -d --rm \
    -p 5000:5000 \
    --name dev-backend \
    --network myapp-network \
-   --env-file .env
+   --env-file .env \
    ts-backend:dev
 ```
 
@@ -71,7 +74,35 @@
 
 ---
 
-4. Access the API at `http://localhost:5000`
+4. Start Frontend:
+
+```bash
+   docker run -d --rm \
+   -p 3000:3000 \
+   --name dev-frontend \
+   --network myapp-network \
+   --env-file .env \
+   -v "$(pwd)":/app \
+   -v /app/node_modules \
+   nextjs-frontend:dev
+```
+
+---
+
+**Breaking it down**:
+
+- `-d`: Detached mode
+- `-p 3000:3000`: Publish port 3000 to your frontend
+- `--name dev-frontend`: Name the container
+- `--network myapp-network`: Join the same network as MongoDB
+- `--env-file .env`: Load environment variables from .env
+- `-v "$(pwd)":/app`: Bind mounts
+- `-v /app/node_modules`: Protect node_modules
+- `nextjs-frontend:dev`: The image to use
+
+---
+
+5. Access the API at `http://backend-container-name:5000`
 
 ## Development
 
@@ -84,7 +115,7 @@ Use the dev Dockerfile with bind mounts:
    -p 5000:5000 \
    --name dev-backend \
    --network myapp-network \
-   --env-file .env
+   --env-file .env \
    -v ts-docker-logs:/app/logs \
    -v "$(pwd)":/app \
    -v /app/node_modules \

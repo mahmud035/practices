@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useFormState } from "react-dom";
-import { createUser } from "../actions";
-import AddUserModal from "./AddUserModal";
-import Table from "./Table";
+import { useEffect, useState } from 'react';
+import { useFormState } from 'react-dom';
+import { createUser } from '../actions';
+import AddUserModal from './AddUserModal';
+import Table from './Table';
 
 const UserManagement = ({ users }: any) => {
   const initialState = {
-    message: "",
+    message: '',
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [state, formAction] = useFormState(createUser, initialState);
