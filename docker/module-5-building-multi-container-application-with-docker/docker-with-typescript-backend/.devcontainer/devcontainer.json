@@ -1,0 +1,23 @@
+{
+  "name": "ts-container",
+  "image": "node:22-alpine",
+  "workspaceFolder": "/app",
+  "mounts": [
+    // Bind mount for local project (--mount type=bind, source=/host/path, target=/container/path)
+    "type=bind,source=/home/mahmud/Workspace/practices/docker/module-3-docker-volumes-and-managing-data/docker-with-typescript-backend,target=/app",
+
+    // Anonymous volume for node_modules (similar to: -v /app/node_modules)
+    "type=volume,target=/app/node_modules",
+
+    // Named volume for logs (similar to: -v volumeName:/container/path)
+    "type=volume,source=ts-docker-logs,target=/app/logs"
+  ],
+  "runArgs": [
+    "--name",
+    "ts-container",
+    "-p",
+    "5000:5000",
+    "--rm" // Automatically remove the container after exiting VS Code
+  ],
+  "postCreateCommand": "npm ci" // Install dependencies
+}
