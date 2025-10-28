@@ -134,3 +134,21 @@ docker ps -a
 docker logs -f dev-backend
 docker logs -f dev-frontend
 docker logs -f mongodb-container
+
+
+# Module 6: Docker Compose & Utility Container
+
+# Docker Utility Container
+# Step 0: Create a Dockerfile which will be used for building utility container image
+# Follow (Step 1 to Step 3) every time
+
+# Step-1 : Build The Utility Container Image
+docker build -t node-util .
+
+# Step-2 : Run The Utility Container in Interactive Mode
+docker run -d --rm -it --name node-util -v "$(pwd)":/app node-util
+
+# Step-3: Execute Command Inside Utility Container And Install Packages
+docker exec -it node-util npm init -y (For Express APP)
+docker exec -it node-util npm i express
+docker exec -it node-util npm i -D typescript
