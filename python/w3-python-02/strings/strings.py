@@ -1,4 +1,6 @@
 # Strings:
+
+# Strings are Arrays:
 # Square brackets can be used to access elements of the string:
 
 # Ex:

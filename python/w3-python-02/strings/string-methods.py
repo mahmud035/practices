@@ -1,5 +1,6 @@
 # Python - String Methods:
 # Python has a set of built-in methods that you can use on string.
+
 # NOTE: All string methods return new values. They do not change the original string.
 
 

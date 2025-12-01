@@ -1,6 +1,7 @@
 # Python - Slicing Strings:
 # You can return a range of characters by using the slice syntax.
 # Specify the start index and the end index, separated by a colon, to return a part of the string.
+# Syntax: [start_index:end_index]
 
 # Ex:
 # Get the characters from position 7 to position 12 (not included):
