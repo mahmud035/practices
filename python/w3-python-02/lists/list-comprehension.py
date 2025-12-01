@@ -15,7 +15,7 @@ for fruit in fruits:
     if "a" in fruit:
         newList.append(fruit)
 
-print(newList)
+print(newList)  # ['apple', 'banana', 'mango']
 
 # With list comprehension you can do all that with only one line of code:
 

@@ -7,13 +7,13 @@
 # Sort the list alphabetically:
 fruits = ["orange", "mango", "kiwi", "pineapple", "banana"]
 fruits.sort()
-print(fruits)
+print(fruits)  # ['banana', 'kiwi', 'mango', 'orange', 'pineapple']
 
 # Ex:
 # Sort the list numerically:
 numbers = [100, 50, 65, 82, 23]
 numbers.sort()
-print(numbers)
+print(numbers)  # [23, 50, 65, 82, 100]
 
 # Sort Descending:
 # To sort descending, use the keyword argument `reverse = True`:
@@ -22,13 +22,13 @@ print(numbers)
 # Sort the list descending:
 fruits = ["orange", "mango", "kiwi", "pineapple", "banana"]
 fruits.sort(reverse=True)
-print(fruits)
+print(fruits)  # ['pineapple', 'orange', 'mango', 'kiwi', 'banana']
 
 # Ex:
 # Sort the list descending:
 numbers = [100, 50, 65, 82, 23]
 numbers.sort(reverse=True)
-print(numbers)
+print(numbers)  # [100, 82, 65, 50, 23]
 
 # Case Insensitive Sort:
 # By default the `sort()` method is case sensitive, resulting in all capital letters being sorted before lower case letters:
@@ -37,16 +37,16 @@ print(numbers)
 # WARNING: Case sensitive sorting can give an unexpected result:
 fruits = ["banana", "Orange", "Kiwi", "cherry"]
 fruits.sort()
-print(fruits)
+print(fruits)  # ['Kiwi', 'Orange', 'banana', 'cherry']
 
 # Luckily we can use built-in functions as key functions when sorting a list.
-# So if you want a case-insensitive sort function, use str.lower as a key function:
+# So if you want a "case-insensitive" sort function, use `str.lower`` as a key function:
 
 # Ex:
 # TODO: Perform a case-insensitive sort of the list:
 fruits = ["banana", "Orange", "Kiwi", "cherry"]
 fruits.sort(key=str.lower)
-print(fruits)
+print(fruits)  # ['banana', 'cherry', 'Kiwi', 'Orange']
 
 # Reverse Order:
 # What if you want to reverse the order of a list, regardless of the alphabet?
@@ -56,4 +56,4 @@ print(fruits)
 # Reverse the order of the list items:
 fruits = ["banana", "Orange", "Kiwi", "cherry"]
 fruits.reverse()
-print(fruits)
+print(fruits)  # ['cherry', 'Kiwi', 'Orange', 'banana']

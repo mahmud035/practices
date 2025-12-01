@@ -7,7 +7,7 @@
 # Remove "banana":
 fruits = ["apple", "banana", "cherry"]
 fruits.remove("banana")
-print(fruits)
+print(fruits)  # ['apple', 'cherry']
 
 # If there are more than one item with the specified value, the `remove()` method removes the first occurrence:
 
@@ -15,7 +15,7 @@ print(fruits)
 # Remove the first occurrence of "banana":
 fruits = ["apple", "banana", "cherry", "banana", "kiwi"]
 fruits.remove("banana")
-print(fruits)
+print(fruits)  # ['apple', 'cherry', 'banana', 'kiwi']
 
 # Remove Specified Index:
 # The `pop()` method removes the specified index.
@@ -24,7 +24,7 @@ print(fruits)
 # Remove the second item:
 fruits = ["apple", "banana", "cherry"]
 fruits.pop(1)
-print(fruits)
+print(fruits)  # ['apple', 'cherry']
 
 # If you do not specify the index, the `pop()` method removes the last item.
 
@@ -32,7 +32,7 @@ print(fruits)
 # Remove the last item:
 fruits = ["apple", "banana", "cherry"]
 fruits.pop()
-print(fruits)
+print(fruits)  # ['apple', 'banana']
 
 # Clear the List:
 # The `clear()` method empties the list.
@@ -42,4 +42,4 @@ print(fruits)
 # Clear the list content:
 fruits = ["apple", "banana", "cherry"]
 fruits.clear()
-print(fruits)
+print(fruits)  # []

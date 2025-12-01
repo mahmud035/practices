@@ -7,18 +7,18 @@
 # Using the `append()` method to append an item:
 fruits = ["apple", "banana", "cherry"]
 fruits.append("orange")
-print(fruits)
+print(fruits)  # ['apple', 'banana', 'cherry', 'orange']
 
 
 # Insert Items:
-# To inset a list item at a specified index, use the `insert()` method.
-# The `insert()` method insets an item at the specified index:
+# To insert a list item at a specified index, use the `insert()` method.
+# The `insert()` method inserts an item at the specified index:
 
 # Ex:
 # Insert an item as the second position:
 fruits = ["apple", "banana", "cherry"]
 fruits.insert(1, "orange")
-print(fruits)
+print(fruits)  # ['apple', 'orange', 'banana', 'cherry']
 
 # Extend List:
 # To append elements from another list to the current list, use the `extend()` method.
@@ -28,7 +28,7 @@ print(fruits)
 fruits = ["apple", "banana", "cherry"]
 tropical = ["mango", "pineapple", "papaya"]
 fruits.extend(tropical)
-print(fruits)
+print(fruits)  # ['apple', 'banana', 'cherry', 'mango', 'pineapple', 'papaya']
 
 # The elements will be added to the end of the list.
 
@@ -40,4 +40,4 @@ print(fruits)
 fruits = ["apple", "banana", "cherry"]
 myTuple = ["kiwi", "orange"]
 fruits.extend(myTuple)
-print(fruits)
+print(fruits)  # ['apple', 'banana', 'cherry', 'kiwi', 'orange']

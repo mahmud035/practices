@@ -25,7 +25,6 @@ print(fruits)
 fruits = ["apple", "banana", "cherry"]
 print(len(fruits))  # Output: 3
 
-
 # List Items - Data Types:
 # List items can be of any data type:
 
@@ -43,7 +42,14 @@ list4 = ["abc", 34, True, 40, "male"]
 print(list4)
 
 # `type()`:
+# From Python's perspective, lists are defined as objects with the data type 'list':
 print(type(list4))
+
+# Ex:
+# What is the data type of a list?
+fruits = ["apple", "banana", "cherry"]
+print(type(fruits))
+
 
 # IMPORTANT: Python Collections (Arrays):
 # There are four collection data types in the Python programming language:
@@ -51,7 +57,7 @@ print(type(list4))
 """
   1. `List` is collection which is ordered and changeable. Allows duplicate members.
   2. `Tuple` is a collection which is ordered and unchangeable. Allows duplicate members.
-  3. `Set` is collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+  3. `Set` is collection which is unordered, unchangeable*, and un-indexed. No duplicate members.
   4. `Dictionary` is a collection which is ordered** and changeable. No duplicate members. 
 """
 
