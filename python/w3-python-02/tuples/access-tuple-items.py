@@ -6,7 +6,7 @@
 # Ex:
 # Print the second item in the tuple:
 fruits = ("apple", "banana", "cherry")
-print(fruits[1])
+print(fruits[1])  # banana
 
 # NOTE: The first item has index 0.
 
@@ -17,7 +17,7 @@ print(fruits[1])
 # Ex:
 # Print the last item of the tuple:
 fruits = ("apple", "banana", "cherry")
-print(fruits[-1])
+print(fruits[-1])  # cherry
 
 # Range of Indexes:
 # You can specify a range of indexes by specifying where to start and where to end the range.
@@ -27,9 +27,10 @@ print(fruits[-1])
 # Return the third, fourth, and fifth item:
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 
-print(fruits[2:5])
+print(fruits[2:5])  # ('cherry', 'orange', 'kiwi')
 
-# NOTE: The search will start at index 2 (included) and end at index (not included).
+# NOTE: The search will start at index 2 (included) and end at index 5(not included).
+
 
 # By leaving out the start value, the range will start at the first item:
 
@@ -37,7 +38,8 @@ print(fruits[2:5])
 # This example returns the items from the beginning to, but NOT included, "kiwi":
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 
-print(fruits[:4])
+print(fruits[:4])  # ('apple', 'banana', 'cherry', 'orange')
+
 
 # By leaving out the end value, the range will go on to the end of the tuple:
 
@@ -45,7 +47,7 @@ print(fruits[:4])
 # This example returns the items from "cherry" and to the end:
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 
-print(fruits[2:])
+print(fruits[2:])  # ('cherry', 'orange', 'kiwi', 'melon', 'mango')
 
 # Range of Negative Indexes:
 # Specify negative indexes if you want to start the search from the end of the tuple:
@@ -54,7 +56,7 @@ print(fruits[2:])
 # This example returns the items from index -4 (included) to index -1 (excluded)
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
 
-print(fruits[-4:-1])
+print(fruits[-4:-1])  # ('orange', 'kiwi', 'melon')
 
 # Check if Item Exists:
 # To determine if a specified item is present in a tuple use the `in` keyword:

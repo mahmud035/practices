@@ -20,7 +20,8 @@ fruits = ["apple", "banana", "cherry"]
 for i in range(len(fruits)):
     print(fruits[i])
 
-# The iterable created in the example above is `[0, 1, 2]`
+# Here, `len(fruits)` returns 3
+# then `range(3)` returns [0, 1, 2]
 
 # Using a While Loop:
 # You can loop through the list items by using a `while` loop

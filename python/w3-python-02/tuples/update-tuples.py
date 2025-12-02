@@ -1,12 +1,10 @@
 # Python - Update Tuples:
 
-# IMPORTANT: Tuples are unchangeable, meaning that you cannot change, add, or remove items once the tuple is created.
-
 # Change Tuple Values:
 
-# IMPORTANT: Once a tuple is created, you cannot change its values. Tuples are "unchangeable", or "immutable" as it also is called.
+# IMPORTANT: Tuples are "unchangeable", meaning that you cannot change, add, or remove items once the tuple is created.
 
-# NOTE: But there is a workaround. You can convert the tuple into a list, change the list, and convert the list back into a tuple.
+# 🧠 But there is a workaround. You can convert the tuple into a list, change the list, and convert the list back into a tuple.
 
 # Ex:
 # Convert the tuple into a list to be able to change it:
@@ -15,12 +13,12 @@ fruitsList = list(fruitsTuple)
 fruitsList[1] = "kiwi"
 fruitsTuple = tuple(fruitsList)
 
-print(fruitsTuple)
+print(fruitsTuple)  # ('apple', 'kiwi', 'cherry')
 
 # Add Items:
 # Since tuples are immutable, they do not have a built-in `append()` method, but there are other ways to add items to a tuple.
 
-# 1. Convert into a list: Just like the workaround for changing a tuple, you can convert it into a list, add your item(s), and convert it back into a tuple.
+# `1. Convert into a list`: Just like the workaround for changing a tuple, you can convert it into a list, add your item(s), and convert it back into a tuple.
 
 # Ex:
 # Convert the tuple into a list, add "orange", and convert it back into a tuple:
@@ -29,9 +27,9 @@ fruitsList = list(fruitsTuple)
 fruitsList.append("orange")
 fruitsTuple = tuple(fruitsList)
 
-print(fruitsTuple)
+print(fruitsTuple)  # ('apple', 'banana', 'cherry', 'orange')
 
-# 2. Add tuple to a tuple: You are allowed to add tuples to tuples, so if you want to add one item, (or many), create a new tuple with the item(s), and add it to the existing tuple:
+# `2. Add tuple to a tuple`: You are allowed to add tuples to tuples, so if you want to add one item, (or many), create a new tuple with the item(s), and add it to the existing tuple:
 
 # Ex:
 tuple1 = ("apple", "banana", "cherry")
@@ -39,7 +37,7 @@ tuple2 = ("orange",)
 tuple3 = ("pineapple",)
 
 tuple1 = tuple1 + tuple2 + tuple3
-print(tuple1)
+print(tuple1)  # ('apple', 'banana', 'cherry', 'orange', 'pineapple')
 
 # WARNING: When creating a tuple with only one item, remember to include a comma after the item, otherwise it will not be identified as a tuple.
 
@@ -54,4 +52,4 @@ fruitsList = list(fruitsTuple)
 fruitsList.remove("apple")
 fruitsTuple = tuple(fruitsList)
 
-print(fruitsTuple)
+print(fruitsTuple)  # ('banana', 'cherry')
