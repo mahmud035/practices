@@ -1,10 +1,11 @@
 # Python Dictionaries:
+# Similar as JavaScript Object
 
 myDictionaries = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
 # Dictionary:
-# Dictionaries are used to store data values in key:value pairs.
-# A dictionary is a collection which is ordered*, changeable and do not allow duplicates.
+# Dictionaries are used to store data values in `key:value` pairs.
+# A dictionary is a collection which is ordered*, changeable and Do NOT allow duplicates.
 # Dictionaries are written with curly brackets, and have keys and values:
 
 # Ex:
@@ -13,14 +14,15 @@ myDictionaries = {"brand": "Ford", "model": "Mustang", "year": 1964}
 print(myDictionaries)
 
 # Dictionary Items:
-# Dictionary items are ordered, changeable, and do not allow duplicates.
-# Dictionary items are presented in key:value pairs, and can be referred to by using the key name.
+# Dictionary items are ordered, changeable, and Do NOT allow duplicates.
+# Dictionary items are presented in `key:value` pairs, and can be referred to by using the key name.
 
 # Ex:
 # Print the "brand" value of the dictionary:
 myDictionaries = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
-print(myDictionaries["brand"])
+print(myDictionaries["brand"])  # Ford
+print(myDictionaries["year"])  # 1964
 
 # Ordered or Unordered?
 # When we say that dictionaries are ordered, it means that the items have a defined order, and that order will not change.
@@ -36,7 +38,7 @@ print(myDictionaries["brand"])
 # Duplicate values will overwrite existing values:
 myDictionaries = {"brand": "Ford", "model": "Mustang", "year": 1964, "year": 2020}
 
-print(myDictionaries)
+print(myDictionaries)  # {'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
 
 # Dictionary Length:
 # To determine how many items a dictionary has, use the l`en()` function:
@@ -45,7 +47,7 @@ print(myDictionaries)
 # Print the number of items in the dictionary:
 myDictionaries = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
-print(len(myDictionaries))
+print(len(myDictionaries))  # 3
 
 # Dictionary Items - Data Types:
 # The values in dictionary items can be of any data type:
@@ -69,7 +71,7 @@ print(type(myDictionaries))
 """
   1. `List` is collection which is ordered and changeable. Allows duplicate members.
   2. `Tuple` is a collection which is ordered and unchangeable. Allows duplicate members.
-  3. `Set` is collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+  3. `Set` is collection which is unordered, unchangeable*, and un-indexed. No duplicate members.
   4. `Dictionary` is a collection which is ordered** and changeable. No duplicate members. 
 """
 

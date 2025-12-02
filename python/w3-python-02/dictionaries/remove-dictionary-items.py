@@ -9,4 +9,22 @@ car = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
 car.pop("model")
 
-print(car)
+print(car)  # {'brand': 'Ford', 'year': 1964}
+
+
+# Ex:
+# The `popitem()` method removes the last inserted item:
+car = {"brand": "Ford", "model": "Mustang", "year": 1964}
+
+car.popitem()
+
+print(car)  # {'brand': 'Ford', 'model': 'Mustang'}
+
+
+# Ex:
+# The `clear()` method empties the dictionary::
+car = {"brand": "Ford", "model": "Mustang", "year": 1964}
+
+car.clear()
+
+print(car)  # {}
