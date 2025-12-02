@@ -17,13 +17,13 @@ for fruit in fruits:
 # Check if "banana" is present in the set:
 fruits = {"apple", "banana", "cherry"}
 
-print("banana" in fruits)
+print("banana" in fruits)  # True
 
 # Ex:
 # Check if "banana" is NOT present in the set:
 fruits = {"apple", "banana", "cherry"}
 
-print("banana" not in fruits)
+print("banana" not in fruits)  # False
 
 # Change Items:
 
