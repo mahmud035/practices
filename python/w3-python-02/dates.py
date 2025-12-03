@@ -14,7 +14,6 @@ print(now)
 print(now.year)
 print(now.strftime("%A"))
 
-
 # Creating Date Objects:
 
 # To create a date, we can use the `datetime()` class (constructor) of the `datetime` module.
