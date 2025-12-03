@@ -40,7 +40,9 @@ print(bool(y))
 
 
 # IMPORTANT: Most Values are True:
+
 """
+
 ✅ Almost any value is evaluated to `True` if it has some sort of content.
 
 ✅ Any string is `True`, except empty string.
@@ -48,6 +50,7 @@ print(bool(y))
 ✅ Any number is `True`, except `0`.
 
 ✅ Any list, tuple, set, and dictionary are `True`, except empty ones.
+
 """
 
 # Ex:
@@ -101,3 +104,11 @@ if myFunction():
     print("YES!")
 else:
     print("NO!")
+
+
+# Python also has many built-in functions that return a boolean value, like the `isinstance()` function, which can be used to determine if an object is of a certain data type:
+
+# Ex:
+# Check if an object is an integer or not:
+x = 200
+print(isinstance(x, int))  # True

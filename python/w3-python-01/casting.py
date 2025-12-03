@@ -1,7 +1,9 @@
-# Python Casting:
+# Python Casting: Specify a Variable Type
+
 # There may be times when you want to specify a type on to a variable. This can be done with casting.
 # Casting in python is done using constructor functions like:
 # `int()`, `float()`, `str()`
+
 
 # Ex:
 # Integers:

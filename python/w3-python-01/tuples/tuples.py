@@ -61,7 +61,7 @@ tuple4 = ("abc", 34, True, 40, "male")
 """
   1. `List` is collection which is ordered and changeable. Allows duplicate members.
   2. `Tuple` is a collection which is ordered and unchangeable. Allows duplicate members.
-  3. `Set` is collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+  3. `Set` is collection which is unordered, unchangeable*, and un-indexed. No duplicate members.
   4. `Dictionary` is a collection which is ordered** and changeable. No duplicate members. 
 """
 

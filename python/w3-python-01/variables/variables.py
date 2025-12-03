@@ -19,7 +19,7 @@ print(x)
 # If you want to specify the data type of a variable, this can be done with casting.
 
 # Ex:
-x = str(3)  # `x` will be '3
+x = str(3)  # `x` will be '3'
 x = int(3)  # `x` will be 3
 x = float(3)  # `x` will be 3.0
 
@@ -31,3 +31,10 @@ num = 5
 name = "John"
 print(type(num))
 print(type(name))
+
+
+# Variable names are case-sensitive.
+
+# Ex:
+a = 4
+A = "Sally"  # A will not overwrite a

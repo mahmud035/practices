@@ -4,7 +4,7 @@ mySet = {"apple", "banana", "cherry"}
 
 # Set:
 # Sets are used to store multiple items in a single variable.
-# A set is a collection which is unordered, unchangeable*, and unindexed.
+# A set is a collection which is "unordered", "unchangeable*", and "un-indexed".
 
 # IMPORTANT: Set items are unchangeable, but you can remove items and add new items.
 
@@ -36,7 +36,7 @@ print(fruits)
 # Duplicate values will be ignored:
 fruits = {"apple", "banana", "cherry", "apple"}
 
-print(fruits)
+print(fruits)  # {'apple', 'banana', 'cherry'}
 
 # NOTE:  The values `True` and `1` are considered the same value in sets, and are treated as duplicates:
 
@@ -44,7 +44,7 @@ print(fruits)
 # `True` and `1` is considered the same value:
 mySet = {"apple", "banana", "cherry", True, 1, 2}
 
-print(mySet)
+print(mySet)  # {True, 2, 'apple', 'banana', 'cherry'}
 
 # NOTE: The values `False` and `0` are considered the same value in sets, and are treated as duplicates:
 
@@ -52,7 +52,7 @@ print(mySet)
 # `False` and `0` is considered the same value:
 mySet = {"apple", "banana", "cherry", False, True, 0}
 
-print(mySet)
+print(mySet)  # {False, True, 'apple', 'banana', 'cherry'}
 
 
 # Get the Length of a Set:
@@ -62,7 +62,7 @@ print(mySet)
 # Get the number of items in a set:
 fruits = {"apple", "banana", "cherry"}
 
-print(len(fruits))
+print(len(fruits))  # 3
 
 # Set Items - Data Types:
 # Set items can be of any data type:
@@ -84,9 +84,9 @@ set4 = {"abc", 34, True, 40, "male"}
 # There are four collection data types in the Python programming language:
 
 """
-  1. `List` is collection which is ordered and changeable. Allows duplicate members.
+  1. `List` is a collection which is ordered and changeable. Allows duplicate members.
   2. `Tuple` is a collection which is ordered and unchangeable. Allows duplicate members.
-  3. `Set` is collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+  3. `Set` is collection which is unordered, unchangeable*, and un-indexed. No duplicate members.
   4. `Dictionary` is a collection which is ordered** and changeable. No duplicate members. 
 """
 

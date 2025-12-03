@@ -9,7 +9,7 @@ fruits = {"apple", "banana", "cherry"}
 
 fruits.remove("banana")
 
-print(fruits)
+print(fruits)  # {'apple', 'cherry'}
 
 # WARNING: 🔴 If the item to remove does not exist, `remove()` will raise an error.
 
@@ -19,7 +19,7 @@ fruits = {"apple", "banana", "cherry"}
 
 fruits.discard("banana")
 
-print(fruits)
+print(fruits)  # {'apple', 'cherry'}
 
 # NOTE: ✅ If the item to remove does not exist, `discard()` will NOT raise an error.
 
@@ -29,4 +29,4 @@ fruits = {"apple", "banana", "cherry"}
 
 fruits.clear()
 
-print(fruits)
+print(fruits)  # set()

@@ -4,19 +4,22 @@
 # Python divides the operators in the following groups:
 
 """
-  Arithmetic operators
-  Assignment operators
-  Comparison operators
-  Logical operators
-  Identity operators
-  Membership operators
-  Bitwise operators
+Arithmetic operators
+Assignment operators
+Comparison operators
+Logical operators
+Identity operators
+Membership operators
+Bitwise operators
 """
 
 # Python Arithmetic Operators:
 # Arithmetic operators are used with numeric values to perform common mathematical operations:
 
 # Ex:
+import numbers
+
+
 x = 5
 y = 3
 print(x + y)  # Addition
@@ -26,6 +29,29 @@ print(x / y)  # Division
 print(x % y)  # Modulus
 print(x**y)  # Exponentiation
 print(x // y)  # Floor division
+
+
+# Division in Python
+# Python has two division operators:
+""" 
+/ - Division (returns a float)
+// - Floor division (returns an integer)
+"""
+
+# Ex:
+# Division always returns a float:
+x = 12
+y = 5
+
+print(x / y)  # 2.4
+
+# Ex:
+# Floor division always returns an integer.
+# It rounds DOWN to the nearest integer:
+x = 12
+y = 5
+
+print(x // y)  # 2
 
 # Python Assignment Operators:
 # Assignment operators are used to assign values to variables:
@@ -38,6 +64,18 @@ x *= 3  # Same As: x = x * 3
 x /= 3  # Same As: x = x / 3
 x %= 3  # Same As: x = x % 3
 x **= 3  # Same As: x = x ** 3
+
+
+# The Walrus Operator
+# Python 3.8 introduced the `:=` operator, known as the "walrus operator". It assigns values to variables as part of a larger expression:
+
+numbers = [1, 2, 3, 4, 5]
+count = len(numbers)
+if count > 3:
+    print(f"List has {count} elements")
+
+if count := len(numbers) > 3:
+    print(f"List has {count} elements")
 
 # Python Comparison Operators:
 # Comparison operators are used to compare two values:
@@ -57,9 +95,9 @@ print(x <= y)  # returns False because 5 is neither less than or equal to 3
 # Logical operators are used to combine conditional statements:
 
 """
-  `and` => Returns True if both statements are true
-  `or` => Returns True if one of the statements is true
-  `not` => Reverse the result
+`and` => Returns True if both statements are true
+`or` => Returns True if one of the statements is true
+`not` => Reverse the result
 """
 
 # Ex:
@@ -82,8 +120,8 @@ print(not (x > 3 and x < 10))
 # Identity operators are used to compare the objects, not if they are equal, but "if they are actually the same object, with the same memory location".
 
 """
-  `is` => Returns True if both variables are the same object
-  `is not` => Returns True if both variables are not the same object
+`is` => Returns True if both variables are the same object
+`is not` => Returns True if both variables are not the same object
 """
 
 # Ex:
@@ -103,7 +141,7 @@ print(x == y)
 
 # to demonstrate the difference between "is" and "==": this comparison returns True because x is equal to y
 
-
+# Ex:
 x = ["apple", "banana"]
 y = ["apple", "banana"]
 z = x
@@ -120,13 +158,25 @@ print(x != y)
 
 # to demonstrate the difference between "is not" and "!=": this comparison returns False because x is equal to y
 
+# NOTE: Difference Between `is` and `==`
+
+""" 
+`is` - Checks if both variables point to the same object in memory
+`==` - Checks if the values of both variables are equal
+"""
+
+x = [1, 2, 3]
+y = [1, 2, 3]
+
+print(x == y)  # True
+print(x is y)  # False
 
 # Python Membership Operators:
 # Membership operators are used to test if a sequence is presented in an object:
 
 """
-  `in` => Returns True if a sequence with the specified value is present in the object
-  `not in` => Returns True if a sequence with the specified value is not present in the object
+`in` => Returns True if a sequence with the specified value is present in the object
+`not in` => Returns True if a sequence with the specified value is not present in the object
 """
 
 # Ex:
@@ -139,6 +189,14 @@ print("banana" in fruits)
 print("pineapple" not in fruits)
 
 # returns True because a sequence with the value "pineapple" is NOT in the list
+
+# Membership in Strings
+# The membership operators also work with strings:
+text = "Hello World"
+
+print("H" in text)
+print("hello" in text)
+print("z" not in text)
 
 
 # Operator Precedence:

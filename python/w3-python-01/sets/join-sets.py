@@ -26,7 +26,7 @@ set1 = {"a", "b", "c"}
 set2 = {1, 2, 3}
 
 set3 = set1.union(set2)
-print(set3)
+print(set3)  # {'a', 'b', 'c', 1, 2, 3}
 
 # You can use the `|` operator instead of the `union()` method, and you will get the same result.
 
@@ -36,7 +36,7 @@ set1 = {"a", "b", "c"}
 set2 = {1, 2, 3}
 
 set3 = set1 | set2
-print(set3)
+print(set3)  # {'a', 'b', 'c', 1, 2, 3}
 
 # Join Multiple Sets:
 # All the joining methods and operators can be used to join multiple sets.
@@ -50,7 +50,7 @@ set3 = {"John", "Elena"}
 set4 = {"apple", "bananas", "cherry"}
 
 mySet = set1.union(set2, set3, set4)
-print(mySet)
+print(mySet)  # {1, 2, 'c', 'a', 3, 'b', 'John', 'apple', 'bananas', 'cherry', 'Elena'}
 
 # When using the `|` operator, separate the sets with more `|` operators:
 
@@ -62,7 +62,7 @@ set3 = {"John", "Elena"}
 set4 = {"apple", "bananas", "cherry"}
 
 mySet = set1 | set2 | set3 | set4
-print(mySet)
+print(mySet)  # {1, 2, 'c', 'a', 3, 'b', 'John', 'apple', 'bananas', 'cherry', 'Elena'}
 
 # Join a Set and a Tuple:
 # The `union()` method allows you to join a set with other data types, like lists or tuples.
@@ -74,9 +74,9 @@ mySet = {"a", "b", "c"}
 myTuple = (1, 2, 3)
 
 joinSetWithTuple = mySet.union(myTuple)
-print(joinSetWithTuple)
+print(joinSetWithTuple)  # {1, 2, 'b', 3, 'c', 'a'}
 
-# NOTE: The `|` operator only allows you to join sets with sets, and not with other data types like you can with the  `union()` method.
+# NOTE: The `|` operator only allows you to join sets with sets, and not with other data types like you can with the `union()` method.
 
 # Update:
 # The `update()` method inserts all items from one set into another.
@@ -88,7 +88,7 @@ set1 = {"a", "b", "c"}
 set2 = {1, 2, 3}
 
 set1.update(set2)
-print(set1)
+print(set1)  # {1, 2, 'b', 3, 'a', 'c'}
 
 # NOTE: Both `union()` and `update()` will exclude any duplicate items.
 
@@ -102,7 +102,7 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1.intersection(set2)
-print(set3)
+print(set3)  # {'apple'}
 
 # You can use the `&` operator instead of the `intersection()` method, and you will get the same result.
 
@@ -112,7 +112,7 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1 & set2
-print(set3)
+print(set3)  # {'apple'}
 
 # NOTE: The `&` operator only allows you to join sets with sets, and not with other data types like you can with the `intersection()` method.
 
@@ -125,7 +125,7 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1.difference(set2)
-print(set3)
+print(set3)  # {'banana', 'cherry'}
 
 # You can use the `-` operator instead of the `difference()` method, and you will get the same result.
 
@@ -135,7 +135,7 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1 - set2
-print(set3)
+print(set3)  # {'banana', 'cherry'}
 
 # Symmetric Differences:
 # The `symmetric_difference()` method will keep only the elements that are NOT present in both sets.
@@ -146,7 +146,7 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1.symmetric_difference(set2)
-print(set3)
+print(set3)  # {'banana', 'cherry', 'microsoft', 'google'}
 
 # You can use the `^` operator instead of the `symmetric_difference()` method, and you will get the same result.
 
@@ -156,4 +156,4 @@ set1 = {"apple", "banana", "cherry"}
 set2 = {"google", "microsoft", "apple"}
 
 set3 = set1 ^ set2
-print(set3)
+print(set3)  # {'banana', 'cherry', 'microsoft', 'google'}

@@ -49,6 +49,7 @@ print(fruits[2:])
 
 # Range of Negative Indexes:
 # Specify negative indexes if you want to start the search from the end of the list:
+# `-1` refers to the last item, `-2` refers to the second last item etc.
 
 # Ex:
 fruits = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]

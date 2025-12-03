@@ -12,7 +12,7 @@ fruits = {"apple", "banana", "cherry"}
 
 fruits.add("orange")
 
-print(fruits)
+print(fruits)  # {'apple', 'orange', 'banana', 'cherry'}
 
 # Add Sets:
 # To add items from another set into current set, use the `update()` method.
@@ -24,7 +24,7 @@ tropical = {"pineapple", "mango", "papaya"}
 
 fruits.update(tropical)
 
-print(fruits)
+print(fruits)  # {'apple', 'banana', 'cherry', 'papaya', 'pineapple', 'mango'}
 
 # Add Any Iterable:
 # The object in the `update()` method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
@@ -36,4 +36,4 @@ myList = ["kiwi", "orange"]
 
 fruits.update(myList)
 
-print(fruits)
+print(fruits)  # {'apple', 'cherry', 'orange', 'kiwi', 'banana'}

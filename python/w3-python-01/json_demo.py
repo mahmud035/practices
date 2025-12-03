@@ -19,16 +19,16 @@
 import json
 
 # some JSON:
-user = '{ "name":"John", "age":30, "city":"New York"}'
+user = '{"name": "John", "age": 30, "city": "New York"}'
 
 # parse user:
 userDict = json.loads(user)
 
 # the result is a "Python Dictionary":
+print(userDict)
 print(userDict["name"])  # John
 print(userDict["age"])  # 30
 print(userDict["city"])  # New York
-
 
 # Convert from Python to JSON:
 
@@ -36,7 +36,6 @@ print(userDict["city"])  # New York
 
 # Ex:
 # Convert from Python to JSON:
-import json
 
 # a Python object (dict):
 user = {"name": "John", "age": 30, "city": "New York"}
@@ -46,7 +45,6 @@ userStr = json.dumps(user)
 
 # the result is a JSON string:
 print(userStr)
-
 
 # You can convert Python objects of the following types, into JSON strings:
 
@@ -64,7 +62,6 @@ print(userStr)
 
 # Ex:
 # Convert Python objects into JSON strings, and print the values:
-import json
 
 print(json.dumps({"name": "John", "age": 30}))
 print(json.dumps(["apple", "banana"]))
@@ -79,7 +76,6 @@ print(json.dumps(None))
 
 # Ex:
 # Convert a Python object containing all the legal data types:
-import json
 
 user = {
     "name": "John",

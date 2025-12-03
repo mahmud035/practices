@@ -9,7 +9,7 @@ car = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
 carCopy = car.copy()  # Copy the car dictionary
 
-print(carCopy)
+print(carCopy)  # {'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
 
 # Another way to make a copy is to use the built-in function `dict()`.
 
@@ -19,4 +19,4 @@ car = {"brand": "Ford", "model": "Mustang", "year": 1964}
 
 carCopy = dict(car)  # Copy the car dictionary
 
-print(carCopy)
+print(carCopy)  # {'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
