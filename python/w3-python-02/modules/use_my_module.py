@@ -8,10 +8,13 @@ import my_module
 
 my_module.greeting("Jonathan")
 
-# WARNING: When using a function from a module, use the syntax: module_name.function_name.
+# WARNING: When using a function from a module,
+# use the syntax: module_name.function_name.
 
+# Ex:
+# Import the module named my_module, and access the person1 dictionary:
 age = my_module.person1["age"]
-print(age)
+print(age)  # 36
 
 # Built-in Modules:
 
@@ -22,7 +25,7 @@ print(age)
 import platform
 
 x = platform.system()
-print(x)
+print(x)  # Linux
 
 # Using the dir() Function:
 
@@ -47,6 +50,6 @@ x = dir(platform)
 # Import only the person1 dictionary from the module:
 from my_module import person1
 
-print(person1["age"])
+print(person1["age"])  # 36
 
 # TODO: When importing using the `from` keyword, do not use the module name when referring to elements in the module. Example: person1["age"], NOT mymodule.person1["age"]
