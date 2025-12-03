@@ -1,24 +1,22 @@
 # Python Functions:
 
 # A function is a block of code which only runs when it is called.
-
-# You can pass data, known as parameters, into a function.
-
 # A function can return data as a result.
-
+# A function helps avoiding code repetition.
 
 # Creating a Function:
-# In Python a function is defined using the `def` keyword:
+
+# In Python a function is defined using the `def` keyword, followed by a function name and parentheses:
 
 
 # Ex:
-from re import X
-from unittest import result
-
-
 def my_function():
     print("Hello from a function")
 
+
+# This creates a function named `my_function` that prints "Hello from a function" when called.
+
+# NOTE: The code inside the function must be indented. Python uses indentation to define code blocks.
 
 # Calling a Function:
 # To call a function, use the function name followed by parenthesis:
@@ -31,242 +29,85 @@ def my_function():
 
 my_function()
 
-# Arguments:
-# Information can be passed into functions as arguments.
-# Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.
-
-
-# Ex:
-def my_function(first_name):
-    print(f"{first_name} Refsnes")
-
-
-my_function("Emil")
-my_function("Tobais")
-my_function("Linus")
-
-# NOTE: Arguments are often shortened to "args" in Python documentations.
-
-# Parameters or Arguments?
-# The terms "parameter" and "argument" can be used for the same thing: information that are passed into a function.
-
-"""
-From a function's perspective:
-  A parameter is the variable listed inside the parentheses in the function definition.
-  An argument is the value that is sent to the function when it is called.
-"""
-
-# Number of Arguments:
-# By default, a function must be called with the correct number of arguments. Meaning that if your function expects 2 arguments, you have to call the function with 2 arguments, not more, and not less.
-
-
-# Ex:
-# This function expects 2 arguments, and gets 2 arguments:
-def my_function(first_name, last_name):
-    print(f"{first_name} {last_name}")
-
-
-my_function("Emil", "Refsnes")
-
-# Arbitrary Arguments, *args:
-
-# If you do not know how many arguments that will be passed into your function, add a `*` before the parameter name in the function definition.
-
-# This way the function will receive a "tuple of arguments", and can access the items accordingly:
-
-
-# Ex:
-# If the number of arguments is unknown, add a `*` before the parameter name:
-def my_function(*args):
-    print(args)
-    print(f"The youngest child is {args[2]}")
-
-
-my_function("Emil", " Tobais", "Linus")
-
-# NOTE: Arbitrary Arguments are often shortened to "*args" in Python documentations.
-
-# Keyword Arguments:
-# You can also send arguments with the key = value syntax.
-# This way the order of the arguments does not matter.
-
-
-# Ex:
-def my_function(child3, child2, child1):
-    print(f"The youngest child is {child3}")
-
-
-my_function(child1="Emil", child2="Tobais", child3="Linus")
-
-# NOTE: The phrase Keyword Arguments are often shortened to "kwargs" in Python documentations.
-
-
-# Arbitrary Keyword Arguments, **kwargs:
-# If you do not know how many keyword arguments that will be passed into your function, add two asterisk: `**` before the parameter name in the function definition.
-
-# This way the function will receive a "dictionary of arguments", and can access the items accordingly:
-
-
-# Ex:
-# If the number of keyword arguments is unknown, add a double ** before the parameter name:
-def my_function(**kwargs):
-    print(kwargs)
-    print(f"His last name is {kwargs["last_name"]}")
-
-
-my_function(first_name="Tobais", last_name="Refsnes")
-
-# NOTE: Arbitrary Keyword Arguments are often shortened to "**kwargs" in Python documentations.
-
-# Default Parameter Value:
-# The following example shows how to use a default parameter value.
-# If we call the function without argument, it uses the default value:
-
-
-# Ex:
-def my_function(country="Norway"):
-    print(f"I am from {country}")
-
-
-my_function("Bangladesh")
+# You can call the same function multiple times:
 my_function()
-my_function("Pakistan")
+my_function()
+my_function()
 
-# Passing a List as an Argument:
 
-# You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.
+# Function Names:
 
-# E.g. if you send a List as an argument, it will still be a List when it reaches the function:
+"""  
+Function names follow the same rules as variable names in Python:
 
+    A function name must start with a letter or underscore
+    A function name can only contain letters, numbers, and underscores
+    Function names are case-sensitive (myFunction and my_function are different)
+"""
+
+# NOTE: It's good practice to use descriptive names that explain what the function does.
+
+# Why Use Functions?
+
+# Imagine you need to convert temperatures from Fahrenheit to Celsius several times in your program. Without functions, you would have to write the same calculation code repeatedly:
 
 # Ex:
-def my_function(fruits):
-    for fruit in fruits:
-        print(fruit)
+# Without functions - repetitive code:
+temp1 = 77
+celsius1 = (temp1 - 32) * 5 / 9
+print(celsius1)
+
+temp2 = 95
+celsius2 = (temp2 - 32) * 5 / 9
+print(celsius2)
+
+temp3 = 50
+celsius3 = (temp3 - 32) * 5 / 9
+print(celsius3)
+
+# With functions, you write the code once and reuse it:
+# Ex:
+# With functions - reusable code:
 
 
-fruits = ["apple", "banana", "cherry"]
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
 
-my_function(fruits)
+
+print(fahrenheit_to_celsius(77))
+print(fahrenheit_to_celsius(95))
+print(fahrenheit_to_celsius(50))
 
 # Return Values:
-# To let a function return a value, use the `return` statement:
 
+# Functions can send data back to the code that called them using the return statement.
+
+# When a function reaches a return statement, it stops executing and sends the result back:
 
 # Ex:
-def my_function(num):
-    return 5 * num
+# A function that returns a value:
 
 
-print(my_function(3))
-print(my_function(5))
-print(my_function(9))
+def get_greeting():
+    return "Hello from a function"
 
+
+message = get_greeting()
+print(message)
+
+# You can use the returned value directly:
+
+print(get_greeting())
+
+# IMPORTANT: If a function doesn't have a `return` statement, it returns `None` by default.
 
 # The pass Statement:
-# `function` definitions cannot be empty, but if you for some reason have a `function` definition with no content, put in the `pass` statement to avoid getting an error.
+
+# Function definitions cannot be empty. If you need to create a function placeholder without any code, use the `pass` statement:
 
 
-# Ex:
 def my_function():
     pass
 
 
-# Positional-Only Arguments:
-
-# You can specify that a function can have ONLY positional arguments, or ONLY keyword arguments.
-
-# To specify that a function can have only positional arguments, add `, /` after the arguments:
-
-
-# Ex:
-def my_function(num, /):
-    print(num)
-
-
-my_function(3)
-
-# Without the `, /` you are actually allowed to use keyword arguments even if the function expects positional arguments:
-
-
-# Ex:
-def my_function(num):
-    print(num)
-
-
-my_function(num=3)
-
-# 🔴 Error: But when adding the `, /` you will get an error if you try to send a keyword argument:
-
-
-# Ex:
-def my_function(num, /):
-    print(num)
-
-
-# my_function(num=3)
-
-
-# Keyword-Only Arguments:
-
-# To specify that a function can have only keyword arguments, add `*,` before the arguments:
-
-
-# Ex:
-def my_function(*, num):
-    print(num)
-
-
-my_function(num=3)
-
-# Without the `*,` you are allowed to use Positional arguments even if the function expects keyword arguments:
-
-
-def my_function(num):
-    print(num)
-
-
-my_function(3)
-
-# 🔴 Error: But when adding the `*,` you will get an error if you try to send a positional argument:
-
-
-# Ex:
-def my_function(*, num):
-    print(num)
-
-
-# my_function(3)
-
-
-# Combine Positional-Only and Keyword-Only:
-
-# You can combine the two argument types in the same function.
-
-# Any argument before the `/ ,` are positional-only, and any argument after the `*,` are keyword-only.
-
-
-# Ex:
-def my_function(a, b, /, *, c, d):
-    print(a + b + c + d)
-
-
-my_function(5, 6, c=7, d=8)
-
-
-# Recursion:
-
-
-# Ex:
-# Recursion Example:
-def tri_recursion(k):
-    if k > 0:
-        result = k + tri_recursion(k - 1)
-        print(result)
-    else:
-        result = 0
-    return result
-
-
-print("\n\nRecursion Example Results")
-tri_recursion(6)
+# The `pass` statement is often used when developing, allowing you to define the structure first and implement details later
