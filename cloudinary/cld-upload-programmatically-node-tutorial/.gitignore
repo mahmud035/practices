@@ -1,0 +1,6 @@
+.env
+!.env.sample
+node_modules
+
+
+
