@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="src/upload-large.js"></script>
+    <script type="module" src="src/my-navbar.js"></script>
+  </head>
+  <body>
+    <my-navbar></my-navbar>
+    <main class="bg-gray-200 container mx-auto p-8 rounded-lg shadow-2xl">
+      <h1 class="text-5xl font-bold m-2">Upload large files</h1>
+      <p class="m-2">
+        This page uses the
+        <code class="bg-gray-100 text-red-600 font-mono text-sm p-1 rounded-md"
+          >cloudinary.uploader.upload_large</code
+        >
+        method to upload a large file in chunks. This is useful for managing
+        large file uploads efficiently, especially in cases where the client may
+        be constrained by bandwidth or where interruptions could occur during
+        the upload.
+      </p>
+      <p class="m-2">
+        The tag,
+        <code class="bg-gray-100 text-red-600 font-mono text-sm p-1 rounded-md"
+          >nodejs-sample</code
+        >, is applied to the uploaded asset. This tag is used to retrieve all
+        the media uploaded through this app, which you can view in the
+        <a
+          class="underline text-blue-500 hover:bg-blue-200 rounded-full transition duration-300"
+          href="./gallery"
+        >
+          Gallery
+        </a>
+        .
+      </p>
+      <br />
+      <section>
+        <large-file-uploader
+          uploadUrl="http://localhost:3000/upload-large-from-browser-chunked"
+        ></large-file-uploader>
+      </section>
+    </main>
+  </body>
+</html>

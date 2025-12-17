@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit</title>
+    <link rel="stylesheet" href="src/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="src/my-navbar.js"></script>
+    <script type="module" src="src/media-gallery.js"></script>
+    <script type="module" defer src="src/gallery.js"></script>
+  </head>
+  <body>
+    <my-navbar></my-navbar>
+    <main class="bg-gray-200 container mx-auto p-8 rounded-lg shadow-2xl">
+      <h1 class="text-5xl font-bold m-2">Gallery</h1>
+      <p class="m-2">
+        This page displays all the uploaded media that has the tag,
+        <code class="bg-gray-100 text-red-600 font-mono text-sm p-1 rounded-md"
+          >nodejs-sample</code
+        >.
+      </p>
+      <media-gallery></media-gallery>
+    </main>
+  </body>
+</html>
