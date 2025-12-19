@@ -36,6 +36,7 @@ const cloudinary = require('cloudinary').v2;
 // Overlays - Text over image
 // console.log(cloudinary.url("cheesecake.jpg", {transformation: [{width: 300, height: 300, crop: "thumb", gravity: "auto"},
 // {overlay: {font_family: "Arial", font_size: 30, text: "Delicious!"}, color: "lime", height: "30", gravity: "south_west", x: 5, y: 5}]}));
+
 // Overlays - Image over video
 // console.log(cloudinary.url("dog.webm", {resource_type: "video", transformation: [{width: 400, crop: "scale"},
 // {overlay: "cloudinary_logo", height: "50", gravity: "south_east", x: 10, y: 10}]}));
