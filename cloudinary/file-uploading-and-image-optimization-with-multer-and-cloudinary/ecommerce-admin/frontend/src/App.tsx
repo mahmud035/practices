@@ -1,3 +1,9 @@
+import AdminDashboard from './pages/AdminDashboard';
+
 export default function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <AdminDashboard />
+    </>
+  );
 }
