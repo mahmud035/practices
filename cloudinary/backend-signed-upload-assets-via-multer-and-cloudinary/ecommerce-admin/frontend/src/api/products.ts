@@ -2,18 +2,16 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:5000/api/v1';
 
-// Create axios instance with base config
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
 });
 
 // Types
-export interface ApiResponse<T> {
-  success: boolean;
-  message?: string;
-  data: T;
-  count?: number;
+export interface ProductImage {
+  public_id: string;
+  url: string;
+  isPrimary?: boolean;
 }
 
 export interface Product {
@@ -21,10 +19,8 @@ export interface Product {
   title: string;
   description: string;
   price: number;
-  image: {
-    public_id: string;
-    url: string;
-  };
+  images: ProductImage[];
+  primaryImage?: ProductImage;
   tags: string[];
   category: string;
   inStock: boolean;
@@ -38,77 +34,92 @@ export interface CreateProductData {
   price: number;
   tags: string[];
   category: string;
-  image: File;
+  images: ProductImage[];
 }
 
-// API Functions
+export interface UploadedImage {
+  public_id: string;
+  url: string;
+  width: number;
+  height: number;
+  format: string;
+  bytes: number;
+}
 
-/**
- * Get all products
- */
+export interface ApiResponse<T> {
+  success: boolean;
+  message?: string;
+  data: T;
+}
+
+// Product API Functions
+
 export const getProducts = async (): Promise<Product[]> => {
   const response = await api.get<ApiResponse<Product[]>>('/products');
   return response.data.data;
 };
 
-/**
- * Get single product
- */
 export const getProduct = async (id: string): Promise<Product> => {
   const response = await api.get<ApiResponse<Product>>(`/products/${id}`);
   return response.data.data;
 };
 
-/**
- * Create a new product
- * Uses FormData because we're uploading a file
- */
 export const createProduct = async (
   data: CreateProductData
 ): Promise<Product> => {
-  const formData = new FormData();
-
-  // Append text fields
-  formData.append('title', data.title);
-  formData.append('description', data.description);
-  formData.append('price', data.price.toString());
-  formData.append('category', data.category);
-  formData.append('tags', JSON.stringify(data.tags));
-
-  // Append file - the key 'image' must match the multer field name
-  formData.append('image', data.image);
-
-  const response = await api.post<ApiResponse<Product>>('/products', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
+  const response = await api.post<ApiResponse<Product>>('/products', {
+    ...data,
+    price: data.price.toString(),
+    tags: JSON.stringify(data.tags),
+    images: data.images,
   });
-
   return response.data.data;
 };
 
-/**
- * Update a product
- */
 export const updateProduct = async (
   id: string,
   data: Partial<CreateProductData>
 ): Promise<Product> => {
+  const response = await api.put<ApiResponse<Product>>(`/products/${id}`, {
+    ...data,
+    price: data.price?.toString(),
+    tags: data.tags ? JSON.stringify(data.tags) : undefined,
+  });
+  return response.data.data;
+};
+
+export const deleteProduct = async (
+  id: string
+): Promise<{ deletedProductId: string }> => {
+  const response = await api.delete<ApiResponse<{ deletedProductId: string }>>(
+    `/products/${id}`
+  );
+  return response.data.data;
+};
+
+// Upload API Functions
+
+export const uploadImage = async (
+  file: File,
+  onProgress?: (progress: number) => void
+): Promise<UploadedImage> => {
   const formData = new FormData();
+  formData.append('image', file);
 
-  if (data.title) formData.append('title', data.title);
-  if (data.description) formData.append('description', data.description);
-  if (data.price) formData.append('price', data.price.toString());
-  if (data.category) formData.append('category', data.category);
-  if (data.tags) formData.append('tags', JSON.stringify(data.tags));
-  if (data.image) formData.append('image', data.image);
-
-  const response = await api.put<ApiResponse<Product>>(
-    `/products/${id}`,
+  const response = await api.post<ApiResponse<UploadedImage>>(
+    '/upload/image',
     formData,
     {
       headers: {
         'Content-Type': 'multipart/form-data',
+      },
+      onUploadProgress: (progressEvent) => {
+        if (progressEvent.total && onProgress) {
+          const progress = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          onProgress(progress);
+        }
       },
     }
   );
@@ -116,14 +127,27 @@ export const updateProduct = async (
   return response.data.data;
 };
 
-/**
- * Delete a product
- */
-export const deleteProduct = async (
-  id: string
-): Promise<{ deletedProductId: string; deletedImageId: string }> => {
-  const response = await api.delete<
-    ApiResponse<{ deletedProductId: string; deletedImageId: string }>
-  >(`/products/${id}`);
-  return response.data.data;
+export const uploadMultipleImages = async (
+  files: File[],
+  onProgress?: (fileIndex: number, progress: number) => void
+): Promise<UploadedImage[]> => {
+  const results: UploadedImage[] = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const result = await uploadImage(files[i], (progress) => {
+      onProgress?.(i, progress);
+    });
+    results.push(result);
+  }
+
+  return results;
+};
+
+// Fixed: Use request body instead of URL param for publicId with slashes
+export const deleteUploadedImage = async (publicId: string): Promise<void> => {
+  await api.delete('/upload/image', {
+    data: {
+      publicId,
+    },
+  });
 };

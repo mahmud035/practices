@@ -1,11 +1,11 @@
 import express from 'express';
 
 import {
+  deleteImageController,
   uploadMultipleImages,
   uploadSingleImage,
 } from '../controllers/uploadController';
 import { uploadMultiple, uploadSingle } from '../middleware/upload';
-import { deleteImage } from '../services/cloudinaryService';
 
 const router = express.Router();
 
@@ -16,6 +16,6 @@ router.post('/image', uploadSingle, uploadSingleImage);
 router.post('/images', uploadMultiple, uploadMultipleImages);
 
 // Delete an orphaned image (when user cancels form after uploading)
-router.delete('/image/:publicId(*)', deleteImage); // (*) allows slashes in publicId
+router.delete('/image', deleteImageController);
 
 export default router;

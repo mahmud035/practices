@@ -143,13 +143,13 @@ export const uploadMultipleImages = async (
  * Delete an orphaned image
  * Used when user cancels form after uploading
  */
-export const deleteImage = async (
+export const deleteImageController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { publicId } = req.params;
+    const { publicId } = req.body;
 
     if (!publicId) {
       res.status(400).json({

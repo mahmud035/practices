@@ -1,25 +1,34 @@
+import React from 'react';
+
 interface DeleteConfirmationProps {
   isOpen: boolean;
   productTitle: string;
+  imageCount: number;
   isDeleting: boolean;
   onConfirm: () => void;
   onCancel: () => void;
 }
 
-export default function DeleteConfirmation({
+export const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
   isOpen,
   productTitle,
+  imageCount,
   isDeleting,
   onConfirm,
   onCancel,
-}: DeleteConfirmationProps) {
+}) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="modal__icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 max-w-md w-[90%] text-center">
+        <div className="w-12 h-12 mx-auto mb-4 bg-red-50 rounded-full flex items-center justify-center">
+          <svg
+            className="w-6 h-6 text-red-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -29,19 +38,25 @@ export default function DeleteConfirmation({
           </svg>
         </div>
 
-        <h3 className="modal__title">Delete Product</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          Delete Product
+        </h3>
 
-        <p className="modal__message">
+        <p className="text-gray-700 mb-2">
           Are you sure you want to delete <strong>"{productTitle}"</strong>?
-          This will also permanently delete the image from Cloudinary. This
-          action cannot be undone.
         </p>
 
-        <div className="modal__actions">
+        <p className="text-red-600 text-sm mb-6 p-2 bg-red-50 rounded">
+          This will permanently delete {imageCount} image
+          {imageCount !== 1 ? 's' : ''} from Cloudinary. This action cannot be
+          undone.
+        </p>
+
+        <div className="flex gap-3 justify-center">
           <button
             type="button"
             onClick={onCancel}
-            className="modal__btn modal__btn--cancel"
+            className="px-5 py-2.5 rounded-md font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-60 disabled:cursor-not-allowed"
             disabled={isDeleting}
           >
             Cancel
@@ -49,124 +64,20 @@ export default function DeleteConfirmation({
           <button
             type="button"
             onClick={onConfirm}
-            className="modal__btn modal__btn--delete"
+            className="px-5 py-2.5 rounded-md font-medium bg-red-500 text-white hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
             disabled={isDeleting}
           >
             {isDeleting ? (
               <>
-                <span className="spinner"></span>
-                Deleting...
+                <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                Deleting {imageCount} image{imageCount !== 1 ? 's' : ''}...
               </>
             ) : (
-              'Delete'
+              'Delete Product'
             )}
           </button>
         </div>
       </div>
-
-      <style>{`
-        .modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 50;
-        }
-
-        .modal {
-          background: white;
-          border-radius: 0.5rem;
-          padding: 1.5rem;
-          max-width: 400px;
-          width: 90%;
-          text-align: center;
-        }
-
-        .modal__icon {
-          width: 3rem;
-          height: 3rem;
-          margin: 0 auto 1rem;
-          background: #fef2f2;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .modal__icon svg {
-          width: 1.5rem;
-          height: 1.5rem;
-          color: #ef4444;
-        }
-
-        .modal__title {
-          font-size: 1.25rem;
-          font-weight: 600;
-          color: #111827;
-          margin-bottom: 0.5rem;
-        }
-
-        .modal__message {
-          color: #6b7280;
-          margin-bottom: 1.5rem;
-          line-height: 1.5;
-        }
-
-        .modal__actions {
-          display: flex;
-          gap: 0.75rem;
-          justify-content: center;
-        }
-
-        .modal__btn {
-          padding: 0.625rem 1.25rem;
-          border-radius: 0.375rem;
-          font-weight: 500;
-          cursor: pointer;
-          border: none;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-
-        .modal__btn--cancel {
-          background: #f3f4f6;
-          color: #374151;
-        }
-
-        .modal__btn--cancel:hover:not(:disabled) {
-          background: #e5e7eb;
-        }
-
-        .modal__btn--delete {
-          background: #ef4444;
-          color: white;
-        }
-
-        .modal__btn--delete:hover:not(:disabled) {
-          background: #dc2626;
-        }
-
-        .modal__btn:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-
-        .spinner {
-          width: 1rem;
-          height: 1rem;
-          border: 2px solid currentColor;
-          border-top-color: transparent;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
-}
+};

@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import type { CreateProductData } from '../api/products';
+import React, { useCallback, useState } from 'react';
+import type { CreateProductData, ProductImage } from '../api/products';
 import { useCreateProduct } from '../hooks/useProducts';
-import ImageUpload from './ImageUpload';
+import type { ImageUploadState } from './MultiImageUpload';
+import { MultiImageUpload } from './MultiImageUpload';
 
 interface ProductFormProps {
   onSuccess?: () => void;
 }
 
-export default function ProductForm({ onSuccess }: ProductFormProps) {
+export const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -15,10 +16,37 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
     category: '',
     tags: '',
   });
-  const [image, setImage] = useState<File | null>(null);
+  const [images, setImages] = useState<ImageUploadState[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const createMutation = useCreateProduct();
+
+  // Check if all images are uploaded
+  const allImagesUploaded =
+    images.length > 0 && images.every((img) => img.status === 'success');
+  const hasUploadingImages = images.some((img) => img.status === 'uploading');
+  const hasErrorImages = images.some((img) => img.status === 'error');
+
+  // Handler that supports both direct value and function updates
+  const handleImagesChange = useCallback(
+    (
+      newImagesOrUpdater:
+        | ImageUploadState[]
+        | ((prev: ImageUploadState[]) => ImageUploadState[])
+    ) => {
+      if (typeof newImagesOrUpdater === 'function') {
+        setImages((prev) => newImagesOrUpdater(prev));
+      } else {
+        setImages(newImagesOrUpdater);
+      }
+
+      // Clear error when images change
+      if (errors.images) {
+        setErrors((prev) => ({ ...prev, images: '' }));
+      }
+    },
+    [errors.images]
+  );
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -35,8 +63,10 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
     if (!formData.category.trim()) {
       newErrors.category = 'Category is required';
     }
-    if (!image) {
-      newErrors.image = 'Product image is required';
+    if (images.length === 0) {
+      newErrors.images = 'At least one product image is required';
+    } else if (!allImagesUploaded) {
+      newErrors.images = 'Please wait for all images to upload';
     }
 
     setErrors(newErrors);
@@ -46,7 +76,16 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm() || !image) return;
+    if (!validateForm()) return;
+
+    // Convert image states to ProductImage format
+    const productImages: ProductImage[] = images
+      .filter((img) => img.cloudinary)
+      .map((img, index) => ({
+        public_id: img.cloudinary!.public_id,
+        url: img.cloudinary!.url,
+        isPrimary: index === 0,
+      }));
 
     const productData: CreateProductData = {
       title: formData.title,
@@ -57,7 +96,7 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
         .split(',')
         .map((tag) => tag.trim())
         .filter((tag) => tag.length > 0),
-      image,
+      images: productImages,
     };
 
     try {
@@ -71,7 +110,10 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
         category: '',
         tags: '',
       });
-      setImage(null);
+
+      // Clean up blob URLs
+      images.forEach((img) => URL.revokeObjectURL(img.preview));
+      setImages([]);
 
       onSuccess?.();
     } catch (error) {
@@ -86,28 +128,96 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
+  // Determine submit button state
+  const getSubmitButtonState = () => {
+    if (createMutation.isPending) {
+      return { disabled: true, text: 'Creating Product...', icon: 'spinner' };
+    }
+    if (hasUploadingImages) {
+      return { disabled: true, text: 'Uploading Images...', icon: 'spinner' };
+    }
+    if (hasErrorImages) {
+      return { disabled: true, text: 'Fix Image Errors First', icon: 'error' };
+    }
+    if (images.length === 0) {
+      return { disabled: false, text: 'Add Product', icon: null };
+    }
+    if (!allImagesUploaded) {
+      return { disabled: true, text: 'Waiting for Upload...', icon: 'spinner' };
+    }
+    return { disabled: false, text: 'Add Product', icon: 'check' };
+  };
+
+  const buttonState = getSubmitButtonState();
+
   return (
-    <form onSubmit={handleSubmit} className="product-form">
-      <h2 className="product-form__title">Add New Product</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-xl mx-auto p-8 bg-white rounded-lg shadow-sm"
+    >
+      <h2 className="mb-6 text-2xl font-semibold text-gray-900">
+        Add New Product
+      </h2>
 
-      <ImageUpload
-        onFileSelect={(file) => {
-          setImage(file);
-          if (errors.image) {
-            setErrors((prev) => ({ ...prev, image: '' }));
-          }
-        }}
-        error={errors.image}
+      {/* Image upload - NOW AT THE TOP for better UX */}
+      <MultiImageUpload
+        maxImages={10}
+        value={images}
+        onChange={handleImagesChange}
       />
+      {errors.images && (
+        <p className="mt-1 text-sm text-red-500">{errors.images}</p>
+      )}
 
-      <div className="product-form__field">
-        <label htmlFor="title">Product Title *</label>
+      {/* Upload status indicator */}
+      {images.length > 0 && (
+        <div
+          className={`flex items-center gap-2 p-3 rounded-md mb-5 text-sm
+          ${
+            allImagesUploaded
+              ? 'bg-green-50 text-green-600'
+              : 'bg-gray-100 text-gray-500'
+          }`}
+        >
+          {hasUploadingImages && (
+            <>
+              <span className="w-3.5 h-3.5 border-2 border-gray-500 border-t-transparent rounded-full animate-spin" />
+              Uploading images...
+            </>
+          )}
+          {hasErrorImages && (
+            <span className="text-red-600">Some images failed to upload</span>
+          )}
+          {allImagesUploaded && (
+            <>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              All {images.length} image(s) uploaded to Cloudinary
+            </>
+          )}
+        </div>
+      )}
+
+      <div className="mb-5">
+        <label htmlFor="title" className="block mb-2 font-medium text-gray-700">
+          Product Title *
+        </label>
         <input
           type="text"
           id="title"
@@ -115,13 +225,24 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
           value={formData.title}
           onChange={handleInputChange}
           placeholder="Enter product title"
-          className={errors.title ? 'error' : ''}
+          className={`w-full px-3 py-3 border rounded-md text-base transition-colors
+            focus:outline-none focus:border-blue-500 focus:ring-[3px] focus:ring-blue-500/10
+            ${errors.title ? 'border-red-500' : 'border-gray-300'}`}
         />
-        {errors.title && <span className="error-text">{errors.title}</span>}
+        {errors.title && (
+          <span className="block mt-1 text-sm text-red-500">
+            {errors.title}
+          </span>
+        )}
       </div>
 
-      <div className="product-form__field">
-        <label htmlFor="description">Description *</label>
+      <div className="mb-5">
+        <label
+          htmlFor="description"
+          className="block mb-2 font-medium text-gray-700"
+        >
+          Description *
+        </label>
         <textarea
           id="description"
           name="description"
@@ -129,16 +250,25 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
           onChange={handleInputChange}
           placeholder="Enter product description"
           rows={4}
-          className={errors.description ? 'error' : ''}
+          className={`w-full px-3 py-3 border rounded-md text-base transition-colors resize-y
+            focus:outline-none focus:border-blue-500 focus:ring-[3px] focus:ring-blue-500/10
+            ${errors.description ? 'border-red-500' : 'border-gray-300'}`}
         />
         {errors.description && (
-          <span className="error-text">{errors.description}</span>
+          <span className="block mt-1 text-sm text-red-500">
+            {errors.description}
+          </span>
         )}
       </div>
 
-      <div className="product-form__row">
-        <div className="product-form__field">
-          <label htmlFor="price">Price ($) *</label>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="mb-5">
+          <label
+            htmlFor="price"
+            className="block mb-2 font-medium text-gray-700"
+          >
+            Price ($) *
+          </label>
           <input
             type="number"
             id="price"
@@ -148,19 +278,32 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
             placeholder="0.00"
             step="0.01"
             min="0"
-            className={errors.price ? 'error' : ''}
+            className={`w-full px-3 py-3 border rounded-md text-base transition-colors
+              focus:outline-none focus:border-blue-500 focus:ring-[3px] focus:ring-blue-500/10
+              ${errors.price ? 'border-red-500' : 'border-gray-300'}`}
           />
-          {errors.price && <span className="error-text">{errors.price}</span>}
+          {errors.price && (
+            <span className="block mt-1 text-sm text-red-500">
+              {errors.price}
+            </span>
+          )}
         </div>
 
-        <div className="product-form__field">
-          <label htmlFor="category">Category *</label>
+        <div className="mb-5">
+          <label
+            htmlFor="category"
+            className="block mb-2 font-medium text-gray-700"
+          >
+            Category *
+          </label>
           <select
             id="category"
             name="category"
             value={formData.category}
             onChange={handleInputChange}
-            className={errors.category ? 'error' : ''}
+            className={`w-full px-3 py-3 border rounded-md text-base transition-colors
+              focus:outline-none focus:border-blue-500 focus:ring-[3px] focus:ring-blue-500/10
+              ${errors.category ? 'border-red-500' : 'border-gray-300'}`}
           >
             <option value="">Select category</option>
             <option value="electronics">Electronics</option>
@@ -170,13 +313,17 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
             <option value="books">Books</option>
           </select>
           {errors.category && (
-            <span className="error-text">{errors.category}</span>
+            <span className="block mt-1 text-sm text-red-500">
+              {errors.category}
+            </span>
           )}
         </div>
       </div>
 
-      <div className="product-form__field">
-        <label htmlFor="tags">Tags (comma-separated)</label>
+      <div className="mb-5">
+        <label htmlFor="tags" className="block mb-2 font-medium text-gray-700">
+          Tags (comma-separated)
+        </label>
         <input
           type="text"
           id="tags"
@@ -184,159 +331,55 @@ export default function ProductForm({ onSuccess }: ProductFormProps) {
           value={formData.tags}
           onChange={handleInputChange}
           placeholder="e.g., new, featured, sale"
+          className="w-full px-3 py-3 border border-gray-300 rounded-md text-base transition-colors
+            focus:outline-none focus:border-blue-500 focus:ring-[3px] focus:ring-blue-500/10"
         />
       </div>
 
       <button
         type="submit"
-        className="product-form__submit"
-        disabled={createMutation.isPending}
+        className={`w-full py-3.5 text-white border-none rounded-md text-base font-medium
+          cursor-pointer transition-all flex items-center justify-center gap-2
+          disabled:bg-blue-300 disabled:cursor-not-allowed
+          ${
+            buttonState.icon === 'check'
+              ? 'bg-emerald-500 hover:bg-emerald-600'
+              : 'bg-blue-500 hover:bg-blue-600'
+          }`}
+        disabled={buttonState.disabled}
       >
-        {createMutation.isPending ? (
-          <>
-            <span className="spinner"></span>
-            Uploading...
-          </>
-        ) : (
-          'Add Product'
+        {buttonState.icon === 'spinner' && (
+          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
         )}
+        {buttonState.icon === 'check' && (
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        )}
+        {buttonState.text}
       </button>
 
       {createMutation.isError && (
-        <div className="product-form__error">
+        <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-md text-red-600">
           Failed to create product. Please try again.
         </div>
       )}
 
       {createMutation.isSuccess && (
-        <div className="product-form__success">
-          Product created successfully! Image uploaded to Cloudinary.
+        <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-md text-green-600">
+          Product created successfully!
         </div>
       )}
-
-      <style>{`
-        .product-form {
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 2rem;
-          background: white;
-          border-radius: 0.5rem;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-form__title {
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: #111827;
-        }
-
-        .product-form__field {
-          margin-bottom: 1.25rem;
-        }
-
-        .product-form__field label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 500;
-          color: #374151;
-        }
-
-        .product-form__field input,
-        .product-form__field textarea,
-        .product-form__field select {
-          width: 100%;
-          padding: 0.75rem;
-          border: 1px solid #d1d5db;
-          border-radius: 0.375rem;
-          font-size: 1rem;
-          transition: border-color 0.2s;
-        }
-
-        .product-form__field input:focus,
-        .product-form__field textarea:focus,
-        .product-form__field select:focus {
-          outline: none;
-          border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-        .product-form__field input.error,
-        .product-form__field textarea.error,
-        .product-form__field select.error {
-          border-color: #ef4444;
-        }
-
-        .error-text {
-          display: block;
-          margin-top: 0.25rem;
-          font-size: 0.875rem;
-          color: #ef4444;
-        }
-
-        .product-form__row {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1rem;
-        }
-
-        .product-form__submit {
-          width: 100%;
-          padding: 0.875rem;
-          background: #3b82f6;
-          color: white;
-          border: none;
-          border-radius: 0.375rem;
-          font-size: 1rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: background 0.2s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-        }
-
-        .product-form__submit:hover:not(:disabled) {
-          background: #2563eb;
-        }
-
-        .product-form__submit:disabled {
-          background: #93c5fd;
-          cursor: not-allowed;
-        }
-
-        .spinner {
-          width: 1rem;
-          height: 1rem;
-          border: 2px solid white;
-          border-top-color: transparent;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-
-        .product-form__error {
-          margin-top: 1rem;
-          padding: 0.75rem;
-          background: #fef2f2;
-          border: 1px solid #fecaca;
-          border-radius: 0.375rem;
-          color: #dc2626;
-        }
-
-        .product-form__success {
-          margin-top: 1rem;
-          padding: 0.75rem;
-          background: #f0fdf4;
-          border: 1px solid #bbf7d0;
-          border-radius: 0.375rem;
-          color: #16a34a;
-        }
-      `}</style>
     </form>
   );
-}
+};
