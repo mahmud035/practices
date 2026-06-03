@@ -118,7 +118,7 @@ class ManagerCl extends EmployeeCl {
     salary: number,
     department: string,
     id: number,
-    teamSize: number
+    teamSize: number,
   ) {
     // Call the parent class's constructor
     super(name, salary, department, id);
@@ -281,7 +281,10 @@ myCar.drive(); // Outputs: The car is driving.
 
 class BookCl {
   // Using parameter properties to declare and initialize
-  constructor(public title: string, private author: string) {
+  constructor(
+    public title: string,
+    private author: string,
+  ) {
     // No body necessary
   }
 

@@ -47,7 +47,7 @@ function getUser() {
 
 // Event handler parameter types inferred from DOM context
 document.addEventListener('click', (event) => {
-  console.log(event.clientX); // `event` is inferred as `MouseEvent`
+  console.log(event.clientX); // `event` is inferred as `PointerEvent`
 });
 
 // Array method callback parameter types

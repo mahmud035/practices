@@ -161,7 +161,7 @@ type ConfigType = {
 
 type Observable<T> = {
   [K in keyof T as `on${Capitalize<K & string>}Change`]: (
-    callback: (value: T[K]) => void
+    callback: (value: T[K]) => void,
   ) => void;
 } & T;
 

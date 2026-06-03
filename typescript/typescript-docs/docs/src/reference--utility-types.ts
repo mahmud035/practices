@@ -313,7 +313,10 @@ function sum(a: number, b: number): number {
 type SumParameters = Parameters<typeof sum>; // [a: number, b: number]
 
 class Point {
-  constructor(public x: number, public y: number) {}
+  constructor(
+    public x: number,
+    public y: number,
+  ) {}
 }
 
 type PointConstructorParameters = ConstructorParameters<typeof Point>;
@@ -338,7 +341,10 @@ type PointConstructorParameters = ConstructorParameters<typeof Point>;
  */
 
 class UserAccount {
-  constructor(public id: number, public name: string) {}
+  constructor(
+    public id: number,
+    public name: string,
+  ) {}
 }
 
 type AccountInstance = InstanceType<typeof UserAccount>;

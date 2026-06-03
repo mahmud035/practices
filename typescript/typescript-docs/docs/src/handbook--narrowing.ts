@@ -40,8 +40,9 @@ Boolean('hello'); // type: boolean, value: true
 
 function multiplyAll(
   values: number[] | undefined,
-  factor?: number
+  factor?: number,
 ): number[] | undefined {
+  // Guard clause
   if (!values) return values;
   else return values.map((x) => x * factor!);
 }

@@ -39,6 +39,7 @@ type PersonConstructor = typeof PersonCl;
 // Extract keys from inferred object types:
 
 const config = { darkMode: true, fontSize: 14 };
+type Config = typeof config; // { darkMode: boolean; fontSize: number; }
 type ConfigKeys = keyof typeof config;
 // "darkMode" | "fontSize"
 
@@ -54,7 +55,7 @@ type SizeType = typeof size; // number
 // 5. Infer Complex Types (e.g., Arrays, Tuples)
 // Derive types from arrays or tuples:
 
-const colors = ['red', 'green'] as const;
+const colors = ['red', 'green'] as const; // Type: readonly ["red", "green"]
 type ColorsType = typeof colors;
 // readonly ["red", "green"]
 

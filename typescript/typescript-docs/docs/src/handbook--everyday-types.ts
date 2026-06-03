@@ -39,7 +39,7 @@ console.log(
   mix,
   user,
   dynamicValue,
-  myName
+  myName,
 );
 
 //* Functions
@@ -174,7 +174,7 @@ interface IWindow {
 
 const win: IWindow = {
   title: 'My App',
-  isMaximized: false, // Valid due to  declaration merging
+  isMaximized: false, // Valid due to declaration merging
 };
 
 // 1. Extending a type via intersections
