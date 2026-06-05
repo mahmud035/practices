@@ -323,4 +323,4 @@ export async function getDocumentById(id: string) {
 type ResolvedDoc = Awaited<ReturnType<typeof getDocumentById>>;
 
 // 4. Declare the variable using the extracted type
-let document: ResolvedDoc;
+let doc2: ResolvedDoc;

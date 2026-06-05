@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
 
 //* 1. Creating Schemas
 // Schemas in Zod define the structure and constraints of the data.
@@ -117,7 +117,7 @@ const baseSchema = z.object({ id: z.string() });
 const detailsSchema = z.object({ description: z.string() });
 const combinedSchema = z.intersection(baseSchema, detailsSchema);
 
-combinedSchema.safeParse({ id: '123' }, { description: 'A job description' });
+combinedSchema.safeParse({ id: '123', description: 'A job description' });
 
 //* 6. Default Values and Optional Fields
 
@@ -144,12 +144,12 @@ combinedSchema.safeParse({ id: '123' }, { description: 'A job description' });
 // Using `.safeParse()`
 // Returns a success object or an error object.
 
-const handleZodErrors = (error) => {
-  if (!error || !error.errors) {
+const handleZodErrors = (error: ZodError) => {
+  if (!error || !error.issues) {
     throw new Error('Invalid ZodError object provided');
   }
 
-  return error.errors.map((errorObj) => ({
+  return error.issues.map((errorObj) => ({
     path: errorObj.path.join(''),
     message: errorObj.message,
   }));
@@ -158,7 +158,7 @@ const handleZodErrors = (error) => {
 const result = userSchema.safeParse({ name: 'John' });
 
 if (!result.success) {
-  const errorMsg = handleZodErrors(result.error);
+  const errorMsg = handleZodErrors(result.error as ZodError);
   // console.log(errorMsg);
 
   /** Output:

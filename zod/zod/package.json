@@ -4,13 +4,20 @@
   "main": "zod.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon zod.js"
+    "dev": "tsx watch zod.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "zod": "^3.24.1"
+    "express": "^5.2.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }
