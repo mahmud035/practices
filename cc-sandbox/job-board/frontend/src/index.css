@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: oklch(0.55 0.2 255);
+  --color-primary-hover: oklch(0.48 0.2 255);
+  --color-surface: oklch(0.98 0.003 250);
+  --color-surface-raised: oklch(1 0 0);
+  --color-border: oklch(0.9 0.005 250);
+  --color-text: oklch(0.2 0.01 250);
+  --color-text-muted: oklch(0.52 0.01 250);
+  --color-danger: oklch(0.58 0.22 27);
+  --color-danger-hover: oklch(0.5 0.22 27);
+  --color-success: oklch(0.62 0.16 155);
+  --color-warning: oklch(0.72 0.15 75);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
