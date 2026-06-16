@@ -58,4 +58,5 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           provenance: false # single clean manifest; avoids the "unknown/unknown" entry in GHCR
           # platforms: defaults to linux/amd64 (box + runner are amd64). No multi-arch — Addendum D.
-          # cache-from/to: type=gha → added in 2b (only observable on run #2).
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
