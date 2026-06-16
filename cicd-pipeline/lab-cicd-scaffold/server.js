@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // ⬇️ LOAD-BEARING for Batch 4. This is the string you'll change, push, and
 // watch deploy itself end-to-end. Editable via env (APP_VERSION) or this const.
-const VERSION = process.env.APP_VERSION || 'v1';
+const VERSION = process.env.APP_VERSION || 'v2';
 
 app.get('/', (req, res) => {
   res.json({
