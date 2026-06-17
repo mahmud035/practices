@@ -60,3 +60,32 @@ jobs:
           # platforms: defaults to linux/amd64 (box + runner are amd64). No multi-arch — Addendum D.
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Trigger Coolify deploy
+        run: |
+          echo "Calling Coolify deploy webhook..."
+          response=$(curl --silent --show-error --write-out "\nHTTP_STATUS:%{http_code}" \
+            --request GET "${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}" \
+            --header "Authorization: Bearer ${{ secrets.COOLIFY_API_TOKEN }}")
+          body=$(echo "$response" | sed '$d')
+          status=$(echo "$response" | tail -n1 | cut -d: -f2)
+          echo "Coolify response ($status): $body"
+          # Fail loud: non-2xx, OR a 2xx body that actually reports an error
+          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
+            echo "::error::Coolify deploy failed with HTTP $status"
+            exit 1
+          fi
+          if echo "$body" | grep -qiE 'not allowed|unauthorized|"error"'; then
+            echo "::error::Coolify rejected the deploy: $body"
+            exit 1
+          fi
+          echo "Deploy triggered successfully."
+
+      - name: Notify Discord
+        if: success()
+        run: |
+          VERSION=$(grep -oP "process.env.APP_VERSION \|\| '\K[^']+" cicd-pipeline/lab-cicd-scaffold/server.js)
+          curl --silent --show-error \
+            --request POST "${{ secrets.DISCORD_WEBHOOK }}" \
+            --header "Content-Type: application/json" \
+            --data "{\"content\": \"🚀 **lab-cicd-scaffold ${VERSION}** deployed to https://lab-scaffold.halalaura.co.uk (\`${GITHUB_SHA::7}\`)\"}"
