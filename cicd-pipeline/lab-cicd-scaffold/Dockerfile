@@ -21,7 +21,7 @@ EXPOSE 3000
 
 # Container self-reports health; Coolify can read this in Batch 3.
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://localhost:3000/health || exit 1
+  CMD wget -qO- http://127.0.0.1:3000/health || exit 1
 
 # Drop root. A container breakout lands as 'node', not root-on-host.
 USER node
