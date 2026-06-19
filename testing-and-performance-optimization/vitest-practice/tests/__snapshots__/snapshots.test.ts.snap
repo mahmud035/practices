@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generates a greeting 1`] = `
+{
+  "message": "Hello, Alice",
+  "timestamp": null,
+  "version": 2,
+}
+`;
+
+exports[`user snapshot with dynamic fields 1`] = `
+{
+  "createdAt": Any<Date>,
+  "id": Any<Number>,
+  "name": "Alice",
+}
+`;
