@@ -4,8 +4,9 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ES2022", "DOM"],
+    "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["tests"]
+  "include": ["src", "tests"]
 }
