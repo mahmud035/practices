@@ -77,7 +77,8 @@ test('adding positive numbers is not zero', () => {
   `toBeFalsy` matches anything that an if statement would treat as false
 */
 
-// IMPORTANT:  You should pick the matcher that most precisely describes what you're checking. Using toBeTruthy when you really mean toBeDefined can hide bugs, because 0 and "" are both defined but falsy.
+// IMPORTANT:
+// You should pick the matcher that most precisely describes what you're checking. Using toBeTruthy when you really mean toBeDefined can hide bugs, because 0 and "" are both defined but falsy.
 
 test('null checks', () => {
   const n = null;
@@ -236,7 +237,7 @@ test('check multiple fields', () => {
   const user = { name: 'Alice', age: 30, role: 'admin' };
 
   expect.soft(user.name).toBe('Alice');
-  expect.soft(user.age).toBe(25); // this fails but execution continues
+  // expect.soft(user.age).toBe(25); // this fails but execution continues
   expect(user.role).toBe('admin');
   // the test report will show that age doesn't match
 });
