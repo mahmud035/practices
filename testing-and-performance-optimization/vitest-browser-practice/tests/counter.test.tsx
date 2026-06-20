@@ -74,8 +74,8 @@ test('decrements on click', async () => {
 // Write test descriptions that explain the expected behavior, not implementation details:
 
 // Good: Describes user-facing behavior
-test('shows error message when email format is invalid');
-test('disables submit button while form is submitting');
+// test('shows error message when email format is invalid');
+// test('disables submit button while form is submitting');
 
 // Avoid: Implementation-focused descriptions
 // test('calls validateEmail function');
