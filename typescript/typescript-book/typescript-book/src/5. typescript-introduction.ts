@@ -50,13 +50,19 @@
     }
 
     class Dog extends Animal {
-      constructor(public name: string, public bark: () => void) {
+      constructor(
+        public name: string,
+        public bark: () => void,
+      ) {
         super(name);
       }
     }
 
     class Cat extends Animal {
-      constructor(public name: string, public meow: () => void) {
+      constructor(
+        public name: string,
+        public meow: () => void,
+      ) {
         super(name);
       }
     }
