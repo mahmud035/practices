@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+/*
+ * Terminal-aesthetic design tokens (dark-only by design — see design.md D4/D5).
+ * Every component references these token names; no component carries raw color
+ * literals. The accent is defined once here so it can be swapped in one place.
+ * Contrast pairs are tuned for WCAG AA on the dark surface.
+ */
+@theme {
+  /* Monospace identity: web font first, then a monospace fallback chain so
+     text never falls back to a proportional system default before load. */
+  --font-mono:
+    'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'SF Mono', 'Menlo',
+    'Consolas', 'Liberation Mono', monospace;
+
+  /* Surfaces */
+  --color-background: #0a0e0d;
+  --color-surface: #101512;
+  --color-surface-raised: #161d19;
+
+  /* Text */
+  --color-foreground: #e7f0ea;
+  --color-muted-foreground: #8ea69a;
+
+  /* Single accent — terminal green — plus its readable on-accent text color */
+  --color-accent: #45e08b;
+  --color-accent-foreground: #04150c;
+
+  /* Structure */
+  --color-border: #1f2b24;
+
+  /* Terminal semantics */
+  --color-prompt: #45e08b;
+  --color-cursor: #45e08b;
+
+  /* Decorative traffic-light chrome */
+  --color-chrome-red: #ff5f56;
+  --color-chrome-amber: #ffbd2e;
+  --color-chrome-green: #27c93f;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Consistent, visible focus ring across all interactive elements */
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/*
+ * Background texture utilities (task 1.4). Color literals live only in this
+ * design-system layer, derived from the foreground/accent tokens; components
+ * opt in via the class name and never hard-code the texture themselves.
+ */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(69, 224, 139, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(69, 224, 139, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility bg-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(231, 240, 234, 0.03) 0px,
+    rgba(231, 240, 234, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Blinking terminal cursor — disabled under reduced motion by the base rule. */
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@utility animate-cursor {
+  animation: cursor-blink 1.06s steps(1) infinite;
+}
